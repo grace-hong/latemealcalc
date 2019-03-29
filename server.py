@@ -1,12 +1,11 @@
 from flask import Flask, render_template
 import os
 import mysql.connector
-import mysql.cursor
 
 
 app = Flask(__name__)
 
-db = mysql.connect(host = "localhost", user = "root", passwd = "pass")
+db = mysql.connector.connect(host = "localhost", user = "root", passwd = "pass")
 cursor = db.cursor()
 
 @app.route("/")

@@ -1,10 +1,16 @@
 from flask import Flask, render_template
 import os
+import mysql.connector
 
 app = Flask(__name__)
 
 @app.route("/")
 def main():
+	db = mysql.connect {
+		host = "localhost",
+		user = "root",
+		passwd = "pass"
+	}
     return render_template('index.html')
 
 if __name__ == "__main__":

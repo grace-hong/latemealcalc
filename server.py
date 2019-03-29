@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import psycopg2
+from config import config
 import os
 #import mysql.connector
 

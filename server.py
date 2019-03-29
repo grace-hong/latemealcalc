@@ -1,16 +1,15 @@
 from flask import Flask, render_template
-import psycopg2
-from config import config
 import os
-#import mysql.connector
+import psycopg2
 
+import os
 
 app = Flask(__name__)
 
-conn = psycopg2.connect("dbname=inventory user=gracehong password=WoChiPingGuo4868")
+DATABASE_URL = os.environ['postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffffa249aaaef45ccf72034503106c@ec2-184-73-153-64.compute-1.amazonaws.com:5432/d1ipk1vqr3fslq']
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
-#db = mysql.connector.connect(host = "localhost", user = "root", passwd = "pass")
-#cursor = db.cursor()
 
 @app.route("/")
 def main():

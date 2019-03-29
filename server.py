@@ -1,17 +1,29 @@
 from flask import Flask, render_template
 import os
 import mysql.connector
+import mysql.cursor
+
 
 app = Flask(__name__)
 
+db = mysql.connect(host = "localhost", user = "root", passwd = "pass")
+cursor = db.cursor()
+
 @app.route("/")
 def main():
-	db = mysql.connect {
-		host = "localhost",
-		user = "root",
-		passwd = "pass"
-	}
     return render_template('index.html')
+
+@app.route("/<item>")
+def search(item):
+    cursor.execute("SELECT * FROM food WHERE foodname='%s'" % item)
+    query = cursor.fetchone()
+    if query == None:
+        html = "No such item was found"
+    else:
+        html = query[0] + " " + query[2]
+    
+    return html
+
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

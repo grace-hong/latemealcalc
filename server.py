@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 #'heroku config:get DATABASE_URL -a calculatemeal' to get the name of the database
-DATABASE_URL = $heroku config:get DATABASE_URL -a calculatemeal
+DATABASE_URL = '$heroku config:get DATABASE_URL -a calculatemeal'
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()

@@ -39,6 +39,14 @@ def main():
     html += "</body></html>"
     return html
 
+@app.route("/favorites")
+def fav():
+    cursor.execute("SELECT foodname FROM food WHERE count=(SELECT max(count) FROM food)")
+    query = cursor.fetchone()
+    html = "<html><body>"
+    html += str(query[0]) + "</body></html>"
+    return html
+
 @app.route("/<item>")
 def search(item):
     cursor.execute("SELECT * FROM food WHERE foodname='%s'" % item)

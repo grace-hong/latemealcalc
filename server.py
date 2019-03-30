@@ -48,7 +48,7 @@ def search(item):
     else:
         html = str(query[0]) + " " + str(query[1]) + " " + str(query[3])
         cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
-        cursor.commit()
+        # cursor.commit()
     
     return html
 

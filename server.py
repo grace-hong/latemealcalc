@@ -41,7 +41,8 @@ def main():
 
 @app.route("/favorites")
 def fav():
-    cursor.execute("SELECT foodname FROM food WHERE count=(SELECT max(count) FROM food)")
+    # cursor.execute("SELECT foodname FROM food WHERE count=(SELECT max(count) FROM food)")
+    cursor.execute("SELECT foodname FROM food ORDER BY count DESC LIMIT 3")
     query = cursor.fetchone()
     html = "<html><body>"
     html += str(query[0]) + "</body></html>"

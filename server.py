@@ -18,25 +18,26 @@ cursor.execute(
     foodname VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
     type VARCHAR(50) NOT NULL,
-    count REAL NOT NULL
+    count INTEGER NOT NULL
   )
   """)
 cursor.execute(
     """
     INSERT INTO food (foodname, price, type, count)
-        VALUES ('peanuts', 2.50, 'packaged', 0), ('Pizza', 5.00, 'pizza', 0), ('Waffles', 4.00, 'grill', 0), ('Grapes', 4.00, 'packaged', 0), ('Fries', 2.30, 'grill', 0)
+        VALUES ('peanuts', 2.50, 'packaged', 0), ('pizza', 5.00, 'pizza', 0), ('waffles', 4.00, 'grill', 0), ('grapes', 4.00, 'packaged', 0), ('fries', 2.30, 'grill', 0)
     """)
 
 @app.route("/")
 def main():
-    cursor.execute(
-        """
-        SELECT
-            foodname
-        FROM
-            food
-        """)
-    return "<html><body>" + str(cursor.fetchone()[0]) + "</body></html>"
+    html = "<html><body>"
+    cursor.execute('''SELECT * FROM food''')
+    query = cursor.fetchone()
+    while query:
+        html += "<p>" + query[0] + " " + query[1] + " " + query[2] + " " + query[3] + "</p>"
+        query = cursor.fetchone()
+    
+    html += "</body></html>"
+    return html
 
 @app.route("/<item>")
 def search(item):

@@ -37,17 +37,16 @@ def main():
         """)
     return "<html><body>" + str(cursor.fetchone()[0]) + "</body></html>"
 
-#@app.route("/<item>")
-#def search(item):
-    #cursor.execute("SELECT * FROM food WHERE foodname='%s'" % item)
-    #query = cursor.fetchone()
-    #if query == None:
-        #html = "No such item was found"
-    #else:
-        #html = query[0] + " " + query[2]
+@app.route("/<item>")
+def search(item):
+    cursor.execute("SELECT * FROM food WHERE foodname='%s'" % item)
+    query = cursor.fetchone()
+    if query == None:
+        html = "No such item was found"
+    else:
+        html = query[0] + " " + query[2]
     
-    #return html
-
+    return html
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

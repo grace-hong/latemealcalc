@@ -1,13 +1,14 @@
 from flask import Flask, render_template
 import os
 import psycopg2
+import subprocess
 
 import os
 
 app = Flask(__name__)
 
 #'heroku config:get DATABASE_URL -a calculatemeal' to get the name of the database
-DATABASE_URL = '$heroku config:get DATABASE_URL -a calculatemeal'
+DATABASE_URL = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", "calculatemeal"])
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()

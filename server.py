@@ -35,7 +35,7 @@ def main():
         FROM
             food
         """)
-    return "<html><body>" + cursor.fetchone() + "</body></html>"
+    return "<html><body>" + str(cursor.fetchone()[0]) + "</body></html>"
 
 #@app.route("/<item>")
 #def search(item):

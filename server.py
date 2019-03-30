@@ -32,9 +32,9 @@ def main():
     html = "<html><body>"
     cursor.execute('''SELECT * FROM food''')
     query = cursor.fetchone()
-    # while query:
-    html += "<p>" + query[0] + " " + query[1] + " " + query[2] + " " + query[3] + "</p>"
-        # query = cursor.fetchone()
+    while query:
+        html += "<p>" + str(query[0]) + " " + str(query[1]) + " " + str(query[2]) + " " + str(query[3]) + "</p>"
+        query = cursor.fetchone()
     
     html += "</body></html>"
     return html
@@ -46,9 +46,9 @@ def search(item):
     if query == None:
         html = "No such item was found"
     else:
-        html = query[0] + " " + query[1] + " " + query[3]
-        # cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
-        # cursor.commit()
+        html = str(query[0]) + " " + str(query[1]) + " " + str(query[3])
+        cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
+        cursor.commit()
     
     return html
 

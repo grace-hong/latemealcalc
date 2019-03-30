@@ -22,8 +22,8 @@ cursor.execute(
   """)
 cursor.execute(
     """
-    INSERT INTO food (foodname, price, type)
-        VALUES ('peanuts', 2.50, 'SNACK')
+    INSERT INTO food (foodname, price, type, count)
+        VALUES ('peanuts', 2.50, 'packaged', 0), ('Pizza', 5.00, 'pizza', 0), ('Waffles', 4.00, 'grill', 0), ('Grapes', 4.00, 'packaged', 0), ('Fries', 2.30, 'grill', 0)
     """)
 
 @app.route("/")
@@ -44,7 +44,9 @@ def search(item):
     if query == None:
         html = "No such item was found"
     else:
-        html = query[0] + " " + query[2]
+        html = query[0] + " " + query[1] + " " + query[3]
+        cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
+        cursor.commit()
     
     return html
 

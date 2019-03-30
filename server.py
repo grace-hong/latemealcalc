@@ -35,8 +35,7 @@ def main():
         FROM
             food
         """)
-    #return render_template('index.html')
-    return cursor.fetchone()
+    return "<html><body>" + cursor.fetchone() + "</body></html>"
 
 #@app.route("/<item>")
 #def search(item):

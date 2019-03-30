@@ -12,10 +12,33 @@ DATABASE_URL = subprocess.run(["heroku", "config:get", "DATABASE_URL", "-a", "ca
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
+cursor.execute(
+  """
+  CREATE TABLE food (
+    foodname VARCHAR(50) NOT NULL PRIMARY KEY,
+    price REAL NOT NULL,
+    type VARCHAR(50) NOT NULL
+  )
+  """)
+cursor.execute(
+    """
+    INSERT INTO food (foodname, price, type)
+        VALUES ('peanuts', 2.50, 'SNACK')
+    """)
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    str = ""
+    cursor.execute(
+        """
+        SELECT
+            foodname
+        FROM
+            food
+        """)
+    str += cursor.fetchone()
+    #return render_template('index.html')
+    return str
 
 @app.route("/<item>")
 def search(item):

@@ -32,9 +32,9 @@ def main():
     html = "<html><body>"
     cursor.execute('''SELECT * FROM food''')
     query = cursor.fetchone()
-    while query:
-        html += "<p>" + query[0] + " " + query[1] + " " + query[2] + " " + query[3] + "</p>"
-        query = cursor.fetchone()
+    # while query:
+    html += "<p>" + query[0] + " " + query[1] + " " + query[2] + " " + query[3] + "</p>"
+        # query = cursor.fetchone()
     
     html += "</body></html>"
     return html

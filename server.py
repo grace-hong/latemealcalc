@@ -17,7 +17,8 @@ cursor.execute(
   CREATE TABLE food (
     foodname VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
-    type VARCHAR(50) NOT NULL
+    type VARCHAR(50) NOT NULL,
+    count REAL NOT NULL
   )
   """)
 cursor.execute(

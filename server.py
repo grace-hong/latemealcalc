@@ -28,7 +28,6 @@ cursor.execute(
 
 @app.route("/")
 def main():
-    str = ""
     cursor.execute(
         """
         SELECT
@@ -36,9 +35,8 @@ def main():
         FROM
             food
         """)
-    str += cursor.fetchone()
     #return render_template('index.html')
-    return str
+    return cursor.fetchone()
 
 #@app.route("/<item>")
 #def search(item):

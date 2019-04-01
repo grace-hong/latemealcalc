@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<!-- cart -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/cart.min.js"></script>
+
+	<!-- personal style sheet -->
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="cart.js" async></script>
+
+</head>
+
+<body>
+	<header class="fixed-top">
+		<div class = "container-fluid title">CalcuLateMeal</div>
+		<div class="topnav">  
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/index.html">HOME</a>
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/info.html">INFO</a>
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/favorites.html">FAVORITES</a>
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/contact.html">CONTACT</a>
+		</div>
+
+
+		<!-- search bar + button -->
+		<form class="searchbutton" action="action_page.php">
+			<div class = "row" style = "padding-right: 35px; padding-left: 35px;">
+				<div class = "col-1 "></div>
+				<div class = "col-9 padding-0">   	
+					<div class="searchbar">
+						<input type="text" class="form-control form-rounded" placeholder="Search...">
+					</div>
+				</div>
+				<div class = "col-1 " style="display: inline-block; padding-top: 30px; padding-left: 10px;">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</div>
+			</div>
+		</form>
+	</header>
+
+	<!-- category items -->
+	<div class = "items-scroll-y category-scrollbar">
+		<section class="container content-section ">
+			<h3 class="section-header">Burgers</h3>
+			<div class="shop-items">
+				<div class="shop-item">
+					<span class="shop-item-title">Hamburger</span>
+					<img class="shop-item-image" src="burger.jpg">
+					<div class="shop-item-details">
+						<span class="shop-item-price">$9.99</span>
+						<button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+					</div>
+				</div>
+				<div class="shop-item">
+					<span class="shop-item-title">Cheeseburger</span>
+					<img class="shop-item-image" src="burger.jpg">
+					<div class="shop-item-details">
+						<span class="shop-item-price">$10.99</span>
+						<button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+					</div>
+				</div>
+				<div class="shop-item">
+					<span class="shop-item-title">Veggie Burger</span>
+					<img class="shop-item-image" src="burger.jpg">
+					<div class="shop-item-details">
+						<span class="shop-item-price">$8.99</span>
+						<button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+					</div>
+				</div>
+				<div class="shop-item">
+					<span class="shop-item-title">Fries</span>
+					<img class="shop-item-image" src="burger.jpg">
+					<div class="shop-item-details">
+						<span class="shop-item-price">$5.99</span>
+						<button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="container content-section">
+			<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
+		</section>
+	</div>
+
+	<!-- calculator -->
+	<div class = "row fixed-bottom" style="height:100px"> 
+		<div class = "col-9" style = "padding-right:0;background-color: #eceff1; padding-top: 5px; border-right: solid 2px;" >
+			<div class="calculator-scroll">
+				<div class="cart-items"></div>
+			</div>
+		</div>
+
+
+		<div class = "col-3" style = "padding-left:0; background-color: #eceff1; text-align: center; padding-top: 10px;">
+			<h6>TOTAL</h6>
+			<div class = "cart-total-price">$0</div>
+		</div>
+	</div>
+
+	
+	
+</body>
+</html>

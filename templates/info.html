@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<!-- personal style sheet -->
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+</head>
+
+<body>
+	<header class="fixed-top">
+		<div class = "container-fluid title">CalcuLateMeal</div>
+		<div class="topnav">  
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/index.html">HOME</a>
+			<a class="active" href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/info.html">INFO</a>
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/favorites.html">FAVORITES</a>
+			<a href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/contact.html">CONTACT</a>
+		</div>
+
+
+		<!-- search bar + button -->
+		<form class="searchbutton" action="action_page.php">
+			<div class = "row" style = "padding-right: 35px; padding-left: 35px;">
+				<div class = "col-1 "></div>
+				<div class = "col-9 padding-0">   	
+					<div class="searchbar">
+						<input type="text" class="form-control form-rounded" placeholder="Search...">
+					</div>
+				</div>
+				<div class = "col-1 " style="display: inline-block; padding-top: 30px; padding-left: 10px;">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</div>
+			</div>
+		</form>
+	</header>
+
+	<div class = "items-scroll-y category-scrollbar">
+
+		<div style = "text-align: center" >
+			<div class = "header"> Hours </div>
+			<div class = "subheader"> Lunch</div>
+			<div class = "paragraph"> Mon-Fri: 2:00 p.m. - 3:45 p.m.</div>
+			<div class = "subheader"> Dinner</div>
+			<div class = "paragraph"> Mon-Th:  8:30 p.m. – 10 p.m.</div>
+
+			<br></br>
+			<div class = "header"> Prices </div>
+			<div class = "subheader"> Lunch</div>
+			<div class = "paragraph"> $6.00 </div>
+			<div class = "subheader"> Dinner</div>
+			<div class = "paragraph"> $7.00 </div>
+			<div class = "paragraph"></br>One meal swipe is credited for all late meal purchases. You may only use one meal swipe per period.</div>
+		</div>
+
+	</div>
+	
+
+	
+</body>
+</html>

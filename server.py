@@ -29,7 +29,15 @@ cursor.execute(
 
 @app.route("/")
 def main():
-    return render_template('index.html')
+    html = "<html><body>"
+    cursor.execute('''SELECT * FROM food''')
+    query = cursor.fetchone()
+    while query:
+        html += "<p>" + str(query[0]) + " " + str(query[1]) + " " + str(query[2]) + " " + str(query[3]) + "</p>"
+        query = cursor.fetchone()
+    
+    html += "</body></html>"
+    return html
 
 @app.route("/favorites")
 def fav():

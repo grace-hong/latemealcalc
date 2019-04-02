@@ -5,7 +5,7 @@ import subprocess
 
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path = "", static_folder = "static")
 
 #'heroku config:get DATABASE_URL -a calculatemeal' to get the name of the database
 DATABASE_URL = 'postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffffa249aaaef45ccf72034503106c@ec2-184-73-153-64.compute-1.amazonaws.com:5432/d1ipk1vqr3fslq'

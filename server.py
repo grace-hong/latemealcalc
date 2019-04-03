@@ -31,15 +31,15 @@ cursor.execute(
 def main():
     return render_template("index.html")
   
-@app.route("/contact")
+@app.route("/contact.html")
 def getContact():
     return render_template("contact.html")
   
-@app.route("/favorites")
+@app.route("/favorites.html")
 def getFavorites():
     return render_template("favorites.html")
 
-@app.route("/info")
+@app.route("/info.html")
 def getInfo():
     return render_template("info.html")
 

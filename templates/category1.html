@@ -21,8 +21,6 @@
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-	<script src="{{url_for('static', filename='cart.js')}}" async></script>
-
 </head>
 
 <body>
@@ -98,6 +96,7 @@
 
 	<!-- calculator -->
 	<div class = "row fixed-bottom" style="height:100px"> 
+		<script src="{{url_for('static', filename='cart.js')}}" async></script>
 		<div class = "col-9" style = "padding-right:0;background-color: #eceff1; padding-top: 5px; border-right: solid 2px;" >
 			<div class="calculator-scroll">
 				<div class="cart-items"></div>

@@ -54,11 +54,12 @@ def fav():
 
 @app.route("/<item>")
 def search(item):
-    cursor.execute("SELECT * FROM food WHERE foodname='%s'" % item)
+    cursor.execute("SELECT * FROM food WHERE area='%s'" % item)
     query = cursor.fetchone()
     if query == None:
-        html = "No such item was found"
+        html = "Search all foods"
     else:
+        cursor.execute("SELECT * FROM food WHERE area='%s'" % item)
         html = str(query[0]) + " " + str(query[1]) + " " + str(query[3])
         cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
         # cursor.commit()

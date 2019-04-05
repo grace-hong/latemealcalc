@@ -42,6 +42,10 @@ def getFavorites():
 @app.route("/info")
 def getInfo():
     return render_template("info.html")
+  
+@app.route("/search/{item}")
+def getItem():
+  return item
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ cursor = conn.cursor()
 cursor.execute(
   """
   CREATE TABLE food (
-    foodname VARCHAR(50) NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
     type VARCHAR(50) NOT NULL,
     count INTEGER NOT NULL
@@ -23,7 +23,7 @@ cursor.execute(
   """)
 cursor.execute(
     """
-    INSERT INTO food (foodname, price, type, count)
+    INSERT INTO food (name, price, type, count)
         VALUES ('peanuts', 2.50, 'packaged', 0), ('pizza', 5.00, 'pizza', 0), ('waffles', 4.00, 'grill', 0), ('grapes', 4.00, 'packaged', 0), ('fries', 2.30, 'grill', 0)
     """)
 
@@ -45,8 +45,15 @@ def getInfo():
   
 @app.route("/search/<item>")
 def getItem(item):
-  return item 
-
+  cursor.execute("SELECT name FROM food")
+  results = cursor.fetchall()
+  str = ""
+  
+  for re in results:
+      if item in re:
+          str = str + re
+    
+  return str
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

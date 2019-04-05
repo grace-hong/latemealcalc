@@ -58,10 +58,10 @@ def getItem(item):
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
-  cursor.execute("SELECT name FROM food WHERE category = '{catg}'")
+  cursor.execute("SELECT name FROM food WHERE category = %s", catg)
   results = cursor.fetchall()
   if len(results) == 0:
-    return catg
+    return "No results found."
   retVal = "Category: " + catg + "\n"
   for re in results:
       retVal = retVal + str(re)

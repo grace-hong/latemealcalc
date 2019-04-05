@@ -61,7 +61,7 @@ def getItemsFromCategory(catg):
   cursor.execute("SELECT name FROM food WHERE category = '{catg}'")
   results = cursor.fetchall()
   if len(results) == 0:
-    return "No results found."
+    return catg
   retVal = "Category: " + catg + "\n"
   for re in results:
       retVal = retVal + str(re)

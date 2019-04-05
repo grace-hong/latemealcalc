@@ -47,13 +47,13 @@ def getInfo():
 def getItem(item):
   cursor.execute("SELECT name FROM food")
   results = cursor.fetchall()
-  str = ""
+  retVal = ""
   
   for re in results:
       if item in re:
-          str = str + re
+          retVal = retVal + re
     
-  return str
+  return retVal
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

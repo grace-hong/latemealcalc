@@ -59,7 +59,7 @@ def getItem(item):
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
-  cursor.execute("SELECT name, category FROM food WHERE category = {catg}".format(catg))
+  cursor.execute("SELECT name, category FROM food WHERE category = $1". ["catg"])
   results = cursor.fetchall()
   if len(results) == 0:
     return "No results found."

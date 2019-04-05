@@ -57,7 +57,7 @@ def getItem(item):
   return retVal
 
 @app.route("/search/category/<item>")
-def getItem(item):
+def getItemsFromCategory(item):
   cursor.execute("SELECT category FROM food")
   results = cursor.fetchall()
   retVal = ""

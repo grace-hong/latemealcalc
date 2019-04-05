@@ -45,7 +45,8 @@ def getInfo():
   
 @app.route("/search/<item>")
 def getItem():
-  return item
+  str = ""
+  return str + item
 
 
 if __name__ == "__main__":

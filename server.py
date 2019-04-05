@@ -57,7 +57,15 @@ def getItem(item):
   return retVal
 
 
-    
+@app.route("/search/category/<catg>")
+def getItemsFromCategory(catg):
+  cursor.execute("SELECT name, category FROM food WHERE category = {catg}".format(catg))
+  results = cursor.fetchall()
+  if len(results) == 0:
+    return "No results found."
+  retVal = "Category: " + catg + "\n"
+  for re in results:
+      retVal = retVal + str(re[0])
   return retVal
 
 if __name__ == "__main__":

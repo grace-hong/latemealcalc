@@ -62,10 +62,9 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   if len(results) == 0:
     return "No results found."
-  retVal = "Category: " + catg
+  retVal = "Category: " + catg + "\n"
   for re in results:
-      if item in str(re):
-          retVal = retVal + str(re)
+      retVal = retVal + str(re)
     
   return retVal
 

@@ -17,13 +17,13 @@ cursor.execute(
   CREATE TABLE food (
     name VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
-    type VARCHAR(50) NOT NULL,
+    category VARCHAR(50) NOT NULL,
     count INTEGER NOT NULL
   )
   """)
 cursor.execute(
     """
-    INSERT INTO food (name, price, type, count)
+    INSERT INTO food (name, price, category, count)
         VALUES ('peanuts', 2.50, 'packaged', 0), ('sausage pizza', 5.00, 'pizza', 0), ('cheese pizza', 5.00, 'pizza', 0), ('waffles', 4.00, 'grill', 0), ('grapes', 4.00, 'packaged', 0), ('fries', 2.30, 'grill', 0)
     """)
 
@@ -43,12 +43,26 @@ def getFavorites():
 def getInfo():
     return render_template("info.html")
   
-@app.route("/search/<item>")
+@app.route("/search/item/<item>")
 def getItem(item):
   cursor.execute("SELECT name FROM food")
   results = cursor.fetchall()
   retVal = ""
-  
+  if len(results) == 0:
+    return "No results found."
+  for re in results:
+      if item in str(re):
+          retVal = retVal + str(re)
+    
+  return retVal
+
+@app.route("/search/category/<item>")
+def getItem(item):
+  cursor.execute("SELECT category FROM food")
+  results = cursor.fetchall()
+  retVal = ""
+  if len(results) == 0:
+    return "No results found."
   for re in results:
       if item in str(re):
           retVal = retVal + str(re)

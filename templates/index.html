@@ -14,10 +14,11 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	<script src="helper.js"></script>
+	<!--<script src="helper.js"></script>!-->
+	<script type="text/javascript" src="{{ url_for('static', filename='cart.js') }}"></script>
 
 	<!-- personal style sheet -->
-	<link rel="stylesheet" href="styles.css">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
 	<link rel="stylesheet" href="css/bootstrap-responsive.css">
 
 	<!-- fontawesome -->
@@ -38,18 +39,18 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/index.html">Home
+							<a class="nav-link" href="index">Home
 								<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/info.html">About</a>
+							<a class="nav-link" href="info">About</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/favorites.html">Favorites</a>
+							<a class="nav-link" href="favorites">Favorites</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/contact.html">Contact</a>
+							<a class="nav-link" href="contact">Contact</a>
 						</li>
 					</ul>
 				</div>
@@ -89,7 +90,7 @@
 		<div class = "row">
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
-					<form class="categorybutton" action="file:///Users/ninahe/Desktop/COS333/FINAL%20PROJECT/results.html">
+					<form class="categorybutton" action="results">
 						<button type="submit">
 							<img src="burger.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</div>

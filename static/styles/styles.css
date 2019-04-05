@@ -1,0 +1,328 @@
+/* Add a black background color to the top navigation */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+
+body{
+  background-color: #fafafa;
+  height:100vh;
+  width:auto;
+}
+
+
+.title {
+  width: 100%;
+  height: 90px;
+  background-color: #e65100;
+  color: white;
+  font-size: 35px;
+  padding: 20px;
+  text-align: center;
+  display: inline-block
+}
+
+
+.searchbar {
+  padding-top: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.page-container {
+  padding-top: 8em;
+  padding-bottom: 6.5rem;
+  padding-right: 5vw;
+  padding-left: 5vw;
+  position: relative;
+  width: 100%;
+  overflow: auto;
+}
+
+.items-scroll-y {
+  display: block;
+  position: fixed;
+  top: 246px;
+  bottom: 100px;
+}
+
+
+.containercategory {
+  height: 100%;
+  width: 100%;
+  padding: .5em;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;c
+  
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: (40vw - 1rem);
+  height: calc(35vh - 1rem);
+  transition: .5s ease;
+  backface-visibility: hidden;
+  object-fit: cover;
+}
+
+
+
+.containercategory:hover .image {
+  opacity: .4;
+
+}
+
+
+.padding-0{
+  padding-right:0;
+  padding-left:0;
+  padding-top:0;
+  padding-bottom:0;
+}
+.row-margin {
+  margin-top: -6px;
+}
+
+/* Style the submit button */
+form.searchbutton button {
+  float: auto;
+  width: 3rem;
+  border-radius: 5rem;
+  border-style: none;
+
+
+  padding-top: 1rem;
+  color: black;
+  background-color: #fafafa;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+/* Clear floats */
+form.searchbutton::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* Style the submit button */
+form.categorybutton button {
+  float: auto;
+  width: 100%;
+  border-style: none;
+  cursor: pointer;
+  padding: 0px;
+  font-size: 1.5rem; 
+  color: white;
+
+
+}
+
+
+form.categorybutton button:hover {
+  background: #b0bec5;
+  opacity: 1;
+  font-weight: 900;
+}
+
+/* Clear floats */
+form.categorybutton::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.calculator-scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+
+.paragraph {
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: grey;
+}
+
+.header {    
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  font-weight: 900;
+
+}
+
+
+.subheader {
+  padding-right: 35px;
+  padding-left: 35px;
+  font-size: 16px;
+  font-weight: 900;
+  color: grey;
+
+}
+
+
+.content-section {
+    margin: 1em;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+.section-header {
+    color: #333;
+    text-align: center;
+    font-size: 2.0em;
+}
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .5em .5em;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #56CCF2;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #2D9CDB;
+}
+
+.shop-item {
+    margin: 30px;
+}
+
+.shop-item-title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 250px;
+}
+
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    flex-grow: 1;
+    color: #333;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-header {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: #333;
+}
+
+.cart-column {
+    display: inline-block;
+    align-items: center;
+    border-right: 1px solid black;
+}
+
+.cart-block {
+    display: inline-block;
+}
+
+.cart-item {
+    width: 100%;
+    padding: 10px;
+    border-right: solid black 2px;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: .9em;
+    font-weight: 400;
+    color: gray;
+}
+
+.cart-item-title {
+    color: #333;
+    margin-left: .5em;
+    font-size: .9em;
+}
+
+.cart-item-image {
+    width: 75px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    color: white;
+
+    font-size: 10px;
+    background-color: #EB5757;
+    border: none;
+    border-radius: 1em;
+    font-weight: bold;
+}
+
+.btn-danger:hover {
+    background-color:#CC4C4C;
+}
+
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {  
+  text-align: center;
+  color: green;
+    font-size: 2em;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}

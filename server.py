@@ -54,7 +54,7 @@ def getItem(item):
       if item in str(re):
           retVal = retVal + str(re)
     
-  return renderTemplate("info.html", resultStr = retVal)
+  return render_template("info.html", resultStr = retVal)
 
 
 @app.route("/search/category/<catg>")

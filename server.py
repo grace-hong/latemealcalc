@@ -43,7 +43,7 @@ def getFavorites():
 def getInfo():
     return render_template("info.html")
   
-@app.route("/search/{item}")
+@app.route("/search/<item>")
 def getItem():
   return item
 

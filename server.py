@@ -44,8 +44,8 @@ def getInfo():
     return render_template("info.html")
   
 @app.route("/search/<item>")
-def getItem():
-  return str(item)
+def getItem(item):
+  return item 
 
 
 if __name__ == "__main__":

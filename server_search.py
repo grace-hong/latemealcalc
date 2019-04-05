@@ -2,8 +2,7 @@ from flask import Flask, render_template
 import os
 import psycopg2
 import subprocess
-
-import os
+import re
 
 app = Flask(__name__)
 
@@ -52,19 +51,27 @@ def fav():
     html += "</body></html>"
     return html
 
+# for button clicks
+@app.route("/<place>")
+def button(place):
+    cursor.execute("SELECT * FROM food WHERE area='%s'" % place)
+    html = "" 
+    for row in cursor:
+      for col in row: 
+        html = html + str(col) + " "
+      html = html + "\n"
+    # cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
+    # cursor.commit()   
+    return html
+  
+# for searches 
 @app.route("/<item>")
 def search(item):
-    cursor.execute("SELECT * FROM food WHERE area='%s'" % item)
-    query = cursor.fetchone()
-    if query == None:
-        html = "Search all foods"
-    else:
-        cursor.execute("SELECT * FROM food WHERE area='%s'" % item)
-        html = str(query[0]) + " " + str(query[1]) + " " + str(query[3])
-        cursor.execute("UPDATE food SET count=count+1 WHERE foodname='%s'" % item)
-        # cursor.commit()
-    
-    return html
+  cursor.execute("SELECT * FROM food")
+  query = cursor.fetchall()
+  html = ""
+  for re in query:
+      if (re.search(item, 
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

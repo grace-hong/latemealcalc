@@ -35,7 +35,7 @@
 
 
 		<!-- search bar + button -->
-		<form class="searchbutton" action="action_page.php">
+		<form class="searchbutton" action="action_page.php" id="itemsearch">
 			<div class = "row" style = "padding-right: 35px; padding-left: 35px;">
 				<div class = "col-1 "></div>
 				<div class = "col-9 padding-0">   	
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class = "col-1 " style="display: inline-block; padding-top: 30px; padding-left: 10px;">
-					<button type="submit"><i class="fa fa-search"></i></button>
+					<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
 				</div>
 			</div>
 		</form>
@@ -154,6 +154,14 @@
 		</div>
 	</footer>
 
+	<script>
+		function handleSearchItem() {
+			var query = document.getElementById('itemsearch').value;
+			if (query != "")
+				window.location.href = "/" + query;
+			return false;
+		}
+	</script>
 
 	<!-- shopping cart-->
 

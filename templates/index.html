@@ -65,11 +65,11 @@
 					<div class = "col-1 "></div>
 					<div class = "col-9 padding-0">   	
 						<div class="searchbar">
-							<input type="text" class="form-control" placeholder="Search...">
+							<input type="text" id="itemsearch" class="form-control" placeholder="Search...">
 						</div>
 					</div>
 					<div class = "col-1 " style="display: inline-block; padding-top: 2rem; padding-left: 0rem; padding-right:1rem;">
-						<button type="submit"><i class="fa fa-search"></i></button>
+						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 
@@ -80,8 +80,14 @@
 	</header>
 
 
-	<!-- search bar + button -->
-
+	<!-- submission functions -->
+	<script>
+		function handleSearchItem() {
+			var query = document.getElementById('itemsearch').value;
+			window.location.href = "/search/item/" + query;
+			return false;
+		}
+	</script>
 
 
 <!-- scroll of categories

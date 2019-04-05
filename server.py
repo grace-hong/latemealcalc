@@ -50,7 +50,7 @@ def getItem(item):
   retVal = ""
   
   for re in results:
-      if item in re:
+      if item in str(re):
           retVal = retVal + str(re)
     
   return retVal

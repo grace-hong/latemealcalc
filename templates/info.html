@@ -78,7 +78,12 @@
                 <div class = "paragraph"> $7.00 </div>
                 <div class = "paragraph"></br>One meal swipe is credited for all late meal purchases. You may only use one meal swipe per period.</div>
              </div>
-      å
+      
+	{% if name %}
+  		<h1>We found the following results:<br>{{ resultStr }}</h1>
+	{% else %}
+  		<h1>No results found.</h1>
+	{% endif %}
         
 </section>
 

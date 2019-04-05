@@ -58,6 +58,7 @@ def getItem(item):
 
 
 @app.route("/search/category/<catg>")
+'''
 def getItemsFromCategory(catg):
   cursor.execute("SELECT name, category FROM food WHERE category = $1", [catg])
   results = cursor.fetchall()
@@ -66,7 +67,8 @@ def getItemsFromCategory(catg):
   retVal = "Category: " + catg + "\n"
   for re in results:
       retVal = retVal + str(re[0])
-  return retVal
+  return retVal'''
+  return render_template("category1.html")
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

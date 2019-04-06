@@ -51,7 +51,7 @@ def getItem(item):
   if len(results) == 0:
     return "No results found."
   for re in results:
-      if item in str(re):
+      if item.lower() in str(re).lower():
           retVal = retVal + str(re)
     
   return render_template("results.html", resultStr = retVal)

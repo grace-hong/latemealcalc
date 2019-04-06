@@ -85,8 +85,8 @@
 			return false;
 		}
 		
-		function handleSearchCategory() {
-			var category = this.getAttribute('data-category');
+		function handleSearchCategory(category) {
+			// var category = this.getAttribute('data-category');
 			window.location.href = "/search/category/" + category;
 			return false;
 		}
@@ -100,7 +100,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="results">
-						<button type="submit" data-category="grill" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('grill');">
 							<img src="burger.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</div>
 						</button>
@@ -112,7 +112,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class = "containercategory">
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="pizza" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('pizza');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -124,7 +124,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="bakery" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('bakery');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -135,7 +135,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="salad" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('salad');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -149,7 +149,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="delicatessen" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('delicatessen');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -160,7 +160,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class = containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="bowls" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('bowls');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -172,7 +172,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="beverage" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('beverage');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>
@@ -183,7 +183,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="action_page.php">
-						<button type="submit" data-category="miscellaneous" onclick="return handleSearchCategory();">
+						<button type="submit" onclick="return handleSearchCategory('miscellaneous');">
 							<img src="temp.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</a>
 							</div>

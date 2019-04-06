@@ -66,7 +66,7 @@ def getItemsFromCategory(catg):
     return "No results found."
   retVal = "Category: " + catg + "\n"
   for re in results:
-      retVal = retVal + str(re[0]) + " "
+      retVal += str(re[0]) + " "
 
   return render_template("category.html", resultStr = retVal)
 

@@ -37,7 +37,7 @@ def getContact():
   
 @app.route("/favorites")
 def getFavorites():
-    cursor.execute("SELECT foodname FROM food ORDER BY count DESC LIMIT 3")
+    cursor.execute("SELECT name FROM food ORDER BY count DESC LIMIT 3")
     results = cursor.fetchall()
     retVal = ""
     for re in results:

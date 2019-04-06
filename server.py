@@ -68,7 +68,7 @@ def getItemsFromCategory(catg):
   for re in results:
       retVal = retVal + str(re[0])
   return retVal'''
-  return render_template("category1.html")
+  return render_template("cat1.html")
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

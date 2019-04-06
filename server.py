@@ -24,7 +24,7 @@ cursor.execute(
 cursor.execute(
     """
     INSERT INTO food (name, price, category, count)
-        VALUES ('peanuts', 2.50, 'packaged', 0), ('sausage pizza', 5.00, 'pizza', 0), ('cheese pizza', 5.00, 'pizza', 0), ('waffles', 4.00, 'grill', 0), ('grapes', 4.00, 'packaged', 0), ('fries', 2.30, 'grill', 0)
+        VALUES ('peanuts', 2.50, 'packaged', 0), ('pepperoni pizza', 5.00, 'pizza', 0), ('cheese pizza', 5.00, 'pizza', 0), ('waffles', 4.00, 'grill', 0), ('grapes', 4.00, 'packaged', 0), ('fries', 2.30, 'grill', 0)
     """)
 
 @app.route("/")

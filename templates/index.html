@@ -84,6 +84,11 @@
 			window.location.href = "/search/item/" + query;
 			return false;
 		}
+		
+		function handleGrill() {
+			window.location.href = "/search/category/grill";
+			return false;
+		}
 	</script>
 
 
@@ -94,7 +99,7 @@
 			<div class="col-lg col-6 padding-0">
 				<div class =  containercategory>
 					<form class="categorybutton" action="results">
-						<button type="submit">
+						<button type="submit" onclick="return handleGrill();">
 							<img src="burger.jpg" alt="Avatar" class="image" style="width:100%">
 							<div class="centered">Temp</div>
 						</button>

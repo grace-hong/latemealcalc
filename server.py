@@ -57,8 +57,8 @@ def getItem(item):
   if len(results) == 0:
     return "No results found."
   for re in results:
-      if item.lower() in str(re).lower():
-          retVal = retVal + str(re)
+      if item.lower() in str(re[0]).lower():
+          retVal = retVal + str(re[0])
           cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
     
   return render_template("results.html", resultStr = retVal)

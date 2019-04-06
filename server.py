@@ -64,7 +64,7 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   if len(results) == 0:
     return "No results found."
-  retVal = "Category: " + catg + "\n"
+  retVal = "Category: " + catg + "<br/>"
   for re in results:
       retVal += str(re[0]) + " "
 

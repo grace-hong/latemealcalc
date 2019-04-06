@@ -37,7 +37,13 @@ def getContact():
   
 @app.route("/favorites")
 def getFavorites():
-    return render_template("favorites.html")
+    cursor.execute("SELECT foodname FROM food ORDER BY count DESC LIMIT 3")
+    results = cursor.fetchall()
+    retVal = ""
+    for re in results:
+      retval += str(re[0]) + " "
+    
+    return render_template("favorites.html", resultStr=retVal)
 
 @app.route("/info")
 def getInfo():

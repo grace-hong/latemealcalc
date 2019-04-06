@@ -59,6 +59,7 @@ def getItem(item):
   for re in results:
       if item.lower() in str(re).lower():
           retVal = retVal + str(re)
+          cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
     
   return render_template("results.html", resultStr = retVal)
 

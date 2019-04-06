@@ -41,7 +41,7 @@ def getFavorites():
     results = cursor.fetchall()
     retVal = ""
     for re in results:
-      retVal += str(re[0]) + " "
+      retVal += str(re[0]) + ", "
     
     return render_template("favorites.html", resultStr=retVal)
 

@@ -55,8 +55,33 @@
 			</div>
 		</nav>
 		
+			<form class="searchbutton" style = "position: absolute; width: 100%; left: 0; background-color: #fafafa;" action="action_page.php">
+				<div class = "row padding-0" style="padding-top:2rem;">
+
+					<div class = "col-1 "></div>
+					<div class = "col-9 padding-0">   	
+						<div class="searchbar">
+							<input type="text" id="itemsearch" class="form-control" placeholder="Search...">
+						</div>
+					</div>
+					<div class = "col-1 " style="display: inline-block; padding-top: 2rem; padding-left: 0rem; padding-right:1rem;">
+						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+
+			</form>
+		
 
 	</header>
+	
+	<!-- submission functions -->
+	<script>
+		function handleSearchItem() {
+			var query = document.getElementById('itemsearch').value;
+			window.location.href = "/search/item/" + query;
+			return false;
+		}
+	</script>
 
 
 	<section class="page-container" >

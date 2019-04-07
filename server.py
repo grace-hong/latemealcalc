@@ -25,7 +25,7 @@ cursor = conn.cursor()
 
 cursor.execute(
   """
-  CREATE TABLE IF NOT EXISTS food (
+  CREATE TABLE food (
     name VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
     category VARCHAR(50) NOT NULL,

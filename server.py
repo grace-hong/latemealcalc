@@ -19,13 +19,13 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 
 ##ADDED CODE ###################################################################################
-cursor.execute("""DROP TABLE IF EXISTS food""")
-conn.commit()
+#cursor.execute("""DROP TABLE IF EXISTS food""")
+#conn.commit()
 #################################################################################################
 
 cursor.execute(
   """
-  CREATE TABLE food (
+  CREATE TABLE IF NOT EXISTS food (
     name VARCHAR(50) NOT NULL PRIMARY KEY,
     price REAL NOT NULL,
     category VARCHAR(50) NOT NULL,

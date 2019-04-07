@@ -30,7 +30,7 @@ cursor.execute(
   """)
 cursor.execute(
     """
-    COPY food(name, price, category, count, time, packaged)
+    \copy food(name, price, category, count, time, packaged)
     FROM 'fooddb.csv' DELIMITER ',' CSV HEADER
     """)
 

@@ -28,11 +28,17 @@ cursor.execute(
     packaged VARCHAR(50) NOT NULL
   )
   """)
-cursor.execute(
-    """
-    \copy food(name, price, category, count, time, packaged)
-    FROM 'fooddb.csv' DELIMITER ',' CSV HEADER
-    """)
+
+with open('fooddb.csv', 'r') as f:
+  next(f)
+  cursor.copy_from(f, 'users', sep=',')
+conn.commit()
+
+#cursor.execute(
+ #   """
+  #  \copy food(name, price, category, count, time, packaged)
+   # FROM 'fooddb.csv' DELIMITER ',' CSV HEADER
+    #""")
 
 @app.route("/")
 def main():

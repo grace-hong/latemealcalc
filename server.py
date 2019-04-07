@@ -17,6 +17,12 @@ DATABASE_URL = 'postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffff
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
+
+##ADDED CODE ###################################################################################
+cursor.execute("""DROP TABLE IF EXISTS food""")
+conn.commit()
+#################################################################################################
+
 cursor.execute(
   """
   CREATE TABLE food (

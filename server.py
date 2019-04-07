@@ -31,7 +31,7 @@ cursor.execute(
 
 with open('fooddb.csv', 'r') as f:
   next(f)
-  cursor.copy_from(f, 'users', sep=',')
+  cursor.copy_from(f, 'food', sep=',')
 conn.commit()
 
 #cursor.execute(

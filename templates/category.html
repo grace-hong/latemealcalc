@@ -91,12 +91,10 @@
 		<h1>
 			<script>handleResults(resultList);</script>
 			
-				<section class="container content-section ">
-					<div class="shop-items" id="shop-items">{{ resultList }}</div>
-				</section>
-				<section class="container content-section">
-					<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
-				</section>
+				<table class="shop-items" id="shop-items">
+					{{ resultList }}
+				</table>
+				<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
 			
 		</h1>
 	{% else %}

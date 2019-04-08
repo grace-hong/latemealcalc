@@ -5,9 +5,7 @@ import subprocess
 
 import os
 import csv
-import time
-
-
+import datetime
 
 app = Flask(__name__, static_url_path = "", static_folder = "static")
 

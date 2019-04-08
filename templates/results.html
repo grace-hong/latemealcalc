@@ -89,7 +89,7 @@
 	<!-- display results !-->
 	{% if resultList %}
 		<h1>We found the following results:<br>
-			<script>handleResults(resultList)</script>
+			<script>handleResults(resultList);</script>
 			<div class = "items-scroll-y category-scrollbar">
 				<section class="container content-section ">
 					<div class="shop-items" id="shop-items">
@@ -112,9 +112,9 @@
 		function handleResults(resultList) {
 			text = "";
 			for (var i = 0; i < resultList.length; i++) {
-				text = text + resultList[i]
+				text = text + resultList[i];
 			}
-			document.getElementById("shop-items").innerHTML = text
+			document.getElementById("shop-items").innerHTML = text;
 		}
 	</script>
 

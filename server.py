@@ -90,6 +90,8 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
+  if catg == "css/bootstrap-responsive.css":
+    return "This is why we messed up"
   cursor.execute("SELECT name, price, category FROM food")
   results = cursor.fetchall()
   retVal = ""

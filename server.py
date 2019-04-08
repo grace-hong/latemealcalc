@@ -5,6 +5,8 @@ import subprocess
 
 import os
 import csv
+import time
+
 
 
 app = Flask(__name__, static_url_path = "", static_folder = "static")
@@ -45,6 +47,11 @@ conn.commit()
   #  \copy food(name, price, category, count, time, packaged)
    # FROM 'fooddb.csv' DELIMITER ',' CSV HEADER
     #""")
+dt = datetime.datetime.now()
+if dt.hour < 17:
+    time = 'lunch'
+else:
+    time = 'dinner'
 
 @app.route("/")
 def main():
@@ -70,8 +77,12 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  cursor.execute("SELECT name FROM food")
-  results = cursor.fetchall()
+  if time == 'dinner':
+      cursor.execute("SELECT name FROM food AND (time = 'both' OR time='dinner')")
+      results = cursor.fetchall()
+  if time == 'lunch':
+      cursor.execute("SELECT name FROM food AND (time = 'both' OR time='lunch')")
+      results = cursor.fetchall()
   retVal = ""
   if len(results) == 0:
     return "No results found."
@@ -86,8 +97,12 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  cursor.execute("SELECT name, category FROM food WHERE category ='%s'" % catg)
-  results = cursor.fetchall()
+  if time == 'dinner':
+      cursor.execute("SELECT name, category FROM food WHERE category ='%s' AND (time = 'both' OR time = 'dinner')" % catg)
+      results = cursor.fetchall()
+  if time == 'lunch':
+      cursor.execute("SELECT name, category FROM food WHERE category ='%s' AND (time = 'both' OR time = 'lunch')" % catg)
+      results = cursor.fetchall()
   if len(results) == 0:
     return "No results found."
   retVal = "Category: " + catg + '\n'
@@ -99,4 +114,3 @@ def getItemsFromCategory(catg):
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))
     app.run(debug=False, port=PORT, host='0.0.0.0')
-

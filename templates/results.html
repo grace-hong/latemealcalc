@@ -100,15 +100,15 @@
 
 	<!-- display results !-->
 	{% if resultList %}
-		<h1>We found the following results:<br>
-			<script>handleResults(resultList);</script>
+		<h1>We found the following results:<br></h1>
+		<script>handleResults(resultList);</script>
 			
-			<table class="shop-items" id="shop-items">
-				{{ resultList }}
-			</table>
-			<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
+		<table class="shop-items" id="shop-items" align="left">
+			{{ resultList }}
+		</table>
+		<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
 			
-		</h1>
+		
 	{% else %}
   		<h1>No results found.</h1>
 	{% endif %}

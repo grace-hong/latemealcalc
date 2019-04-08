@@ -77,7 +77,7 @@ def getItem(item):
   post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   if len(results) == 0:
-    return "No results found " + item
+    return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
         retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
@@ -90,16 +90,17 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  cursor.execute("SELECT name, price FROM food WHERE category ='%s'" % catg)
+  cursor.execute("SELECT name, price FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'
-  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">'
+  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   if len(results) == 0:
-    return "No results found for " + catg
+    return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
+    if str(re[2]) == catg:
+      retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
   
   return render_template("category.html", resultList = Markup(retVal))
 

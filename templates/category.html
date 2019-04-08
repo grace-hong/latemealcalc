@@ -87,8 +87,8 @@
 	<section class="page-container" >
 
 	<!-- display results !-->
-	{% if resultStr %}
-		<h1>We found the following results:<br>
+	{% if resultList %}
+		<h1>
 			<script>handleResults(resultList);</script>
 			
 				<section class="container content-section ">
@@ -98,10 +98,12 @@
 					<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
 				</section>
 			
-			</h1>
+		</h1>
 	{% else %}
   		<h1>No results found.</h1>
 	{% endif %}
+
+   	
 	</section>
 
 	<script>
@@ -113,6 +115,7 @@
 			document.getElementById("shop-items").innerHTML = text;
 		}
 	</script>
+
 
 
 <!-- calculator -->

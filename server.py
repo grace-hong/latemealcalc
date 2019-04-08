@@ -93,7 +93,6 @@ def getItem(item):
   for re in results:
       if item.lower() in str(re[0]).lower():
         retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-        # retVal = retVal + str(re[0]) + "\n"
         cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % str(re[0]))
 
   return render_template("results.html", resultList = Markup(retVal))
@@ -106,13 +105,19 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   print(results)
   retVal = ""
-  pre = '<div class="shop-item"><span class="shop-item-title">'
-  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
-  post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
-  if len(results) == 0:
+  pre = '''<tr class="shop-item">
+      <td class="shop-item-image'>
+      </td>
+      <td class="shop-item-title"><h5>'''
+  post_title = '''</h5></td>
+      <td class="shop-item-price"><h5>$'''
+  post = '''</h5><td class="button">
+        <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+      </td>
+    </tr>'''
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
+    retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
   
   return render_template("category.html", resultList = Markup(retVal))
 

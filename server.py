@@ -77,7 +77,7 @@ def getItem(item):
   post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   if len(results) == 0:
-    return "No results found."
+    return "No results found " + item
   for re in results:
       if item.lower() in str(re[0]).lower():
         retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)

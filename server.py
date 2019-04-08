@@ -80,7 +80,6 @@ def getItem(item):
   retVal = ""
   pre = '''<tr class="shop-item">
       <td class="shop-item-image'>
-        <img src="pizza_slices.jpg">
       </td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>

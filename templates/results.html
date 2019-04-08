@@ -89,13 +89,10 @@
 	<!-- display results !-->
 	{% if resultList %}
 		<h1>We found the following results:<br>
+			<script>handleResults(resultList)</script>
 			<div class = "items-scroll-y category-scrollbar">
 				<section class="container content-section ">
-					<h3 class="section-header">Burgers</h3>
-					<div class="shop-items">
-						{% for item in resultList %}
-							{{ item|safe }}
-         				{% endfor %}
+					<div class="shop-items" id="shop-items">
          			</div>
 				</section>
 				<section class="container content-section">
@@ -110,6 +107,16 @@
 	<img src= "https://i.pinimg.com/736x/b4/ad/d7/b4add730b9bbdd4f21f3300123084418.jpg" />
    	
 	</section>
+
+	<script>
+		function handleResults(resultList) {
+			text = "";
+			for (var i = 0; i < resultList.length; i++) {
+				text = text + resultList[i]
+			}
+			document.getElementById("shop-items").innerHTML = text
+		}
+	</script>
 
 
 

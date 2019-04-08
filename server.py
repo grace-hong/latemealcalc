@@ -79,7 +79,6 @@ def getItem(item):
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
-      <img src="temp.jpg">
       <td class="shop-item-title">'''
   post_title = '''</td>
       <td class="shop-item-price">$'''

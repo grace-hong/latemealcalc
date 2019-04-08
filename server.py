@@ -84,7 +84,7 @@ def getItem(item):
         #retVal.append(pre + str(re[0]) + post_title + str(9.99) + post)
         retVal.append(str(re[0]) + " " + str(re[1]))
         # retVal = retVal + str(re[0]) + "\n"
-        cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
+        cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re[0])
 
   return render_template("results.html", resultList = retVal)
 

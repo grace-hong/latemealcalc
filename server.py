@@ -81,7 +81,7 @@ def getItem(item):
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        retVal.append(pre + str(re[0]) + post_title + str(re[1]) + post)
+        retVal.append(pre + str(re[0]) + post_title + str(9.99) + post)
         # retVal = retVal + str(re[0]) + "\n"
         cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
 

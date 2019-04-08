@@ -326,3 +326,13 @@ form.categorybutton::after {
     margin: 40px auto 80px auto;
     font-size: 1.75em;
 }
+
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+}

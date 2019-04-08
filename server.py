@@ -94,12 +94,12 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'
-  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
+  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal += (pre + str(re[0]) + post_title + str(re[1]) + post)
+    retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
   
   return render_template("category.html", resultList = Markup(retVal))
 

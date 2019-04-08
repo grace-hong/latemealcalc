@@ -97,7 +97,7 @@ def getItemsFromCategory(catg):
   post_title = '</span><div class="shop-item-details"><span class="shop-item-price">'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   if len(results) == 0:
-    return "No results found."
+    return "No results found for " + catg
   for re in results:
     retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
   

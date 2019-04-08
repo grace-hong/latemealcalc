@@ -70,7 +70,7 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  cursor.execute("SELECT name FROM food")
+  cursor.execute("SELECT name, price FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'
@@ -80,9 +80,9 @@ def getItem(item):
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        retVal = retVal + (pre + str(re[0]) + post_title + str(9.99) + post)
+        retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
         # retVal = retVal + str(re[0]) + "\n"
-        cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
+        cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % str(re[0]))
 
   return render_template("results.html", resultList = Markup(retVal))
 
@@ -94,11 +94,11 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   if len(results) == 0:
     return "No results found."
-  retVal = "Category: " + catg + '<br>'
+  retVal = "Category: " + catg + '\n'
   for re in results:
-      retVal += str(re[0]) + "<br>"
+      retVal += str(re[0]) + " "
 
-  return render_template("category.html", resultStr = Markup(retVal))
+  return render_template("category.html", resultStr = retVal)
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

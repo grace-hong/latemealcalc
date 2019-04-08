@@ -90,7 +90,7 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  cursor.execute("SELECT name, price FROM food")
+  cursor.execute("SELECT name, price, category FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'

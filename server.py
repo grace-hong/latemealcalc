@@ -102,7 +102,7 @@ def getItemsFromCategory(catg):
   for re in results:
     retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
   
-  return render_template("category.html", resultList = Markup(retVal))
+  return render_template("results.html", resultList = Markup(retVal))
 
 
 if __name__ == "__main__":

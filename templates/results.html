@@ -93,7 +93,10 @@
 			<div class = "items-scroll-y category-scrollbar">
 				<section class="container content-section ">
 					<div class="shop-items" id="shop-items">
-         			</div>
+						{% for item in {{ resultList }} %}
+							<h5>item</h5>
+						{% endfor %}
+					</div>
 				</section>
 				<section class="container content-section">
 					<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>

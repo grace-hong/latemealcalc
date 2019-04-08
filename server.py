@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Markup
 import os
 import psycopg2
 import subprocess
@@ -100,7 +100,7 @@ def getItemsFromCategory(catg):
   for re in results:
       retVal += str(re[0]) + "<br>"
 
-  return render_template("category.html", resultStr = retVal)
+  return render_template("category.html", resultStr = Markup(retVal))
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

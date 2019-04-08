@@ -122,6 +122,7 @@ def getItemsFromCategory(catg):
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
       </td>
     </tr>'''
+  if len(results) == 0:
     return "No results found."
   for re in results:
     retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)

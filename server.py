@@ -92,6 +92,7 @@ def getItemsFromCategory(catg):
   catg = str(catg)
   cursor.execute("SELECT name, price FROM food WHERE category='%s'" % catg)
   results = cursor.fetchall()
+  print(results)
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'
   post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'

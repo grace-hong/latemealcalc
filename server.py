@@ -56,7 +56,7 @@ def getContact():
 
 @app.route("/favorites")
 def getFavorites():
-  cursor.execute("SELECT name FROM food ORDER BY count DESC LIMIT 5")
+  cursor.execute("SELECT name, price FROM food ORDER BY count DESC LIMIT 5")
   results = cursor.fetchall()
   retVal = ""
   pre = '<div class="shop-item"><span class="shop-item-title">'

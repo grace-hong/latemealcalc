@@ -73,16 +73,19 @@ def getItem(item):
   cursor.execute("SELECT name FROM food")
   results = cursor.fetchall()
   #retVal = ""
-  retVal = {}
+  pre = '<div class="shop-item"><span class="shop-item-title">'
+  post_title = '/span><div class="shop-item-details"><span class="shop-item-price">$'
+  post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
+  retVal = []
   if len(results) == 0:
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        retVal[str(re[0])] = str(re[1])
+        retVal.append(pre + str(re[0]) + post_title + str(re[1]) + post)
         # retVal = retVal + str(re[0]) + "\n"
         cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % re)
 
-  return render_template("results.html", resultDict = retVal)
+  return render_template("results.html", resultList = retVal)
 
 
 @app.route("/search/category/<catg>")

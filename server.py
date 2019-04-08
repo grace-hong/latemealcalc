@@ -79,10 +79,11 @@ def getItem(item):
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
-      <td class="shop-item-title">'''
-  post_title = '''</td>
-      <td class="shop-item-price">$'''
-  post = '''<td class="button">
+      <img src="temp.jpg">
+      <td class="shop-item-title"><h5>'''
+  post_title = '''</h5></td>
+      <td class="shop-item-price"><h5>$'''
+  post = '''</h5><td class="button">
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
       </td>
     </tr>'''

@@ -59,13 +59,20 @@ def getFavorites():
   cursor.execute("SELECT name, price FROM food ORDER BY count DESC LIMIT 5")
   results = cursor.fetchall()
   retVal = ""
-  pre = '<div class="shop-item"><span class="shop-item-title">'
-  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
-  post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
+  pre = '''<tr class="shop-item">
+      <td class="shop-item-image'>
+      </td>
+      <td class="shop-item-title"><h5>'''
+  post_title = '''</h5></td>
+      <td class="shop-item-price"><h5>$'''
+  post = '''</h5><td class="button">
+        <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
+      </td>
+    </tr>'''
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
+    retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
 
   return render_template("favorites.html", resultList = Markup(retVal))
 

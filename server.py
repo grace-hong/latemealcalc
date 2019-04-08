@@ -99,8 +99,7 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    if str(re[2]) == catg:
-      retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
+    retVal = retVal + (pre + str(re[0]) + post_title + str(re[1]) + post)
   
   return render_template("category.html", resultList = Markup(retVal))
 

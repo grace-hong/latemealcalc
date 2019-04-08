@@ -75,10 +75,10 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  if time == 'dinner':
+  if dt.hour < 17:
       cursor.execute("SELECT name FROM food WHERE (time = 'both' OR time='dinner')")
       results = cursor.fetchall()
-  if time == 'lunch':
+  else:
       cursor.execute("SELECT name FROM food WHERE (time = 'both' OR time='lunch')")
       results = cursor.fetchall()
   retVal = ""
@@ -95,10 +95,10 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  if time == 'dinner':
+  if dt.hour < 17:
       cursor.execute("SELECT name, category FROM food WHERE (category ='%s' AND (time = 'both' OR time = 'dinner'))" % catg)
       results = cursor.fetchall()
-  if time == 'lunch':
+  else:
       cursor.execute("SELECT name, category FROM food WHERE (category ='%s' AND (time = 'both' OR time = 'lunch'))" % catg)
       results = cursor.fetchall()
   if len(results) == 0:

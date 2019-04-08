@@ -90,14 +90,14 @@
 	{% if resultList %}
 		<h1>We found the following results:<br>
 			<script>handleResults(resultList);</script>
-			<div class = "items-scroll-y category-scrollbar">
+			
 				<section class="container content-section ">
 					<div class="shop-items" id="shop-items">{{ resultList }}</div>
 				</section>
 				<section class="container content-section">
 					<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
 				</section>
-			</div>
+			
 		</h1>
 	{% else %}
   		<h1>No results found.</h1>

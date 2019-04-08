@@ -94,7 +94,7 @@
 					<h3 class="section-header">Burgers</h3>
 					<div class="shop-items">
 						{% for item in resultList %}
-							item
+							{{ item|safe }}
          				{% endfor %}
          			</div>
 				</section>

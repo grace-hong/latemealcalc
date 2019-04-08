@@ -78,9 +78,9 @@ def getItem(item):
   cursor.execute("SELECT name, price FROM food")
   results = cursor.fetchall()
   retVal = ""
-  pre = '<div class="shop-item"><span class="shop-item-title">'
-  post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
-  post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
+  pre = '<tr class="shop-item"><img class="shop-item-image" src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjc2pSqx8HhAhVDJt8KHYc0AGwQjRx6BAgBEAU&url=http%3A%2F%2Fcalgarypma.ca%2Fabout-us%2Fboard-of-directors%2Fdefault-thumbnail%2F&psig=AOvVaw3LWhAjA94SaHW6oF3LvkpV&ust=1554849343281276"><td class="shop-item-title">'
+  post_title = '</td><td class="shop-item-price">$'
+  post = '<td class="button"><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></td></tr>'
   if len(results) == 0:
     return "No results found."
   for re in results:

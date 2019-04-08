@@ -223,9 +223,9 @@ form.categorybutton::after {
     display: flex;
     width: 100%;
     text-align: left;
-    font-size: 3;
     color: #333;
     margin-bottom: 15px;
+    padding: 10px;
 }
 
 .shop-item-image {
@@ -241,6 +241,7 @@ form.categorybutton::after {
 .shop-item-price {
     flex-grow: 1;
     color: #333;
+    padding: 10px;
 }
 
 .shop-items {

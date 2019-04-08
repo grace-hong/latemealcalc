@@ -99,9 +99,9 @@ def getItemsFromCategory(catg):
   post_title = '</span><div class="shop-item-details"><span class="shop-item-price">$'
   post = '</span><button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button></div></div>'
   for re in results:
-      retVal += (pre + str(re[0]) + post_title + str(re[1] + post)
-
-  return render_template("category.html", resulList = Markup(retVal))
+    retVal += (pre + str(re[0]) + post_title + str(re[1] + post)
+  
+  return render_template("category.html", resultList = Markup(retVal))
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

@@ -40,12 +40,11 @@ function addToCartClicked(event) {
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    addItemToCart(title, price)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price) {
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
     var cartItems = document.getElementsByClassName('cart-items')[0]

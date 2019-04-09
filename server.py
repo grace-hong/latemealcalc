@@ -63,7 +63,7 @@ def getFavorites():
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post = '''</h5><td class="button">
+  post = '''</h5></td><td class="button">
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
       </td>
     </tr>'''
@@ -87,7 +87,7 @@ def getItem(item):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post = '''</h5><td class="button">
+  post = '''</h5></td><td class="button">
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
       </td>
     </tr>'''
@@ -112,7 +112,7 @@ def getItemsFromCategory(catg):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post = '''</h5></td><td>
+  post = '''</h5></td><td class = "button">
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
       </td>
     </tr>'''

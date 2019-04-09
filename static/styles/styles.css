@@ -43,6 +43,7 @@ body{
   position: relative;
   width: 100%;
   overflow: auto;
+  align: left;
 }
 
 .items-scroll-y {

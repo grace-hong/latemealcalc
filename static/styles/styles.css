@@ -205,6 +205,7 @@ form.categorybutton::after {
     background-color: #56CCF2;
     border: none;
     font-weight: bold;
+    align: left;
 }
 
 .btn-primary:hover {
@@ -330,6 +331,7 @@ form.categorybutton::after {
     display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+    align: left;
 }
 
 

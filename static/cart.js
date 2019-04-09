@@ -45,7 +45,7 @@ function addToCartClicked(event) {
     updateCartTotal()
 }
 
-function addItemToCart(title, price) {
+function addItemToCart(title, price, imageSrc) {
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
     var cartItems = document.getElementsByClassName('shop-items')[0]
@@ -63,7 +63,7 @@ function addItemToCart(title, price) {
       
         `
     cartBlock.innerHTML = cartBlockContents
-    cartItems.append(cartBlock)
+    shopItems.append(cartBlock)
     cartBlock.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     
 }

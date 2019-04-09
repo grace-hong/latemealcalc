@@ -22,9 +22,9 @@ function ready() {
 
 function purchaseClicked() {
     alert('Items Cleared')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
+    var shopItems = document.getElementsByClassName('shop-items')[0]
+    while (shopItems.hasChildNodes()) {
+        shopItems.removeChild(shopItems.firstChild)
     }
     updateCartTotal()
 }
@@ -45,10 +45,10 @@ function addToCartClicked(event) {
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price) {
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItems = document.getElementsByClassName('shop-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
   
     var cartBlockContents = `
@@ -69,7 +69,7 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+    var cartItemContainer = document.getElementsByClassName('shop-items')[0]
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0
     for (var i = 0; i < cartBlocks.length; i++) {

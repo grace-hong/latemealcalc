@@ -37,9 +37,9 @@ function removeCartItem(event) {
 
 function addToCartClicked(event) {
     var button = event.target
-    var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var shopItem = button.closest("tr")
+    var title = $('td[name=shop-item-title]')[0].innerText
+    var price = $('td[name=shop-item-price]')[0].innerText
     addItemToCart(title, price)
     updateCartTotal()
 }

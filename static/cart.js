@@ -39,6 +39,7 @@ function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    alert(title);
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     addItemToCart(title, price)
     updateCartTotal()

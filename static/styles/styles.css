@@ -216,7 +216,8 @@ form.categorybutton::after {
   margin: 5px;
 
 .shop-item {
-    margin: 30px;
+    align: left;
+    margin: 3px;
 }
 
 .shop-item-title {

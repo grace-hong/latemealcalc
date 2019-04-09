@@ -22,9 +22,9 @@ function ready() {
 
 function purchaseClicked() {
     alert('Items Cleared')
-    var shopItems = document.getElementsByClassName('shop-items')[0]
-    while (shopItems.hasChildNodes()) {
-        shopItems.removeChild(shopItems.firstChild)
+    var cartItems = document.getElementsByClassName('cart-items')[0]
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild)
     }
     updateCartTotal()
 }
@@ -48,14 +48,14 @@ function addToCartClicked(event) {
 function addItemToCart(title, price, imageSrc) {
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
-    var cartItems = document.getElementsByClassName('shop-items')[0]
+    var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
   
     var cartBlockContents = `
-    <div class = "shop-item">
+    <div class = "cart-item">
 
-    <span class="shop-item-title">${title}</span>
-    <span class="shop-item-price">${price}</span>
+    <span class="cart-item-title">${title}</span>
+    <span class="cart-price">${price}</span>
     
      <button class="btn btn-danger fas fa-minus" type="button"></button>
 
@@ -69,7 +69,7 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('shop-items')[0]
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0
     for (var i = 0; i < cartBlocks.length; i++) {

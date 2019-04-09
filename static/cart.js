@@ -21,7 +21,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Items')
+    alert('Items Cleared')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)

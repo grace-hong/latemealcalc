@@ -108,13 +108,13 @@
 	{% if resultList %}
 		<h1>We found the following results:<br></h1>
 		<script>handleResults(resultList);</script>
-			
+		<h5>
 		<table class="shop-items" id="shop-items" align="left">
 			{{ resultList }}
 		</table>
 		<br><br>
 		<button class="btn btn-primary btn-purchase" type="button">CLEAR</button>
-			
+		</h5>
 		
 	{% else %}
   		<h1>No results found.</h1>

@@ -24,12 +24,16 @@
 
 <style>
 	table {
- 		width: 100%;
+ 		width: 60%;
 		align: left;
 	}		
 
 	td, th, tr {
   		text-align: left;
+	}
+	
+	tr:nth-child(even) {
+ 	 	background-color: #dddddd;
 	}
 
 </style>
@@ -96,7 +100,7 @@
 	</script>
 
 
-	<section class="page-container" >
+	<section class="page-container" align="left" >
 
 	<!-- display results !-->
 	{% if resultList %}

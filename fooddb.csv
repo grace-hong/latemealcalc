@@ -38,8 +38,8 @@ Latte 8oz,1.4,beverage,0,both,n
 Latte 12oz,2,beverage,0,both,n
 Cappuccino 8oz,1.4,beverage,0,both,n
 Cappuccino 12oz,2,beverage,0,both,n
-Café Mocha 8oz,1.4,beverage,0,both,n
-Café Mocha 12oz,2,beverage,0,both,n
+Cafe Mocha 8oz,1.4,beverage,0,both,n
+Cafe Mocha 12oz,2,beverage,0,both,n
 Mochaccino 8oz,1.4,beverage,0,both,n
 Mochaccino 12oz,2,beverage,0,both,n
 Hot Cocoa 8oz,1.4,beverage,0,both,n
@@ -86,9 +86,9 @@ Burrito Bowl,5.7,bowls,0,lunch,n
 6 Piece Dumpling,6,bowls,0,lunch,n
 5 Piece Korean Fried Chicken,5.5,bowls,0,lunch,n
 10 Piece Korean Fried Chicken,10,bowls,0,lunch,n
-Carved Entrée,5,delicatessen,0,lunch,n
-Carved Entrée with 2 sides,7,delicatessen,0,lunch,n
-Carved Entrée with 3 sides,8,delicatessen,0,lunch,n
+Carved Entree,5,delicatessen,0,lunch,n
+Carved Entree with 2 sides,7,delicatessen,0,lunch,n
+Carved Entree with 3 sides,8,delicatessen,0,lunch,n
 Mac and Cheese (side),2,delicatessen,0,lunch,n
 Vegan Mac and Cheese (side),2,delicatessen,0,lunch,n
 Braised Greens (side),2,delicatessen,0,lunch,n

@@ -36,13 +36,12 @@ function removeCartItem(event) {
 }
 
 function addToCartClicked(event) {
-    alert('clicked')
+
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    alert(title)
-    alert(price)
+  
     addItemToCart(title, price)
     updateCartTotal()
 }
@@ -65,7 +64,7 @@ function addItemToCart(title, price) {
       
         `
     cartBlock.innerHTML = cartBlockContents
-    shopItems.append(cartBlock)
+    cartItems.append(cartBlock)
     cartBlock.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     
 }

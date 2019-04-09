@@ -116,11 +116,11 @@ def getItemsFromCategory(catg):
       <td class="shop-item-image'>
       </td>
       <td class="shop-item-title"><h5>'''
-  post_title = '''</h5></td>
+  post_title = '''</h5></td> <td class = "shop-item-details">
       <td class="shop-item-price"><h5>$'''
   post = '''</h5><td class="button">
         <button class="btn btn-primary shop-item-button fas fa-plus" type="button"></button>
-      </td>
+      </td> </td>
     </tr>'''
   if len(results) == 0:
     return "No results found."

@@ -60,8 +60,6 @@ def getFavorites():
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
-      <td class="shop-item-image'>
-      </td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
@@ -86,8 +84,6 @@ def getItem(item):
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
-      <td class="shop-item-image'>
-      </td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
@@ -113,8 +109,6 @@ def getItemsFromCategory(catg):
   print(results)
   retVal = ""
   pre = '''<tr class="shop-item">
-      <td class="shop-item-image'>
-      </td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td> <td class = "shop-item-details">
       <td class="shop-item-price"><h5>$'''

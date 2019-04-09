@@ -35,7 +35,7 @@ function removeCartItem(event) {
     updateCartTotal()
 }
 
-window.onload = function addToCartClicked(event) {
+function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText

@@ -97,6 +97,10 @@ def getItem(item):
       if item.lower() in str(re[0]).lower():
         retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
         print(str(re[0]))
+        cursor.execute("SELECT name FROM food WHERE name='%s'" % str(re[0]))
+        newRetVal = cursor.fetchall()
+        for newre in newRetVal:
+          print(newre)
         cursor.execute("UPDATE food SET count=count+1 WHERE name='%s'" % str(re[0]))
 
   return render_template("results.html", resultList = Markup(retVal))

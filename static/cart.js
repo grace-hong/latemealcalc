@@ -95,6 +95,7 @@ function updateCartTotal() {
     if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
         document.getElementsByClassName('cart-dif')[0].innerText = '$' + (total - maxPrice);
+        document.getElementsByClassName('cart-dif')[0].style.color = "red";
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 

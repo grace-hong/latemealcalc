@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Markup
 import os
 import psycopg2
+from psycopg2.extensions import AsIs
 import subprocess
 
 import os

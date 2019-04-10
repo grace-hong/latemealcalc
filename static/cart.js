@@ -73,6 +73,7 @@ function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0
+    var maxPrice = 0
     for (var i = 0; i < cartBlocks.length; i++) {
         var cartBlock = cartBlocks[i]
         var priceElement = cartBlock.getElementsByClassName('cart-price')[0]
@@ -80,14 +81,32 @@ function updateCartTotal() {
         total = total + price
     }
     total = Math.round(total * 100) / 100
+    
+    if (getTime() == 0) {
+        maxPrice = 6
+    }
+    else {
+        maxPrice = 7
+    }
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
-    if (total <= 20) {
+    if (total <= maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
     }
-    if (total > 20) {
+    if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
 
 
+}
+
+/* return 0 for lunchtime, 1 for dinner */
+function getTime() {
+    var time = new Date()
+    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+        return 0
+    }
+    else { // dinner time
+        return 1
+    }
 }

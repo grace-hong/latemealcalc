@@ -89,10 +89,10 @@ function updateCartTotal() {
         maxPrice = 7
     }
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
-    if (total <= 6) {
+    if (total <= maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
     }
-    if (total > 6) {
+    if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total

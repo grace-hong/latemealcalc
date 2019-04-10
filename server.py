@@ -106,7 +106,7 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  cursor.execute("SELECT name, price FROM food WHERE category='%s'" % catg)
+  cursor.execute("SELECT name, price FROM food WHERE category=(%s)", (catg,))
   results = cursor.fetchall()
   print(results)
   retVal = ""

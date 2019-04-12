@@ -101,11 +101,13 @@ def getItem(item):
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        if request.POST.get('lunchcheck', True): #print lunch item
+        #if request.POST.get('lunchcheck', True): #print lunch item
+        if request.form.get('lunchcheck'):
           if re[3].lower() == "lunch":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])
-        elif request.POST.get('dinnercheck', True): #print dinner item
+        #elif request.POST.get('dinnercheck', True): #print dinner item
+        elif if request.form.get('dinnercheck'):
           if re[3].lower() == "both":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])

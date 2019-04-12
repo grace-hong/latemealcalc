@@ -58,7 +58,7 @@
 
 			<form class="searchbutton" style = "position: absolute; width: 100%; left: 0; background-color: #fafafa;" action="action_page.php">
 				<div class = "row padding-0" style="padding-top:2rem;">
-
+					<div class = "col-1"></div>
 					<div class = "col-9 padding-0">   	
 						<div class="searchbar">
 							<input type="text" id="itemsearch" class="form-control" placeholder="Search...">
@@ -67,16 +67,15 @@
 					<div class = "col-1 " style="display: inline-block; padding-top: 2rem; padding-left: 0rem; padding-right:1rem;">
 						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
 					</div>
-					<div class = "col-1">
-						<input type="radio" id="lunchbutton" name="lunch" value="lunch" checked>
-  						<label for="lunch">Lunch</label>
-						<input type="radio" id="dinnerbutton" name="dinner" value="dinner">
-  						<label for="dinner">Dinner</label>
-					</div>
 				</div>
 
 			</form>
-		
+			<div class = "col-1">
+				<input type="radio" id="lunchbutton" name="lunch" value="lunch" checked>
+  				<label for="lunch">Lunch</label>
+				<input type="radio" id="dinnerbutton" name="dinner" value="dinner">
+  				<label for="dinner">Dinner</label>
+			</div>
 		
 
 	</header>

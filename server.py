@@ -111,6 +111,7 @@ def getItemsFromCategory(catg):
   print(results)
   retVal = ""
   pre = '''<tr class="shop-item">
+      <td class="shop-item-image"><h5>🍔</h5></td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''

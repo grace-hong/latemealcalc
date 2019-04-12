@@ -57,10 +57,12 @@ def getContact():
 
 @app.route("/favorites")
 def getFavorites():
-  cursor.execute("SELECT name, price FROM food ORDER BY count DESC LIMIT 5")
+  cursor.execute("SELECT name, price, image FROM food ORDER BY count DESC LIMIT 5")
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
+      <td class="shop-item-image"><h5>'''
+  post_image = '''</h5></td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
@@ -71,7 +73,7 @@ def getFavorites():
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
 
   return render_template("favorites.html", resultList = Markup(retVal))
 
@@ -81,10 +83,12 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  cursor.execute("SELECT name, price FROM food")
+  cursor.execute("SELECT name, price, image FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
+      <td class="shop-item-image"><h5>'''
+  post_image = '''</h5></td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
@@ -96,7 +100,7 @@ def getItem(item):
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
         print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
@@ -106,12 +110,13 @@ def getItem(item):
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
   catg = str(catg)
-  cursor.execute("SELECT name, price FROM food WHERE category=(%s)", (catg,))
+  cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))
   results = cursor.fetchall()
   print(results)
   retVal = ""
   pre = '''<tr class="shop-item">
-      <td class="shop-item-image"><h5>🍔</h5></td>
+      <td class="shop-item-image"><h5>'''
+  post_image = '''</h5></td>
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
@@ -122,7 +127,7 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
   
   return render_template("category.html", resultList = Markup(retVal))
 

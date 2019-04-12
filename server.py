@@ -103,11 +103,11 @@ def getItem(item):
       if item.lower() in str(re[0]).lower():
         retVal = retVal + 'lunch check: ' + request.form.get('lunchcheck');
         retVal = retVal + 'dinner check: ' + request.form.get('dinnercheck');
-        if request.form.get('lunchcheck'): #print lunch item
+        if request.POST.get('lunchcheck', True): #print lunch item
           if re[3].lower() == "lunch":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])
-        elif request.form.get('dinnercheck'): #print dinner item
+        elif request.POST.get('dinnercheck', True): #print dinner item
           if re[3].lower() == "both":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])

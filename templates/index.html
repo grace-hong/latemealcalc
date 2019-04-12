@@ -75,8 +75,7 @@
 				</div>
 				
 				<script>
-				    var time = new Date()
-				    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+				    if (!getTime()) { // lunch time
 					document.getElementById("lunchcheck").checked = true;
 				    }
 				    else { // dinner time

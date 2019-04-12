@@ -105,7 +105,7 @@ def getItem(item):
           if re[3].lower() == "lunch":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])
-        else if request.form.get('dinnercheck'): #print dinner item
+        elif request.form.get('dinnercheck'): #print dinner item
           if re[3].lower() == "both":
             retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             print(re[0])

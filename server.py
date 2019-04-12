@@ -112,9 +112,9 @@ def getItem(item):
             #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             #print(re[0])
         #else: #print item regardless of time
-          retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-          print(re[0])
-        cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
+        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+        print(re[0])
+      cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   return render_template("results.html", resultList = Markup(retVal))
 

@@ -32,7 +32,8 @@ cursor.execute(
     category VARCHAR(50) NOT NULL,
     count INTEGER NOT NULL,
     time VARCHAR(50) NOT NULL,
-    packaged VARCHAR(50) NOT NULL
+    packaged VARCHAR(50) NOT NULL,
+    image VARCHAR(50) NOT NULL
   )
   """)
 

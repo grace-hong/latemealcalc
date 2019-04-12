@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Markup
+from flask import Flask, request, render_template, Markup
 import os
 import psycopg2
 from psycopg2.extensions import AsIs
@@ -84,7 +84,7 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  cursor.execute("SELECT name, price, image FROM food")
+  cursor.execute("SELECT name, price, image, time FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
@@ -101,8 +101,17 @@ def getItem(item):
     return "No results found."
   for re in results:
       if item.lower() in str(re[0]).lower():
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-        print(re[0])
+        if request.form.get('lunchcheck'): #print lunch item
+          if re[3].lower() == "lunch":
+            retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+            print(re[0])
+        else if request.form.get('dinnercheck'): #print dinner item
+          if re[3].lower() == "both":
+            retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+            print(re[0])
+        else: #print item regardless of time
+          retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+          print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   return render_template("results.html", resultList = Markup(retVal))

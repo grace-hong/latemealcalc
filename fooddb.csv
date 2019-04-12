@@ -1,5 +1,5 @@
 fooddb
-name,price,category,count,time,packaged,Image
+name,price,category,count,time,packaged,image
 Neapolitan Cheese Pizza,3.1,pizza,0,both,n,🍕
 Neapolitan Pizza Deluxe,3.95,pizza,0,both,n,🍕
 Traditional Quesadilla,5.55,pizza,0,both,n,🧀

@@ -85,7 +85,20 @@
 						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
-
+				<div>
+					<input type="checkbox" name="lunchcheck" id="lunchcheck" value="lunch">Lunch<br>
+					<input type="checkbox" name="dinnercheck" id="dinnercheck" value="lunch">Dinner<br>
+				</div>
+				
+				<script>
+				    var time = new Date()
+				    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+					document.getElementById("lunchcheck").checked = true;
+				    }
+				    else { // dinner time
+					document.getElementById("dinnercheck").checked = true;
+				    }
+				</script>
 			</form>
 		
 

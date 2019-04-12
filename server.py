@@ -102,18 +102,18 @@ def getItem(item):
   for re in results:
       if item.lower() in str(re[0]).lower():
         #if request.POST.get('lunchcheck', True): #print lunch item
-        if request.form.get('lunchcheck'):
-          if re[3].lower() == "lunch":
-            retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            print(re[0])
+        #if request.form.get('lunchcheck'):
+          #if re[3].lower() == "lunch":
+            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+            #print(re[0])
         #elif request.POST.get('dinnercheck', True): #print dinner item
-        elif request.form.get('dinnercheck'):
-          if re[3].lower() == "both":
-            retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            print(re[0])
+        #elif request.form.get('dinnercheck'):
+          #if re[3].lower() == "both":
+            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+            #print(re[0])
         #else: #print item regardless of time
-          #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-          #print(re[0])
+          retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+          print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   return render_template("results.html", resultList = Markup(retVal))

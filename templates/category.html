@@ -22,7 +22,7 @@
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <script>
-	if (document.readyState == 'loading') {
+if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
     ready()
@@ -45,7 +45,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Items Cleared')
+    alert('Items')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -60,12 +60,10 @@ function removeCartItem(event) {
 }
 
 function addToCartClicked(event) {
-
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-  
     addItemToCart(title, price)
     updateCartTotal()
 }
@@ -78,10 +76,13 @@ function addItemToCart(title, price) {
   
     var cartBlockContents = `
     <div class = "cart-item">
+
     <span class="cart-item-title">${title}</span>
     <span class="cart-price">${price}</span>
     
+
      <button class="btn btn-danger fas fa-minus" type="button"></button>
+
     </div>
       
         `
@@ -90,7 +91,6 @@ function addItemToCart(title, price) {
     cartBlock.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     
 }
-
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')

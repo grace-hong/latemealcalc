@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
 body{
@@ -33,6 +32,7 @@ body{
 }
 
 
+
 .page-container {
   padding-top: 8em;
   padding-bottom: 6.5rem;
@@ -41,6 +41,7 @@ body{
   position: relative;
   width: 100%;
   overflow: auto;
+  align: left;
 }
 
 .items-scroll-y {
@@ -203,24 +204,29 @@ form.categorybutton::after {
     background-color: #56CCF2;
     border: none;
     font-weight: bold;
+    align: left;
 }
 
 .btn-primary:hover {
     background-color: #2D9CDB;
 }
 
+.shop-items {
+  align: left;
+  margin: 5px;
+
 .shop-item {
-    margin: 30px;
+    align: left;
+    margin: 3px;
 }
 
 .shop-item-title {
-    display: block;
+    display: flex;
     width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1em;
+    text-align: left;
     color: #333;
     margin-bottom: 15px;
+    padding: 10px;
 }
 
 .shop-item-image {
@@ -236,6 +242,7 @@ form.categorybutton::after {
 .shop-item-price {
     flex-grow: 1;
     color: #333;
+    padding: 10px;
 }
 
 .shop-items {
@@ -323,4 +330,5 @@ form.categorybutton::after {
     display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+    align: left;
 }

@@ -44,14 +44,6 @@ body{
   align: left;
 }
 
-.items-scroll-y {
-  display: block;
-  position: fixed;
-  top: 246px;
-  bottom: 100px;
-}
-
-
 .containercategory {
   height: 100%;
   width: 100%;
@@ -78,7 +70,6 @@ body{
   opacity: .4;
 
 }
-
 
 .padding-0{
   padding-right:0;
@@ -247,7 +238,7 @@ form.categorybutton::after {
 
 .shop-items {
     display: flex;
-    flex-wrap: wrap;
+    flex3-wrap: wrap;
     justify-content: space-around;
 }
 

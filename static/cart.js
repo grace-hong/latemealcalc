@@ -53,11 +53,12 @@ function addItemToCart(title, price) {
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
   
     var cartBlockContents = `
-    <div>
+    <div class = "cart-item">
 
-    <span>${title}</span>
-    <span>${price}</span>
+    <span class="cart-item-title">${title}</span>
+    <span class="cart-price">${price}</span>
     
+
      <button class="btn btn-danger fas fa-minus" type="button"></button>
 
     </div>

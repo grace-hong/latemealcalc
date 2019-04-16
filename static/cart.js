@@ -1,5 +1,3 @@
-import css from 'styles/styles.css'
-
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {

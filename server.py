@@ -31,7 +31,8 @@ cursor.execute(
     count INTEGER NOT NULL,
     time VARCHAR(50) NOT NULL,
     packaged VARCHAR(50) NOT NULL,
-    image VARCHAR(50) NOT NULL
+    image VARCHAR(50) NOT NULL,
+    keys VARCHAR(50) NOT NULL
   )
   """)
 
@@ -82,7 +83,7 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
-  cursor.execute("SELECT name, price, image, time FROM food")
+  cursor.execute("SELECT name, price, image, time, keys FROM food")
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
@@ -98,7 +99,7 @@ def getItem(item):
   if len(results) == 0:
     return "No results found."
   for re in results:
-      if item.lower() in str(re[0]).lower():
+      if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
         #if request.POST.get('lunchcheck', True): #print lunch item
         #if request.form.get('lunchcheck'):
           #if re[3].lower() == "lunch":

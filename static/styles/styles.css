@@ -6,6 +6,10 @@ body{
   width:auto;
 }
 
+.cart {
+  display: inline-block;
+}
+
 
 .title {
   width: 100%;

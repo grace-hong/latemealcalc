@@ -3,7 +3,6 @@ import os
 import psycopg2
 from psycopg2.extensions import AsIs
 import subprocess
-from flask.ext.session import Session
 import os
 import csv
 

@@ -18,11 +18,11 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 
 ##ADDED CODE ###################################################################################
-#cursor.execute("""DROP TABLE IF EXISTS food""")
-#conn.commit()
+cursor.execute("""DROP TABLE IF EXISTS food""")
+conn.commit()
 #################################################################################################
 
-'''
+
 cursor.execute(
   """
   CREATE TABLE food (
@@ -36,14 +36,14 @@ cursor.execute(
     keys VARCHAR(50) NOT NULL
   )
   """)
-'''
 
-'''
+
+
 with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
-'''
+
 
 #cursor.execute(
  #   """

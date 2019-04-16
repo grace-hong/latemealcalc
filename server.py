@@ -22,19 +22,6 @@ cursor.execute("""DROP TABLE IF EXISTS food""")
 conn.commit()
 #################################################################################################
 
-SESSION_type = 'redis'
-app.config.from_object(__name__)
-Session(app)
-
-@app.route("/set/")
-def set():
-  session['key'] = 'value'
-  return 'ok'
-
-@app.route('/get/')
-def get():
-  return session.get('key', 'not set')
-
 cursor.execute(
   """
   CREATE TABLE food (

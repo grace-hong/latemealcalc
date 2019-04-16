@@ -1,9 +1,9 @@
-from flask import Flask, request, render_template, Markup
+from flask import Flask, request, render_template, Markup, session
 import os
 import psycopg2
 from psycopg2.extensions import AsIs
 import subprocess
-
+from flask.ext.session import Session
 import os
 import csv
 
@@ -15,7 +15,6 @@ DATABASE_URL = 'postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffff
 
 #READING CSV FILE FOR DATA #####################################################
 
-
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 
@@ -23,6 +22,19 @@ cursor = conn.cursor()
 cursor.execute("""DROP TABLE IF EXISTS food""")
 conn.commit()
 #################################################################################################
+
+SESSION_type = 'redis'
+app.config.from_object(__name__)
+Session(app)
+
+@app.route("/set/")
+def set():
+  session['key'] = 'value'
+  return 'ok'
+
+@app.route('/get/')
+def get():
+  return session.get('key', 'not set')
 
 cursor.execute(
   """

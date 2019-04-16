@@ -1,135 +1,135 @@
-name,price,category,count,time,packaged,Image
-Neapolitan Cheese Pizza,3.1,pizza,0,both,n,🍕
-Neapolitan Pizza Deluxe,3.95,pizza,0,both,n,🍕
-Traditional Quesadilla,5.55,pizza,0,both,n,🧀
-Toasted Reuben,6.55,pizza,0,both,n,🥪
-Shaker Fries,2.35,pizza,0,both,n,🍟
-Sweet Potato Shaker Fries,2.35,pizza,0,both,n,🍟
-Chips and Dip,4,pizza,0,both,n,🧂
-Hummus,2,pizza,0,both,n,🍴
-Guacamole,2,pizza,0,both,n,🥑
-Pita Chips,2,pizza,0,both,n,🧂
-Tortilla Chips,2,pizza,0,both,n,🧂
-Southwestern,7.15,salad,0,both,n,🥗
-Caesar,5.95,salad,0,both,n,🥗
-Grain Bowl,5.95,salad,0,both,n,🥗
-Masters,5.95,salad,0,both,n,🥗
-PhD,7.15,salad,0,both,n,🥗
-Cottage Cheese,1.55,miscellaneous,0,both,y,🧀
-Dannon Yogurt,1.6,miscellaneous,0,both,y,🥣
-Fruit Cup,3.75,miscellaneous,0,both,y,🍎
-Grapes,3.1,miscellaneous,0,both,y,🍇
-Hard Boiled Eggs,0.8,miscellaneous,0,both,y,🥚
-Kozyshack Pudding,1.4,miscellaneous,0,both,y,🥣
-OIKOS Greek Yogurt,2.5,miscellaneous,0,both,y,🥣
-Rice Pudding,2.5,miscellaneous,0,both,y,🥣
-Yogurt Parfait,3.45,miscellaneous,0,both,y,🥣
-Boxed Water,2.15,miscellaneous,0,both,y,🚰
-Honest Tea,2.15,miscellaneous,0,both,y,🥤
-Lactaid,1.75,miscellaneous,0,both,y,🥛
-Milk Half Pint,0.95,miscellaneous,0,both,y,🥛
-Milk Silk Soy,2.95,miscellaneous,0,both,y,🥛
-Powerade,2,miscellaneous,0,both,y,🥤
-Snapple,2.15,miscellaneous,0,both,y,🥤
-Tropicana,2.05,miscellaneous,0,both,y,🥤
-Coffee 8oz,1.15,beverage,0,both,n,☕
-Coffee 12oz,1.6,beverage,0,both,n,☕
-Latte 8oz,1.4,beverage,0,both,n,☕
-Latte 12oz,2,beverage,0,both,n,☕
-Cappuccino 8oz,1.4,beverage,0,both,n,☕
-Cappuccino 12oz,2,beverage,0,both,n,☕
-Cafe Mocha 8oz,1.4,beverage,0,both,n,☕
-Cafe Mocha 12oz,2,beverage,0,both,n,☕
-Mochaccino 8oz,1.4,beverage,0,both,n,☕
-Mochaccino 12oz,2,beverage,0,both,n,☕
-Hot Cocoa 8oz,1.4,beverage,0,both,n,☕
-Hot Cocoa 12oz,2,beverage,0,both,n,☕
-Tea,1.4,beverage,0,both,n,☕
-Juice 8oz,1.3,beverage,0,both,n,🥤
-Juice 12oz,1.85,beverage,0,both,n,🥤
-Juice 16oz,2.2,beverage,0,both,n,🥤
-Juice 32oz,3.15,beverage,0,both,n,🥤
-Soda 16oz,1.3,beverage,0,both,n,🥤
-Soda 32oz,1.5,beverage,0,both,n,🥤
-Empty Cup,0.25,beverage,0,both,n,🥤
-Waffle with Strawberries,4.5,grill,0,both,n,🥞
-Ham and Cheese Waffelini,4.5,grill,0,both,n,🥞
-Chicken and Waffles,6,grill,0,both,n,🍗
-Waffle with Breakfast Potatoes and Bacon,6,grill,0,both,n,🥞
-Egg and Cheese,3.5,grill,0,both,n,🍳
-Spinach Egg and Tomato,4,grill,0,both,n,🍳
-Bacon Egg and Cheese,4.5,grill,0,both,n,🍳
-Cheese Omelet,4,grill,0,both,n,🍳
-Blue Plate Special,5.5,grill,0,both,n,🍳
-3 Egg Omelet,6.5,grill,0,both,n,🍳
-Princeton Crafted Cheeseburger,7,grill,0,both,n,🍔
-California Crafted Burger,8,grill,0,both,n,🍔
-Black Bean Burger,7,grill,0,both,n,🍔
-Chicken Sandwich,7,grill,0,both,n,🥪
-Chicken Tenders,7,grill,0,both,n,🍗
-Chicago Dog,5,grill,0,both,n,🌭
-Bacon,1.5,grill,0,both,n,🥓
-Sausage,1.5,grill,0,both,n,🥓
-Turkey Bacon,1.5,grill,0,both,n,🥓
-Breakfast Potatoes,1.5,grill,0,both,n,🥔
-Fried Egg,1.5,grill,0,both,n,🍳
-Toast,1,grill,0,both,n,🍞
-Roll,1,grill,0,both,n,🥖
-Extra Cheese,0.5,grill,0,both,n,🧀
-Fries,2.35,grill,0,both,n,🍟
-Burrito,5.7,bowls,0,lunch,n,🌯
-Empanadas,2.5,bowls,0,lunch,n,🥟
-Pho,7.5,bowls,0,lunch,n,🍜
-Rice and Grain Bowl,7.5,bowls,0,lunch,n,🍚
-Burrito Bowl,5.7,bowls,0,lunch,n,🥙
-3 Piece Dumpling,3.5,bowls,0,lunch,n,🥟
-6 Piece Dumpling,6,bowls,0,lunch,n,🥟
-5 Piece Korean Fried Chicken,5.5,bowls,0,lunch,n,🍗
-10 Piece Korean Fried Chicken,10,bowls,0,lunch,n,🍗
-Carved Entree,5,delicatessen,0,lunch,n,🍖
-Carved Entree with 2 sides,7,delicatessen,0,lunch,n,🍖
-Carved Entree with 3 sides,8,delicatessen,0,lunch,n,🍖
-Mac and Cheese (side),2,delicatessen,0,lunch,n,🧀
-Vegan Mac and Cheese (side),2,delicatessen,0,lunch,n,🧀
-Braised Greens (side),2,delicatessen,0,lunch,n,🥬
-Rainbowed Delicatessented Carrots (side),2,delicatessen,0,lunch,n,🥕
-Feijoada (side),2,delicatessen,0,lunch,n,🍲
-Mixed Grains with Herbs and Nuts (side),2,delicatessen,0,lunch,n,🥜
-Soup of the Day,3.75,delicatessen,0,both,n,🥣
-Soup and Sandwich Half Combo,6.75,delicatessen,0,lunch,n,🥣
-Apple,1,miscellaneous,0,both,n,🍎
-Banana,1,miscellaneous,0,both,n,🍌
-Grapefruit,1.5,miscellaneous,0,both,n,🍊
-Nectarine,1,miscellaneous,0,both,n,🍊
-Orange,1,miscellaneous,0,both,n,🍊
-Peach,1,miscellaneous,0,both,n,🍑
-Pear,1,miscellaneous,0,both,n,🍐
-Plum,1,miscellaneous,0,both,n,🍑
-Bagel,1.25,bakery,0,both,n,🥯
-Bagel and Cream Cheese,1.7,bakery,0,both,n,🥯
-Brownie,1.7,bakery,0,both,n,🍫
-Cookie,1.85,bakery,0,both,n,🍪
-Croissant,2.3,bakery,0,both,n,🥐
-David's Cookie,0.95,bakery,0,both,n,🍪
-David's Cookie (3),2.25,bakery,0,both,n,🍪
-Doughnut,1.35,bakery,0,both,n,🍩
-Muffin,1.85,bakery,0,both,n,🧁
-Caesar Chicken Asiago on Roll,6.55,miscellaneous,0,both,n,🥪
-Vegetable Wrap,5.65,miscellaneous,0,both,n,🌯
-Tomato & Mozzarella with Basil on Roll,5.65,miscellaneous,0,both,n,🥪
-Ham & Swiss on Onion Roll,5.65,miscellaneous,0,both,n,🥪
-Cheese Plate with Fruit & Pepperoni,3.45,miscellaneous,0,both,n,🧀
-Tuna Salad,2.75,miscellaneous,0,both,n,🐟
-Egg Salad,2.75,miscellaneous,0,both,n,🥚
-Red Pepper Hummus,2.75,miscellaneous,0,both,n,🍴
-Garden Salad,4.65,miscellaneous,0,both,n,🥗
-Grilled Salmon & Spinach Salad,6.65,miscellaneous,0,both,n,🐟
-Asian Chicken Salad,6.65,miscellaneous,0,both,n,🥗
-Chef Salad,6.65,miscellaneous,0,both,n,🥗
-Crispy Chicken Salad,6.65,miscellaneous,0,both,n,🥗
-Miss Vickie's,1.45,miscellaneous,0,both,y,🧂
-Stacy's,1.65,miscellaneous,0,both,y,🧂
-Fritos,1,miscellaneous,0,both,y,🧂
-Cheez-its,1,miscellaneous,0,both,y,🧂
-Pringles,1,miscellaneous,0,both,y,🧂
-Boyfriend,100000,miscellaneous,0,both,n,👦
+name,price,category,count,time,packaged,image,keys
+Neapolitan Cheese Pizza,3.1,pizza,0,both,n,🍕,italian
+Neapolitan Pizza Deluxe,3.95,pizza,0,both,n,🍕,italian cheese
+Traditional Quesadilla,5.55,pizza,0,both,n,🧀,cheese oven
+Toasted Reuben,6.55,pizza,0,both,n,🥪,sandwich corned beef
+Shaker Fries,2.35,pizza,0,both,n,🍟,snack potato salty
+Sweet Potato Shaker Fries,2.35,pizza,0,both,n,🍟,snack salty
+Chips and Dip,4,pizza,0,both,n,🧂,snack salty 
+Hummus,2,pizza,0,both,n,🍴,dip 
+Guacamole,2,pizza,0,both,n,🥑,dip avocado 
+Pita Chips,2,pizza,0,both,n,🧂,snack salty
+Tortilla Chips,2,pizza,0,both,n,🧂,snack salty
+Southwestern,7.15,salad,0,both,n,🥗,salad mexican
+Caesar,5.95,salad,0,both,n,🥗,salad
+Grain Bowl,5.95,salad,0,both,n,🥗,salad quinoa 
+Masters,5.95,salad,0,both,n,🥗,salad
+PhD,7.15,salad,0,both,n,🥗,salad 
+Cottage Cheese,1.55,miscellaneous,0,both,y,🧀,dairy snack
+Dannon Yogurt,1.6,miscellaneous,0,both,y,🥣,dairy snack
+Fruit Cup,3.75,miscellaneous,0,both,y,🍎,melon cantaloupe grapes snack
+Grapes,3.1,miscellaneous,0,both,y,🍇,fruit snack
+Hard Boiled Eggs,0.8,miscellaneous,0,both,y,🥚,dairy 
+Kozyshack Pudding,1.4,miscellaneous,0,both,y,🥣,dairy snack
+OIKOS Greek Yogurt,2.5,miscellaneous,0,both,y,🥣,dairy snack
+Rice Pudding,2.5,miscellaneous,0,both,y,🥣,snack
+Yogurt Parfait,3.45,miscellaneous,0,both,y,🥣,dairy snack 
+Boxed Water,2.15,miscellaneous,0,both,y,🚰,drinks beverages
+Honest Tea,2.15,miscellaneous,0,both,y,🥤,drinks beverages
+Lactaid,1.75,miscellaneous,0,both,y,🥛,drinks beverages 
+Milk Half Pint,0.95,miscellaneous,0,both,y,🥛,drinks beverages dairy
+Milk Silk Soy,2.95,miscellaneous,0,both,y,🥛,drinks beverages dairy
+Powerade,2,miscellaneous,0,both,y,🥤,drinks beverages 
+Snapple,2.15,miscellaneous,0,both,y,🥤,drinks beverages iced tea
+Tropicana,2.05,miscellaneous,0,both,y,🥤,orange juice drinks beverages 
+Coffee 8oz,1.15,beverage,0,both,n,☕,caffeine drinks beverages
+Coffee 12oz,1.6,beverage,0,both,n,☕,caffeine drinks beverages
+Latte 8oz,1.4,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Latte 12oz,2,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Cappuccino 8oz,1.4,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Cappuccino 12oz,2,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Cafe Mocha 8oz,1.4,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Cafe Mocha 12oz,2,beverage,0,both,n,☕,caffeine drinks beverages coffee
+Mochaccino 8oz,1.4,beverage,0,both,n,☕,caffeine drinks beverages coffee chocolate
+Mochaccino 12oz,2,beverage,0,both,n,☕,caffeine drinks beverages coffee chocolate
+Hot Cocoa 8oz,1.4,beverage,0,both,n,☕,drinks beverages chocolate
+Hot Cocoa 12oz,2,beverage,0,both,n,☕,drinks beverages chocolate
+Tea,1.4,beverage,0,both,n,☕,caffeine drinks beverages
+Juice 8oz,1.3,beverage,0,both,n,🥤,drinks beverages
+Juice 12oz,1.85,beverage,0,both,n,🥤,drinks beverages
+Juice 16oz,2.2,beverage,0,both,n,🥤,drinks beverages
+Juice 32oz,3.15,beverage,0,both,n,🥤,drinks beverages
+Soda 16oz,1.3,beverage,0,both,n,🥤,drinks beverages
+Soda 32oz,1.5,beverage,0,both,n,🥤,drinks beverages
+Empty Cup,0.25,beverage,0,both,n,🥤,
+Waffle with Strawberries,4.5,grill,0,both,n,🥞,fruit 
+Ham and Cheese Waffelini,4.5,grill,0,both,n,🥞,sandwich
+Chicken and Waffles,6,grill,0,both,n,🍗,
+Waffle with Breakfast Potatoes and Bacon,6,grill,0,both,n,🥞,
+Egg and Cheese,3.5,grill,0,both,n,🍳,sandwich breakfast
+Spinach Egg and Tomato,4,grill,0,both,n,🍳,sandwich breakfast
+Bacon Egg and Cheese,4.5,grill,0,both,n,🍳,sandwich breakfast
+Cheese Omelet,4,grill,0,both,n,🍳,breakfast
+Blue Plate Special,5.5,grill,0,both,n,🍳,breakfast egg bacon 
+3 Egg Omelet,6.5,grill,0,both,n,🍳,breakfast
+Princeton Crafted Cheeseburger,7,grill,0,both,n,🍔,
+California Crafted Burger,8,grill,0,both,n,🍔,
+Black Bean Burger,7,grill,0,both,n,🍔,
+Chicken Sandwich,7,grill,0,both,n,🥪,
+Chicken Tenders,7,grill,0,both,n,🍗,
+Chicago Dog,5,grill,0,both,n,🌭,hot 
+Bacon,1.5,grill,0,both,n,🥓,side breakfast
+Sausage,1.5,grill,0,both,n,🥓,side breakfast
+Turkey Bacon,1.5,grill,0,both,n,🥓,side breakfast
+Breakfast Potatoes,1.5,grill,0,both,n,🥔,side
+Fried Egg,1.5,grill,0,both,n,🍳,side breakfast
+Toast,1,grill,0,both,n,🍞,bread side breakfast
+Roll,1,grill,0,both,n,🥖,bread side breakfast
+Extra Cheese,0.5,grill,0,both,n,🧀,side dairy burger
+Fries,2.35,grill,0,both,n,🍟,side salty potato 
+Burrito,5.7,bowls,0,lunch,n,🌯,mexican chicken beef 
+Empanadas,2.5,bowls,0,lunch,n,🥟,mexican chicken beef
+Pho,7.5,bowls,0,lunch,n,🍜,noodles asian
+Rice and Grain Bowl,7.5,bowls,0,lunch,n,🍚,quinoa
+Burrito Bowl,5.7,bowls,0,lunch,n,🥙,mexican chicken beef
+3 Piece Dumpling,3.5,bowls,0,lunch,n,🥟,asian pork chicken kale fried steamed
+6 Piece Dumpling,6,bowls,0,lunch,n,🥟,asian pork chicken kale fried steamed
+5 Piece Korean Fried Chicken,5.5,bowls,0,lunch,n,🍗,asian
+10 Piece Korean Fried Chicken,10,bowls,0,lunch,n,🍗,asian 
+Carved Entree,5,delicatessen,0,lunch,n,🍖,daily special meat
+Carved Entree with 2 sides,7,delicatessen,0,lunch,n,🍖,daily special meat
+Carved Entree with 3 sides,8,delicatessen,0,lunch,n,🍖,daily special meat
+Mac and Cheese (side),2,delicatessen,0,lunch,n,🧀,macaroni dairy
+Vegan Mac and Cheese (side),2,delicatessen,0,lunch,n,🧀,macaroni 
+Braised Greens (side),2,delicatessen,0,lunch,n,🥬,vegetables
+Rainbowed Delicatessented Carrots (side),2,delicatessen,0,lunch,n,🥕,vegetables
+Feijoada (side),2,delicatessen,0,lunch,n,🍲,brazilian pork bean stew 
+Mixed Grains with Herbs and Nuts (side),2,delicatessen,0,lunch,n,🥜,quinoa 
+Soup of the Day,3.75,delicatessen,0,both,n,🥣,daily special 
+Soup and Sandwich Half Combo,6.75,delicatessen,0,lunch,n,🥣,daily special 
+Apple,1,miscellaneous,0,both,n,🍎,fruit snack
+Banana,1,miscellaneous,0,both,n,🍌,fruit snack
+Grapefruit,1.5,miscellaneous,0,both,n,🍊,fruit snack
+Nectarine,1,miscellaneous,0,both,n,🍊,fruit snack
+Orange,1,miscellaneous,0,both,n,🍊,fruit snack
+Peach,1,miscellaneous,0,both,n,🍑,fruit snack
+Pear,1,miscellaneous,0,both,n,🍐,fruit snack
+Plum,1,miscellaneous,0,both,n,🍑,fruit snack
+Bagel,1.25,bakery,0,both,n,🥯,snack breakfast
+Bagel and Cream Cheese,1.7,bakery,0,both,n,🥯,snack breakfast
+Brownie,1.7,bakery,0,both,n,🍫,dessert chocolate
+Cookie,1.85,bakery,0,both,n,🍪,dessert chocolate m&m
+Croissant,2.3,bakery,0,both,n,🥐,dessert chocolate
+David's Cookie,0.95,bakery,0,both,n,🍪,dessert chocolate m&m
+David's Cookie (3),2.25,bakery,0,both,n,🍪,dessert chocolate m&m
+Doughnut,1.35,bakery,0,both,n,🍩,dessert chocolate
+Muffin,1.85,bakery,0,both,n,🧁,dessert chocolate chip blueberry 
+Caesar Chicken Asiago on Roll,6.55,miscellaneous,0,both,n,🥪,sandwich 
+Vegetable Wrap,5.65,miscellaneous,0,both,n,🌯,vegetarian sandwich 
+Tomato & Mozzarella with Basil on Roll,5.65,miscellaneous,0,both,n,🥪,sandwich vegetarian 
+Ham & Swiss on Onion Roll,5.65,miscellaneous,0,both,n,🥪,sandwich 
+Cheese Plate with Fruit & Pepperoni,3.45,miscellaneous,0,both,n,🧀,snack dairy 
+Tuna Salad,2.75,miscellaneous,0,both,n,🐟,fish 
+Egg Salad,2.75,miscellaneous,0,both,n,🥚,
+Red Pepper Hummus,2.75,miscellaneous,0,both,n,🍴,dip spicy 
+Garden Salad,4.65,miscellaneous,0,both,n,🥗,vegetables 
+Grilled Salmon & Spinach Salad,6.65,miscellaneous,0,both,n,🐟,fish 
+Asian Chicken Salad,6.65,miscellaneous,0,both,n,🥗,
+Chef Salad,6.65,miscellaneous,0,both,n,🥗,
+Crispy Chicken Salad,6.65,miscellaneous,0,both,n,🥗,
+Miss Vickie's,1.45,miscellaneous,0,both,y,🧂,chips salty snack
+Stacy's,1.65,miscellaneous,0,both,y,🧂,chips pita salty snack
+Fritos,1,miscellaneous,0,both,y,🧂,chips snack
+Cheez-its,1,miscellaneous,0,both,y,🧂,snack
+Pringles,1,miscellaneous,0,both,y,🧂,chips salty snack 
+Boyfriend,100000,miscellaneous,0,both,n,👦,hot nice trustworthy love

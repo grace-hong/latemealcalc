@@ -18,11 +18,11 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 
 ##ADDED CODE ###################################################################################
-cursor.execute("""DROP TABLE IF EXISTS food""")
-conn.commit()
+#cursor.execute("""DROP TABLE IF EXISTS food""")
+#conn.commit()
 #################################################################################################
 
-
+'''
 cursor.execute(
   """
   CREATE TABLE food (
@@ -43,7 +43,7 @@ with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
-
+'''
 
 #cursor.execute(
  #   """
@@ -117,7 +117,7 @@ def getItem(item):
         #else: #print item regardless of time
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
         print(re[0])
-      cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
+        cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   return render_template("results.html", resultList = Markup(retVal))
 

@@ -102,6 +102,17 @@
 
 	<section class="page-container" >
 
+		
+	<script>
+		function handleResults(resultList) {
+			text = "";
+			for (var i = 0; i < resultList.length; i++) {
+				text = text + resultList[i];
+			}
+			document.getElementById("shop-items").innerHTML = text;
+		}
+	</script>
+		
 	<!-- display results !-->
 	{% if resultList %}
 		<script>handleResults(resultList);</script>
@@ -112,15 +123,7 @@
 
 	</section>
 
-	<script>
-		function handleResults(resultList) {
-			text = "";
-			for (var i = 0; i < resultList.length; i++) {
-				text = text + resultList[i];
-			}
-			document.getElementById("shop-items").innerHTML = text;
-		}
-	</script>
+	
 	<div>
 		<input type="checkbox" name="lunchcheck" id="lunchcheck">Lunch<br>
 		<input type="checkbox" name="dinnercheck" id="dinnercheck">Dinner<br>

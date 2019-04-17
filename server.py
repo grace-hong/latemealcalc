@@ -160,7 +160,7 @@ def checkout():
 @app.route("/getsession")
 def getsession():
   if 'uid' in session:
-    return session['uid']
+    return str(session['uid'])
   
   return "This messed up"
 

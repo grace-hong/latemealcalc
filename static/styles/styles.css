@@ -171,6 +171,7 @@ form.categorybutton::after {
 
 }
 
+
 .content-section {
     margin: 1em;
 }
@@ -205,7 +206,7 @@ form.categorybutton::after {
     background-color: #2D9CDB;
 }
 
-}
+
 .shop-item {
     align: left;
     margin: 3px;
@@ -221,17 +222,18 @@ form.categorybutton::after {
 }
 
 
+.shop-item-details {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
 .shop-item-price {
     flex-grow: 1;
     color: #333;
     padding: 10px;
 }
 
-.shop-items {
-    display: flex;
-    flex3-wrap: wrap;
-    justify-content: space-around;
-}
 
 .cart-block {
     display: inline-block;
@@ -258,6 +260,7 @@ form.categorybutton::after {
   
 .btn-danger {
     color: white;
+
     font-size: 10px;
     background-color: #EB5757;
     border: none;
@@ -269,6 +272,12 @@ form.categorybutton::after {
     background-color:#CC4C4C;
 }
 
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
 
 .cart-total-title {
     font-weight: bold;
@@ -282,4 +291,3 @@ form.categorybutton::after {
   color: green;
     font-size: 2em;
 }
-

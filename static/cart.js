@@ -80,7 +80,7 @@ function updateCartTotal() {
         total = total + price
     }
     total = Math.round(total * 100) / 100
-    
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
     if (getTime() == 0) {
         maxPrice = 6
     }
@@ -89,7 +89,6 @@ function updateCartTotal() {
     }
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
     if (total <= maxPrice) {
-        document.getElementsByClassName('cart-total-price')[0].innerText = total;
     	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
         document.getElementsByClassName('cart-dif')[0].innerText = '';
         if (total < maxPrice)

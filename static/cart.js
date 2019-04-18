@@ -95,11 +95,10 @@ function updateCartTotal() {
     }
     else {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
-        document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
         document.getElementsByClassName('cart-dif')[0].innerText = '';
-        if (total < maxPrice) {
-            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" /*+ getSuggested(maxPrice - total);*/
-        }
+        /*if (total < maxPrice) {
+            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" + getSuggested(maxPrice - total);
+        }*/
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2)
 
@@ -117,9 +116,9 @@ function getTime() {
 }
 
 /* return a string of suggested items based on money left (difference) */
-function getSuggested(difference) {
+/*function getSuggested(difference) {
     var retStr = "";
-    /* connect to database */
+    // connect to database 
     var pg = require(‘pg’);
     var connectionString = "postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffffa249aaaef45ccf72034503106c@ec2-184-73-153-64.compute-1.amazonaws.com:5432/d1ipk1vqr3fslq";
     var pgClient = new pg.Client(connectionString);
@@ -136,4 +135,4 @@ function getSuggested(difference) {
        });
     });
     return retStr;
-}
+}*/

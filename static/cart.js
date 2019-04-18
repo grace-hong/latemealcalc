@@ -98,7 +98,7 @@ function updateCartTotal() {
         document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
         document.getElementsByClassName('cart-dif')[0].innerText = '';
         if (total < maxPrice) {
-            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>"; /*+ getSuggested(maxPrice - total);*/
+            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" + getSuggested(maxPrice - total);
         }
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2)
@@ -118,30 +118,22 @@ function getTime() {
 
 /* return a string of suggested items based on money left (difference) */
 function getSuggested(difference) {
-    /* connect to database 
+    var retStr = "";
+    /* connect to database */
     var pg = require(‘pg’);
     var connectionString = "postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffffa249aaaef45ccf72034503106c@ec2-184-73-153-64.compute-1.amazonaws.com:5432/d1ipk1vqr3fslq";
     var pgClient = new pg.Client(connectionString);
-    pgClient.connect();
-    var query = pgClient.query("SELECT id from Customer where name = 'customername'"); */
-    var retStr = "";
-    
-    const { Client } = require('pg');
-    const client = new Client({
-      connectionString: process.env.DATABASE_URL,
-      ssl: true,
-    });
-
-    client.connect();
-
-    client.query('SELECT name, price FROM food;', (err, res) => {
-      if (err) throw err;
-      for (let row of res.rows) {
+    pgClient.connect(connectionString, function(err, client, done) {
+       client.query('SELECT name, price FROM food', function(err, result) {
+          done();
+          if(err) return console.error(err);
+          for (let row of res.rows) {
           if (row[1] <= difference) {
             retStr = JSON.stringify(row[0]) + "<br>";
           }
       }
       client.end();
+       });
     });
     return retStr;
 }

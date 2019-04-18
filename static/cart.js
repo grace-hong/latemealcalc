@@ -80,7 +80,6 @@ function updateCartTotal() {
         total = total + price
     }
     total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
     if (getTime() == 0) {
         maxPrice = 6
     }
@@ -90,9 +89,11 @@ function updateCartTotal() {
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
     if (total <= maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
+        document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
         document.getElementsByClassName('cart-dif')[0].innerText = '';
-        if (total < maxPrice)
+        if (total < maxPrice) {
             document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" + getSuggested(maxPrice - total);
+        }
     }
     if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
@@ -135,8 +136,9 @@ function getSuggested(difference) {
     client.query('SELECT name, price FROM food;', (err, res) => {
       if (err) throw err;
       for (let row of res.rows) {
-          if (row[1] <= difference)
-          retStr = JSON.stringify(row[0]) + "<br>";
+          if (row[1] <= difference) {
+            retStr = JSON.stringify(row[0]) + "<br>";
+          }
       }
       client.end();
     });

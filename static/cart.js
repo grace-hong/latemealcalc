@@ -98,7 +98,7 @@ function updateCartTotal() {
         document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2);
         document.getElementsByClassName('cart-dif')[0].innerText = '';
         if (total < maxPrice) {
-            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" + getSuggested(maxPrice - total);
+            document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>"; /*+ getSuggested(maxPrice - total);*/
         }
     }
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2)

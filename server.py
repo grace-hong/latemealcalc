@@ -141,7 +141,7 @@ def getItemsFromCategory(catg):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/{{ item }}'">'''
+  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/' + {{ item }}">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>

@@ -150,9 +150,9 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + '''''' + post2)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + urlpost + str(re[0]) + '''''' + post2)
 
-  return render_template("category.html", resultList = Markup(retVal), item = Markup(str(re[0])))
+  return render_template("category.html", resultList = Markup(retVal))
 
 @app.route("/checkout")
 def checkout():

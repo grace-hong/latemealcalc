@@ -177,7 +177,7 @@ def addItem(item):
 
   string = "Your cart contains: "
 
-  for purchase in cart:
+  for purchase in cart[session['uid']]:
     string += str(purchase) + " "
   
   return string

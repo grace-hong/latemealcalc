@@ -182,7 +182,7 @@ def addItem(item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
   
-  return string
+  return redirect(url_for('getItem', item=item))
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):

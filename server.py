@@ -174,7 +174,7 @@ def addItem(item):
     #request.session['cart'] = {str(item)}
   #else:
     #request.session['cart'].update(str(item))
-  return str(item)
+  return "Added " + str(item) + " to the cart!"
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

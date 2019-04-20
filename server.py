@@ -170,10 +170,10 @@ def getsession():
 
 @app.route("/addItem/<item>")
 def addItem(item):
-  if 'cart' not in request.session:
-    request.session['cart'] = {str(item)}
-  else:
-    request.session['cart'].update(str(item))
+  #if 'cart' not in request.session:
+    #request.session['cart'] = {str(item)}
+  #else:
+    #request.session['cart'].update(str(item))
   return str(item)
 
 if __name__ == "__main__":

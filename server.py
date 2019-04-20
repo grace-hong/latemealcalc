@@ -196,7 +196,7 @@ def addItemFromCategory(catg, item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", " 
   
-  return redirect(url_for('getItem(item)'))
+  return redirect(url_for('getItemsFromCategory(catg)'))
 
   
 if __name__ == "__main__":

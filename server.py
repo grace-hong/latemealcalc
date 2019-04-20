@@ -170,8 +170,18 @@ def getsession():
 
 @app.route("/addItem/<item>")
 def addItem(item):
-  return "Added " + str(item) + " to the cart!"
+  if cart.get(session['uid']) == None:
+    cart[session['uid']] = []
+  
+  cart[session['uid']].append(item)
 
+  string = "Your cart contains: "
+
+  for purchase in cart:
+    string += str(purchase) + " "
+  
+  return string
+  
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))
     app.run(debug=False, port=PORT, host='0.0.0.0')

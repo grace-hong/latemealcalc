@@ -182,44 +182,7 @@ def addItem(item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
   
-  print(string)
-
-  cursor.execute("SELECT name, price, image, time, keys FROM food")
-  results = cursor.fetchall()
-  retVal = ""
-  pre = '''<tr class="shop-item">
-      <td class="shop-item-image"><h5>'''
-  post_image = '''</h5></td>
-      <td class="shop-item-title"><h5>'''
-  post_title = '''</h5></td>
-      <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/item/>'''
-  urlend = ''''">'''
-  post2 = '''
-        <button class="btn btn-primary shop-item-button fas fa-plus"></button>
-      </td>
-    </tr>'''
-  if len(results) == 0:
-    return "No results found."
-  for re in results:
-      if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
-        #if request.POST.get('lunchcheck', True): #print lunch item
-        #if request.form.get('lunchcheck'):
-          #if re[3].lower() == "lunch":
-            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            #print(re[0])
-        #elif request.POST.get('dinnercheck', True): #print dinner item
-        #elif request.form.get('dinnercheck'):
-          #if re[3].lower() == "both":
-            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            #print(re[0])
-        #else: #print item regardless of time
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(item) + urlend + '''''' + post2)
-        print(re[0])
-        cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
-
-  return render_template("results.html", resultList = Markup(retVal))
-
+  return string
 
 @app.route("/addItem/<catg>/<item>")
 def addItemFromCategory(catg, item):
@@ -233,30 +196,7 @@ def addItemFromCategory(catg, item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", " 
   
-  print(string)
-  catg = str(catg)
-  cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))
-  results = cursor.fetchall()
-  print(results)
-  retVal = ""
-  pre = '''<tr class="shop-item">
-      <td class="shop-item-image"><h5>'''
-  post_image = '''</h5></td>
-      <td class="shop-item-title"><h5>'''
-  post_title = '''</h5></td>
-      <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/''' 
-  urlend = ''''">'''
-  post2 = '''
-        <button class="btn btn-primary shop-item-button fas fa-plus"></button>
-      </td>
-    </tr>'''
-  if len(results) == 0:
-    return "No results found."
-  for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
-
-  return render_template("category.html", resultList = Markup(retVal))
+  return string
 
   
 if __name__ == "__main__":

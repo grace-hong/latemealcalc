@@ -234,7 +234,6 @@ def addItemFromCategory(catg, item):
     string += str(purchase) + ", " 
   
   print(string)
-
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))
   results = cursor.fetchall()

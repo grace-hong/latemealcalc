@@ -150,7 +150,7 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
 
   return render_template("category.html", resultList = Markup(retVal))
 
@@ -168,8 +168,8 @@ def getsession():
   return "This messed up"
 
 
-@app.route("/addItem/<item>")
-def addItem(item):
+@app.route("/addItem/<catg>/<item>")
+def addItem(catg, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
   
@@ -178,9 +178,34 @@ def addItem(item):
   string = "Your cart contains: "
 
   for purchase in cart[session['uid']]:
-    string += str(purchase) + " "
+    string += str(purchase) + ", " 
   
-  return string
+  print(string)
+
+  catg = str(catg)
+  cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))
+  results = cursor.fetchall()
+  print(results)
+  retVal = ""
+  pre = '''<tr class="shop-item">
+      <td class="shop-item-image"><h5>'''
+  post_image = '''</h5></td>
+      <td class="shop-item-title"><h5>'''
+  post_title = '''</h5></td>
+      <td class="shop-item-price"><h5>$'''
+  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/''' 
+  urlend = ''''">'''
+  post2 = '''
+        <button class="btn btn-primary shop-item-button fas fa-plus"></button>
+      </td>
+    </tr>'''
+  if len(results) == 0:
+    return "No results found."
+  for re in results:
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
+
+  return render_template("category.html", resultList = Markup(retVal))
+
   
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

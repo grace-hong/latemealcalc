@@ -58,6 +58,7 @@ cart = {}
 def main():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    session['cart'] = {}
 
   return render_template("index.html")
 
@@ -170,10 +171,8 @@ def getsession():
 
 @app.route("/addItem/<item>")
 def addItem(item):
-  #if 'cart' not in request.session:
-    #request.session['cart'] = {str(item)}
-  #else:
-    #request.session['cart'].update(str(item))
+  if str(item) not in request.session['cart']:
+    request.session['cart'].update(str(item)) #should increment quantity instead
   return "Added " + str(item) + " to the cart!"
 
 if __name__ == "__main__":

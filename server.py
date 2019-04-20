@@ -170,8 +170,6 @@ def getsession():
 
 @app.route("/addItem/<item>")
 def addItem(item):
-  #if str(item) not in request.session['cart']:
-    #request.session['cart'].update(str(item)) #should increment quantity instead
   return "Added " + str(item) + " to the cart!"
 
 if __name__ == "__main__":

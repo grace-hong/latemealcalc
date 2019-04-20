@@ -184,8 +184,8 @@ def addItem(item):
   
   return string
 
-@app.route("/addItem/<catg>/<item>")
-def addItemFromCategory(catg, item):
+@app.route("/addItem/<category>/<item>")
+def addItemFromCategory(category, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
   
@@ -195,8 +195,8 @@ def addItemFromCategory(catg, item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", " 
-  
-  return redirect(url_for('getItemsFromCategory(catg)'))
+    
+  return redirect(url_for('getItemsFromCategory', catg=category))
 
   
 if __name__ == "__main__":

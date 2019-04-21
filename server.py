@@ -94,7 +94,7 @@ def getInfo():
 @app.route("/search/item/<item>")
 def getItem(item):
   retVal2 = ""
-  if cart[session["uid"]] != None:
+  if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchall()

@@ -56,6 +56,7 @@ cart = {}
 
 @app.route("/")
 def main():
+  sum = 0.0
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
   
@@ -69,11 +70,13 @@ def main():
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemMain/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
+      sum += float(query[0])
 
+  retVal3 = '''$''' + str(sum)
   if cart.get(session['uid']) == None:
-    return render_template("index.html")
+    return render_template("index.html", resultList3 = Markup(retVal3))
 
-  return render_template("index.html", resultList2 = Markup(retVal2))
+  return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
 
 @app.route("/contact")
 def getContact():
@@ -107,6 +110,7 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
+  sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -117,6 +121,7 @@ def getItem(item):
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
+      sum += float(query[0])
 
   cursor.execute("SELECT name, price, image, time, keys FROM food")
   results = cursor.fetchall()
@@ -149,7 +154,6 @@ def getItem(item):
             #print(re[0])
         #else: #print item regardless of time
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
-        print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   if cart.get(session['uid']) == None:
@@ -160,6 +164,7 @@ def getItem(item):
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
+  sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -170,6 +175,7 @@ def getItemsFromCategory(catg):
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
+      sum += float(query[0])
 
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))

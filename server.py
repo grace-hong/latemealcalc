@@ -99,6 +99,7 @@ def getItem(item):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchall()
       print("Printing query: "),
+      print(product),
       print(query)
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''

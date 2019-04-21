@@ -58,7 +58,7 @@ cart = {}
 def main():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
-    
+  
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -66,8 +66,9 @@ def main():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_window2 = ''''"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
 
   if cart.get(session['uid']) == None:
     return render_template("index.html")
@@ -166,8 +167,9 @@ def getItemsFromCategory(catg):
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_window2 = ''''"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
 
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))

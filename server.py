@@ -93,6 +93,16 @@ def getInfo():
 
 @app.route("/search/item/<item>")
 def getItem(item):
+
+  retVal2 = ""
+  for product in cart.get(session["uid"]):
+    cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
+    query = results.fetchall()
+    pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    post_title2 = '''</span> <span class="cart-price">$'''
+    post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
+    retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+
   cursor.execute("SELECT name, price, image, time, keys FROM food")
   results = cursor.fetchall()
   retVal = ""
@@ -127,7 +137,7 @@ def getItem(item):
         print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
-  return render_template("results.html", resultList = Markup(retVal))
+  return render_template("results.html", resultList = Markup(retVal)), resultList2 = Markup(retVal2))
 
 
 @app.route("/search/category/<catg>")

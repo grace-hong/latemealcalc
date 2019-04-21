@@ -97,7 +97,7 @@ def getItem(item):
   retVal2 = ""
   for product in cart.get(session["uid"]):
     cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
-    query = results.fetchall()
+    query = cursor.fetchall()
     pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
     post_title2 = '''</span> <span class="cart-price">$'''
     post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''

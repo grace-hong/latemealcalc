@@ -56,6 +56,9 @@ cart = {}
 
 @app.route("/")
 def main():
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -66,10 +69,7 @@ def main():
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
 
-  if 'uid' not in session:
-    session['uid'] = uuid.uuid4()
-
-  if cart.get(session['uid']) != None:
+  if cart.get(session['uid']) == None:
     return render_template("index.html")
 
   return render_template("index.html", resultList2 = Markup(retVal2))
@@ -190,7 +190,7 @@ def getItemsFromCategory(catg):
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
 
-  if cart.get(session['uid']) != None:
+  if cart.get(session['uid']) == None:
     return render_template("category.html", resultList = Markup(retVal))
     
   return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2))

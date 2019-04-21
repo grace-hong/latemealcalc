@@ -140,7 +140,7 @@ def getItem(item):
         print(re[0])
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
-  if cart[session["uid"]] == None:
+  if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
   return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2))    
   # return render_template("results.html", resultList = Markup(retVal)), resultList2 = Markup(retVal2))

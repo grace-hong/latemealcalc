@@ -56,10 +56,23 @@ cart = {}
 
 @app.route("/")
 def main():
+  retVal2 = ""
+  if cart.get(session['uid']) != None:
+    for product in cart.get(session["uid"]):
+      cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
+      query = cursor.fetchone()
+      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      post_title2 = '''</span> <span class="cart-price">$'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
 
-  return render_template("index.html")
+  if cart.get(session['uid']) != None:
+    return render_template("index.html")
+
+  return render_template("index.html", resultList2 = Markup(retVal2))
 
 @app.route("/contact")
 def getContact():
@@ -98,9 +111,6 @@ def getItem(item):
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      print("Printing query: "),
-      print(product),
-      print(query)
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
@@ -148,6 +158,16 @@ def getItem(item):
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
+  retVal2 = ""
+  if cart.get(session['uid']) != None:
+    for product in cart.get(session["uid"]):
+      cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
+      query = cursor.fetchone()
+      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      post_title2 = '''</span> <span class="cart-price">$'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s)", (catg,))
   results = cursor.fetchall()
@@ -170,7 +190,10 @@ def getItemsFromCategory(catg):
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
 
-  return render_template("category.html", resultList = Markup(retVal))
+  if cart.get(session['uid']) != None:
+    return render_template("category.html", resultList = Markup(retVal))
+    
+  return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2))
 
 @app.route("/checkout")
 def checkout():

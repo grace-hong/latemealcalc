@@ -97,7 +97,7 @@ def getItem(item):
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
-      query = cursor.fetchall()
+      query = cursor.fetch()
       print("Printing query: "),
       print(product),
       print(query)

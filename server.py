@@ -113,8 +113,9 @@ def getItem(item):
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2)
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_window2 = ''''"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
 
   cursor.execute("SELECT name, price, image, time, keys FROM food")
   results = cursor.fetchall()
@@ -237,6 +238,17 @@ def addItemFromCategory(category, item):
     
   return redirect(url_for('getItemsFromCategory', catg=category))
 
+@app.route("/removeItem/item/<item>")
+def removeItem(item):
+  cart[session['uid']].remove(item)
+
+  return redirect(url_for('getItem', item=item))
+
+@app.route("/removeItem/<category>/<item>")
+def removeItemFromCategory(category, item):
+  cart[session['uid']].remove(item)
+
+  return redirect(url_for('getItemsFromCategory', catg=category))
   
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

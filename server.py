@@ -195,8 +195,8 @@ def getItemsFromCategory(catg):
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <form><button class="btn btn-danger fa fa-minus" type="button" onclick="updateCartTotal();" formaction = "javascript:window.location='/removeItem/'''
-      post_window2 = ''''"></button></form<</div>'''
+      post_price2 = '''</span> <form action = "javascript:window.location='/removeItem/'''
+      post_window2 = ''''"><button class="btn btn-danger fa fa-minus" type="button" onclick="updateCartTotal();"></button></form></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
 
@@ -211,8 +211,8 @@ def getItemsFromCategory(catg):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><form><td class="button" onclick="updateCartTotal();" formaction = "javascript:window.location='/addItem/'''
-  urlend = ''''">'''
+  post1 = '''</h5></td><form action = "javascript:window.location='/addItem/'''
+  urlend = ''''"><td class="button" onclick="updateCartTotal();">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td></form>

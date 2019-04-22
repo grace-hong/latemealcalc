@@ -37,24 +37,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<div class ="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="lunchbox" value="option1">
-									<label class="form-check-label" for="inlineRadio1">Lunch</label>
-							</div>
-							<div class="form-check form-check-inline">
-								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="dinnerbox" value="option2">
-								<label class="form-check-label" for="inlineRadio2">Dinner</label>
-							</div>
-							<script>
-				    				if (!getTime()) { // lunch time
-									document.getElementById("lunchcheck").checked = true;
-				   				 }
-				 			   else { // dinner time
-									document.getElementById("dinnercheck").checked = true;
-				    					}
-							</script>
-						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="/">Home
 								<span class="sr-only">(current)</span>
@@ -66,7 +48,31 @@
 						<li class="nav-item">
 							<a class="nav-link" href="favorites">Favorites</a>
 						</li>
-						
+						<li class="nav-item">
+							<div class="custom-control custom-radio">
+								<div class="form-check form-check-inline">
+								<input type="radio" class="custom-control-input" id="default" name="Lunch" checked>
+								<label class="custom-control-label" for="default">Lunch</label>
+							</div>
+							<div class="custom-control custom-radio">
+								<div class="form-check form-check-inline">
+								<input type="radio" class="custom-control-input" id="default" name="Dinner">
+								<label class="custom-control-label" for="default">Dinner</label>
+							</div>
+							<!--
+							</div>
+							<div class ="form-check form-check-inline">
+									<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+									<label class="form-check-label" for="inlineRadio1">1</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+								<label class="form-check-label" for="inlineRadio2">2</label>
+							</div>
+						-->
+					</div>
+				</div>
+						</li>
 					</ul>
 				</div>
 			</div>

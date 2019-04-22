@@ -154,11 +154,11 @@ def getItem(item):
           time = gettimeofday()
           if time == 'lunch':
               if re[3].lower() == "lunch" or re[3].lower == 'both':
-                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
                   print(re[0])
           elif time == 'dinner':
               if re[3].lower() == "dinner" or re[3].lower == 'both':
-                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
                   print(re[0])
               #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
               #print(re[0])

@@ -109,8 +109,8 @@ def getInfo():
     return render_template("info.html")
 
 def gettimeofday():
-    if 'time_button' in request.form:
-        time = request.form['time']
+    #if 'time_button' in request.form:
+    time = request.form['time']
     if time == 1:
         return 'lunch'
     else:
@@ -146,7 +146,7 @@ def getItem(item):
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>
     </tr>'''
-  <input type="submit" name="time_button">
+  #<input type="submit" name="time_button">
   if len(results) == 0:
     return "No results found."
   for re in results:

@@ -46,6 +46,14 @@
 								<input class="form-check-input" type="radio" name="inlineRadioOptions" id="dinnerbox" value="option2">
 								<label class="form-check-label" for="inlineRadio2">Dinner</label>
 							</div>
+							<script>
+				    				if (!getTime()) { // lunch time
+									document.getElementById("lunchcheck").checked = true;
+				   				 }
+				 			   else { // dinner time
+									document.getElementById("dinnercheck").checked = true;
+				    					}
+							</script>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="/">Home

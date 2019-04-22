@@ -220,7 +220,7 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(catg) + "/" + urlend + str(re[0]) + '''''' + post2)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(catg) + str(re[0]) "/" + urlend + str(re[0]) + '''''' + post2)
 
   retVal3 = '''$''' + str(sum)
   if cart.get(session['uid']) == None:

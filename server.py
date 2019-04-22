@@ -6,7 +6,6 @@ import subprocess
 import os
 import csv
 import uuid
-from decimal import Decimal, ROUND_HALF_UP
 
 
 app = Flask(__name__, static_url_path = "", static_folder = "static")
@@ -60,7 +59,7 @@ def main():
   sum = 0.0
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
-  
+
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -109,6 +108,15 @@ def getFavorites():
 def getInfo():
     return render_template("info.html")
 
+def gettimeofday():
+    if request.method='POST':
+        if 'time_button' in request.form:
+            time = request.form['time']
+        if time == 1:
+            return 'lunch'
+        else:
+            return 'dinner'
+            
 @app.route("/search/item/<item>")
 def getItem(item):
   sum = 0.0
@@ -121,7 +129,7 @@ def getItem(item):
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
       post_window2 = ''''"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
 
   cursor.execute("SELECT name, price, image, time, keys FROM food")
@@ -139,10 +147,23 @@ def getItem(item):
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>
     </tr>'''
+  <input type="submit" name="time_button">
   if len(results) == 0:
     return "No results found."
   for re in results:
       if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
+          time = gettimeofday()
+          if time == 'lunch':
+              if re[3].lower() == "lunch" or re[3].lower == 'both':
+                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+                  print(re[0])
+          else if time == 'dinner':
+              if re[3].lower() == "dinner" or re[3].lower == 'both':
+                  retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+                  print(re[0])
+              #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
+              #print(re[0])
+
         #if request.POST.get('lunchcheck', True): #print lunch item
         #if request.form.get('lunchcheck'):
           #if re[3].lower() == "lunch":
@@ -154,14 +175,14 @@ def getItem(item):
             #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             #print(re[0])
         #else: #print item regardless of time
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
+        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
-  
+
   retVal3 = '''$''' + str(sum)
-        
+
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
-  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))    
+  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
   # return render_template("results.html", resultList = Markup(retVal)), resultList2 = Markup(retVal2))
 
 
@@ -177,7 +198,7 @@ def getItemsFromCategory(catg):
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
       post_window2 = ''''"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + str(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
 
   catg = str(catg)
@@ -191,7 +212,7 @@ def getItemsFromCategory(catg):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/''' 
+  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/'''
   urlend = ''''">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
@@ -200,12 +221,12 @@ def getItemsFromCategory(catg):
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend  + '''''' + post2)
-  
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
+
   retVal3 = '''$''' + str(sum)
   if cart.get(session['uid']) == None:
     return render_template("category.html", resultList = Markup(retVal))
-    
+
   return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
 
 @app.route("/checkout")
@@ -218,7 +239,7 @@ def checkout():
 def getsession():
   if 'uid' in session:
     return str(session['uid'])
-  
+
   return "This messed up"
 
 
@@ -226,28 +247,28 @@ def getsession():
 def addItem(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-  
+
   cart[session['uid']].append(item)
 
   string = "Your cart contains: "
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  
+
   return redirect(url_for('getItem', item=item))
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-  
+
   cart[session['uid']].append(item)
 
   string = "Your cart contains: "
 
   for purchase in cart[session['uid']]:
-    string += str(purchase) + ", " 
-    
+    string += str(purchase) + ", "
+
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/removeItem/item/<item>")
@@ -264,7 +285,7 @@ def removeItemFromCategory(category, item):
 def removeItemFromMain(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('main'))
-  
+
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))
     app.run(debug=False, port=PORT, host='0.0.0.0')

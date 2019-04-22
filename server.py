@@ -196,7 +196,7 @@ def getItemsFromCategory(catg):
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <form action = "javascript:window.location='/removeItem/'''
-      post_window2 = ''''"><button class="btn btn-danger fa fa-minus" type="button" onclick="updateCartTotal()"></button></form></div>'''
+      post_window2 = ''''"><button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:updateCartTotal()"></button></form></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
 
@@ -212,7 +212,7 @@ def getItemsFromCategory(catg):
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
   post1 = '''</h5></td><form action = "javascript:window.location='/addItem/'''
-  urlend = ''''"><td class="button" onclick="updateCartTotal()">'''
+  urlend = ''''"><td class="button" onclick="javascript:updateCartTotal()">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td></form>

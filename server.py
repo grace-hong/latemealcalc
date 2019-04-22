@@ -156,7 +156,7 @@ def getItem(item):
               if re[3].lower() == "lunch" or re[3].lower == 'both':
                   retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
                   print(re[0])
-          else if time == 'dinner':
+          elif time == 'dinner':
               if re[3].lower() == "dinner" or re[3].lower == 'both':
                   retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
                   print(re[0])

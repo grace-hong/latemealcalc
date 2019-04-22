@@ -73,12 +73,14 @@ function updateCartTotal() {
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0
     var maxPrice = 0
-    for (var i = 0; i < cartBlocks.length; i++) {
+    /*for (var i = 0; i < cartBlocks.length; i++) {
         var cartBlock = cartBlocks[i]
         var priceElement = cartBlock.getElementsByClassName('cart-price')[0]
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         total = total + price
-    }
+    }*/
+    var priceElement = cartItemContainer.getElementsByClassName('cart-total-price')[0]
+    parseFloat(priceElement.innerText.replace('$', ''))
     total = Math.round(total * 100) / 100
     if (getTime() == 0) {
         maxPrice = 6

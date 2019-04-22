@@ -155,10 +155,12 @@ def getItem(item):
         #else: #print item regardless of time
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
         cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
-
+  
+  retVal3 = '''$''' + str(sum)
+        
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
-  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2))    
+  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))    
   # return render_template("results.html", resultList = Markup(retVal)), resultList2 = Markup(retVal2))
 
 
@@ -198,11 +200,12 @@ def getItemsFromCategory(catg):
     return "No results found."
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(catg) + "/" + str(re[0]) + urlend + str(re[0]) + '''''' + post2)
-
+  
+  retVal3 = '''$''' + str(sum)
   if cart.get(session['uid']) == None:
     return render_template("category.html", resultList = Markup(retVal))
     
-  return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2))
+  return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
 
 @app.route("/checkout")
 def checkout():

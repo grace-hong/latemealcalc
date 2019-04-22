@@ -109,14 +109,13 @@ def getInfo():
     return render_template("info.html")
 
 def gettimeofday():
-    if request.method='POST':
-        if 'time_button' in request.form:
-            time = request.form['time']
-        if time == 1:
-            return 'lunch'
-        else:
-            return 'dinner'
-            
+    if 'time_button' in request.form:
+        time = request.form['time']
+    if time == 1:
+        return 'lunch'
+    else:
+        return 'dinner'
+
 @app.route("/search/item/<item>")
 def getItem(item):
   sum = 0.0

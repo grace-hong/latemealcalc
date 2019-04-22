@@ -174,8 +174,8 @@ def getItem(item):
             #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
             #print(re[0])
         #else: #print item regardless of time
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
-        cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
+        #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
+        #cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   retVal3 = '''$''' + str(sum)
 

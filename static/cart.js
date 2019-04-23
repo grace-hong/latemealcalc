@@ -84,7 +84,7 @@ function updateCartTotal() {
     
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
-    var total = document.getElementsByClassName('cart-total-price')[0]
+    var total = document.getElementsByClassName('cart-total-price')
     var maxPrice = 0
     /*for (var i = 0; i < cartBlocks.length; i++) {
         var cartBlock = cartBlocks[i]

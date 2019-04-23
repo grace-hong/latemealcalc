@@ -268,6 +268,7 @@ def addItem(item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
 
@@ -282,6 +283,7 @@ def addItemFromCategory(category, item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
 

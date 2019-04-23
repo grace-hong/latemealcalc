@@ -94,7 +94,7 @@ function updateCartTotal() {
     }*/
     var priceElement = document.getElementsByClassName('cart-total-price')
     parseFloat(priceElement.innerText.replace('$', ''))
-    total = Math.round(total * 100) / 100
+    total = Math.round(priceElement[0] * 100) / 100
     if (getTime() == 0) {
         maxPrice = 6
     }

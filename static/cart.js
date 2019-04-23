@@ -81,7 +81,7 @@ function removeItem(itemName) {
 }
 
 function updateCartTotal() {
-    alert("using update cart");
+    
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0
@@ -102,7 +102,7 @@ function updateCartTotal() {
         maxPrice = 7
     }
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
-    
+    alert("maxPrice = "  + maxPrice + " total = " + total);
     if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
         document.getElementsByClassName('cart-dif')[0].innerText = '- $' + (total - maxPrice).toFixed(2);

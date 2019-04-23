@@ -92,7 +92,7 @@ function updateCartTotal() {
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         total = total + price
     }*/
-    var priceElement = document.getElementsByClassName('cart-total-price')[0]
+    var priceElement = document.getElementsByClassName('cart-total-price')
     parseFloat(priceElement.innerText.replace('$', ''))
     total = Math.round(total * 100) / 100
     if (getTime() == 0) {

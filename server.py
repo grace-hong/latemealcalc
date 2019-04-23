@@ -119,15 +119,13 @@ def getFavorites():
   post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/favorites/'''
   urlend = ''''">'''
   post2 = '''
-        <button class="btn btn-primary shop-item-button fas fa-plus"></button>
+        <button class="btn btn-primary shop-item-button fas fa-plus" onclick="updateCartTotal();"></button>
       </td>
     </tr>'''
-
   if len(results) == 0:
     return "No results found."
   for re in results:
-      if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(re[0]) + urlend +  '''''' + post2)
     
   retVal3 = '''$''' + "{:.2f}".format(sum)
 

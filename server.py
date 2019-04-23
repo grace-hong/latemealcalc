@@ -187,31 +187,6 @@ def getItem(item):
   for re in results:
       if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
-          #time = gettimeofday()
-          #if time == 'lunch':
-          #    if re[3].lower() == "lunch" or re[3].lower == 'both':
-          #        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + urlend + post2)
-          #        print(re[0])
-          #elif time == 'dinner':
-          #    if re[3].lower() == "dinner" or re[3].lower == 'both':
-          #        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + urlend + post2)
-          #        print(re[0])
-              #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-              #print(re[0])
-
-        #if request.POST.get('lunchcheck', True): #print lunch item
-        #if request.form.get('lunchcheck'):
-          #if re[3].lower() == "lunch":
-            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            #print(re[0])
-        #elif request.POST.get('dinnercheck', True): #print dinner item
-        #elif request.form.get('dinnercheck'):
-          #if re[3].lower() == "both":
-            #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post)
-            #print(re[0])
-        #else: #print item regardless of time
-        #retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
-        #cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (re[0],))
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
 

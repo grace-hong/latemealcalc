@@ -69,11 +69,13 @@ function addItemToCart(title, price) {
 }
 
 function addItem(itemName) {
+    alert("Item added.");
     str = "/removeItem/" + itemName;
     window.location=str;
 }
 
 function removeItem(itemName) {
+    alert("Item removed.");
     str = "/addItem/" + itemName;
     window.location=str;
 }

@@ -97,7 +97,7 @@ def getFavorites():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/favorites/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
@@ -116,14 +116,18 @@ def getFavorites():
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post = '''</h5></td><td class="button">
+  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/favorites/'''
+  urlend = ''''">'''
+  post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>
     </tr>'''
+
   if len(results) == 0:
     return "No results found."
   for re in results:
-    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post)
+      if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
+        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
     
   retVal3 = '''$''' + "{:.2f}".format(sum)
 
@@ -315,6 +319,21 @@ def addItemFromCategory(category, item):
 
   return redirect(url_for('getItemsFromCategory', catg=category))
 
+@app.route("/addItem/favorites/<item>")
+def addItemFromFavorites(item):
+  if cart.get(session['uid']) == None:
+    cart[session['uid']] = []
+
+  cart[session['uid']].append(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+
+  string = "Your cart contains: "
+
+  for purchase in cart[session['uid']]:
+    string += str(purchase) + ", "
+
+  return redirect(url_for('getFavorites'))
+
 @app.route("/removeItem/item/<item>")
 def removeItem(item):
   cart[session['uid']].remove(item)
@@ -329,6 +348,11 @@ def removeItemFromCategory(category, item):
 def removeItemFromMain(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('main'))
+
+@app.route("/removeItem/favorites/<item>")
+def removeItemFromFavorites(item):
+  cart[session['uid']].remove(item)
+  return redirect(url_for('getFavorites'))
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

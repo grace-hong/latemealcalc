@@ -84,7 +84,7 @@ function updateCartTotal() {
     
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
-    var total = document.getElementsByClassName('cart-total-price')
+    var total = 0
     var maxPrice = 0
     /*for (var i = 0; i < cartBlocks.length; i++) {
         var cartBlock = cartBlocks[i]
@@ -92,9 +92,9 @@ function updateCartTotal() {
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         total = total + price
     }*/
-    //var priceElement = document.getElementsByClassName('cart-total-price')
-    parseFloat(total.innerText.replace('$', ''))
-    total = Math.round(total * 100) / 100
+    var priceElement = document.getElementsByClassName('cart-total-price')[0]
+    parseFloat(priceElement.innerText.replace('$', ''))
+    total = Math.round(priceElement * 100) / 100
     if (getTime() == 0) {
         maxPrice = 6
     }

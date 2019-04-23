@@ -107,7 +107,7 @@ def getFavorites():
   else:
     selector = "lunch"
     
-  cursor.execute("SELECT name, price, image, time FROM food ORDER BY count DESC LIMIT 5 WHERE time!=(%s)", (selector,))
+  cursor.execute("SELECT name, price, image, time FROM food WHERE time!=(%s) ORDER BY count DESC LIMIT 5", (selector,))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">

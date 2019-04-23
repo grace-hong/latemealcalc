@@ -68,6 +68,16 @@ function addItemToCart(title, price) {
     
 }
 
+function addItem(itemName) {
+    str = "/removeItem/" + itemName;
+    window.location=str;
+}
+
+function removeItem(itemName) {
+    str = "/addItem/" + itemName;
+    window.location=str;
+}
+
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')

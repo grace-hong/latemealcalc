@@ -163,7 +163,7 @@
 			<h6>SUGGESTED</h6>
 			<div class = "suggested"></div>
 		</div>
-		<div class = "col-3" style = "padding-left:0; text-align: center; padding-top: .8rem;">
+		<div class = "col-2" style = "padding-left:0; text-align: center; padding-top: .8rem;">
 			<h6>TOTAL</h6>
 			<div class = "cart-total-price">
 				{% if resultList3 %}
@@ -171,6 +171,10 @@
 				{% endif %}
 			</div>
 			<div class = "cart-dif"></div>
+		</div>
+		
+		<div class = "col-1" style="padding-left:0; text-align:center; padding-top: .8rem; align-items: center;">
+			<button type="button" onclick="window.location='/checkout';"> Checkout </button>
 		</div>
 	</div>
 </footer>

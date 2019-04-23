@@ -89,7 +89,25 @@ def getContact():
 
 @app.route("/favorites")
 def getFavorites():
-  cursor.execute("SELECT name, price, image FROM food ORDER BY count DESC LIMIT 5")
+  sum = 0.0
+  retVal2 = ""
+  if cart.get(session['uid']) != None:
+    for product in cart.get(session["uid"]):
+      cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
+      query = cursor.fetchone()
+      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      post_title2 = '''</span> <span class="cart-price">$'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_window2 = ''''"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
+      sum += float(query[0])
+
+  if time[session['uid']] == 0:
+    selector = "dinner"
+  else:
+    selector = "lunch"
+    
+  cursor.execute("SELECT name, price, image, time FROM food ORDER BY count DESC LIMIT 5 WHERE time!=(%s)", (selector,))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
@@ -107,7 +125,13 @@ def getFavorites():
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post)
 
-  return render_template("favorites.html", resultList = Markup(retVal))
+    
+  retVal3 = '''$''' + "{:.2f}".format(sum)
+
+  if cart.get(session['uid']) == None:
+    return render_template("results.html", resultList = Markup(retVal))
+  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+  #return render_template("favorites.html", resultList = Markup(retVal))
 
 @app.route("/info")
 def getInfo():

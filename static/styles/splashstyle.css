@@ -137,7 +137,7 @@ fieldset[disabled] .btn-sample.active {
 
 .third {
   border-color: #3498db;
-  color: #fff;
+  color: #00008b;
   box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
   transition: all 150ms ease-in-out;
 }

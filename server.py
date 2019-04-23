@@ -106,7 +106,6 @@ def getFavorites():
     selector = "dinner"
   else:
     selector = "lunch"
-
     
   cursor.execute("SELECT name, price, image, time FROM food WHERE time!=(%s) ORDER BY count DESC LIMIT 5", (selector,))
   results = cursor.fetchall()
@@ -117,25 +116,21 @@ def getFavorites():
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/item/'''
-  urlend = ''''">'''
-  post2 = '''
+  post = '''</h5></td><td class="button">
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>
     </tr>'''
-
   if len(results) == 0:
     return "No results found."
   for re in results:
-      if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(re[0]) + urlend + post2)
+    retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post)
 
     
   retVal3 = '''$''' + "{:.2f}".format(sum)
 
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
-  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+  return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
   #return render_template("favorites.html", resultList = Markup(retVal))
 
 @app.route("/info")

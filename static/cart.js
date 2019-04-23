@@ -34,19 +34,21 @@ function removeCartItem(event) {
 }
 
 function addToCartClicked(event) {
-    alert('Is this packaged');
 
     var button = event.target
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-  
+    checkpackaged(title)
     addItemToCart(title, price)
     updateCartTotal()
 }
 
+function checkpackaged(title) {
+    alert('yes or no');
+}
+
 function addItemToCart(title, price) {
-    alert('Is this packaged2');
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
     var cartItems = document.getElementsByClassName('cart-items')[0]

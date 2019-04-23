@@ -64,6 +64,9 @@ def dinner():
 
 @app.route("/index")
 def main():
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -89,6 +92,9 @@ def getContact():
 
 @app.route("/favorites")
 def getFavorites():
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -148,6 +154,9 @@ def gettimeofday():
 
 @app.route("/search/item/<item>")
 def getItem(item):
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -198,6 +207,9 @@ def getItem(item):
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:

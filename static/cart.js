@@ -34,7 +34,7 @@ function removeCartItem(event) {
 }
 
 function addToCartClicked(event) {
-    alert("Is this packaged");
+    alert('Is this packaged');
 
     var button = event.target
     var shopItem = button.parentElement.parentElement
@@ -46,6 +46,7 @@ function addToCartClicked(event) {
 }
 
 function addItemToCart(title, price) {
+    alert('Is this packaged2');
     var cartBlock = document.createElement('div')
     cartBlock.classList.add('cart-block')
     var cartItems = document.getElementsByClassName('cart-items')[0]

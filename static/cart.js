@@ -34,6 +34,7 @@ function removeCartItem(event) {
 }
 
 function addToCartClicked(event) {
+    alert("Is this packaged");
 
     var button = event.target
     var shopItem = button.parentElement.parentElement

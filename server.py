@@ -97,9 +97,11 @@ def getFavorites():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
+      #post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="updateCartTotal(); removeItem(\''''
       post_window2 = ''''"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
+      #post_window2 = '''\');"></button></div>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
 
   if time[session['uid']] == 0:
@@ -127,10 +129,11 @@ def getFavorites():
 
     
   retVal3 = '''$''' + "{:.2f}".format(sum)
-
   if cart.get(session['uid']) == None:
-    return render_template("results.html", resultList = Markup(retVal))
-  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+    return render_template("category.html", resultList = Markup(retVal))
+
+  return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+
   #return render_template("favorites.html", resultList = Markup(retVal))
 
 @app.route("/info")

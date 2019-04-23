@@ -131,7 +131,7 @@ fieldset[disabled] .btn-sample.active {
   font-weight: 700;
 }
 .btn:hover, .btn:focus {
-  color: #fff;
+  color: #00008b;
   outline: 0;
 }
 

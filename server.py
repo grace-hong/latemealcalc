@@ -36,21 +36,35 @@ cursor.execute(
   """)
 
 
-
 with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
 
 cart = {}
+time = {}
 
 
 @app.route("/")
-def main():
-  sum = 0.0
+def splash():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+  
+  return render_template("splash.html")
 
+@app.route("/lunch")
+def lunch():
+  time[session['uid']] = 0
+  return redirect(render_template('main'))
+
+@app.route("/dinner")
+def dinner():
+  time[session['uid']] = 1
+  return redirect(render_template('main'))
+
+@app.route("/index")
+def main():
+  sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
@@ -99,13 +113,13 @@ def getFavorites():
 def getInfo():
     return render_template("info.html")
 
+'''
 def gettimeofday():
-    #if 'time_button' in request.form:
     time = request.form['time']
     if time == 1:
         return 'lunch'
     else:
-        return 'dinner'
+        return 'dinner' '''
 
 @app.route("/search/item/<item>")
 def getItem(item):
@@ -122,7 +136,12 @@ def getItem(item):
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
 
-  cursor.execute("SELECT name, price, image, time, keys FROM food")
+  if time[session['uid']] == 0:
+    selector = "dinner"
+  else:
+    selector = "lunch"
+
+  cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s)", (selector,))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">

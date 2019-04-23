@@ -274,6 +274,10 @@ def addItem(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
+    
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(results)
 
   return redirect(url_for('getItem', item=item))
 

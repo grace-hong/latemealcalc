@@ -41,8 +41,23 @@
 	</script>
 
 	<div class="container" style="text-align: center; vertical-align: middle">
-		<button class="btn third">GO</button>
+		<button class="btn third" onclick="clickFunction()" >GO</button>
 	</div>
+	<script>
+		function clickFunction() {
+			var radios = document.getElementsByName('radioTime');
+			for (var i = 0, length = radios.length; i < length; i++) {
+				if (radios[i].checked)
+				{
+					return "window.location.href='/lunch'"
+				}
+				else
+				{
+					return "window.location.href='/dinner'"
+				}
+			}
+		}
+	</script>
 <!--
 <div class = "container">
 	<img class="img-responsive" src="cookie.jpg" alt="Background" width="460" height="345">

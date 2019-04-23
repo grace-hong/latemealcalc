@@ -135,7 +135,7 @@ def getFavorites():
 
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
-  return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
   #return render_template("favorites.html", resultList = Markup(retVal))
 
 @app.route("/info")

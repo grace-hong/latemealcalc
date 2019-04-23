@@ -66,6 +66,7 @@ def dinner():
 def main():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
     
   sum = 0.0
   retVal2 = ""
@@ -94,6 +95,7 @@ def getContact():
 def getFavorites():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
     
   sum = 0.0
   retVal2 = ""
@@ -156,6 +158,7 @@ def gettimeofday():
 def getItem(item):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
     
   sum = 0.0
   retVal2 = ""
@@ -209,6 +212,7 @@ def getItem(item):
 def getItemsFromCategory(catg):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
     
   sum = 0.0
   retVal2 = ""

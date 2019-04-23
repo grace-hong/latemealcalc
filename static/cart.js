@@ -92,7 +92,7 @@ function updateCartTotal() {
         var price = parseFloat(priceElement.innerText.replace('$', ''))
         total = total + price
     }*/
-    alert("maxPrice = "  + maxPrice + " total = " + total);
+    
     var priceElement = document.getElementsByClassName('total-price')[0].textContent
     parseFloat(priceElement.innerText.replace('$', ''))
     total = Math.round(priceElement * 100) / 100
@@ -103,6 +103,7 @@ function updateCartTotal() {
     else {
         maxPrice = 7
     }
+    alert("maxPrice = "  + maxPrice + " total = " + total);
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
     if (total > maxPrice) {
     	document.getElementsByClassName('cart-total-price')[0].style.color = "red";

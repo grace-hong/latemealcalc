@@ -166,7 +166,7 @@ def getItem(item):
   else:
     selector = "lunch"
 
-  cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s)", (selector,))
+  cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s) ORDER BY name", (selector,))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">
@@ -244,7 +244,7 @@ def getItemsFromCategory(catg):
     selector = "lunch"
     
   catg = str(catg)
-  cursor.execute("SELECT name, price, image FROM food WHERE category=(%s) AND time!=(%s)", (catg, selector,))
+  cursor.execute("SELECT name, price, image FROM food WHERE category=(%s) AND time!=(%s) ORDER BY name", (catg, selector,))
   results = cursor.fetchall()
   print(results)
   retVal = ""

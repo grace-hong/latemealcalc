@@ -81,6 +81,7 @@ function removeItem(itemName) {
 }
 
 function updateCartTotal() {
+    alert("using update cart");
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0

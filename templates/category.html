@@ -63,9 +63,6 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/favorites">Favorites</a>
 						</li>
-						<!--<li class="nav-item">
-							<a class="nav-link" href="contact">Contact</a>
-						</li>-->
 					</ul>
 				</div>
 			</div>
@@ -104,16 +101,7 @@
 	<section class="page-container" >
 
 
-	<script>
-		/*
-		function handleResults(resultList) {
-			text = "";
-			for (var i = 0; i < resultList.length; i++) {
-				text = text + resultList[i];
-			}
-			document.getElementById("shop-items").innerHTML = text;
-		}*/
-	</script>
+
 
 	<!-- display results !-->
 	{% if resultList %}
@@ -124,20 +112,6 @@
 	{% endif %}
 
 	</section>
-
-
-	<div>
-		<input type="checkbox" name="lunchcheck" id="lunchcheck">Lunch<br>
-		<input type="checkbox" name="dinnercheck" id="dinnercheck">Dinner<br>
-	</div>
-	<script>
-		if (!getTime()) { // lunch time
-			document.getElementById("lunchcheck").checked = true;
-		}
-		else { // dinner time
-			document.getElementById("dinnercheck").checked = true;
-		}
-	</script>
 
 
 <!-- calculator -->

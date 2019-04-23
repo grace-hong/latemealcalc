@@ -31,7 +31,7 @@ cursor.execute(
     time VARCHAR(50) NOT NULL,
     packaged VARCHAR(50) NOT NULL,
     image VARCHAR(50) NOT NULL,
-    keys VARCHAR(200) NOT NULL
+    keys VARCHAR(300) NOT NULL
   )
   """)
 

@@ -173,8 +173,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script> 
 		$(document).ready(function(){
-		  $("#flip").click(function(){
-		    $("#panel").slideToggle("slow");
+			if ($.cookie('switch') == 'open'){
+				$('#panel').show();
+			}
+			else {
+				$('#panel').hide();
+			}
+			
+		  $('#flip').click(function(){
+		    $('#panel').slideToggle('fast', function() {
+			    if ($(this).is(':hidden')) {
+				    $.cookie('switch', 'closed');
+			    } else {
+				    $.cookie('switch', 'open');
+			    }
+		    });
 		  });
 		});
 		</script>

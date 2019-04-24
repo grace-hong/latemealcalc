@@ -131,14 +131,18 @@
 			</div>
 			<div class = "col-2" style = "padding-left:0; text-align: center; padding-top: .8rem;">
 				<h6>TOTAL</h6>
-				<div class = "cart-total-price">
-					<div class = "total-price">
-					{% if resultList3 %}
-						{{ resultList3 }}
-					{% endif %}
-					</div>
-				</div>
-				<div class = "cart-dif"></div>
+				<!-- total -->
+				{% if resultList3 %}
+					{{ resultList3 }}
+				{% endif %}
+				<!-- money left -->
+				{% if surplus %}
+					{{ surplus }}
+				{% endif %}
+				<!-- money over -->
+				{% if diffOver %}
+					{{ diffOver }}
+				{% endif %}
 			</div>
 			
 			<div class = "col-1" style="padding-left:0; text-align:center; padding-top: .8rem; align-items: center;">

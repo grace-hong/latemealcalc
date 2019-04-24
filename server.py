@@ -140,7 +140,6 @@ def getFavorites():
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
   return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
-  #return render_template("favorites.html", resultList = Markup(retVal))
 
 @app.route("/info")
 def getInfo():
@@ -208,7 +207,7 @@ def getItem(item):
   else :
     budget = 7.0
   diff = budget - sum
-  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= diff ORDER BY count DESC LIMIT 5", (selector,))
+  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector,), (diff,))
   results2 = cursor.fetchall()
   for re in results2:
     pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''

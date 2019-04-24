@@ -513,7 +513,7 @@ def removeItemFromFavorites(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
-@app.route("/removeItem/info/<item>")
+@app.route("/removeItem/info/<item>") =
 def removeItemFromInfo(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getInfo'))

@@ -285,9 +285,9 @@ def getItemsFromCategory(catg):
     return render_template("category.html", resultList = Markup(retVal))
 
   if diff >= 0: 
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = diff, )
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "{:.2f}".format(diff), )
   else:
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = diff, )
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "{:.2f}".format(diff), )
 
 @app.route("/checkout")
 def checkout():

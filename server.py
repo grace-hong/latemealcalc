@@ -466,6 +466,11 @@ def removeItemFromFavorites(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
+@app.route("/removeItem/info/<item>")
+def removeItemFromInfo(item):
+  cart[session['uid']].remove(item)
+  return redirect(url_for('getInfo'))
+
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))
     app.run(debug=False, port=PORT, host='0.0.0.0')

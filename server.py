@@ -248,7 +248,14 @@ def getItemsFromCategory(catg):
     selector = "dinner"
   else:
     selector = "lunch"
-    
+  
+  budget = 0.0
+  if (selector == "dinner"):
+    budget = 6.0
+  else :
+    budget = 7.0
+  diff = budget - sum 
+  
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s) AND time!=(%s) ORDER BY name", (catg, selector,))
   results = cursor.fetchall()
@@ -277,7 +284,10 @@ def getItemsFromCategory(catg):
   if cart.get(session['uid']) == None:
     return render_template("category.html", resultList = Markup(retVal))
 
-  return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3))
+  if diff >= 0: 
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = diff, )
+  else:
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = diff, )
 
 @app.route("/checkout")
 def checkout():

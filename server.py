@@ -309,8 +309,8 @@ def addItem(search, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(results)
+
   return redirect(url_for('getItem', item=search))
-def addItem
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):
@@ -340,7 +340,7 @@ def addItemFromFavorites(item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
 
-  return redirect(url_for('getFavorites')
+  return redirect(url_for('getFavorites'))
 
 @app.route("/removeItem/item/<search>/<item>")
 def removeItem(search, item):

@@ -126,7 +126,7 @@ def getFavorites():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/favorites/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemFavorites/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
@@ -204,7 +204,7 @@ def getInfo():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/info/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemInfo/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
@@ -508,12 +508,12 @@ def removeItemFromMain(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('main'))
 
-@app.route("/removeItem/favorites/<item>")
+@app.route("/removeItemFavorites/<item>")
 def removeItemFromFavorites(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
-@app.route("/removeItem/info/<item>") =
+@app.route("/removeItemInfo/<item>") =
 def removeItemFromInfo(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getInfo'))

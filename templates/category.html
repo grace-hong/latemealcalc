@@ -119,18 +119,18 @@
 	<div class="col-12" style="border-style:solid">
 	<div id = "flip" overflow:"auto" class = "row" style = "padding: 5px;background-color: #ffebcc;border: solid 1px #c3c3c3;">
 	   <div class = "col-10">
-		<h6>TOTAL</h6>
+		<h6 style="text-align: center;">TOTAL</h6>
 		<!-- total -->
 		{% if resultList3 %}
-		<br><div class = "cart-total-price" align="right"><font color="black">{{ resultList3 }}</font></div>
+		<br><div class = "cart-total-price"><font color="black">{{ resultList3 }}</font></div>
 		{% endif %}
 		<!-- money left -->
 		{% if surplus %}
-		<br><font color="green" align = "right">{{ surplus }} remaining</font>
+		<br><font color="green" style="text-align: center;">{{ surplus }} remaining</font>
 		{% endif %}
 		<!-- money over -->
 		{% if diffOver %}
-		<br><font color="red" align="right">{{ diffOver }} over</font>
+		<br><font color="red" style="text-align: center;">{{ diffOver }} over</font>
 		{% endif %}
 	   </div>
 	   <div class="col-2" align = "center" style="border-left:2px solid black">

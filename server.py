@@ -310,6 +310,7 @@ def addItem(search, item):
   results = cursor.fetchall()
   print(results)
   return redirect(url_for('getItem', item=search))
+def addItem
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):

@@ -74,10 +74,10 @@ def main():
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemMain/'''
-      post_window2 = ''''"></button></div>'''
+      post_window2 = ''''"></button></div></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
       
@@ -98,10 +98,10 @@ def main():
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
-    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
-    post_window4 = ''''"></button></div>'''
+    post_window4 = ''''"></button></div></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 
@@ -124,10 +124,10 @@ def getFavorites():
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemFavorites/'''
-      post_window2 = ''''"></button></div>'''
+      post_window2 = ''''"></button></div></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
 
@@ -175,10 +175,10 @@ def getFavorites():
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
-    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/favorites/'''
-    post_window4 = ''''"></button></div>'''
+    post_window4 = ''''"></button></div></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 
@@ -202,10 +202,10 @@ def getInfo():
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemInfo/'''
-      post_window2 = ''''"></button></div>'''
+      post_window2 = ''''"></button></div></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
       
@@ -226,10 +226,10 @@ def getInfo():
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
-    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/info/'''
-    post_window4 = ''''"></button></div>'''
+    post_window4 = ''''"></button></div></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 
@@ -259,10 +259,10 @@ def getItem(item):
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
-      post_window2 = ''''"></button></div>'''
+      post_window2 = ''''"></button></div></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
@@ -306,10 +306,10 @@ def getItem(item):
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
-    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/item/'''
-    post_window4 = ''''"></button></div>'''
+    post_window4 = ''''"></button></div></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(item) + "/" + str(re[0]) + post_window4)
     
 
@@ -332,10 +332,10 @@ def getItemsFromCategory(catg):
     for product in cart.get(session["uid"]):
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
-      pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
-      post_window2 = ''''"></button></div>'''
+      post_window2 = ''''"></button></div></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
   

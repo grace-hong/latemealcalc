@@ -109,10 +109,10 @@ Plum,1,miscellaneous,0,both,n,🍑,fruit snack
 Bagel,1.25,bakery,0,both,n,🥯,snack breakfast
 Bagel and Cream Cheese,1.7,bakery,0,both,n,🥯,snack breakfast
 Brownie,1.7,bakery,0,both,n,🍫,dessert chocolate
-Cookie,1.85,bakery,0,both,n,🍪,dessert chocolate m&m cookies
+Cookie (wrapped),1.85,bakery,0,both,n,🍪,dessert chocolate m&m cookies
 Croissant,2.3,bakery,0,both,n,🥐,dessert chocolate
-David's Cookie,0.95,bakery,0,both,n,🍪,dessert chocolate m&m cookies
-David's Cookie (3),2.25,bakery,0,both,n,🍪,dessert chocolate m&m cookies
+Cookie (unwrapped),0.95,bakery,0,both,n,🍪,dessert chocolate m&m cookies
+Cookie (unwrapped) (3),2.25,bakery,0,both,n,🍪,dessert chocolate m&m cookies
 Doughnut,1.35,bakery,0,both,n,🍩,dessert chocolate
 Muffin,1.85,bakery,0,both,n,🧁,dessert chocolate chip blueberry 
 Caesar Chicken Asiago on Roll,6.55,grabngo,0,both,n,🥪,sandwich 
@@ -128,8 +128,8 @@ Grilled Salmon & Spinach Salad,6.65,grabngo,0,both,n,🐟,fish
 Asian Chicken Salad,6.65,grabngo,0,both,n,🥗,
 Chef Salad,6.65,grabngo,0,both,n,🥗,
 Crispy Chicken Salad,6.65,grabngo,0,both,n,🥗,
-Miss Vickie's,1.45,miscellaneous,0,both,y,🧂,chips salty snack
-Stacy's,1.65,miscellaneous,0,both,y,🧂,chips pita salty snack
+Miss Vickies Kettle Cooked Chips,1.45,miscellaneous,0,both,y,🧂,chips salty snack
+Stacys Pita Chips,1.65,miscellaneous,0,both,y,🧂, salty snack
 Fritos,1,miscellaneous,0,both,y,🧂,chips snack
 Cheez-its,1,miscellaneous,0,both,y,🧂,snack
 Pringles,1,miscellaneous,0,both,y,🧂,chips salty snack 

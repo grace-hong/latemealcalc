@@ -39,13 +39,15 @@ function addToCartClicked(event) {
     var shopItem = button.parentElement.parentElement
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    checkpackaged(title)
+    // checkpackaged(title)
     addItemToCart(title, price)
     updateCartTotal()
 }
 
+
 function checkpackaged(title) {
     // alert('yes or no');
+    return 0
 }
 
 function addItemToCart(title, price) {

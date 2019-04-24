@@ -136,9 +136,9 @@
 			<div class = "col-9" style = "padding-right:0; padding-top:.8rem; border-right: solid .1rem; text-align: center;" >
 				<h6>YOUR CART</h6>
 				<div>
-				<!--<div class="calculator-scroll">-->
+				<div class="calculator-scroll">
 					<div>
-					<!--<div class="cart-items">-->
+					<div class="cart-items">
 						{% if resultList2 %}
 							{{ resultList2 }}
 						{% endif %}
@@ -147,12 +147,18 @@
 			</div>
 			<div class = "col-3" style = "padding-left:0; text-align: center; padding-top: .8rem;">
 				<h6>TOTAL</h6>
-				<div class = "cart-total-price">
-					{% if resultList3 %}
-						{{ resultList3 }}
-					{% endif %}
-				</div>
-				<div class = "cart-dif"></div>
+				<!-- total -->
+				{% if resultList3 %}
+				<div class = "cart-total-price">{{ resultList3 }}</div>
+				{% endif %}
+				<!-- money left -->
+				{% if surplus %}
+				<br><font color="green">{{ surplus }}</font>
+				{% endif %}
+				<!-- money over -->
+				{% if diffOver %}
+				<br><font color="red">{{ diffOver }}</font>
+				{% endif %}
 			</div>
 		</div>
 	</footer>

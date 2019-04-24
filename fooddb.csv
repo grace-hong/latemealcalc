@@ -15,23 +15,23 @@ Caesar,5.95,salad,0,both,n,🥗,salad
 Grain Bowl,5.95,salad,0,both,n,🥗,salad quinoa 
 Masters,5.95,salad,0,both,n,🥗,salad
 PhD,7.15,salad,0,both,n,🥗,salad 
-Cottage Cheese,1.55,miscellaneous,0,both,y,🧀,dairy snack
-Dannon Yogurt,1.6,miscellaneous,0,both,y,🥣,dairy snack
-Fruit Cup,3.75,miscellaneous,0,both,y,🍎,melon cantaloupe grapes snack
-Grapes,3.1,miscellaneous,0,both,y,🍇,fruit snack
-Hard Boiled Eggs,0.8,miscellaneous,0,both,y,🥚,dairy 
-Kozyshack Pudding,1.4,miscellaneous,0,both,y,🥣,dairy snack
-OIKOS Greek Yogurt,2.5,miscellaneous,0,both,y,🥣,dairy snack
-Rice Pudding,2.5,miscellaneous,0,both,y,🥣,snack
-Yogurt Parfait,3.45,miscellaneous,0,both,y,🥣,dairy snack 
-Boxed Water,2.15,miscellaneous,0,both,y,🚰,drinks beverages
-Honest Tea,2.15,miscellaneous,0,both,y,🥤,drinks beverages
-Lactaid,1.75,miscellaneous,0,both,y,🥛,drinks beverages 
-Milk Half Pint,0.95,miscellaneous,0,both,y,🥛,drinks beverages dairy
-Milk Silk Soy,2.95,miscellaneous,0,both,y,🥛,drinks beverages dairy
-Powerade,2,miscellaneous,0,both,y,🥤,drinks beverages 
-Snapple,2.15,miscellaneous,0,both,y,🥤,drinks beverages iced tea
-Tropicana,2.05,miscellaneous,0,both,y,🥤,orange juice drinks beverages 
+Cottage Cheese,1.55,grabngo,0,both,y,🧀,dairy snack
+Dannon Yogurt,1.6,grabngo,0,both,y,🥣,dairy snack
+Fruit Cup,3.75,grabngo,0,both,y,🍎,melon cantaloupe grapes snack
+Grapes,3.1,grabngo,0,both,y,🍇,fruit snack
+Hard Boiled Eggs,0.8,grabngo,0,both,y,🥚,dairy 
+Kozyshack Pudding,1.4,grabngo,0,both,y,🥣,dairy snack
+OIKOS Greek Yogurt,2.5,grabngo,0,both,y,🥣,dairy snack
+Rice Pudding,2.5,grabngo,0,both,y,🥣,snack
+Yogurt Parfait,3.45,grabngo,0,both,y,🥣,dairy snack 
+Boxed Water,2.15,grabngo,0,both,y,🚰,drinks beverages
+Honest Tea,2.15,grabngo,0,both,y,🥤,drinks beverages
+Lactaid,1.75,grabngo,0,both,y,🥛,drinks beverages 
+Milk Half Pint,0.95,grabngo,0,both,y,🥛,drinks beverages dairy
+Milk Silk Soy,2.95,grabngo,0,both,y,🥛,drinks beverages dairy
+Powerade,2,grabngo,0,both,y,🥤,drinks beverages 
+Snapple,2.15,grabngo,0,both,y,🥤,drinks beverages iced tea
+Tropicana,2.05,grabngo,0,both,y,🥤,orange juice drinks beverages 
 Coffee 8oz,1.15,beverage,0,both,n,☕,caffeine drinks beverages
 Coffee 12oz,1.6,beverage,0,both,n,☕,caffeine drinks beverages
 Latte 8oz,1.4,beverage,0,both,n,☕,caffeine drinks beverages coffee
@@ -115,25 +115,24 @@ David's Cookie,0.95,bakery,0,both,n,🍪,dessert chocolate m&m
 David's Cookie (3),2.25,bakery,0,both,n,🍪,dessert chocolate m&m
 Doughnut,1.35,bakery,0,both,n,🍩,dessert chocolate
 Muffin,1.85,bakery,0,both,n,🧁,dessert chocolate chip blueberry 
-Caesar Chicken Asiago on Roll,6.55,miscellaneous,0,both,n,🥪,sandwich 
-Vegetable Wrap,5.65,miscellaneous,0,both,n,🌯,vegetarian sandwich 
-Tomato & Mozzarella with Basil on Roll,5.65,miscellaneous,0,both,n,🥪,sandwich vegetarian 
-Ham & Swiss on Onion Roll,5.65,miscellaneous,0,both,n,🥪,sandwich 
-Cheese Plate with Fruit & Pepperoni,3.45,miscellaneous,0,both,n,🧀,snack dairy 
-Tuna Salad,2.75,miscellaneous,0,both,n,🐟,fish 
-Egg Salad,2.75,miscellaneous,0,both,n,🥚,
-Red Pepper Hummus,2.75,miscellaneous,0,both,n,🍴,dip spicy 
-Garden Salad,4.65,miscellaneous,0,both,n,🥗,vegetables 
-Grilled Salmon & Spinach Salad,6.65,miscellaneous,0,both,n,🐟,fish 
-Asian Chicken Salad,6.65,miscellaneous,0,both,n,🥗,
-Chef Salad,6.65,miscellaneous,0,both,n,🥗,
-Crispy Chicken Salad,6.65,miscellaneous,0,both,n,🥗,
+Caesar Chicken Asiago on Roll,6.55,grabngo,0,both,n,🥪,sandwich 
+Vegetable Wrap,5.65,grabngo,0,both,n,🌯,vegetarian sandwich 
+Tomato & Mozzarella with Basil on Roll,5.65,grabngo,0,both,n,🥪,sandwich vegetarian 
+Ham & Swiss on Onion Roll,5.65,grabngo,0,both,n,🥪,sandwich 
+Cheese Plate with Fruit & Pepperoni,3.45,grabngo,0,both,n,🧀,snack dairy 
+Tuna Salad,2.75,grabngo,0,both,n,🐟,fish 
+Egg Salad,2.75,grabngo,0,both,n,🥚,
+Red Pepper Hummus,2.75,grabngo,0,both,n,🍴,dip spicy 
+Garden Salad,4.65,grabngo,0,both,n,🥗,vegetables 
+Grilled Salmon & Spinach Salad,6.65,grabngo,0,both,n,🐟,fish 
+Asian Chicken Salad,6.65,grabngo,0,both,n,🥗,
+Chef Salad,6.65,grabngo,0,both,n,🥗,
+Crispy Chicken Salad,6.65,grabngo,0,both,n,🥗,
 Miss Vickie's,1.45,miscellaneous,0,both,y,🧂,chips salty snack
 Stacy's,1.65,miscellaneous,0,both,y,🧂,chips pita salty snack
 Fritos,1,miscellaneous,0,both,y,🧂,chips snack
 Cheez-its,1,miscellaneous,0,both,y,🧂,snack
 Pringles,1,miscellaneous,0,both,y,🧂,chips salty snack 
-Boyfriend,100000,unicorn,0,both,n,👦,hot nice trustworthy love
 Cereal,2.55,miscellaneous,0,both,y,🥣,kellogs frosted flakes cinnamon frosted flakes smart start gluten free apple jacks low fat granola smart start honey nut cherrios frosted mini wheats fruit and yogurt red berries kashi go lean
 Pound Cake,1.35,bakery,0,both,n,🍰,pastry breakfast
 Ice Cream,1.55,miscellaneous,0,both,y,🍦,frozen snack nestle crunch vanilla klondike choco taco blue bunny strawberry shortcake bar blue bunny cookies 'n cream bar snickers bar blue ribbon vanilla sandwich orange cream

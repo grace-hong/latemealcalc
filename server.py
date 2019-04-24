@@ -309,7 +309,7 @@ def addItem(search, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(results)
-
+  return results
   return redirect(url_for('getItem', item=search))
 
 @app.route("/addItem/<category>/<item>")

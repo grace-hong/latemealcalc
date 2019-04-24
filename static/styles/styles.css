@@ -308,6 +308,6 @@ form.categorybutton::after {
 
 .cart-total-price {  
   text-align: center;
-  color: green;
+  color: black;
     font-size: 2em;
 }

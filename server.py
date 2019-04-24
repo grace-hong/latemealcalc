@@ -170,7 +170,7 @@ def getItem(item):
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
       post_window2 = ''''"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + item + "/" + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
   if time[session['uid']] == 0:
@@ -193,12 +193,11 @@ def getItem(item):
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
       </td>
     </tr>'''
-  #<input type="submit" name="time_button">
   if len(results) == 0:
     return "No results found."
   for re in results:
       if (item.lower() in str(re[0]).lower()) or (item.lower() in str(re[4]).lower()):
-        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + item + "/"+ str(re[0]) + urlend + post2)
+        retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(item) + "/"+ str(re[0]) + urlend + post2)
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
 

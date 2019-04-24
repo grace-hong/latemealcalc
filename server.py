@@ -170,7 +170,7 @@ def getItem(item):
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
       post_window2 = ''''"></button></div>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + +str(item) + '''/''' + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
 
   if time[session['uid']] == 0:

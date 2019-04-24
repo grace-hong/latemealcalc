@@ -119,11 +119,8 @@
 	<div class="col-12" style="border-style:solid">
 	<div id = "flip" overflow:"auto" class = "row" style = "padding: 5px;background-color: #ffebcc;border: solid 1px #c3c3c3;">
 	   <div class = "col-10">
-		<h6 style="text-align: center;">TOTAL: </h6>
 		<!-- total -->
-		{% if resultList3 %}
-		<font color="black">{{ resultList3 }}</font>
-		{% endif %}
+		<h6 style="text-align: center;">TOTAL: {{ resultList3 }}</h6>
 		<!-- money left -->
 		{% if surplus %}
 		<br><font color="green" style="text-align:center;">{{ surplus }} remaining</font>

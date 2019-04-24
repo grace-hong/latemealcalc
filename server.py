@@ -76,7 +76,7 @@ def main():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/favorites/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
       post_window2 = ''''"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
@@ -93,12 +93,24 @@ def main():
   diff = budget - sum 
   
   retVal3 = '''$''' + "{:.2f}".format(sum)
+  
+  retVal4 = ""  
+  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector, diff, ))
+  results2 = cursor.fetchall()
+  for re in results2:
+    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    post_title4 = '''</span> <span class="cart-price">$'''
+    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
+    post_window4 = ''''"></button></div>'''
+    retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
+    
+
   if cart.get(session['uid']) == None:
-    return render_template("index.html", resultList3 = Markup(retVal3))
+    return render_template("index.html")
   if diff >= 0:
-    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff))
+    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "-${:.2f}".format(diff*-1))
+    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 
 @app.route("/favorites")
 def getFavorites():

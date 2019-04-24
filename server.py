@@ -176,6 +176,7 @@ def getItem(item):
     selector = "dinner"
   else:
     selector = "lunch"
+  diff = budget - sum 
 
   cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s) ORDER BY name", (selector,))
   results = cursor.fetchall()
@@ -206,7 +207,14 @@ def getItem(item):
     budget = 6.0
   else :
     budget = 7.0
-  diff = budget - sum
+  
+  budget = 0.0
+  if (selector == "dinner"):
+    budget = 6.0
+  else :
+    budget = 7.0
+  diff = budget - sum 
+  
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -219,9 +227,10 @@ def getItem(item):
 
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
-  return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4))
-  # return render_template("results.html", resultList = Markup(retVal)), resultList2 = Markup(retVal2))
-
+  if diff >= 0:
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
+  else:
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
@@ -238,9 +247,7 @@ def getItemsFromCategory(catg):
       pre2 = '''<div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
-      #post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="updateCartTotal(); removeItem(\''''
       post_window2 = ''''"></button></div>'''
-      #post_window2 = '''\');"></button></div>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
   
@@ -268,9 +275,7 @@ def getItemsFromCategory(catg):
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
   post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/'''
-  #post1 = '''</h5></td><td class="button" onclick="updateCartTotal(); addItem(\''''
   urlend = ''''">'''
-  #urlend = '''\');">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus" onclick="updateCartTotal();"></button>
       </td>

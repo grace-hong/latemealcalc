@@ -55,12 +55,12 @@ def splash():
 @app.route("/lunch")
 def lunch():
   time[session['uid']] = 0
-  return redirect(render_template('main'))
+  return redirect(url_for('main'))
 
 @app.route("/dinner")
 def dinner():
   time[session['uid']] = 1
-  return redirect(render_template('main'))
+  return redirect(url_for('main'))
 
 @app.route("/index")
 def main():

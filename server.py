@@ -278,8 +278,8 @@ def getsession():
   return "This messed up"
 
 
-@app.route("/addItem/item/<item>")
-def addItem(item):
+@app.route("/addItem/item/<search>/<item>")
+def addItem(search, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
 
@@ -295,7 +295,7 @@ def addItem(item):
   results = cursor.fetchall()
   print(results)
 
-  return redirect(url_for('getItem', item=item))
+  return redirect(url_for('getItem', item=search))
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):
@@ -327,10 +327,10 @@ def addItemFromFavorites(item):
 
   return redirect(url_for('getFavorites'))
 
-@app.route("/removeItem/item/<item>")
-def removeItem(item):
+@app.route("/removeItem/item/<search>/<item>")
+def removeItem(search, item):
   cart[session['uid']].remove(item)
-  return redirect(url_for('getItem', item=item))
+  return redirect(url_for('getItem', item=search))
 
 @app.route("/removeItem/<category>/<item>")
 def removeItemFromCategory(category, item):

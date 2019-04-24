@@ -202,11 +202,11 @@ def getInfo():
     
 
   if cart.get(session['uid']) == None:
-    return render_template("info.html", resultList = Markup(retVal))
+    return render_template("info.html")
   if diff >= 0:
-    return render_template("info.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("info.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 '''
 def gettimeofday():
     time = request.form['time']

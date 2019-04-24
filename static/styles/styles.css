@@ -237,6 +237,7 @@ form.categorybutton::after {
 
 .cart-block {
     display: inline-block;
+    flex-direction: row;
 }
 
 .cart-item {

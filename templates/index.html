@@ -23,6 +23,16 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 </head>
+	<script>
+	/*! Image Map Resizer (imageMapResizer.min.js ) - v1.0.10 - 2019-04-10
+ *  Desc: Resize HTML imageMap to scaled image.
+ *  Copyright: (c) 2019 David J. Bradshaw - dave@bradshaw.net
+ *  License: MIT
+ */
+
+!function(){"use strict";function r(){function e(){var r={width:u.width/u.naturalWidth,height:u.height/u.naturalHeight},a={width:parseInt(window.getComputedStyle(u,null).getPropertyValue("padding-left"),10),height:parseInt(window.getComputedStyle(u,null).getPropertyValue("padding-top"),10)};i.forEach(function(e,t){var n=0;o[t].coords=e.split(",").map(function(e){var t=1==(n=1-n)?"width":"height";return a[t]+Math.floor(Number(e)*r[t])}).join(",")})}function t(e){return e.coords.replace(/ *, */g,",").replace(/ +/g,",")}function n(){clearTimeout(d),d=setTimeout(e,250)}function r(e){return document.querySelector('img[usemap="'+e+'"]')}var a=this,o=null,i=null,u=null,d=null;"function"!=typeof a._resize?(o=a.getElementsByTagName("area"),i=Array.prototype.map.call(o,t),u=r("#"+a.name)||r(a.name),a._resize=e,u.addEventListener("load",e,!1),window.addEventListener("focus",e,!1),window.addEventListener("resize",n,!1),window.addEventListener("readystatechange",e,!1),document.addEventListener("fullscreenchange",e,!1),u.width===u.naturalWidth&&u.height===u.naturalHeight||e()):a._resize()}function e(){function t(e){e&&(!function(e){if(!e.tagName)throw new TypeError("Object is not a valid DOM element");if("MAP"!==e.tagName.toUpperCase())throw new TypeError("Expected <MAP> tag, found <"+e.tagName+">.")}(e),r.call(e),n.push(e))}var n;return function(e){switch(n=[],typeof e){case"undefined":case"string":Array.prototype.forEach.call(document.querySelectorAll(e||"map"),t);break;case"object":t(e);break;default:throw new TypeError("Unexpected data type ("+typeof e+").")}return n}}"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&"object"==typeof module.exports?module.exports=e():window.imageMapResize=e(),"jQuery"in window&&(window.jQuery.fn.imageMapResize=function(){return this.filter("map").each(r).end()})}();
+//# sourceMappingURL=imageMapResizer.map
+</script>
 
 <title>CalcuLateMeal</title>
 
@@ -91,12 +101,28 @@
 
 <!-- scroll of categories
 	can just replace action_page.php with the url -->
-	<section class="page-container" >
-		<div class = "row">
-			
-		</div>
+	<div class = "stuck">
+	<img src="fristgallery.png" usemap="#image-map" class = "image-map">
+
+	<map name="image-map">
+		<area target="" alt="Delicatessen" title="Delicatessen" href="linkmain" coords="1085,682,190,417" shape="rect">
+		<area target="" alt="Salad" title="Salad" href="linksalad" coords="51,686,385,1270" shape="rect">
+		<area target="" alt="Pizza" title="Pizza" href="linkpizza" coords="371,1906,60,1275" shape="rect">
+		<area target="" alt="Grab 'N Go" title="Grab 'N Go" href="linkgrabngo" coords="1288,700,2012,422" shape="rect">
+		<area target="" alt="Beverages" title="Beverages" href="linkdrinks" coords="1080,1103,2215,1358" shape="rect">
+		<area target="" alt="Bakery" title="Bakery" href="linkbakery" coords="2507,1845,2197,1354" shape="rect">
+		<area target="" alt="Grill" title="Grill" href="linkgrill" coords="3277,1906,2911,686" shape="rect">
+		<area target="" alt="Bowls" title="Bowls" href="linkbowls" coords="2192,399,3105,686" shape="rect">
+		<area target="" alt="Chips" title="Chips" href="miscellaneous" coords="1159,607,1288,445" shape="rect">
+		<area target="" alt="Chips" title="Chips" href="miscellaneous" coords="2016,440,2141,617" shape="rect">
+		<area target="" alt="Ice Cream" title="Ice Cream" href="miscellaneous" coords="505,1878,714,2346" shape="rect">
+		<area target="" alt="Fruit" title="Fruit" href="miscellaneous" coords="895,1873,1089,2332" shape="rect">
+		<area target="" alt="Veggies" title="Veggies" href="miscellaneous" coords="2202,1850,2419,2337" shape="rect">
+		<area target="" alt="Cereal" title="Cereal" href="miscellaneous" coords="2591,1882,2804,2341" shape="rect">
+	</map>
+
+		<script> imageMapResize(); </script>
 	</div>
-</section>
 
 <!-- calculator -->
 <footer>

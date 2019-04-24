@@ -200,6 +200,18 @@ def getItem(item):
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(item) + "/"+ str(re[0]) + urlend + post2)
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
+  
+  retVal4 = ""
+  budget = 0.0
+  if (selector == "dinner"):
+    budget = 6.0
+  else :
+    budget = 7.0
+  diff = budget - sum
+  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= diff ORDER BY count DESC LIMIT 5", (selector,))
+  results = cursor.fetchall()
+  
+    
 
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))

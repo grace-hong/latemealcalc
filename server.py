@@ -165,9 +165,9 @@ def getFavorites():
   for re in results2:
     pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
-    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/item/'''
+    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/favorites/'''
     post_window4 = ''''"></button></div>'''
-    retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(item) + "/" + str(re[0]) + post_window4)
+    retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 
   if cart.get(session['uid']) == None:

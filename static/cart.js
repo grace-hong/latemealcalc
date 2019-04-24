@@ -45,7 +45,7 @@ function addToCartClicked(event) {
 }
 
 function checkpackaged(title) {
-    alert('yes or no');
+    // alert('yes or no');
 }
 
 function addItemToCart(title, price) {

@@ -466,6 +466,21 @@ def addItemFromInfo(item):
 
   return redirect(url_for('getInfo'))
 
+@app.route("/addItem/<item>")
+def addItemFromMain(item):
+  if cart.get(session['uid']) == None:
+    cart[session['uid']] = []
+
+  cart[session['uid']].append(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+
+  string = "Your cart contains: "
+
+  for purchase in cart[session['uid']]:
+    string += str(purchase) + ", "
+
+  return redirect(url_for('main'))
+
 @app.route("/removeItem/item/<search>/<item>")
 def removeItem(search, item):
   cart[session['uid']].remove(item)

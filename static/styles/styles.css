@@ -242,7 +242,7 @@ form.categorybutton::after {
 .cart-item {
     width: 100%;
     padding: 10px;
-    border-right: solid black 2px;
+    /*border-right: solid black 2px;*/
 }
 
 .cart-price {

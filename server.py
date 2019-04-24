@@ -345,17 +345,17 @@ def getItemsFromCategory(catg):
   for re in results2:
     pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
-    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/''
+    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
     post_window4 = ''''"></button></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(catg) + "/" + str(re[0]) + post_window4)
     
 
   if cart.get(session['uid']) == None:
-    return render_template("results.html", resultList = Markup(retVal))
+    return render_template("category.html", resultList = Markup(retVal))
   if diff >= 0:
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 
 @app.route("/checkout")
 def checkout():

@@ -10,6 +10,26 @@ body{
   display: inline-block;
 }
 
+.image-map {
+  width: 100%;
+  position: relative;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+
+.stuck {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  float: left;
+  background-color: white;
+  position: relative;
+  margin-left: -5px;
+}
+
 
 .title {
   width: 100%;

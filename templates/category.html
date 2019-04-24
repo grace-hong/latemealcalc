@@ -130,28 +130,26 @@
 				   {% endif %}			
 			   </div>
 			</div>
-			<h6>SUGGESTED</h6>
+			<!--<h6>SUGGESTED</h6>
 			<div class = "calculator-scroll">
 				<div class = "cart-items">
 				{% if resultList4 %}
 					{{ resultList4 }}
 				{% endif %}
 				</div>
-			</div>
+			</div>-->
 		</div>
 		<div class = "col-4" style = "padding-left:0; text-align: center; padding-top: .8rem;">
 			<h6>TOTAL</h6>
-				<!-- total -->
-				{% if resultList3 %}
-				<div class = "cart-total-price">{{ resultList3 }}</div>
-				{% endif %}
 				<!-- money left -->
 				{% if surplus %}
-				<br><font color="green">{{ surplus }} remaining</font>
+				<font color="green"><div class = "cart-total-price">{{ resultList3 }}</div>
+				<br>{{ surplus }} remaining</font>
 				{% endif %}
 				<!-- money over -->
 				{% if diffOver %}
-				<br><font color="red">{{ diffOver }} over</font>
+				<font color="red"><div class = "cart-total-price">{{ resultList3 }}</div>
+				<br>{{ diffOver }} over</font>
 				{% endif %}
 				<br><button type="button" onclick="window.location='/checkout';"> Checkout </button>
 		</div>

@@ -207,7 +207,7 @@ def getItem(item):
   else :
     budget = 7.0
   diff = budget - sum
-  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector,), (diff,))
+  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
     pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''

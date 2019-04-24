@@ -110,18 +110,18 @@ function updateCartTotal() {
     alert("maxPrice = "  + maxPrice + " total = " + total);
     // COLOR FOR TOTAL WHEN IT BECOMES GREATER THAN LATEMEAL PRICE
     if (total > maxPrice) {
-    	document.getElementsByClassName('cart-total-price')[0].style.color = "red";
+    	document.getElementsByClassName('total-price')[0].textContent.style.color = "red";
         document.getElementsByClassName('cart-dif')[0].innerText = '- $' + (total - maxPrice).toFixed(2);
         document.getElementsByClassName('cart-dif')[0].style.color = "red";
     }
     else {
-    	document.getElementsByClassName('cart-total-price')[0].style.color = "green";
+    	document.getElementsByClassName('total-price')[0].textContent.style.color = "green";
         document.getElementsByClassName('cart-dif')[0].innerText = '';
         /*if (total < maxPrice) {
             document.getElementsByClassName('suggested')[0].innerText = "Suggested Items<br>" + getSuggested(maxPrice - total);
         }*/
     }
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total.toFixed(2)
+    //document.getElementsByClassName('total-price')[0].innerText = '$' + total.toFixed(2)
 
 }
 

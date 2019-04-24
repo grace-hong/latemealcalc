@@ -331,13 +331,31 @@ def getItemsFromCategory(catg):
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(catg) + '''/''' + str(re[0]) + urlend +  '''''' + post2)
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
-  if cart.get(session['uid']) == None:
-    return render_template("category.html", resultList = Markup(retVal))
+  retVal4 = ""
+  budget = 0.0
+  if (selector == "dinner"):
+    budget = 6.0
+  else :
+    budget = 7.0
+  
+  diff = budget - sum 
+  
+  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 5", (selector, diff, ))
+  results2 = cursor.fetchall()
+  for re in results2:
+    pre4 = '''<div class = "cart-item"> <span class="cart-item-title">'''
+    post_title4 = '''</span> <span class="cart-price">$'''
+    post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/''
+    post_window4 = ''''"></button></div>'''
+    retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(catg) + "/" + str(re[0]) + post_window4)
+    
 
-  if diff >= 0: 
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), )
+  if cart.get(session['uid']) == None:
+    return render_template("results.html", resultList = Markup(retVal))
+  if diff >= 0:
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "-${:.2f}".format(diff*-1), )
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 
 @app.route("/checkout")
 def checkout():

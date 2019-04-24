@@ -137,7 +137,7 @@
 				</div>
 			</div>
 		</div>
-		<div class = "col-2" style = "padding-left:0; text-align: center; padding-top: .8rem;">
+		<div class = "col-4" style = "padding-left:0; text-align: center; padding-top: .8rem;">
 			<h6>TOTAL</h6>
 				<!-- total -->
 				{% if resultList3 %}
@@ -145,17 +145,18 @@
 				{% endif %}
 				<!-- money left -->
 				{% if surplus %}
-				<br><font color="green">{{ surplus }}</font>
+				<br><font color="green">{{ surplus }}</font> remaining
 				{% endif %}
 				<!-- money over -->
 				{% if diffOver %}
-				<br><font color="red">{{ diffOver }}</font>
+				<br><font color="red">{{ diffOver }}</font> over
 				{% endif %}
+				<button type="button" onclick="window.location='/checkout';"> Checkout </button>
 		</div>
 		
-		<div class = "col-2" style="padding-left:0; text-align:center; padding-top: .8rem; align-items: center;">
+		<!--<div class = "col-2" style="padding-left:0; text-align:center; padding-top: .8rem; align-items: center;">
 			<button type="button" onclick="window.location='/checkout';"> Checkout </button>
-		</div>
+		</div>-->
 	</div>
 </footer>
 <!-- shopping cart-->

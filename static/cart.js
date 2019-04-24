@@ -19,7 +19,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Items Cleared')
+    // alert('Items Cleared')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -73,13 +73,13 @@ function addItemToCart(title, price) {
 }
 
 function addItem(itemName) {
-    alert("Item added.");
+    // alert("Item added.");
     str = "/removeItem/" + itemName;
     window.location=str;
 }
 
 function removeItem(itemName) {
-    alert("Item removed.");
+    // alert("Item removed.");
     str = "/addItem/" + itemName;
     window.location=str;
 }

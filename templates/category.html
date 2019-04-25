@@ -27,7 +27,7 @@
 <script src="jquery.js"></script> 
     <script> 
     $(function(){
-      $("#includedContent").load("cart.html"); 
+      $("#includedContent").load("{{ url_for('static', filename='cart.html') }}"); 
     });
     </script> 
 

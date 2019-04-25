@@ -155,12 +155,12 @@
 			<h6>TOTAL</h6>
 				<!-- money left -->
 				{% if surplus %}
-				<font color="green"><div class = "cart-total-price">{{ resultList3 }}</div>
+				<font color="green">{{ resultList3 }}
 				<br>{{ surplus }} remaining</font>
 				{% endif %}
 				<!-- money over -->
 				{% if diffOver %}
-				<font color="red"><div class = "cart-total-price">{{ resultList3 }}</div>
+				<font color="red">{{ resultList3 }}
 				<br>{{ diffOver }} over</font>
 				{% endif %}
 				<br><button type="button" onclick="window.location='/checkout';"> Checkout </button>

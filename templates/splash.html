@@ -24,18 +24,18 @@
 
 </head>
 
-<body>
+<body class = "bg">
 	<title>CalcuLateMeal</title>
-	<div class-"centered">
-	<div class="header">Welcome to CalcuLateMeal</div>
-	<div class="subheader">I am looking for</div>
+	<div>
+		<img src = "title.png" style="padding-top: 60px;  width: 90%; margin-left:auto; margin-right:auto; display: block; position:relative;">
+		<div style="text-align: center; color: white; font-weight:200; font-size: 12px;font-style:italic; padding-left: 40px; padding-right: 40px;">Welcome to Princeton's Late Meal Calculator. To begin, choose a meal time. </div>
 	</div>
 	<div class="radio-toolbar" style="text-align: center; vertical-align: middle">
-    <input type="radio" id="radioLunch" name="radioTime" value="lunch" style="vertical-align: middle">
-    <label for="radioLunch">Lunch</label>
+		<input type="radio" id="radioLunch" name="radioTime" value="lunch" style="vertical-align: middle">
+		<label for="radioLunch">Lunch</label>
 
-    <input type="radio" id="radioDinner" name="radioTime" value="dinner" style="vertical-align: middle">
-    <label for="radioDinner">Dinner</label>
+		<input type="radio" id="radioDinner" name="radioTime" value="dinner" style="vertical-align: middle">
+		<label for="radioDinner">Dinner</label>
 	</div>
 	<script>
 		var hour = new Date().getHours();

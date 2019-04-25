@@ -1,0 +1,41 @@
+
+<figure id = maptest>
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 989.09"><title>fristgallery</title><image width="3300" height="2550" transform="translate(0 0) scale(0.39)" xlink:href="fristgallery.png"/>
+	<a xlink:href="/search/category/grabngo">
+		<rect x="500" y="170" fill="#fff30" opacity=".4" width="285" height="100" />
+	</a>
+
+	<a xlink:href="/search/category/delicatessen">
+		<rect x="80" y="170" fill="#fff30" opacity=".4" width="350" height="100" />
+	</a>
+ 
+	<a xlink:href="/search/category/bowls">
+		<rect x="857" y="170" fill="#fff30" opacity=".4" width="350" height="100" />
+	</a>
+
+	<a xlink:href="/search/category/drinks">
+		<rect x="420" y="435" fill="#fff30" opacity=".4" width="445" height="100" />
+	</a>
+
+	<a xlink:href="/search/category/salad">
+		<rect x="30" y="260" fill="#fff30" opacity=".4" width="100" height="239" />
+	</a>
+
+
+	<a xlink:href="/search/category/pizza">
+		<rect x="30" y="500" fill="#fff30" opacity=".4" width="100" height="239" />
+	</a>
+
+
+	<a xlink:href="/search/category/bakery">
+		<rect x="860" y="520" fill="#fff30" opacity=".4" width="100" height="200" />
+	</a>
+
+
+
+	<a xlink:href="/search/category/grill">
+		<rect x="1150" y="260" fill="#fff30" opacity=".4" width="100" height="480" />
+	</a>
+</svg>
+</figure>

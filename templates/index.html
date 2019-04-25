@@ -23,16 +23,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 </head>
-	<script>
-	/*! Image Map Resizer (imageMapResizer.min.js ) - v1.0.10 - 2019-04-10
- *  Desc: Resize HTML imageMap to scaled image.
- *  Copyright: (c) 2019 David J. Bradshaw - dave@bradshaw.net
- *  License: MIT
- */
-
-!function(){"use strict";function r(){function e(){var r={width:u.width/u.naturalWidth,height:u.height/u.naturalHeight},a={width:parseInt(window.getComputedStyle(u,null).getPropertyValue("padding-left"),10),height:parseInt(window.getComputedStyle(u,null).getPropertyValue("padding-top"),10)};i.forEach(function(e,t){var n=0;o[t].coords=e.split(",").map(function(e){var t=1==(n=1-n)?"width":"height";return a[t]+Math.floor(Number(e)*r[t])}).join(",")})}function t(e){return e.coords.replace(/ *, */g,",").replace(/ +/g,",")}function n(){clearTimeout(d),d=setTimeout(e,250)}function r(e){return document.querySelector('img[usemap="'+e+'"]')}var a=this,o=null,i=null,u=null,d=null;"function"!=typeof a._resize?(o=a.getElementsByTagName("area"),i=Array.prototype.map.call(o,t),u=r("#"+a.name)||r(a.name),a._resize=e,u.addEventListener("load",e,!1),window.addEventListener("focus",e,!1),window.addEventListener("resize",n,!1),window.addEventListener("readystatechange",e,!1),document.addEventListener("fullscreenchange",e,!1),u.width===u.naturalWidth&&u.height===u.naturalHeight||e()):a._resize()}function e(){function t(e){e&&(!function(e){if(!e.tagName)throw new TypeError("Object is not a valid DOM element");if("MAP"!==e.tagName.toUpperCase())throw new TypeError("Expected <MAP> tag, found <"+e.tagName+">.")}(e),r.call(e),n.push(e))}var n;return function(e){switch(n=[],typeof e){case"undefined":case"string":Array.prototype.forEach.call(document.querySelectorAll(e||"map"),t);break;case"object":t(e);break;default:throw new TypeError("Unexpected data type ("+typeof e+").")}return n}}"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&"object"==typeof module.exports?module.exports=e():window.imageMapResize=e(),"jQuery"in window&&(window.jQuery.fn.imageMapResize=function(){return this.filter("map").each(r).end()})}();
-//# sourceMappingURL=imageMapResizer.map
-</script>
+	
 
 <title>CalcuLateMeal</title>
 
@@ -101,28 +92,60 @@
 
 <!-- scroll of categories
 	can just replace action_page.php with the url -->
-	<div class = "stuck">
-	<img src="fristgallery.png" usemap="#image-map" class = "image-map">
+<svg class = "map-test" id="Layer 1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 989.09"><image width="3300" height="2550" transform="translate(0 0) scale(0.39)" xlink:href="fristgallery.png"/>
+		<g>
+			<a xlink:href="/search/category/grabngo" xlink:title = "Grab 'N Go"> 
+				<rect x="500" y="170" fill="#fff30" opacity="0" width="285" height="100" />
+			</a>
+			<a xlink:href="/search/category/delicatessen" xlink:title = "Delicatessen">
+				<rect x="80" y="170" fill="#fff30" opacity="0" width="350" height="100" />
+			</a>
+			<a xlink:href="/search/category/bowls" xlink:title = "Bowls">
+				<rect x="857" y="170" fill="#fff30" opacity="0" width="350" height="100" />
+			</a>
+			<a xlink:href="/search/category/drinks" xlink:title = "Beverages">
+				<rect x="420" y="435" fill="#fff30" opacity="0" width="445" height="100" />
+			</a>
+			<a xlink:href="/search/category/salad" xlink:title = "Salad">
+				<rect x="30" y="260" fill="#fff30" opacity="0" width="100" height="239" />
+			</a>
+			<a xlink:href="/search/category/pizza" xlink:title = "Pizza">
+				<rect x="30" y="500" fill="#fff30" opacity="0" width="100" height="239" />
+			</a>
+			<a xlink:href="/search/category/bakery" xlink:title = "Bakery">
+				<rect x="860" y="520" fill="#fff30" opacity="0" width="100" height="200" />
+			</a>
+			<a xlink:href="/search/category/grill" xlink:title = "Grill">
+				<rect x="1150" y="260" fill="#fff30" opacity="0" width="100" height="480" />
+			</a>
 
-	<map name="image-map">
-		<area target="" alt="Delicatessen" title="Delicatessen" href="/search/category/delicatessen" coords="1085,682,190,417" shape="rect">
-		<area target="" alt="Salad" title="Salad" href="/search/category/salad" coords="51,686,385,1270" shape="rect">
-		<area target="" alt="Pizza" title="Pizza" href="/search/category/pizza" coords="371,1906,60,1275" shape="rect">
-		<area target="" alt="Grab 'N Go" title="Grab 'N Go" href="/search/category/grabngo" coords="1288,700,2012,422" shape="rect">
-		<area target="" alt="Beverages" title="Beverages" href="/search/category/beverage" coords="1080,1103,2215,1358" shape="rect">
-		<area target="" alt="Bakery" title="Bakery" href="/search/category/bakery" coords="2507,1845,2197,1354" shape="rect">
-		<area target="" alt="Grill" title="Grill" href="/search/category/grill" coords="3277,1906,2911,686" shape="rect">
-		<area target="" alt="Bowls" title="Bowls" href="/search/category/bowls" coords="2192,399,3105,686" shape="rect">
-		<area target="" alt="Chips" title="Chips" href="/search/category/miscellaneous" coords="1159,607,1288,445" shape="rect">
-		<area target="" alt="Chips" title="Chips" href="/search/category/miscellaneous" coords="2016,440,2141,617" shape="rect">
-		<area target="" alt="Ice Cream" title="Ice Cream" href="/search/category/miscellaneous" coords="505,1878,714,2346" shape="rect">
-		<area target="" alt="Fruit" title="Fruit" href="/search/category/miscellaneous" coords="895,1873,1089,2332" shape="rect">
-		<area target="" alt="Veggies" title="Veggies" href="/search/category/miscellaneous" coords="2202,1850,2419,2337" shape="rect">
-		<area target="" alt="Cereal" title="Cereal" href="/search/category/miscellaneous" coords="2591,1882,2804,2341" shape="rect">
-	</map>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Ice Cream">
+				<rect x="198" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
 
-		<script> imageMapResize(); </script>
-	</div>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Fruits">
+				<rect x="350" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Chips">
+				<rect x="450" y="170" fill="#fff30" opacity="0" width="50" height="65" />
+			</a>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Chips">
+				<rect x="785" y="170" fill="#fff30" opacity="0" width="54" height="65" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Veggies">
+				<rect x="860" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Cereal">
+				<rect x="1010" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+
+		</g>
+
+
+	</svg>
+
 
 <!-- calculator -->
 <footer>

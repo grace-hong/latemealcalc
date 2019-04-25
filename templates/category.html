@@ -140,19 +140,17 @@ function includeHTML() {
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
 		<h5><table class="shop-items" id="shop-items">{{ resultList }}</table>	</h5>
-	{% else %}
-  		<h1>No results found.</h1>
 	{% endif %}
 
 	</section>
 
-
-<!-- calculator -->
-<footer>
-	<div w3-include-html="cart.html"></div> 
 <script>
 includeHTML();
 </script>
+<!-- calculator -->
+<footer>
+	<div w3-include-html="cart.html"></div> 
+
 </footer>
 <!-- shopping cart-->	
 

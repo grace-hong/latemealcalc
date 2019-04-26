@@ -452,6 +452,7 @@ def addItemFromCategory(category, item):
 def addItemFromFavorites(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
+    time[session['uid']] = 0
 
   cart[session['uid']].append(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))

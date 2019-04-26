@@ -288,8 +288,7 @@ form.categorybutton::after {
 
 .btn-primary {
     color: white;
-    /* background-color: #56CCF2; */
-    background-color: #FF8F00;
+    background-color: #56CCF2;
     border: none;
     font-weight: bold;
     align: left;

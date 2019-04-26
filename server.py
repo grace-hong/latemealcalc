@@ -72,6 +72,7 @@ def main():
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
+      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -122,6 +123,7 @@ def getFavorites():
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
+      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -257,6 +259,7 @@ def getItem(item):
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
+      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -330,6 +333,7 @@ def getItemsFromCategory(catg):
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
+      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -420,6 +424,7 @@ def addItem(search, item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
@@ -439,6 +444,7 @@ def addItemFromCategory(category, item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
@@ -455,6 +461,7 @@ def addItemFromFavorites(item):
     time[session['uid']] = 0
 
   cart[session['uid']].append(item)
+  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
@@ -470,6 +477,7 @@ def addItemFromInfo(item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "
@@ -485,6 +493,7 @@ def addItemFromMain(item):
     cart[session['uid']] = []
 
   cart[session['uid']].append(item)
+  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
 
   string = "Your cart contains: "

@@ -151,13 +151,13 @@ includeHTML();
 		<h6>TOTAL</h6>
 		<!-- money left -->
 		{% if surplus %}
-			<font color="green"><h3>{{ resultList3 }}</h3>
-			<br><h6>{{ surplus }} remaining</h6></font>
+			<font color="green">{{ resultList3 }}</font>
+			<br><font size="1">{{ surplus }} remaining</font>
 		{% endif %}
 			<!-- money over -->
 			{% if diffOver %}
-			<font color="red"><h3>{{ resultList3 }}</h3>
-			<br><h6>{{ diffOver }} over</h6></font>
+			<font color="red">{{ resultList3 }}</font>
+			<br><font size="1">{{ diffOver }} over</font>
 			{% endif %}
 	</div>
 	<!-- checkout button -->

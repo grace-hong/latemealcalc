@@ -426,6 +426,7 @@ def addItem(search, item):
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
   string = "Your cart contains: "
 
@@ -446,6 +447,7 @@ def addItemFromCategory(category, item):
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
   string = "Your cart contains: "
 
@@ -463,6 +465,7 @@ def addItemFromFavorites(item):
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
   string = "Your cart contains: "
 
@@ -479,6 +482,7 @@ def addItemFromInfo(item):
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
   string = "Your cart contains: "
 
@@ -495,6 +499,7 @@ def addItemFromMain(item):
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
   string = "Your cart contains: "
 

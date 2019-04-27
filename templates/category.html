@@ -135,9 +135,9 @@ includeHTML();
 	
 <!-- calculator -->
 <footer>
-	<table style="position: absolute;">
+	<table style="position: absolute;" class = "row fixed-bottom">
 		<tr id ="flip"> 
-			<th> 
+			<th style = "padding-right:0; padding-top:.8rem; border-right: solid .1rem; text-align: center;"> 
 				<h6>YOUR CART</h6>
 				<div class="calculator-scroll">
 				  <div class = "cart-items">
@@ -147,7 +147,7 @@ includeHTML();
 				   </div>
 				</div>
 			</th>
-			<th> 
+			<th style = "padding-left:0; text-align: center; padding-top: .8rem; border-right: solid .1rem;"> 
 				<h6>TOTAL</h6>
 				<!-- money left -->
 				{% if surplus %}
@@ -162,7 +162,7 @@ includeHTML();
 			</th>
 		</tr>
 		<tr id = "panel">
-			<th> 
+			<th style = "padding-right:0; padding-top:.8rem; border-right: solid .1rem; text-align: center;"> 
 				<h6>SUGGESTED</h6>
 				<div class = "calculator-scroll">
 				<div class = "cart-items">

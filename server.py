@@ -43,6 +43,7 @@ conn.commit()
 
 cart = {}
 time = {}
+packaged = {}
 
 
 @app.route("/")
@@ -67,6 +68,7 @@ def main():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
+    packaged[session['uid']] = 0
     
   sum = 0.0
   retVal2 = ""
@@ -436,6 +438,8 @@ def addItem(search, item):
     
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
   print(results)
 
   return redirect(url_for('getItem', item=search))

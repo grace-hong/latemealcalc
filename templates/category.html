@@ -128,15 +128,15 @@ includeHTML();
 	<script> 
 	$(document).ready(function(){
 	  $("#flip").click(function(){
-	    $("#panel").slideToggle("slow");
+	    $("#panel").slideToggle("fast");
 	  });
 	});
 	</script>
 	
 <!-- calculator -->
 <footer>
-	<table style="position:fixed;bottom:0;overflow:auto;" bgcolor="#eceff1" border="1">
-		<tr id ="flip"> 
+	<table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;" bgcolor="#eceff1" rules="rows">
+		<tr id ="flip" bgcolor="#eceff1"> 
 			<th width="70%"> 
 				<h6>YOUR CART</h6>
 				<div class="calculator-scroll">
@@ -161,7 +161,7 @@ includeHTML();
 				{% endif %}
 			</th>
 		</tr>
-		<tr id = "panel">
+		<tr id = "panel" bgcolor="#eceff1">
 			<th width="70%">
 				<h6>SUGGESTED</h6>
 				<div class = "calculator-scroll">

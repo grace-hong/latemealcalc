@@ -49,7 +49,7 @@ body{
 .radio-toolbar label:hover {
   background-color: #455a64 ;
 
-  cursor: w-resize;
+  cursor: pointer;
 }
 
 .radio-toolbar input[type="radio"]:checked + label {

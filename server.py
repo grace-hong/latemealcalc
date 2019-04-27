@@ -324,7 +324,10 @@ def getItemsFromCategory(catg):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-    
+  
+  if catg == "title.png":
+    return app.send_static_file('title.png')
+  
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:

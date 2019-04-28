@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<!--<script src="helper.js"></script>!-->
+	<script type="text/javascript" src="{{ url_for('static', filename='cart.js') }}"></script>
+
+	<!-- personal style sheet -->
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+<style>
+	table {
+ 		width: 100%;
+		align: left;
+	}
+	td, th {
+  		text-align: left;
+		padding: 15px;
+		align: left;
+	}
+	tr:nth-child(even) {
+ 	 	background-color: #dddddd;
+	}
+</style>
+	
+	<script> 
+	$(document).ready(function(){
+	  $("#flip").click(function(){
+	    $("#panel").slideToggle("fast");
+	  });
+	});
+	</script>
+</head>
+	
+
+<title>CalcuLateMeal</title>
+
+<body>
+	<header class="container-fluid fixed-top">
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="padding-right: 5vw; padding-left: 5vw; background-color: #787878;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/index"><img src = "title.png" style = "width: 13rem"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="index">Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="info">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="favorites">Popular</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/">Meal Time</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+
+
+			<form class="searchbutton" style = "position: absolute; width: 100%; left: 0; background-color: #fafafa;" action="action_page.php">
+				<div class = "row padding-0" style="padding-top:2rem;">
+					<div class = "col-1"></div>
+
+					<div class = "col-9 padding-0">
+						<div class="searchbar">
+							<input type="text" id="itemsearch" class="form-control" placeholder="Search...">
+						</div>
+					</div>
+
+					<div class = "col-1 " style="display: inline-block; padding-top: 2rem; padding-left: 0rem; padding-right:1rem;">
+						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+			</form>
+
+	</header>
+
+
+	<!-- submission functions -->
+	<script>
+		function handleSearchItem() {
+			var query = document.getElementById('itemsearch').value;
+			window.location.href = "/search/item/" + query;
+			return false;
+		}
+		function handleSearchCategory(category) {
+			// var category = this.getAttribute('data-category');
+			window.location.href = "/search/category/" + category;
+			return false;
+		}
+	</script>
+
+
+<!-- scroll of categories
+	can just replace action_page.php with the url -->
+<svg class = "map-test" id="Layer 1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 989.09"><image width="3300" height="2550" transform="translate(0 0) scale(0.39)" xlink:href="fristgallery.png"/>
+		<g>
+			<a xlink:href="/search/category/grabngo" xlink:title = "Grab 'N Go"> 
+				<rect x="500" y="170" fill="#fff30" opacity="0" width="285" height="100" />
+			</a>
+			<a xlink:href="/search/category/delicatessen" xlink:title = "Delicatessen">
+				<rect x="80" y="170" fill="#fff30" opacity="0" width="350" height="100" />
+			</a>
+			<a xlink:href="/search/category/bowls" xlink:title = "Bowls">
+				<rect x="857" y="170" fill="#fff30" opacity="0" width="350" height="100" />
+			</a>
+			<a xlink:href="/search/category/beverage" xlink:title = "Beverages">
+				<rect x="420" y="435" fill="#fff30" opacity="0" width="445" height="100" />
+			</a>
+			<a xlink:href="/search/category/salad" xlink:title = "Salad">
+				<rect x="30" y="260" fill="#fff30" opacity="0" width="100" height="239" />
+			</a>
+			<a xlink:href="/search/category/pizza" xlink:title = "Pizza">
+				<rect x="30" y="500" fill="#fff30" opacity="0" width="100" height="239" />
+			</a>
+			<a xlink:href="/search/category/bakery" xlink:title = "Bakery">
+				<rect x="860" y="520" fill="#fff30" opacity="0" width="100" height="200" />
+			</a>
+			<a xlink:href="/search/category/grill" xlink:title = "Grill">
+				<rect x="1150" y="260" fill="#fff30" opacity="0" width="100" height="480" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Ice Cream">
+				<rect x="198" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Fruits">
+				<rect x="350" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Chips">
+				<rect x="450" y="170" fill="#fff30" opacity="0" width="50" height="65" />
+			</a>
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Chips">
+				<rect x="785" y="170" fill="#fff30" opacity="0" width="54" height="65" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Veggies">
+				<rect x="860" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+
+			<a xlink:href="/search/category/miscellaneous" xlink:title="Cereal">
+				<rect x="1010" y="720" fill="#fff30" opacity="0" width="80" height="200" />
+			</a>
+
+		</g>
+
+
+	</svg>
+
+
+<!-- calculator -->
+<footer>
+	<table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;" frame="hsides">
+		<tr id ="flip" bgcolor="#eceff1"> 
+			<th width="30%"> 
+				<h6>TOTAL</h6>
+				<!-- money left -->
+				{% if surplus %}
+					<font color="green" size="4">{{ resultList3 }}</font>
+					<br><font size="1">{{ surplus }} remaining</font>
+				{% endif %}
+					<!-- money over -->
+				{% if diffOver %}
+					<font color="red" size="4">{{ resultList3 }}</font>
+					<br><font size="1">{{ diffOver }} over</font>
+				{% endif %}
+			</th>
+		</tr>
+	</table>
+</footer>
+
+
+<!-- shopping cart-->
+
+</body>
+</html>

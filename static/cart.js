@@ -40,7 +40,15 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     // checkpackaged(title)
-    $(function() {
+    
+    addItemToCart(title, price)
+    updateCartTotal()
+}
+
+function checkpackaged(){
+    var priceElement = document.getElementsByClassName('total-price')[0].textContent
+    total = parseFloat(priceElement.replace('$', ''))
+	$(function() {
 	    $(button).click(function() {
 		    $.ajax({
 			    url: '/addItem/item/<search>/<item>',
@@ -56,10 +64,7 @@ function addToCartClicked(event) {
 	    });
     });
 });
-    addItemToCart(title, price)
-    updateCartTotal()
 }
-
 
 function checkpackaged(title) {
     // alert('yes or no');

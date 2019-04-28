@@ -106,14 +106,13 @@ def main():
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
     post_window4 = ''''"></button></div></div>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
-    
 
   if cart.get(session['uid']) == None:
     return render_template("index.html")
   if diff >= 0:
-    return render_template("indexNew.html", resultList3 = Markup(retVal3))
+    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("indexNew.html", resultList3 = Markup(retVal3))
+    return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
 
 @app.route("/favorites")
 def getFavorites():

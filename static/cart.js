@@ -43,14 +43,15 @@ function addToCartClicked(event) {
     $(function() {
 	    $(button).click(function() {
 		    $.ajax({
-			    url: ,
-			    data: $('form').serialize(),
+			    url: '/addItem/item/<search>/<item>',
 			    type: 'POST',
-			    success: function(response) {
-			    console.log(response);
+			    datatype: "data",
+			    data: {name: $("#INPUTNAME").val()},
+			    success: function(result) {
+	 			alert('ok');
 		    	},
 			   error: function(error) {
-			    console.log(error);
+			    alert('error');
 		    }
 	    });
     });

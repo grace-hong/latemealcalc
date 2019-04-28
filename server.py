@@ -526,7 +526,7 @@ def addItemFromMain(item):
   string = "Your cart contains: "
 
   for purchase in cart[session['uid']]:
-    string += str(purchase) + ", 
+    string += str(purchase) + ", "
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   if str(results) == 'y':

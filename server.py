@@ -156,7 +156,7 @@ def getFavorites():
   post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/favorites/'''
   urlend = ''''">'''
   post2 = '''
-        <button class="btn btn-primary shop-item-button fas fa-plus" onclick="updateCartTotal();"></button>
+        <button class="btn btn-primary shop-item-button fas fa-plus" onclick="updateCartTotal(); checkpackaged();"></button>
       </td>
     </tr>'''
   for re in results:
@@ -372,7 +372,7 @@ def getItemsFromCategory(catg):
   post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/'''
   urlend = ''''">'''
   post2 = '''
-        <button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="updateCartTotal();"></button>
+        <button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="updateCartTotal(); checkpackaged();"></button>
       </td>
     </tr>'''
   

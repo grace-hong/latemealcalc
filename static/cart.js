@@ -48,6 +48,7 @@ function addToCartClicked(event) {
 function checkpackaged(){
     var priceElement = document.getElementsByClassName('total-price')[0].textContent
     total = parseFloat(priceElement.replace('$', ''))
+	/*
 	$(function() {
 	    $(button).click(function() {
 		    $.ajax({
@@ -63,7 +64,12 @@ function checkpackaged(){
 		    }
 	    });
     });
-});
+}); */
+	$("#addition").click(function() {
+		$.getJSON('/addItem/item/<search>/<item>', function(dat) {
+			alert(dat);
+		});
+	});
 }
 
 function checkpackaged(title) {

@@ -40,6 +40,21 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     // checkpackaged(title)
+    $(function() {
+	    $(button).click(function() {
+		    $.ajax({
+			    url: ,
+			    data: $('form').serialize(),
+			    type: 'POST',
+			    success: function(response) {
+			    console.log(response);
+		    	},
+			   error: function(error) {
+			    console.log(error);
+		    }
+	    });
+    });
+});
     addItemToCart(title, price)
     updateCartTotal()
 }

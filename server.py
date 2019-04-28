@@ -450,7 +450,7 @@ def check(search, item):
   result['success'] = True
   result['message'] = "The command Completed Successfully"
   result['num'] = packaged[session['uid']]
-  console.log(json.dumps(result))
+  #console.log(json.dumps(result))
   return (json.dumps(result))
   #return packaged[session['uid']]
 
@@ -472,7 +472,7 @@ def addItemFromCategory(category, item):
   results = cursor.fetchall()
   if str(results) == 'y':
     packaged[session['uid']] = packaged[session['uid']] + 1
-  console.log(results)
+  #console.log(results)
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")

@@ -458,6 +458,12 @@ def addItemFromCategory(category, item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
+  print(results)
+
 
   return redirect(url_for('getItemsFromCategory', catg=category))
 
@@ -476,7 +482,11 @@ def addItemFromFavorites(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
+  print(results)
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")
@@ -493,6 +503,13 @@ def addItemFromInfo(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
+    
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
+  print(results)
+
 
   return redirect(url_for('getInfo'))
 
@@ -509,32 +526,61 @@ def addItemFromMain(item):
   string = "Your cart contains: "
 
   for purchase in cart[session['uid']]:
-    string += str(purchase) + ", "
-
+    string += str(purchase) + ", 
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
+  print(results)
   return redirect(url_for('main'))
 
 @app.route("/removeItem/item/<search>/<item>")
 def removeItem(search, item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] - 1
+  print(results)
   cart[session['uid']].remove(item)
   return redirect(url_for('getItem', item=search))
 
 @app.route("/removeItem/<category>/<item>")
 def removeItemFromCategory(category, item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] - 1
+  print(results)
   cart[session['uid']].remove(item)
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/removeItemMain/<item>")
 def removeItemFromMain(item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] - 1
+  print(results)
   cart[session['uid']].remove(item)
   return redirect(url_for('main'))
 
 @app.route("/removeItemFavorites/<item>")
 def removeItemFromFavorites(item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] - 1
+  print(results)
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
 @app.route("/removeItemInfo/<item>")
 def removeItemFromInfo(item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] - 1
+  print(results)
   cart[session['uid']].remove(item)
   return redirect(url_for('getInfo'))
 

@@ -444,6 +444,11 @@ def addItem(search, item):
 
   return redirect(url_for('getItem', item=search))
 
+
+@app.route("/addItem/item/<search>/<item>", methods=['POST'])
+def check(search, item):
+  return packaged[session['uid']]
+
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):
   if cart.get(session['uid']) == None:

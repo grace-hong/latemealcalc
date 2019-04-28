@@ -477,6 +477,7 @@ def addItemFromCategory(category, item):
   #console.log(results)
   print("Testing addItem/<category>/<item>")
   print(results)
+  print(packaged[session['uid']])
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")

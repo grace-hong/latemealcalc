@@ -447,7 +447,12 @@ def addItem(search, item):
 
 @app.route("/addItem/item/<search>/<item>", methods=['POST'])
 def check(search, item):
-  return packaged[session['uid']]
+  result = {}
+  result['success'] = True
+  result['message'] = "The command Completed Successfully"
+  result['num'] = packaged[session['uid']]
+  return (json.dumps(result))
+  #return packaged[session['uid']]
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):

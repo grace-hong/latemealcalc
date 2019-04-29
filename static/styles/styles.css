@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
 
+
+@font-face{
+ font-family:'calculator-font';
+ src: url('static/pocket_calcuatlor_tt.ttf');
+}
+
 body{
   background-color: white;
   height:100vh;

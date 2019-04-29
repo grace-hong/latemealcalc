@@ -444,7 +444,9 @@ def addItem(search, item):
   print(packaged.get(session['uid']))
   if str(results) == 'y':
     packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid'])
 
   return redirect(url_for('getItem', item=search))
 

@@ -393,3 +393,15 @@ form.categorybutton::after {
  height: 60px;
  line-height: 60px;
 }
+
+.set-height td {
+    position: relative;
+    overflow: hidden;
+    height: 2em;
+}
+.set-height p {
+    position: absolute;
+    margin: .1em;
+    left: 0;
+    top: 0;
+}

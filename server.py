@@ -45,6 +45,7 @@ cart = {}
 time = {}
 packaged = {}
 
+comboMain = ["Neapolitan Cheese Pizza", "Burrito", "Burrito Bowl", "Carved Entree with 2 sides", "Chicken and Waffles"]
 
 @app.route("/")
 def splash():

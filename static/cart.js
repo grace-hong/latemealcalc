@@ -24,12 +24,14 @@ function purchaseClicked() {
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
     }
+	checkpackaged()
     updateCartTotal()
 }
 
 function removeCartItem(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
+    checkpackaged()
     updateCartTotal()
 }
 
@@ -42,6 +44,7 @@ function addToCartClicked(event) {
     // checkpackaged(title)
     
     addItemToCart(title, price)
+    checkpackaged()
     updateCartTotal()
 }
 

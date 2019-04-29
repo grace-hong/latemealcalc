@@ -154,7 +154,7 @@ $(document).ready(function(){
 				{% endif %}
 			</th>
 		</tr>
-		<tr>
+		<tr class="set-height" id = "panel">
 			<td><h6>YOUR CART</h6></td>
 			<td><h6>SUGGESTED</h6></td>
 			<td><h6>CHECKOUT</h6></td>
@@ -162,7 +162,7 @@ $(document).ready(function(){
 		<tr class="set-height" id = "panel" bgcolor="#eceff1" style="display:none; max-height:150px; text-align:top">
 			<td bgcolor="#343a40"> 
 				
-				  <div style="overflow-y:scroll;max-height:150px; color: white;">
+				  <div style="overflow-y:scroll;max-height:150px">
 					{% if resultList2 %}
 					   {{ resultList2 }}
 					{% endif %}			
@@ -170,7 +170,7 @@ $(document).ready(function(){
 			</td>
 			<td bgcolor="#343a40">
 				
-				<div style="overflow-y:scroll;max-height:150px; color: white;">
+				<div style="overflow-y:scroll;max-height:150px">
 					{% if resultList4 %}
 						{{ resultList4 }}
 					{% endif %}

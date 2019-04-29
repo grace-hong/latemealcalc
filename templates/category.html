@@ -49,15 +49,6 @@
 </head>
 
 <title>CalcuLateMeal</title>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
 <body>
 	<header class="container-fluid fixed-top">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="padding-right: 5vw; padding-left: 5vw;">

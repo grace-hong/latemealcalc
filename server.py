@@ -490,10 +490,10 @@ def addItemFromCategory(category, item):
     string += str(purchase) + ", "
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
-  #console.log(results)
-  print("Testing addItem/<category>/<item>")
+    print('matched')
   print(results)
   print(packaged.get(session['uid']))
   return redirect(url_for('getItemsFromCategory', catg=category))
@@ -515,9 +515,12 @@ def addItemFromFavorites(item):
     string += str(purchase) + ", "
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")
@@ -537,9 +540,12 @@ def addItemFromInfo(item):
     
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
 
 
   return redirect(url_for('getInfo'))
@@ -569,9 +575,12 @@ def addItemFromMain(item):
 def removeItem(search, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getItem', item=search))
 
@@ -579,9 +588,12 @@ def removeItem(search, item):
 def removeItemFromCategory(category, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getItemsFromCategory', catg=category))
 
@@ -589,9 +601,12 @@ def removeItemFromCategory(category, item):
 def removeItemFromMain(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  ifprint(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('main'))
 
@@ -599,9 +614,12 @@ def removeItemFromMain(item):
 def removeItemFromFavorites(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
@@ -609,9 +627,12 @@ def removeItemFromFavorites(item):
 def removeItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results) == 'y':
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
+    print('matched')
   print(results)
+  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getInfo'))
 

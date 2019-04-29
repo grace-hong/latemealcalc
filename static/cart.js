@@ -68,6 +68,7 @@ function checkpackaged(){
 	$("#addition").click(function() {
 		$.getJSON('/addItem/item/<search>/<item>/packaged', function(dat) {
 			alert(dat);
+			print(dat);
 		});
 	});
 }

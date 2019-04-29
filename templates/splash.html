@@ -29,8 +29,7 @@
 	<div>
 		<img src = "title.png" style="padding-top: 60px;  width: 90%; margin-left:auto; margin-right:auto; display: block; position:relative;">
 		<div style="text-align: center; color: white; font-weight:200; font-size: 12px;font-style:italic; padding-left: 40px; padding-right: 40px;">
-			Welcome to Princeton's Late Meal Calculator. To begin, choose a meal time.
-			<div id = "isClosed"></div>
+			Welcome to Princeton's Late Meal Calculator. <div id = "isClosed">To begin, choose a meal time.</div>
 		</div>
 	</div>
 	<div class="radio-toolbar" style="padding-top: 8vh; text-align: center; vertical-align: middle">
@@ -49,7 +48,7 @@
 		else if (time >= 1230 && time <= 1320)
 			document.getElementById("radioDinner").checked = true;
 		else 
-			document.getElementById("isClosed").innerHTML = "<br>Late Meal is currently closed. :(";
+			document.getElementById("isClosed").innerHTML = "Late Meal is currently closed, but you may still choose a meal time to browse items.";
 	</script>
 
 	<!--

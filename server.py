@@ -419,6 +419,8 @@ def getItemsFromCategory(catg):
 
 @app.route("/checkout")
 def checkout():
+  cart.pop(session['uid'])
+  time.pop(session['uid'])
   session.pop('uid', None)
   return redirect(url_for('splash'))
 

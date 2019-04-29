@@ -39,9 +39,11 @@
 	</div>
 	<script>
 		var hour = new Date().getHours();
-		if (hour < 17)
+		var min = new Date().getMinutes();
+		var time = hour * 60 + min;
+		if (time >= 840 && time <= 945)
 			document.getElementById("radioLunch").checked = true;
-		else
+		if (time >= 1230 && time <= 1320)
 			document.getElementById("radioDinner").checked = true;
 	</script>
 

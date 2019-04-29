@@ -490,10 +490,6 @@ def addItemFromCategory(category, item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  
-  for main in comboMain:
-    if item == main:
-      flash("Main combo item")
    
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()

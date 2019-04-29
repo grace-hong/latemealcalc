@@ -444,7 +444,7 @@ def addItem(search, item):
   print('testing the session')
   print(packaged.get(session['uid']))
   #print("('y',)")
-  if results[0] == '('y',)':
+  if results[0] == 'y':
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)

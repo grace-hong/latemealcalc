@@ -447,15 +447,18 @@ def addItem(search, item):
   print(str(results[0]))
   print('testing the session')
   print(packaged.get(session['uid']))
-  #packaged[session['uid']] = 0
-  print(packaged.get(session['uid']))
-  #print("('y',)")
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
   return redirect(url_for('getItem', item=search))
+
+@app.route("/addItem/item/<search>/<item>/packaged")
+def numPackaged():
+  result = {}
+  result['num'] = packaged[session['uid']]
+  return (json.dumps(result))
 
 
 @app.route("/addItem/item/<search>/<item>", methods=['POST'])

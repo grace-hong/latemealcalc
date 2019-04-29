@@ -154,32 +154,26 @@ $(document).ready(function(){
 				{% endif %}
 			</th>
 		</tr>
-		<tr id = "panel" bgcolor="#eceff1" style="display:none">
+		<tr class="set-height" id = "panel" bgcolor="#eceff1" style="display:none">
 			<td width="40%" bgcolor="#eceff1"> 
-				<div style="height=50px">
 				<h6>YOUR CART</h6>
 				  <div class = "cart-items">
 					{% if resultList2 %}
 					   {{ resultList2 }}
 					{% endif %}			
 				   </div>
-				</div>
 			</td>
 			<td width="40%" bgcolor="#eceff1">
-				<div style="height=50px">
 				<h6>SUGGESTED</h6>
 				<div class = "cart-items">
 				{% if resultList4 %}
 					{{ resultList4 }}
 				{% endif %}
 				</div>
-				</div>
 			</td>
 			<td width="20%" bgcolor="#eceff1">
-				<div style="height=50px">
 				<h6>CHECKOUT</h6>
 				<button class="btn-primary" type="button" onclick="window.location='/checkout';"><i class="fa fa-shopping-cart"></i>Ready to Pay</button>
-				</div>
 			</td>
 		</tr>
 	</table>

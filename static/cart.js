@@ -66,8 +66,8 @@ function checkpackaged(){
     });
 }); */
 	$("#addition").click(function() {
-		$.getJSON('/addItem/item/<search>/<item>', function(dat) {
-			console.log(dat);
+		$.getJSON('/addItem/item/<search>/<item>/packaged', function(dat) {
+			alert(dat);
 		});
 	});
 }

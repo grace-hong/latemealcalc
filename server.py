@@ -312,7 +312,7 @@ def getItem(item):
   cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 10", (selector, diff, ))
   results2 = cursor.fetchall()
   for re in results2:
-    if (str(re) not in str(retVal2)):
+    if (str(re[0]) not in str(retVal2)):
       pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title4 = '''</span> <span class="cart-price">$'''
       post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/item/'''

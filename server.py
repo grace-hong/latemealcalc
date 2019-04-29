@@ -393,7 +393,7 @@ def getItemsFromCategory(catg):
   
   diff = budget - sum 
   
-  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
+  cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
     if (str(re[0]) not in str(retVal2)):

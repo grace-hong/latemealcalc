@@ -54,6 +54,7 @@ def splash():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     packaged[session['uid']] = 0
+    combos[session['uid']] = 0
   
   return render_template("splash.html")
 

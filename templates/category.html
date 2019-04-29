@@ -155,7 +155,7 @@ $(document).ready(function(){
 			</th>
 		</tr>
 		<tr class="set-height" id = "panel" bgcolor="#eceff1" style="display:none; max-height:150px;">
-			<td bgcolor="#eceff1"> 
+			<td bgcolor="#eceff1" style:"text-align:top"> 
 				<h6>YOUR CART</h6>
 				  <div class = "cart-items">
 					{% if resultList2 %}
@@ -163,7 +163,7 @@ $(document).ready(function(){
 					{% endif %}			
 				   </div>
 			</td>
-			<td bgcolor="#eceff1" style:"align:top">
+			<td bgcolor="#eceff1" style:"text-align:top">
 				<h6>SUGGESTED</h6>
 				<div class = "cart-items" style="overflow:auto;max-height:30%;">
 					{% if resultList4 %}
@@ -171,7 +171,7 @@ $(document).ready(function(){
 					{% endif %}
 				</div>
 			</td>
-			<td bgcolor="#eceff1">
+			<td bgcolor="#eceff1" style:"text-align:top">
 				<h6>CHECKOUT</h6>
 				<button class="btn-primary" type="button" onclick="window.location='/checkout';"><i class="fa fa-shopping-cart"></i>Ready to Pay</button>
 			</td>

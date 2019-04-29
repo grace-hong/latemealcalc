@@ -298,7 +298,7 @@ form.categorybutton::after {
     background-color: #ff8f00;
     border: none;
     font-weight: bold;
-    align: left; 
+    align: right; 
 }
 
 .btn-primary:hover {

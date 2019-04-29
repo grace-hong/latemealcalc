@@ -19,7 +19,6 @@ function ready() {
 }
 
 function purchaseClicked() {
-    // alert('Items Cleared')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -119,7 +118,6 @@ function removeItem(itemName) {
 }
 
 function updateCartTotal() {
-    alert('in updateCartTotal function')
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
 	$("#addition").click(function() {

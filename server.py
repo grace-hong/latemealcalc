@@ -184,7 +184,7 @@ def getFavorites():
     if (str(re[0]) not in str(retVal2)):
       pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title4 = '''</span> <span class="cart-price">$'''
-      post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/favorites/'''
+      post_price4 = '''</span> <button class="btn btn-primary fa fa-plus" type="button" style="font-size: 10px; border-radius:3rem;" onclick="javascript:window.location='/addItem/favorites/'''
       post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     

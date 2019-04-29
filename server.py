@@ -46,6 +46,7 @@ time = {}
 packaged = {}
 
 comboMain = ["Neapolitan Cheese Pizza", "Burrito", "Burrito Bowl", "Carved Entree with 2 sides", "Chicken and Waffles"]
+comboAdd = ["Soda 16oz", "Milk Half Pint", "Apple", "Banana", "Grapefruit", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Cookie (unwrapped)", "Tuna Salad", "Egg Salad"]
 
 @app.route("/")
 def splash():

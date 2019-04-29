@@ -50,6 +50,7 @@ packaged = {}
 def splash():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
+    packaged[session['uid']] = 0
   
   return render_template("splash.html")
 
@@ -446,7 +447,7 @@ def addItem(search, item):
   print(str(results[0]))
   print('testing the session')
   print(packaged.get(session['uid']))
-  packaged[session['uid']] = 0
+  #packaged[session['uid']] = 0
   print(packaged.get(session['uid']))
   #print("('y',)")
   if str(results[0]) == ('(\'y\',)'):

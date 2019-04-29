@@ -412,7 +412,7 @@ def getItemsFromCategory(catg):
 @app.route("/checkout")
 def checkout():
   session.pop('uid', None)
-  return "You have checked out. Please let us know of any feedback you have!"
+  return redirect(url_for('splash'))
 
 
 @app.route("/getsession")

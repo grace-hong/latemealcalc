@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Markup, session, redirect, url_for
+from flask import Flask, request, render_template, Markup, session, redirect, url_for, flash
 import os
 import psycopg2
 from psycopg2.extensions import AsIs

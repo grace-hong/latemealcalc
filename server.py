@@ -69,6 +69,7 @@ def main():
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
     packaged[session['uid']] = 0
+    print("starting count")
     print(packaged[session['uid']])
     #print(packaged.get(session['uid]))
     

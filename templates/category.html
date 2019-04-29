@@ -131,7 +131,7 @@ includeHTML();
 <script> 
 $(document).ready(function(){
   $("#flip").click(function(){
-    $("#panel").slideToggle("slow");
+    $("#panel").slideToggle("fast");
   });
 });
 </script>
@@ -165,7 +165,7 @@ $(document).ready(function(){
 			</td>
 			<td bgcolor="#eceff1">
 				<h6>SUGGESTED</h6>
-				<div class = "cart-items" style="overflow-y:scroll;max-height:30%;">
+				<div style="overflow-y:scroll;max-height:30%;">
 					{% if resultList4 %}
 						{{ resultList4 }}
 					{% endif %}

@@ -128,6 +128,10 @@ $(document).ready(function(){
   });
 });
 </script>
+
+{% if resultList5 %}
+	{{ resultList5 }}
+{% endif %}	
 	
 <!-- calculator -->
 <footer>
@@ -170,9 +174,6 @@ $(document).ready(function(){
 			</td>
 		</tr>
 	</table>
-	{% if resultList5 %}
-		{{ resultList5 }}
-	{% endif %}
 </footer>
 <!-- shopping cart-->	
 

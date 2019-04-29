@@ -122,6 +122,12 @@ function updateCartTotal() {
     alert('in updateCartTotal function')
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
+	$("#addition").click(function() {
+		$.getJSON('/addItem/item/<search>/<item>/packaged', function(dat) {
+			alert(dat);
+			print(dat);
+		});
+	});
     var total = 0
     var maxPrice = 0
     /*for (var i = 0; i < cartBlocks.length; i++) {

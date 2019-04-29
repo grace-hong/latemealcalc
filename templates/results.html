@@ -139,42 +139,42 @@
 	</script>
 
 <footer>
-	<table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">
-		<tr id ="flip" bgcolor="#eceff1"> 
-			<th colspan=3 width="100%" align="right"> 
-				<h6>TOTAL</h6>
+<table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">
+		<tr id ="flip" bgcolor="#343a40"> 
+			<th colspan=3 width="100%" align="right" style="color: white;"> 
+				<div style = "font-size: 1.25rem; font-weight: 800;">TOTAL</div>
 				<!-- money left -->
 				{% if surplus %}
-					<font color="green" size="4">{{ resultList3 }}</font>
+					<font color="green" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ surplus }} remaining</font>
 				{% endif %}
 				<!-- money over -->
 				{% if diffOver %}
-					<font color="red" size="4">{{ resultList3 }}</font>
+					<font color="red" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ diffOver }} over</font>
 				{% endif %}
 			</th>
 		</tr>
 		<tr class="set-height" id = "panel" bgcolor="#eceff1" style="display:none; max-height:150px; text-align:top">
-			<td bgcolor="#eceff1"> 
-				<h6>YOUR CART</h6>
+			<td bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;"> 
+				<div style = "font-size: 1rem; font-weight: 700;">YOUR CART</div>
 				  <div style="overflow-y:scroll;max-height:150px;">
 					{% if resultList2 %}
 					   {{ resultList2 }}
 					{% endif %}			
 				   </div>
 			</td>
-			<td bgcolor="#eceff1">
-				<h6>SUGGESTED</h6>
+			<td bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;">
+				<div style = "font-size: 1rem; font-weight: 700;">SUGGESTED</div>
 				<div style="overflow-y:scroll;max-height:150px;">
 					{% if resultList4 %}
 						{{ resultList4 }}
 					{% endif %}
 				</div>
 			</td>
-			<td bgcolor="#eceff1">
-				<h6>CHECKOUT</h6>
-				<button class="btn-primary" type="button" onclick="window.location='/checkout';"><i class="fa fa-shopping-cart"></i>Ready to Pay</button>
+			<td bgcolor="#343a40" style= "vertical-align: top; color: white; font-weight: 700;">
+				<div style = "font-size: 1rem; font-weight: 700; padding-bottom: 10px;">CHECKOUT</div>
+				<button class="btn-primary" style="border-radius: .5rem" type="button" onclick="window.location='/checkout';"><i class="fa fa-shopping-cart"></i> Ready to Pay</button>
 			</td>
 		</tr>
 	</table>

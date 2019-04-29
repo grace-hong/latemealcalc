@@ -446,6 +446,8 @@ def addItem(search, item):
   print(str(results[0]))
   print('testing the session')
   print(packaged.get(session['uid']))
+  packaged[session['uid']] = 0
+  print(packaged.get(session['uid']))
   #print("('y',)")
   if results[0] == 'y':
     packaged[session['uid']] = packaged[session['uid']] + 1

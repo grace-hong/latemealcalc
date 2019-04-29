@@ -348,6 +348,8 @@ def getItemsFromCategory(catg):
     comboRet = '''<script>alert('Combo main added')</script>'''
     print("Registered combo item")
   
+  combos[session['uid']] = 0
+  
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:

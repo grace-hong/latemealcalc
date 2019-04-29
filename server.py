@@ -147,7 +147,7 @@ def getFavorites():
   else :
     budget = 7.0
   diff = budget - sum 
-  cursor.execute("SELECT name, price, image, time FROM food WHERE time!=(%s) ORDER BY count DESC LIMIT 5", (selector,))
+  cursor.execute("SELECT name, price, image, time, category FROM food WHERE time!=(%s) AND category!=(%s) ORDER BY count DESC LIMIT 5", (selector, "unicorn", ))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">

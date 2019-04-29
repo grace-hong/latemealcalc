@@ -399,9 +399,3 @@ form.categorybutton::after {
     overflow: hidden;
     height: 2em;
 }
-.set-height p {
-    position: absolute;
-    margin: .1em;
-    left: 0;
-    top: 0;
-}

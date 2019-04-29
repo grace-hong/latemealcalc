@@ -440,6 +440,7 @@ def addItem(search, item):
     
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
+  print(results[0])
   print('testing the session')
   print(packaged.get(session['uid']))
   if results[0] == 'y':

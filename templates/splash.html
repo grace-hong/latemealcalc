@@ -42,10 +42,11 @@
 	<script>
 		var hour = new Date().getHours();
 		var min = new Date().getMinutes();
+		var day = new Date().getDay();
 		var time = hour * 60 + min;
-		if (time >= 840 && time <= 945)
+		if (time >= 840 && time <= 945 && (day == 1 || day == 2 || day == 3 || day == 4 || day == 5))
 			document.getElementById("radioLunch").checked = true;
-		else if (time >= 1230 && time <= 1320)
+		else if (time >= 1230 && time <= 1320 && (day == 1 || day == 2 || day == 3 || day == 4))
 			document.getElementById("radioDinner").checked = true;
 		else 
 			document.getElementById("isClosed").innerHTML = "Late Meal is currently closed, but you may still choose a meal time to browse items.";

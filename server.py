@@ -69,6 +69,8 @@ def main():
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
     packaged[session['uid']] = 0
+    print(packaged[session['uid']])
+    print(packaged.get(session['uid]))
     
   sum = 0.0
   retVal2 = ""

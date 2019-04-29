@@ -83,7 +83,7 @@ def main():
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemMain/'''
-      post_window2 = ''''"></button></div></div>'''
+      post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
       
@@ -133,7 +133,7 @@ def getFavorites():
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemFavorites/'''
-      post_window2 = ''''"></button></div></div>'''
+      post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
 
@@ -209,7 +209,7 @@ def getInfo():
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemInfo/'''
-      post_window2 = ''''"></button></div></div>'''
+      post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
       
@@ -270,7 +270,7 @@ def getItem(item):
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
-      post_window2 = ''''"></button></div></div>'''
+      post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
@@ -345,7 +345,7 @@ def getItemsFromCategory(catg):
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/'''
-      post_window2 = ''''"></button></div></div>'''
+      post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
   
@@ -398,7 +398,7 @@ def getItemsFromCategory(catg):
     pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
-    post_window4 = ''''"></button></div></div>'''
+    post_window4 = ''''"></button></div></div><br>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(catg) + "/" + str(re[0]) + post_window4)
     
 

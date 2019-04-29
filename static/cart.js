@@ -119,7 +119,7 @@ function removeItem(itemName) {
 }
 
 function updateCartTotal() {
-    
+    alert('in updateCartTotal function')
     //var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     //var cartBlocks = cartItemContainer.getElementsByClassName('cart-block')
     var total = 0

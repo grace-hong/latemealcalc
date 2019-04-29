@@ -102,13 +102,14 @@ def main():
   retVal3 = '''$''' + "{:.2f}".format(sum)
   
   retVal4 = ""  
-  cursor.execute("SELECT name, price, time FROM food WHERE time!=(%s) AND price <= (%s) ORDER BY count DESC LIMIT 3", (selector, diff, ))
+  cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
+    if (str(re[0]) not in str(retVal2)):
     pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
     post_title4 = '''</span> <span class="cart-price">$'''
     post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/'''
-    post_window4 = ''''"></button></div></div>'''
+    post_window4 = ''''"></button></div></div><br>'''
     retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
@@ -184,7 +185,7 @@ def getFavorites():
       pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title4 = '''</span> <span class="cart-price">$'''
       post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/favorites/'''
-      post_window4 = ''''"></button></div></div>'''
+      post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 
@@ -236,7 +237,7 @@ def getInfo():
       pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title4 = '''</span> <span class="cart-price">$'''
       post_price4 = '''</span> <button class="btn btn-danger fa fa-plus" type="button" onclick="javascript:window.location='/addItem/info/'''
-      post_window4 = ''''"></button></div></div>'''
+      post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
     
 

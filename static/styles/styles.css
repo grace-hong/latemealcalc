@@ -298,23 +298,11 @@ form.categorybutton::after {
     background-color: #ff8f00;
     border: none;
     font-weight: bold;
-    align: left;
+    /* align: left; */
 }
 
 .btn-primary:hover {
     /* background-color: #2D9CDB; */
-    background-color: #ff6a00;
-}
-
-.btn-checkout {
-    color: white;
-    background-color: #ff8f00;
-    border: none;
-    font-weight: bold;
-    align: right;
-}
-
-.btn-checkout:hover {
     background-color: #ff6a00;
 }
 

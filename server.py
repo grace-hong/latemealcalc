@@ -344,7 +344,7 @@ def getItemsFromCategory(catg):
     return app.send_static_file('title.png')
   
   comboRet = ''''''
-  if combos[session['uid']] == 1:
+  if combos.get(session['uid']) == 1:
     comboRet = '''<script>alert('Combo main added')</script>'''
   
   sum = 0.0

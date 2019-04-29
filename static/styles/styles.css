@@ -306,6 +306,18 @@ form.categorybutton::after {
     background-color: #ff6a00;
 }
 
+.btn-checkout {
+    color: white;
+    background-color: #ff8f00;
+    border: none;
+    font-weight: bold;
+    align: right;
+}
+
+.btn-checkout:hover {
+    background-color: #ff6a00;
+}
+
 
 .shop-item {
     align: left;

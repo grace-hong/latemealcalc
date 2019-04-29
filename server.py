@@ -616,7 +616,7 @@ def removeItemFromCategory(category, item):
 def removeItemFromMain(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  ifprint(packaged.get(session['uid']))
+  # ifprint(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] - 1
     print('matched')

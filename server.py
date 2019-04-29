@@ -416,7 +416,7 @@ def getItemsFromCategory(catg):
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(catg) + "/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    return render_template("category.html", resultList = Markup(retVal))
+    return render_template("category.html", resultList = Markup(retVal), resultList5 = Markup(comboRet))
   if diff >= 0:
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultsList5 = Markup(comboRet))
   else:

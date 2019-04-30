@@ -21,6 +21,21 @@
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	
+	<script>
+    		function dialog(message, yesCallback, noCallback) {
+    			$('.title').html(message);
+    			var dialog = $('#modal_dialog').dialog();
+
+    			$('#btnYes').click(function() {
+        			dialog.dialog('close');
+        			yesCallback();
+    			});
+    			$('#btnNo').click(function() {
+        			dialog.dialog('close');
+        			noCallback();
+    			});
+     		} 
+	</script>
 
 <style>
 	table {
@@ -43,9 +58,6 @@
 
 <title>CalcuLateMeal</title>
 <body>		
-	{% if resultList5 %}
-		{{ resultList5 }}
-	{% endif %}	
 	<header class="container-fluid fixed-top">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="padding-right: 5vw; padding-left: 5vw;">
 			<div class="container-fluid">
@@ -178,7 +190,10 @@ $(document).ready(function(){
 	</table>
 </footer>
 <!-- shopping cart-->	
-
+{% if resultList5 %}
+	{{ resultList5 }}
+{% endif %}	
+	
 </body>
 	
 </html>

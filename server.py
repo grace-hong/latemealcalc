@@ -453,7 +453,10 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''<script>confirm('Combo main added')</script>'''
+    comboRet = '''<div class="alert">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			This is an alert box.
+		</div>'''
     print("Registered combo item")
   
   combos[session['uid']] = 0

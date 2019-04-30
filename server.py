@@ -453,10 +453,21 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''<div class="alert">
-  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  			This is an alert box.
-		</div>'''
+    comboRet = ''' <script>
+    function dialog(message, yesCallback, noCallback) {
+    	$('.title').html(message);
+    	var dialog = $('#modal_dialog').dialog();
+
+    	$('#btnYes').click(function() {
+        	dialog.dialog('close');
+        	yesCallback();
+    	});
+    	$('#btnNo').click(function() {
+        	dialog.dialog('close');
+        	noCallback();
+    	});
+     }
+     '''
     print("Registered combo item")
   
   combos[session['uid']] = 0

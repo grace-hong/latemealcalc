@@ -360,6 +360,7 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
+    return "A combo item was registered"
     comboRet = '''<script>confirm('Combo main added')</script>'''
     print("Registered combo item")
   

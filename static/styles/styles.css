@@ -14,11 +14,12 @@ body{
 
 .alert {
   padding: 20px;
-  background-color: #263238; /* Red */
+  background-color: #263238;
   color: #ff8f00;
   margin-bottom: 15px;
 }
 
+/*
 .closebtn {
   margin-left: 15px;
   color: white;
@@ -33,6 +34,7 @@ body{
 .closebtn:hover {
   color: black;
 }
+*/
 
 .bg {
   background-color: #263238 ;

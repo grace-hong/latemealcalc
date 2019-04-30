@@ -117,7 +117,9 @@
 		<!-- newly added -->
 		<script>alert('hi')</script>
 		<script>confirm('hello')</script>
-		{{ packagedconfirm }}
+		{% if packagedconfirm }}
+			<script>alert('calling python code')</script>
+			{{ packagedconfirm }}
 		<script>handleResults(resultList);</script>
 		<h5>
 		<table class="shop-items" id="shop-items" align="left">

@@ -30,7 +30,20 @@
 		<img src = "title.png" style="padding-top: 60px;  width: 90%; margin-left:auto; margin-right:auto; display: block; position:relative;">
 		<div style="text-align: center; color: white; font-weight:200; font-size: 12px;font-style:italic; padding-left: 40px; padding-right: 40px;">
 			Welcome to Princeton's Late Meal Calculator. <div id = "isClosed">To begin, choose a meal time.</div>
-			<p id="demo"></p>
+			<table>
+				<tr>
+				<th align="center" id="days"></th>
+				<th align="center" id="hrs"></th>
+				<th align="center" id="min"></th>
+				<th align="center" id="sec"></th>
+			    </tr>
+			    <tr>
+				<td align="center">DAYS</td>
+				<td align="center">HRS</td>
+				<td align="center">MIN</td>
+				<td align="center">SEC</td>
+			    </tr>
+			</table>
 		</div>
 	</div>
 	<div class="radio-toolbar" style="padding-top: 8vh; text-align: center; vertical-align: middle">
@@ -91,13 +104,15 @@
 				goalTime = new Date(yrs, mo, date, 62);	// monday at 2pm	
                 break;
 		}
-	    var distance = goalTime.getTime() - currentDate.getTime();
-       	    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  	    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  	    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    		document.getElementById("demo").innerHTML = days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec ";
-		//+ "goal time: " + goalTime.toLocaleDateString() + " " + goalTime.getHours() + ":" + goalTime.getMinutes() 
+		    var distance = goalTime.getTime() - currentDate.getTime();
+		    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		    document.getElementById("days").innerHTML = days;
+		    document.getElementById("hrs").innerHTML = hours;
+		    document.getElementById("min").innerHTML = minutes;
+		    document.getElementById("sec").innerHTML = seconds;		//+ "goal time: " + goalTime.toLocaleDateString() + " " + goalTime.getHours() + ":" + goalTime.getMinutes() 
 			//" current time: " + currentDate.toLocaleDateString() + " " + currentDate.getHours() + ":" + currentDate.getMinutes();
             
             if (distance <= 0) {

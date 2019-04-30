@@ -453,7 +453,15 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = ''' '''
+    comboRet = ''' 
+    dialog('Are you sure you want to continue?',
+    	function() {
+		window.location = ;
+	},
+	function() {
+		window.location = ;
+	}
+    );'''
     print("Registered combo item")
   
   combos[session['uid']] = 0

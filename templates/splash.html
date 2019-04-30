@@ -54,40 +54,31 @@
 
 	</script>
 	<script>
-	function currentTime() {
-		var hour = new Date().getHours();
-		var min = new Date().getMinutes();
-		var day = new Date().getDay();
-		var time = hour * 60 + min;
-		return time;
-	}
 		
 	function startTimer(display) {
 		var goalTime;
-		var time = currentTime();
-		/* is a week day*/
-		var day = time.getDay();
-		var hours = time.getHours();
-		var mins = time.getMinutes();
+		var day = new Date().getDay();
+		var hours = new Date().getHours();
+		var mins = new Date().getMinutes();
 		switch(day) {
 			case 1: 
 			case 2:
 			case 3:
 			case 4:
 				if (hours * 60 + mins < 840)
-					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 14); // 2pm
+					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 14); // 2pm
 				else
-					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 20,30); // 8:30pm
+					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 20,30); // 8:30pm
 				break;
 			case 5: // friday
 				if (hours * 60 + mins < 840)
-					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 14); // 2pm
+					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 14); // 2pm
 				else
-					goalTime = new Date(time.getYear(), time.getMonth(), 1, 14); // monday at 2pm
+					goalTime = new Date(new Date.getYear(), new Date.getMonth(), 1, 14); // monday at 2pm
 				break;
 			case 0:
 			case 6:
-				goalTime = new Date(time.getYear(), time.getMonth(), 1, 14); // monday at 2pm		
+				goalTime = new Date(new Date.getYear(), new Date.getMonth(), 1, 14); // monday at 2pm		
 		}
 	    var diff,
 		dhours,

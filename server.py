@@ -447,6 +447,17 @@ def getsession():
 def addItem(search, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
+   
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(str(results[0]))
+  print('testing the session')
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
+  print(results)
+  print(packaged.get(session['uid']))
 
   cart[session['uid']].append(item)
   print(item)
@@ -458,16 +469,7 @@ def addItem(search, item):
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
   
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  print(str(results[0]))
-  print('testing the session')
-  print(packaged.get(session['uid']))
-  if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
+
   return redirect(url_for('getItem', item=search))
 
 @app.route("/addItem/item/<search>/<item>/packaged")
@@ -493,6 +495,15 @@ def check(search, item):
 def addItemFromCategory(category, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
+  
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
+  print(results)
+  print(packaged.get(session['uid']))
 
   cart[session['uid']].append(item)
   print(item)
@@ -508,14 +519,7 @@ def addItemFromCategory(category, item):
     if item == main:
       combos[session['uid']] = 1
   
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  print(packaged.get(session['uid']))
-  if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
+ 
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")
@@ -524,6 +528,15 @@ def addItemFromFavorites(item):
     cart[session['uid']] = []
     time[session['uid']] = 0
 
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
+  print(results)
+  print(packaged.get(session['uid']))
+  
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
@@ -533,14 +546,7 @@ def addItemFromFavorites(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  print(packaged.get(session['uid']))
-  if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
+ 
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")
@@ -548,16 +554,6 @@ def addItemFromInfo(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
 
-  cart[session['uid']].append(item)
-  print(item)
-  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
-  conn.commit()
-
-  string = "Your cart contains: "
-
-  for purchase in cart[session['uid']]:
-    string += str(purchase) + ", "
-    
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
@@ -565,15 +561,28 @@ def addItemFromInfo(item):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
-  print(packaged.get(session['uid']))
+  print(packaged.get(session['uid'])) 
+  
+  cart[session['uid']].append(item)
+  print(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
 
+  string = "Your cart contains: "
 
+  for purchase in cart[session['uid']]:
+    string += str(purchase) + ", "
   return redirect(url_for('getInfo'))
 
 @app.route("/addItem/<item>")
 def addItemFromMain(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  if str(results) == 'y':
+    packaged[session['uid']] = packaged[session['uid']] + 1
+  print(results)
 
   cart[session['uid']].append(item)
   print(item)
@@ -584,11 +593,7 @@ def addItemFromMain(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  if str(results) == 'y':
-    packaged[session['uid']] = packaged[session['uid']] + 1
-  print(results)
+
   return redirect(url_for('main'))
 
 @app.route("/removeItem/item/<search>/<item>")

@@ -54,7 +54,8 @@
 
 	</script>
 	
-	<script>
+	
+<script>
 		
 	var x = setInterval(function() {
 		var goalTime;
@@ -64,32 +65,45 @@
 		var day = currentDate.getDay();
 		var hours = currentDate.getHours();
 		var mins = currentDate.getMinutes();
+		var date = currentDate.getDate();
 		switch(day) {
 			case 1: 
 			case 2:
 			case 3:
 			case 4:
-				if (hours * 60 + mins < 840)
-					goalTime = new Date(yrs, mo, day, 14); // 2pm
-				else
-					goalTime = new Date(yrs, mo, day, 20,30); // 8:30pm
+				if (hours * 60 + mins < 840) // before lunch
+					goalTime = new Date(yrs, mo, date, 14); // 2pm
+				else if (hours * 60  + mins < 1230) // before dinner
+					goalTime = new Date(yrs, mo, date, 20,30); // 8:30pm
+                else if (hours * 60 + mins > 1320) // late meal ends for the day
+                	goalTime = new Date(yrs, mo, date, 38);
 				break;
 			case 5: // friday
-				if (hours * 60 + mins < 840)
-					goalTime = new Date(yrs, mo, day, 14); // 2pm
-				else
-					goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm
+				if (hours * 60 + mins < 840) // before lunch
+					goalTime = new Date(yrs, mo, date, 14); // 2pm
+				else if (hours * 60  + mins > 945) // after lunch
+					goalTime = new Date(yrs, mo, date, 86); // monday at 2pm
 				break;
-			case 0:
+			case 0: // sunday
+            	goalTime = new Date(yrs, mo, date, 38); // monday at 2pm
+                break;
 			case 6:
-				goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm		
+				goalTime = new Date(yrs, mo, date, 62);	// monday at 2pm	
+                break;
 		}
 	    var distance = goalTime.getTime() - currentDate.getTime();
+       	    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 	    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   	    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   	    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    		document.getElementById("demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s " + "<br>"
-		+ "goal time: " + goalTime.toLocaleDateString() + " current time: " + currentDate.toLocaleDateString();
+    		document.getElementById("demo").innerHTML = days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec " + "<br>"
+		+ "goal time: " + goalTime.toLocaleDateString() + " " + goalTime.getHours() + ":" + goalTime.getMinutes()); 
+			//" current time: " + currentDate.toLocaleDateString() + " " + currentDate.getHours() + ":" + currentDate.getMinutes();
+            
+            if (distance <= 0) {
+              clearInterval(x);
+              document.getElementById("demo").innerHTML = "";
+            }
 	
 	}, 1000);
 	</script>

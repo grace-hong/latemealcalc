@@ -481,7 +481,7 @@ def getItemsFromCategory(catg):
 			else {
 				<!-- do not update the cart --> 
 				alert('cancel clicked')
-			} </script> ''''
+			} </script> '''
 
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:

@@ -31,6 +31,7 @@
 		<div style="text-align: center; color: white; font-weight:200; font-size: 12px;font-style:italic; padding-left: 40px; padding-right: 40px;">
 			Welcome to Princeton's Late Meal Calculator. <div id = "isClosed">To begin, choose a meal time.</div>
 		</div>
+		<div>Time Before Next Late Meal: <span id="time"></span></div>
 	</div>
 	<div class="radio-toolbar" style="padding-top: 8vh; text-align: center; vertical-align: middle">
 		<input type="radio" id="radioLunch" name="radioTime" value="lunch" style="vertical-align: middle" onclick="window.location.href='/lunch'">
@@ -40,16 +41,81 @@
 		<label for="radioDinner">Dinner</label>
 	</div>
 	<script>
+	var hour = new Date().getHours();
+	var min = new Date().getMinutes();
+	var day = new Date().getDay();
+	var time = hour * 60 + min;
+	if (time >= 840 && time <= 945 && (day == 1 || day == 2 || day == 3 || day == 4 || day == 5))
+		document.getElementById("radioLunch").checked = true;
+	else if (time >= 1230 && time <= 1320 && (day == 1 || day == 2 || day == 3 || day == 4))
+		document.getElementById("radioDinner").checked = true;
+	else 
+		document.getElementById("isClosed").innerHTML = "Late Meal is currently closed, but you may still choose a meal time to browse items.";
+
+	</script>
+	<script>
+	function currentTime() {
 		var hour = new Date().getHours();
 		var min = new Date().getMinutes();
 		var day = new Date().getDay();
 		var time = hour * 60 + min;
-		if (time >= 840 && time <= 945 && (day == 1 || day == 2 || day == 3 || day == 4 || day == 5))
-			document.getElementById("radioLunch").checked = true;
-		else if (time >= 1230 && time <= 1320 && (day == 1 || day == 2 || day == 3 || day == 4))
-			document.getElementById("radioDinner").checked = true;
-		else 
-			document.getElementById("isClosed").innerHTML = "Late Meal is currently closed, but you may still choose a meal time to browse items.";
+		return time;
+	}
+		
+	function startTimer(display) {
+		var goalTime;
+		var time = currentTime();
+		/* is a week day*/
+		var day = time.getDay();
+		var hours = time.getHours();
+		var mins = time.getMinutes();
+		switch(day) {
+			case 1: 
+			case 2:
+			case 3:
+			case 4:
+				if (hours * 60 + mins < 840)
+					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 14); // 2pm
+				else
+					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 20,30); // 8:30pm
+				break;
+			case 5: // friday
+				if (hours * 60 + mins < 840)
+					goalTime = new Date(time.getYear(), time.getMonth(), time.getDay(), 14); // 2pm
+				else
+					goalTime = new Date(time.getYear(), time.getMonth(), 1, 14); // monday at 2pm
+				break;
+			case 0:
+			case 6:
+				goalTime = new Date(time.getYear(), time.getMonth(), 1, 14); // monday at 2pm		
+		}
+	    var diff,
+		dhours,
+		dminutes,
+		dseconds;
+    
+	    function timer() {
+
+		// Setting and displaying hours, minutes, seconds
+		dhours = goalTime.getHours();
+		dminutes = goalTime.getMinutes();
+		dseconds = goalTime.getSeconds();
+
+		dhours = dhours < 10 ? "0" + dhours : dhours;
+		dminutes = dminutes < 10 ? "0" + dminutes : dminutes;
+		dseconds = dseconds < 10 ? "0" + dseconds : dseconds;
+
+		display.textContent = dhours + ":" + dminutes + ":" + dseconds;
+		};
+		timer();
+		setInterval(timer, 1000);
+		}
+		
+		window.onload = function () {
+			var timeLeft = 3600 * 17,
+			display = document.querySelector('#time');
+			startTimer(display);
+		};
 	</script>
 
 	<!--

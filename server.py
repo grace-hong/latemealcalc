@@ -250,6 +250,7 @@ def getInfo():
   if cart.get(session['uid']) == None:
     return render_template("info.html")
   if packaged.get(session['uid']) >= 2:
+    print('in this function')
     retVal6 = '''      <script type = "text/javascript">
          confirm("Want to continue?")
       </script>'''

@@ -3,9 +3,7 @@
 
 @font-face {
     font-family: 'pocket_calculatorregular';
-    src: url('@{plChildRoot}/fonts/pocket_calcuatlor_tt-webfont.woff2') format('woff2'), url('@{plChildRoot}/fonts/pocket_calcuatlor_tt-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    src: url('static/pocket_calculator_tt.ttf');
 }
 
 body{

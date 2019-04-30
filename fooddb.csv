@@ -5,6 +5,9 @@ Dragon Roll (Brown Rice),8.49,grabngo,0,both,y,🍣,sushi japanese healthy tuna 
 Crunchy Dragon Roll SP,7.99,grabngo,0,both,y,🍣,sushi japanese crab healthy avocado seaweed rice fish ginger wasabi
 Vegetable Quinoa SP,5.79,grabngo,0,both,y,🍣,sushi japanese vegetable healthy avocado seaweed ginger wasabi roll
 Vegetable Combo (Brown Rice),5.95,grabngo,0,both,y,🍣,sushi japanese vegetable healthy avocado seaweed rice ginger wasabi roll
+Marina Plate,8.79,grabngo,0,both,y,🍣,sushi japanese tuna salmon healthy avocado seaweed rice fish ginger wasabi
+Marina Plate,8.79,grabngo,0,both,y,🍣,sushi japanese tuna salmon healthy avocado seaweed rice fish ginger wasabi
+Seaside Combo,5.79,grabngo,0,both,y,🍣,sushi japanese tuna salmon healthy avocado seaweed rice fish ginger wasabi
 Neapolitan Cheese Pizza,3.1,pizza,0,both,n,🍕,italian pizzas slice
 Neapolitan Pizza Deluxe,3.95,pizza,0,both,n,🍕,italian cheese pizzas slice
 Traditional Quesadilla,5.55,pizza,0,both,n,🧀,cheese oven
@@ -125,7 +128,8 @@ Caesar Chicken Asiago on Roll,6.55,grabngo,0,both,n,🥪,sandwich
 Vegetable Wrap,5.65,grabngo,0,both,n,🌯,vegetarian sandwich veggie
 Tomato & Mozzarella with Basil on Roll,5.65,grabngo,0,both,n,🥪,sandwich vegetarian 
 Ham & Swiss on Onion Roll,5.65,grabngo,0,both,n,🥪,sandwich 
-Cheese Plate with Fruit & Pepperoni,3.45,grabngo,0,both,n,🧀,snack dairy 
+Cheese Plate with Fruit & Pepperoni,3.45,grabngo,0,both,n,🧀,snack dairy
+Chicken Salad,2.75,grabngo,0,both,n,🥗,
 Tuna Salad,2.75,grabngo,0,both,n,🐟,fish 
 Egg Salad,2.75,grabngo,0,both,n,🥚,
 Red Pepper Hummus,2.75,grabngo,0,both,n,🍴,dip spicy 
@@ -133,6 +137,9 @@ Garden Salad,4.65,grabngo,0,both,n,🥗,vegetables veggie
 Grilled Salmon & Spinach Salad,6.65,grabngo,0,both,n,🐟,fish 
 Asian Chicken Salad,6.65,grabngo,0,both,n,🥗,
 Chef Salad,6.65,grabngo,0,both,n,🥗,
+Grilled Chicken Caesar Salad,6.65,grabngo,0,both,n,🥗,
+Chicken Cobb Salad with Bacon,6.65,grabngo,0,both,n,🥗,
+Nicoise Salad,6.65,grabngo,0,both,n,🥗,
 Crispy Chicken Salad,6.65,grabngo,0,both,n,🥗,
 Miss Vickies Kettle Cooked Chips,1.45,miscellaneous,0,both,y,🥔,chips salty snack
 Stacys Pita Chips,1.65,miscellaneous,0,both,y,🥙, salty snack chip

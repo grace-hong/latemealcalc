@@ -120,14 +120,6 @@
 		<h3>We found the following results:<br></h3>
 		{% if packagedconfirm %}
 			{{ packagedconfirm }}
-			if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
-				alert('ok clicked')
-			}
-			else {
-				<!-- do not update the cart --> 
-				alert('cancel clicked')
-			}
 		{% endif %}
 		<script>handleResults(resultList);</script>
 		<h5>

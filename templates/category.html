@@ -20,23 +20,6 @@
 
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	
-	<script>
-    		function dialog(message, yesCallback, noCallback) {
-			console.log("Entered dialog function");
-    			$('.title').html(message);
-    			var dialog = $('#modal_dialog').dialog();
-
-    			$('#btnYes').click(function() {
-        			dialog.dialog('close');
-        			yesCallback();
-    			});
-    			$('#btnNo').click(function() {
-        			dialog.dialog('close');
-        			noCallback();
-    			});
-     		} 
-	</script>
 
 <style>
 	table {
@@ -192,6 +175,23 @@ $(document).ready(function(){
 </footer>
 <!-- shopping cart-->	
 </body>
+
+<script>
+    function dialog(message, yesCallback, noCallback) {
+	console.log("Entered dialog function");
+    	$('.title').html(message);
+    	var dialog = $('#modal_dialog').dialog();
+
+    	$('#btnYes').click(function() {
+        	dialog.dialog('close');
+        	yesCallback();
+    	});
+    	$('#btnNo').click(function() {
+        	dialog.dialog('close');
+        	noCallback();
+    	});
+     } 
+</script>
 	
 {% if resultList5 %}
 	{{ resultList5 }}

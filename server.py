@@ -249,6 +249,11 @@ def getInfo():
 
   if cart.get(session['uid']) == None:
     return render_template("info.html")
+  if packaged.get(session['uid']) >= 2:
+    retVal6 = '''      <script type = "text/javascript">
+         confirm("Want to continue?")
+      </script>'''
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retval6),)
   if diff >= 0:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:

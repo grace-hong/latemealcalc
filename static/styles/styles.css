@@ -15,7 +15,7 @@ body{
 .alert {
   padding: 20px;
   background-color: #263238; /* Red */
-  color: white;
+  color: #ff8f00;
   margin-bottom: 15px;
 }
 

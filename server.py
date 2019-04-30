@@ -444,7 +444,7 @@ def getItemsFromCategory(catg):
 
   if cart.get(session['uid']) == None:
     print(comboRet)
-    return render_template("category.html", resultList = Markup(retVal), resultList5 = Markup(comboRet))
+    return render_template("category.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) >= 2 and diff >= 0:
     print('in this function')
     retVal6 = '''      <script type = "text/javascript">
@@ -459,7 +459,7 @@ def getItemsFromCategory(catg):
   if diff >= 0:
     print("This 2")
     print(comboRet)
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultsList5 = Markup(comboRet))
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
   else:
     print("This 3")
     print(comboRet)

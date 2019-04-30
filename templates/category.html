@@ -143,7 +143,7 @@ $(document).ready(function(){
 				{% if diffOver %}
 					<font color="red" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ diffOver }} over</font>
-				{% else %}
+				{% if !resultList3 %}
 					<font color="green" size="5">$0.00</font>
 				{% endif %}
 			</th>

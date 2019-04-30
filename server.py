@@ -454,11 +454,11 @@ def getItemsFromCategory(catg):
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
     comboRet = '''
-    <div id='modal_dialog'>
+    <div id='modal_dialog' style='background-color: #000000;'>
     	<div class='title'>
     	</div>
     	<input type='button' value='yes' id='btnYes' class='btn-primary' />
-    	<input type='button' value='no' id='btnNo' />
+    	<input type='button' value='no' id='btnNo class='btn-primary' />
     </div>
     <script>
     dialog('Are you sure you want to continue?',

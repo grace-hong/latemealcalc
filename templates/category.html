@@ -137,7 +137,7 @@ $(document).ready(function(){
 <footer>
 <table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">
 		<tr id ="flip" bgcolor="#343a40"> 
-			<th align="right" style="color: white; vertical-align: top;"> 
+			<th colspan=3 align="right" style="color: white; vertical-align: top;"> 
 				<div style = "font-size: 1.25rem; font-weight: 800;">TOTAL</div>
 				<!-- money left -->
 				{% if surplus %}
@@ -153,13 +153,12 @@ $(document).ready(function(){
 			<th colspan=2 style="text-align:center; vertical-align: top; padding-top: 10px; color: white;">
 				<div style = "font-size: 1.8rem; font-weight: 700;"><i class="fas fa-sort-up"></i></div>
 			</th>
-			<th text-align="right" bgcolor="#343a40" style= "padding-right:40px; text-align:right; vertical-align: top; color: white;">
-				<!--<div align="right" style = "font-size: 1.25rem; font-weight: 800; padding-bottom: 10px; padding: 10px;">CHECKOUT</div>-->
+			<th colspan=3 text-align="right" bgcolor="#343a40" style= "padding-right:40px; text-align:right; vertical-align: top; color: white;">
 				<button class="btn-primary" style="font-size: .8rem; font-weight: 600; border-radius: .5rem; align:right;" type="button" onclick="window.location='/checkout';"><i class="fa fa-shopping-cart"></i> CHECKOUT</button>
 			</th>
 		</tr>
 		<tr class="set-height" id = "panel" bgcolor="#eceff1" style="display:none; max-height:150px; text-align:top">
-			<td colspan=2 bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;"> 
+			<td colspan=4 bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;"> 
 				<div style = "font-size: 1rem; font-weight: 700;">YOUR CART</div>
 				  <div style="overflow-y:scroll;max-height:150px;">
 					{% if resultList2 %}
@@ -167,7 +166,7 @@ $(document).ready(function(){
 					{% endif %}			
 				   </div>
 			</td>
-			<td colspan=2 bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;">
+			<td colspan=4 bgcolor="#343a40" style= "vertical-align: top; color: white; border-right: 1px solid grey;">
 				<div style = "font-size: 1rem; font-weight: 700;">SUGGESTED</div>
 				<div style="overflow-y:scroll;max-height:150px;">
 					{% if resultList4 %}

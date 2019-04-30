@@ -338,6 +338,12 @@ def getItem(item):
 
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function')
+    retVal6 = '''      <script type = "text/javascript">
+         confirm("Want to continue?")
+      </script>'''
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retval6),)
   if diff >= 0:
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
@@ -428,6 +434,12 @@ def getItemsFromCategory(catg):
 
   if cart.get(session['uid']) == None:
     return render_template("category.html", resultList = Markup(retVal), resultList5 = Markup(comboRet))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function')
+    retVal6 = '''      <script type = "text/javascript">
+         confirm("Want to continue?")
+      </script>'''
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retval6),)
   if diff >= 0:
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultsList5 = Markup(comboRet))
   else:
@@ -459,6 +471,8 @@ def addItem(search, item):
   print(str(results[0]))
   print('testing the session')
   print(packaged.get(session['uid']))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function /addItem/item/<search>/<item>')
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -505,6 +519,8 @@ def addItemFromCategory(category, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function /addItem/<category>/<item>')
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -537,6 +553,8 @@ def addItemFromFavorites(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function /addItem/favorites/<item>')
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -563,6 +581,8 @@ def addItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
+  if packaged.get(session['uid']) >= 2:
+    print('in this function /addItem/info/<item>')
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -586,6 +606,8 @@ def addItemFromMain(item):
     cart[session['uid']] = []
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
+  if packaged.get(session['uid']) >= 2:
+    print('in this function /addItem/<item>')
   if str(results) == 'y':
     packaged[session['uid']] = packaged[session['uid']] + 1
   print(results)

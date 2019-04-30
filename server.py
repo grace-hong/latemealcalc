@@ -353,7 +353,7 @@ def getItem(item):
     retVal6 = '''      <script type = "text/javascript">
          confirm("Want to continue?")
       </script>'''
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
+    return render_template("results.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
@@ -455,7 +455,7 @@ def getItemsFromCategory(catg):
     retVal6 = '''      <script type = "text/javascript">
          confirm("Want to continue?")
       </script>'''
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
+    return render_template("category.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     print("This 2")
     print(comboRet)

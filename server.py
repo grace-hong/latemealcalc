@@ -325,6 +325,15 @@ def getInfo():
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
+
+@app.route("/install")
+def getInstall():
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
+    
+  return render_template("install.html")
+
 '''
 def gettimeofday():
     time = request.form['time']

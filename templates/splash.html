@@ -57,28 +57,31 @@
 		
 	function startTimer(display) {
 		var goalTime;
-		var day = new Date().getDay();
-		var hours = new Date().getHours();
-		var mins = new Date().getMinutes();
+		var currentDate = new Date();
+		var yrs = currentDate.getFullYear();
+		var mo = currentDate.getMonth();
+		var day = currentDate.getDay();
+		var hours = currentDate.getHours();
+		var mins = currentDate.getMinutes();
 		switch(day) {
 			case 1: 
 			case 2:
 			case 3:
 			case 4:
 				if (hours * 60 + mins < 840)
-					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 14); // 2pm
+					goalTime = new Date(yrs, mo, day, 14); // 2pm
 				else
-					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 20,30); // 8:30pm
+					goalTime = new Date(yrs, mo, day, 20,30); // 8:30pm
 				break;
 			case 5: // friday
 				if (hours * 60 + mins < 840)
-					goalTime = new Date(new Date.getYear(), new Date.getMonth(), new Date.getDay(), 14); // 2pm
+					goalTime = new Date(yrs, mo, day, 14); // 2pm
 				else
-					goalTime = new Date(new Date.getYear(), new Date.getMonth(), 1, 14); // monday at 2pm
+					goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm
 				break;
 			case 0:
 			case 6:
-				goalTime = new Date(new Date.getYear(), new Date.getMonth(), 1, 14); // monday at 2pm		
+				goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm		
 		}
 	    var diff,
 		dhours,

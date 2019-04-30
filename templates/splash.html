@@ -31,7 +31,7 @@
 		<div style="text-align: center; color: white; font-weight:200; font-size: 12px;font-style:italic; padding-left: 40px; padding-right: 40px;">
 			Welcome to Princeton's Late Meal Calculator. <div id = "isClosed">To begin, choose a meal time.</div>
 		</div>
-		<div>Time Before Next Late Meal: <span id="time"></span></div>
+		<div>Time Before Next Late Meal: <p id="demo"></p></div>
 	</div>
 	<div class="radio-toolbar" style="padding-top: 8vh; text-align: center; vertical-align: middle">
 		<input type="radio" id="radioLunch" name="radioTime" value="lunch" style="vertical-align: middle" onclick="window.location.href='/lunch'">
@@ -55,7 +55,7 @@
 	</script>
 	<script>
 		
-	function startTimer(display) {
+	var x = setInterval(function() {
 		var goalTime;
 		var currentDate = new Date();
 		var yrs = currentDate.getFullYear();
@@ -83,33 +83,13 @@
 			case 6:
 				goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm		
 		}
-	    var diff,
-		dhours,
-		dminutes,
-		dseconds;
-    
-	    function timer() {
-
-		// Setting and displaying hours, minutes, seconds
-		dhours = goalTime.getHours();
-		dminutes = goalTime.getMinutes();
-		dseconds = goalTime.getSeconds();
-
-		dhours = dhours < 10 ? "0" + dhours : dhours;
-		dminutes = dminutes < 10 ? "0" + dminutes : dminutes;
-		dseconds = dseconds < 10 ? "0" + dseconds : dseconds;
-
-		display.textContent = dhours + ":" + dminutes + ":" + dseconds;
-		};
-		timer();
-		setInterval(timer, 1000);
-		}
-		
-		window.onload = function () {
-			var timeLeft = 3600 * 17,
-			display = document.querySelector('#time');
-			startTimer(display);
-		};
+	    var diff = goalTime.getTime() - currentDate.getTime();
+	    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  	    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  	    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    		document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+	
+	}
 	</script>
 
 	<!--

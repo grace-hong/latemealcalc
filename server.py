@@ -453,7 +453,14 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''<script>
+    comboRet = '''
+    <div id='modal_dialog'>
+    	<div class='title'>
+    	</div>
+    	<input type='button' value='yes' id='btnYes' />
+    	<input type='button' value='no' id='btnNo' />
+    </div>
+    <script>
     dialog('Are you sure you want to continue?',
     	function() {
 		window.location = '/yes';

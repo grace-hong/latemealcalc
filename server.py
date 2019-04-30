@@ -251,54 +251,11 @@ def getInfo():
     return render_template("info.html")
   if packaged.get(session['uid']) > 2 and diff >= 0:
     print('in this function')
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = '''  <script>
-  $( function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
-  </script>
- 
-<div id="dialog-confirm" title="Empty the recycle bin?">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-</div> '''
+    retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
-    #retVal6 = '''<script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = '''  <script>
-  $( function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
-  </script>
- 
-<div id="dialog-confirm" title="Empty the recycle bin?">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-</div> '''
+    retVal6 = '''<script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+    
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
@@ -385,46 +342,12 @@ def getItem(item):
     return render_template("results.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) > 2 and diff >= 0:
     print('in this function')
-    #retVal6 = ''' <script type> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = '''  <script>
-  $( function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
-  </script>'''
+    retVal6 = ''' <script type> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
-    #retVal6 = ''' <script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = '''  <script>
-  $( function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
-  </script> '''
+    retVal6 = ''' <script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
@@ -519,29 +442,8 @@ def getItemsFromCategory(catg):
     return render_template("category.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) > 2 and diff >= 0:
     print('in this function')
-    #retVal6 = ''' <script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = '''  <script>
-  $( function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height: "auto",
-      width: 400,
-      modal: true,
-      buttons: {
-        "Delete all items": function() {
-          $( this ).dialog( "close" );
-        },
-        Cancel: function() {
-          $( this ).dialog( "close" );
-        }
-      }
-    });
-  } );
-  </script>
- 
-<div id="dialog-confirm" title="Empty the recycle bin?">
-  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-</div> '''
+    retVal6 = ''' <script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script> confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''

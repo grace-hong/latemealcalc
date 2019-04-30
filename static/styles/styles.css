@@ -3,7 +3,7 @@
 
 @font-face{
  font-family:'calculator-font';
- src: url('static/pocket_calcuatlor_tt.ttf');
+ src:"{{ url_for('static', filename='pocket_calcuatlor_tt.ttf') }}";
 }
 
 body{

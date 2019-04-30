@@ -457,16 +457,16 @@ def getItemsFromCategory(catg):
     <div id='modal_dialog'>
     	<div class='title'>
     	</div>
-    	<input type='button' value='yes' id='btnYes' />
+    	<input type='button' value='yes' id='btnYes' class='btn-primary' />
     	<input type='button' value='no' id='btnNo' />
     </div>
     <script>
     dialog('Are you sure you want to continue?',
     	function() {
-		window.location = '/yes';
+		window.location = '/combos/yes';
 	},
 	function() {
-		window.location = '/no';
+		window.location = '/combos/no';
 	}
     );</script>'''
     print("Registered combo item")

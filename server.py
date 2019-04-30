@@ -443,13 +443,13 @@ def getItemsFromCategory(catg):
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(catg) + "/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
+    print(comboRet)
     return render_template("category.html", resultList = Markup(retVal), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) >= 2 and diff >= 0:
     print('in this function')
     retVal6 = '''      <script type = "text/javascript">
          confirm("Want to continue?")
       </script>'''
-    print("This 1")
     return render_template("category.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) >= 2 and diff < 0:
     retVal6 = '''      <script type = "text/javascript">
@@ -458,9 +458,11 @@ def getItemsFromCategory(catg):
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     print("This 2")
+    print(comboRet)
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultsList5 = Markup(comboRet))
   else:
     print("This 3")
+    print(comboRet)
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
 @app.route("/checkout")

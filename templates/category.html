@@ -139,11 +139,12 @@ $(document).ready(function(){
 				{% if surplus %}
 					<font color="green" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ surplus }} left</font>
-				{% endif %}
 				<!-- money over -->
-				{% if diffOver %}
+				{% else if diffOver %}
 					<font color="red" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ diffOver }} over</font>
+				{% else %}
+					<font color="green" size="5">$0.00</font>
 				{% endif %}
 			</th>
 			<th colspan=2 style="text-align:center; vertical-align: top; padding-top: 10px; color: white;">

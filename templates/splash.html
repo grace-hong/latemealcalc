@@ -83,11 +83,11 @@
 			case 6:
 				goalTime = new Date(yrs, mo, 1, 14); // monday at 2pm		
 		}
-	    var diff = goalTime.getTime() - currentDate.getTime();
+	    var distance = goalTime.getTime() - currentDate.getTime();
 	    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   	    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   	    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    		document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    		document.getElementById("demo").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
 	
 	}, 1000);
 	</script>

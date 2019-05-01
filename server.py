@@ -684,6 +684,8 @@ def addItemFromCategory(category, item):
   for purchase in cart[session['uid']]:
     if purchase in combosMain:
       counterMain += 1
+      if purchase == "Neapolitan Cheese Pizza":
+        pizza += 1
     if purchase in combosAdd:
       counterAdd += 1
 
@@ -701,7 +703,7 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and boolean == 1) or (counterMain == 2 and boolean == 2)) and counterAdd == 1:
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and counterAdd == 1:
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

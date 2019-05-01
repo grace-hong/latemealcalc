@@ -341,9 +341,6 @@ def getSpecials():
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
 
-  if item == "title.png":
-    return app.send_static_file('title.png')
-
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
     comboRet = '''

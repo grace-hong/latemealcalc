@@ -634,7 +634,12 @@ def addItemFromCategory(category, item):
       counterMain += 1
     if purchase in combosAdd:
       counterAdd += 1
-    
+
+  print("counterMain: "),
+  print(counterMain)
+  print("counterAdd: "),
+  print(counterAdd)
+
   if combos.get(session['uid']) == 1:
     if counterMain == 0 and counterAdd == 2:
       combosFull[session['uid']] = 1

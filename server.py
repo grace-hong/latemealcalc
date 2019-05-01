@@ -176,6 +176,11 @@ def getSpecials():
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
 
+  if time[session['uid']] == 0:
+    selector = "dinner"
+  else:
+    selector = "lunch"
+  
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -187,14 +192,10 @@ def getSpecials():
       post_title2 = '''</span> <span class="cart-price">$'''
       post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
       post_window2 = ''''"></button></div></div><br>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + "late" + str(selector) + "special/" + str(product) + post_window2)
       sum += float(query[0])
 
   comboStr = ''''''
-  if time[session['uid']] == 0:
-    selector = "dinner"
-  else:
-    selector = "lunch"
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
 

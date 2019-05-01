@@ -57,7 +57,7 @@ def splash():
     session['uid'] = uuid.uuid4()
     packaged[session['uid']] = 0
     combos[session['uid']] = 0
-  
+
   return render_template("splash.html")
 
 @app.route("/lunch")
@@ -79,7 +79,7 @@ def main():
     print("starting count")
     print(packaged[session['uid']])
     #print(packaged.get(session['uid]))
-    
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -93,7 +93,7 @@ def main():
       post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
-      
+
   if time[session['uid']] == 0:
     selector = "dinner"
   else:
@@ -103,11 +103,11 @@ def main():
     budget = 6.0
   else :
     budget = 7.0
-  diff = budget - sum 
-  
+  diff = budget - sum
+
   retVal3 = '''$''' + "{:.2f}".format(sum)
-  
-  retVal4 = ""  
+
+  retVal4 = ""
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -124,25 +124,25 @@ def main():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    
+
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
@@ -154,7 +154,7 @@ def getFavorites():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-    
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -178,7 +178,7 @@ def getFavorites():
     budget = 6.0
   else :
     budget = 7.0
-  diff = budget - sum 
+  diff = budget - sum
   cursor.execute("SELECT name, price, image, time, category FROM food WHERE time!=(%s) AND category!=(%s) ORDER BY count DESC LIMIT 5", (selector, "unicorn", ))
   results = cursor.fetchall()
   retVal = ""
@@ -196,7 +196,7 @@ def getFavorites():
     </tr>'''
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(re[0]) + urlend +  '''''' + post2)
-    
+
   retVal3 = '''$''' + "{:.2f}".format(sum)
 
   retVal4 = ""
@@ -205,9 +205,9 @@ def getFavorites():
     budget = 6.0
   else :
     budget = 7.0
-  
-  diff = budget - sum 
-  
+
+  diff = budget - sum
+
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -217,7 +217,7 @@ def getFavorites():
       post_price4 = '''</span> <button class="btn btn-primary fa fa-plus" type="button" style="font-size: 10px; border-radius:3rem;" onclick="javascript:window.location='/addItem/favorites/'''
       post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
-    
+
 
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
@@ -225,38 +225,38 @@ def getFavorites():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
     return render_template("favorites.html", resultList0 = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    
+
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1))
 
-  
+
 @app.route("/info")
 def getInfo():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-    
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -269,7 +269,7 @@ def getInfo():
       post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
-      
+
   if time[session['uid']] == 0:
     selector = "dinner"
   else:
@@ -279,11 +279,11 @@ def getInfo():
     budget = 6.0
   else :
     budget = 7.0
-  diff = budget - sum 
-  
+  diff = budget - sum
+
   retVal3 = '''$''' + "{:.2f}".format(sum)
-  
-  retVal4 = ""  
+
+  retVal4 = ""
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -293,7 +293,7 @@ def getInfo():
       post_price4 = '''</span> <button class="btn btn-primary fa fa-plus" type="button" style="font-size: 10px; border-radius:3rem;" onclick="javascript:window.location='/addItem/info/'''
       post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
-    
+
 
   if cart.get(session['uid']) == None:
     return render_template("info.html")
@@ -301,25 +301,25 @@ def getInfo():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    
+
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
@@ -331,26 +331,19 @@ def getInstall():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-    
+
   return render_template("install.html")
 
-'''
-def gettimeofday():
-    time = request.form['time']
-    if time == 1:
-        return 'lunch'
-    else:
-        return 'dinner' '''
 
 @app.route("/search/item/<item>")
 def getItem(item):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-  
+
   if item == "title.png":
     return app.send_static_file('title.png')
-  
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -390,17 +383,17 @@ def getItem(item):
         retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{0:.2f}".format(re[1]) + post1 + str(item) + "/"+ str(re[0]) + urlend + post2)
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
-  
+
   retVal4 = ""
   budget = 0.0
   if (selector == "dinner"):
     budget = 6.0
   else :
     budget = 7.0
-  
-  diff = budget - sum 
-  
-  
+
+  diff = budget - sum
+
+
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -417,11 +410,11 @@ def getItem(item):
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
 
@@ -429,11 +422,11 @@ def getItem(item):
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
@@ -447,14 +440,13 @@ def getItemsFromCategory(catg):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-  
+
   if catg == "title.png":
     return app.send_static_file('title.png')
-  
+
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''<script>alert(You have added a main item that could qualify for a combo! Please check our combos page for more info)</script>'''
-    '''
+    comboRet = '''
     <div id='modal_dialog' style='background-color: #000000;'>
     	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
     	</div>
@@ -462,7 +454,7 @@ def getItemsFromCategory(catg):
     	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
     </div>
     <script>
-    dialog('You have entered items that make a combo. Would you like to make this a combo?',
+    dialog('Are you sure you want to continue?',
     	function() {
 		window.location = '/combos/yes';
 	},
@@ -470,11 +462,10 @@ def getItemsFromCategory(catg):
 		window.location = '/combos/no';
 	}
     );</script>'''
-
     print("Registered combo item")
-  
+
   combos[session['uid']] = 0
-  
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -488,19 +479,19 @@ def getItemsFromCategory(catg):
       post_window2 = ''''"></button></div></div><br>'''
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(catg) + '''/''' + str(product) + post_window2)
       sum += float(query[0])
-  
+
   if time[session['uid']] == 0:
     selector = "dinner"
   else:
     selector = "lunch"
-  
+
   budget = 0.0
   if (selector == "dinner"):
     budget = 6.0
   else :
     budget = 7.0
-  diff = budget - sum 
-  
+  diff = budget - sum
+
   catg = str(catg)
   cursor.execute("SELECT name, price, image FROM food WHERE category=(%s) AND time!=(%s) ORDER BY name", (catg, selector,))
   results = cursor.fetchall()
@@ -518,7 +509,7 @@ def getItemsFromCategory(catg):
         <button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="checkpackaged();"></button>
       </td>
     </tr>'''
-  
+
   for re in results:
     retVal = retVal + (pre + str(re[2]) + post_image + str(re[0]) + post_title + "{:.2f}".format(re[1]) + post1 + str(catg) + '''/''' + str(re[0]) + urlend +  '''''' + post2)
 
@@ -529,9 +520,9 @@ def getItemsFromCategory(catg):
     budget = 6.0
   else :
     budget = 7.0
-  
-  diff = budget - sum 
-  
+
+  diff = budget - sum
+
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
   for re in results2:
@@ -549,11 +540,11 @@ def getItemsFromCategory(catg):
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
 
@@ -561,11 +552,11 @@ def getItemsFromCategory(catg):
   if packaged.get(session['uid']) > 2 and diff < 0:
    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
-				<!-- something about adding to cart in red --> 
+				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 			}
 			else {
-				<!-- do not update the cart --> 
+				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
@@ -598,14 +589,9 @@ def getsession():
 def addItem(search, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-   
+
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  print(str(results[0]))
-  print('testing the session')
-  print(packaged.get(session['uid']))
-  if packaged.get(session['uid']) > 2:
-    print('in this function /addItem/item/<search>/<item>')
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -621,34 +607,15 @@ def addItem(search, item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  
+
 
   return redirect(url_for('getItem', item=search))
-
-@app.route("/addItem/item/<search>/<item>/packaged")
-def numPackaged():
-  result = {}
-  result['num'] = packaged[session['uid']]
-  return (json.dumps(result))
-
-
-@app.route("/addItem/item/<search>/<item>", methods=['POST'])
-def check(search, item):
-  result = {}
-  result['success'] = True
-  result['message'] = "The command Completed Successfully"
-  result['num'] = packaged[session['uid']]
-  print("POST function")
-  print(result)
-  #console.log(json.dumps(result))
-  return (json.dumps(result))
-  #return packaged[session['uid']]
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-  
+
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
@@ -669,12 +636,12 @@ def addItemFromCategory(category, item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  
+
   for main in combosMain:
     if item == main:
       combos[session['uid']] = 1
-  
- 
+
+
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")
@@ -693,7 +660,7 @@ def addItemFromFavorites(item):
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
-  
+
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
@@ -703,7 +670,7 @@ def addItemFromFavorites(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
- 
+
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")
@@ -720,8 +687,8 @@ def addItemFromInfo(item):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
-  print(packaged.get(session['uid'])) 
-  
+  print(packaged.get(session['uid']))
+
   cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
@@ -737,13 +704,18 @@ def addItemFromInfo(item):
 def addItemFromMain(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  if packaged.get(session['uid']) > 2:
-    print('in this function /addItem/<item>')
-  if str(results) == 'y':
-    packaged[session['uid']] = packaged[session['uid']] + 1
-  print(results)
+ cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+ results = cursor.fetchall()
+ print(str(results[0]))
+ print('testing the session')
+ print(packaged.get(session['uid']))
+ if packaged.get(session['uid']) > 2:
+   print('in this function /addItem/item/<search>/<item>')
+ if str(results[0]) == ('(\'y\',)'):
+   packaged[session['uid']] = packaged[session['uid']] + 1
+   print('matched')
+ print(results)
+ print(packaged.get(session['uid']))
 
   cart[session['uid']].append(item)
   print(item)

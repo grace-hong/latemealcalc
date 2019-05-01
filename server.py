@@ -359,6 +359,8 @@ def getFavorites():
   else:
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
+@app.route("/team")
+    return render_template("team.html")
 
 @app.route("/info")
 def getInfo():

@@ -273,11 +273,11 @@ def getFavorites():
 				alert('cancel clicked')
 			} </script> '''
 
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultString5 = Markup(comboRet))
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
   else:
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultString5 = Markup(comboRet))
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
 
 @app.route("/info")

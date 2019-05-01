@@ -126,16 +126,16 @@ includeHTML();
 <script> 
 $(document).ready(function(){
   $("#flip").click(function(){
-	  $("#panel").slideToggle("fast");
-	  var images = $("#my_image").attr(src);
-	  if (images === "{{ url_for('static',filename='down.png') }}")
-	  {
+	  if ($("#panel").is(":visible")) {
+		  $("#panel").slideUp(1000);
 		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
 	  }
-	  else
-	  {
+	  else {
+		  $("#panel").slideDown(1000);
 		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
 	  }
+	  //$("#panel").slideToggle("fast");
+	  //var images = $("#my_image").attr(src);
   });
 });
 </script>

@@ -792,6 +792,11 @@ def addItemFromCategory(category, item):
      
       else:
         boolean = 1
+  
+  cookies = 0
+  for product in cart[session['uid']]:
+    if product == "Cookie (unwrapped)":
+	cookies += 1
 
   counterMain = 0
   counterAdd = 0
@@ -811,13 +816,13 @@ def addItemFromCategory(category, item):
   print(combos[session['uid']])
 
   if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and counterAdd == 2:
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies < 2) or (counterAdd == 3 and cookies >= 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and counterAdd == 1:
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and ((counterAdd == 1 and cookies < 1 and item != "Cookie (unwrapped)") or (counterAdd == 2 and cookies >= 1 and item == "Cookie (unwrapped)")):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

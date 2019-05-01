@@ -127,15 +127,17 @@ $(document).ready(function(){
 	<!-- display results !-->
 	{% if resultList %}
 		<h3>We found the following results:<br></h3>
-		{% if packagedconfirm %}
-			{{ packagedconfirm }}
-		{% endif %}
+		
 		<script>handleResults(resultList);</script>
 		<h5>
 		<table class="shop-items" id="shop-items" align="left">
 			{{ resultList }}
 		</table>
+		
 		</h5>
+		{% if packagedconfirm %}
+			{{ packagedconfirm }}
+		{% endif %}
 		
 	{% else %}
   		<h3>No results found.</h3>

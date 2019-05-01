@@ -117,11 +117,13 @@
 				</table>
 			
 		</h5>
-		{% if packagedconfirm %}
-			{{ packagedconfirm }}
-		{% endif %}
+		
 	{% else %}
   		<h1>No results found.</h1>
+	{% endif %}
+	
+	{% if packagedconfirm %}
+		{{ packagedconfirm }}
 	{% endif %}
 
    	

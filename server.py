@@ -825,7 +825,7 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and ((counterAdd == 1 and cookies < 1 and item != "Cookie (unwrapped)") or (counterAdd == 2 and cookies >= 1 and item == "Cookie (unwrapped)")):
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and ((counterAdd == 1 and item != "Cookie (unwrapped)") or (counterAdd == 2 and cookies >= 1 and item == "Cookie (unwrapped)")):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

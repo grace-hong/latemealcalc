@@ -799,7 +799,7 @@ def addItemFromCategory(category, item):
   cookies = 0
   for product in cart[session['uid']]:
     if product == "Cookie (unwrapped)":
-	cookies += 1
+      cookies += 1
 
   counterMain = 0
   counterAdd = 0

@@ -461,7 +461,7 @@ def getItemsFromCategory(catg):
     	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
     </div>
     <script>
-    dialog('Are you sure you want to continue?',
+    dialog('You have entered items that make a combo. Would you like to make this a combo?',
     	function() {
 		window.location = '/combos/yes';
 	},

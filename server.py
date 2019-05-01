@@ -248,7 +248,7 @@ def getFavorites():
 			}
 			</script> '''
     needAlert[session['uid']] = 0
-    return render_template("favorites.html", resultList0 = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {

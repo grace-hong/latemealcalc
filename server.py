@@ -863,7 +863,7 @@ def combosDefaultYes():
   newCart = cart[session['uid']].copy()
   delAdd = 0
   delMain = 0
-  for product in newCart[session['uid']]:
+  for product in newCart:
     print("product"),
     print(product)
     if product in combosMain and delMain < 1:

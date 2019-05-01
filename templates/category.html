@@ -131,7 +131,7 @@ $(document).ready(function(){
 		  $("#panel").slideUp({duration: 100, queue: false});
 	  }
 	  else {
-		  $("#panel").slideDown({duration: 100, queue: false});
+		  $("#panel").slideDown({duration: 10, queue: false});
 		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
 	  }
 	  //$("#panel").slideToggle("fast");

@@ -336,7 +336,7 @@ def getInstall():
 
 
 @app.route("/specials")
-def getItem(item):
+def getSpecials():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0

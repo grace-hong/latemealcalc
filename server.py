@@ -453,7 +453,8 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''
+    comboRet = '''<script>alert(You have added a main item that could qualify for a combo! Please check our combos page for more info)</script>'''
+    '''
     <div id='modal_dialog' style='background-color: #000000;'>
     	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
     	</div>
@@ -469,6 +470,7 @@ def getItemsFromCategory(catg):
 		window.location = '/combos/no';
 	}
     );</script>'''
+
     print("Registered combo item")
   
   combos[session['uid']] = 0

@@ -830,10 +830,14 @@ def combosFavYes():
   delMain = 0
   for product in cart:
     if product in combosMain and delMain < 1:
+      print("main"),
+      print(product)
       cart[session['uid']].remove(product)
       delMain += 1
     
     if product in combosAdd and delAdd < 2:
+      print("side"),
+      print(product)
       cart[session['uid']].remove(product)
       delAdd += 1
   

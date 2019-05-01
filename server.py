@@ -423,12 +423,12 @@ def getItemsFromCategory(catg):
   if catg == "title.png":
     return app.send_static_file('title.png')
   
-  comboFullRet = ''''''
+  comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
-    comboFullRet = '''<script>alert('Would you like to make this a combo?')</script>'''
+    comboRet = '''<script>alert('Would you like to make this a combo?')</script>'''
     print("Registered entire combo")
 
-  comboRet = ''''''
+  # comboRet = ''''''
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
     comboRet = '''<script>alert('You have entered a combo item! Please navigate to our combos page.')</script>'''
     '''

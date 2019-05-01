@@ -36,16 +36,6 @@
 		
 		<div style="padding: 10px; color:white">
 			
-			<table align="center">
-				<tr>
-					<th style="text-align: center; color:white; font-style: italic; font-size: 16px">Lunch Hours</th>
-					<th style="text-align: center; color:white; font-style: italic; font-size: 16px">Dinner Hours</th>
-				</tr>
-				<tr>
-					<th style="text-align: center; color:white; font-style: italic; font-size: 12px">Mon-Fri: 2:00 p.m. - 3:45 p.m.</th>
-					<th style="text-align: center; color:white; font-style: italic; font-size: 12px">Mon-Th: 8:30 p.m. – 10 p.m</th>
-				</tr>
-			</table>
 			<!--<table style="width: 50%;margin-left: auto;margin-right: auto;">
 				<tr>
 				<th align="center" id="days"></th>
@@ -58,10 +48,15 @@
 	</div>
 	<div class="radio-toolbar" style="padding-top: 8vh; text-align: center; vertical-align: middle">
 		<input type="radio" id="radioLunch" name="radioTime" value="lunch" style="vertical-align: middle" onclick="window.location.href='/lunch'">
-		<label for="radioLunch">Lunch</label>
+		<label for="radioLunch">Lunch<br>
+			<div style="text-align: center; color:white; font-style: italic; font-size: 12px">Mon-Fri: 2:00 p.m. - 3:45 p.m.</div>
+		</label>
 
 		<input type="radio" id="radioDinner" name="radioTime" value="dinner" style="vertical-align: middle" onclick="window.location.href='/dinner'">
-		<label for="radioDinner">Dinner</label>
+		<label for="radioDinner">Dinner<br>
+			<div style="text-align: center; color:white; font-style: italic; font-size: 12px">Mon-Th: 8:30 p.m. – 10 p.m.</div>
+		</label>
+		
 	</div>
 	<script>
 	var hour = new Date().getHours();

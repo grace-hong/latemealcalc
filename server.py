@@ -819,7 +819,7 @@ def addItemFromCategory(category, item):
   print(combos[session['uid']])
 
   if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies < 2) or (counterAdd == 3 and cookies >= 2)):
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies < 2) or (counterAdd == 3 and cookies == 2) or (counterAdd == 4 and cookies == 3 and item == "Cookie (unwrapped)")):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

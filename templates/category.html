@@ -128,10 +128,11 @@ $(document).ready(function(){
   $("#flip").click(function(){
 	  var images = $("#my_image").attr(src);
 	  if (images === "{{ url_for('static',filename='down.png') }}")
-	  {$("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");}
+	  {$("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
+	  $("#panel").slideToggle("fast");}
 	  else
-	  {$("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");}
-    	$("#panel").slideToggle("fast");
+	  {$("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
+	  $("#panel").slideToggle("fast");}
   });
 });
 </script>

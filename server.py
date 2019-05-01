@@ -442,10 +442,12 @@ def getItem(item):
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
 				alert('ok clicked')
+				
 			}
 			else {
 				<!-- do not update the cart -->
 				alert('cancel clicked')
+				window.location = '/removeItemFavorites/' + item; 
 			} </script> '''
 
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))

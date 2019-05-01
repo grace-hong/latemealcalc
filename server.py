@@ -238,7 +238,7 @@ def getFavorites():
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
 				alert('ok clicked')
-                window.location = '/removeItemFavorites/<item>';
+                	<!-- window.location = '/removeItemFavorites/' + ; -->
 			}
 			else {
 				<!-- do not update the cart -->

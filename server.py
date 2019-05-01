@@ -828,7 +828,7 @@ def addItemFromMain(item):
 def combosFavYes():
   delAdd = 0
   delMain = 0
-  for product in cart:
+  for product in cart[session['uid']]:
     if product in combosMain and delMain < 1:
       print("main"),
       print(product)

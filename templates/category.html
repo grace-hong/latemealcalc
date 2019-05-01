@@ -126,8 +126,12 @@ includeHTML();
 <script> 
 $(document).ready(function(){
   $("#flip").click(function(){
-	  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
-    $("#panel").slideToggle("fast");
+	  var images = $("#my_image").attr(src);
+	  if (images === "{{ url_for('static',filename='down.png') }}")
+	  {$("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");}
+	  else
+	  {$("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");}
+    	$("#panel").slideToggle("fast");
   });
 });
 </script>

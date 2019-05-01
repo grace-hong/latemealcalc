@@ -169,10 +169,10 @@ def getFavorites():
     <script>
     dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
     	function() {
-		window.location = '/combos/yes';
+		window.location = '/combos/favorites/yes';
 	},
 	function() {
-		window.location = '/combos/no';
+		window.location = '/favorites';
 	}
     );</script>'''
     print("Registered entire combo")
@@ -823,6 +823,27 @@ def addItemFromMain(item):
     string += str(purchase) + ", "
 
   return redirect(url_for('main'))
+
+@app.route("/combos/favorites/yes")
+def combosFavYes():
+  delAdd = 0
+  delMain = 0
+  for product in cart:
+    if product in combosMain and delMain < 1:
+      cart[session['uid']].remove(product)
+      delMain += 1
+    
+    if product in combosAdd and delAdd < 2:
+      cart[session['uid']].remove(product)
+      delAdd += 1
+  
+  if time.get(session['uid']) == 1:
+    cart[session['uid']].append("Late Dinner Special")
+  
+  else:
+    cart[session['uid']].append("Late Lunch Special")
+  
+  return redirect(url_for('getFavorites'))
 
 @app.route("/removeItem/item/<search>/<item>")
 def removeItem(search, item):

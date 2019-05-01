@@ -128,11 +128,11 @@ $(document).ready(function(){
   $("#flip").click(function(){
 	  if ($("#panel").is(":visible")) {
 		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
-		  $("#panel").slideUp({duration: 1000, queue: false});
+		  $("#panel").slideUp({duration: 100, queue: false});
 	  }
 	  else {
+		  $("#panel").slideDown({duration: 100, queue: false});
 		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
-		  $("#panel").slideDown({duration: 1000, queue: false});
 	  }
 	  //$("#panel").slideToggle("fast");
 	  //var images = $("#my_image").attr(src);

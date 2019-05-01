@@ -860,9 +860,10 @@ def combosFavYes():
 def combosDefaultYes():
   print("Printing cart:")
   print(cart[session['uid']])
+  newCart = cart[session['uid']].copy()
   delAdd = 0
   delMain = 0
-  for product in cart[session['uid']]:
+  for product in newCart[session['uid']]:
     print("product"),
     print(product)
     if product in combosMain and delMain < 1:

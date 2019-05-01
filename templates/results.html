@@ -41,18 +41,23 @@
  	 	background-color: #dddddd;
 	}
 
-</style>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+	  if ($("#panel").is(":visible")) {
+		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
+		  $("#panel").slideUp({duration: 100, queue: false});
+	  }
+	  else {
+		  $("#panel").slideDown({duration: 10, queue: false});
+		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
+	  }
+	  //$("#panel").slideToggle("fast");
+	  //var images = $("#my_image").attr(src);
+  });
+});
+</script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script> 
-	$(document).ready(function(){
-	  $("#flip").click(function(){
-	    $("#panel").slideToggle("fast");
-	  });
-	});
-	</script>
-	
-</head>
 
 <title>CalcuLateMeal</title>
 

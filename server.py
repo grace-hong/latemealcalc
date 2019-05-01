@@ -382,9 +382,12 @@ def getSpecials():
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
+var mealtime =""
   if time[session['uid']] == 0:
+    mealtime = "dinner"
     selector = "dinner"
   else:
+    mealtime = "lunch"
     selector = "lunch"
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
@@ -421,11 +424,11 @@ def getSpecials():
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", meal=Markup(selector), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
-    return render_template("specials.html", meal=Markup(selector), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
+    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
   else:
-    return render_template("specials.html", meal=Markup(selector), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
+    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
 
 @app.route("/search/item/<item>")

@@ -108,9 +108,7 @@
 	<!-- display results !-->
 	{% if resultList %}
 		<h3>The top 5 most popular items: <br> </h3>
-		{% if packagedconfirm %}
-			{{ packagedconfirm }}
-		{% endif %}
+		
 		<h5>
 			<script>handleResults(resultList);</script>
 			
@@ -119,6 +117,9 @@
 				</table>
 			
 		</h5>
+		{% if packagedconfirm %}
+			{{ packagedconfirm }}
+		{% endif %}
 	{% else %}
   		<h1>No results found.</h1>
 	{% endif %}

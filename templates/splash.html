@@ -37,12 +37,14 @@
 				<th align="center" id="min"></th>
 				<th align="center" id="sec"></th>
 			    </tr>
+			<div id ="timetext">
 			    <tr>
 				<td align="center">DAYS</td>
 				<td align="center">HRS</td>
 				<td align="center">MIN</td>
 				<td align="center">SEC</td>
 			    </tr>
+			</div>
 			</table>
 		</div>
 	</div>
@@ -118,6 +120,7 @@
             if (distance <= 0) {
               clearInterval(x);
               document.getElementById("demo").innerHTML = "";
+		document.getElementById("timetext").innerHTML = "";
             }
 	
 	}, 1000);

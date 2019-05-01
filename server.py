@@ -128,7 +128,7 @@ def main():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 		</script> '''
     needAlert[session['uid']] = 0
@@ -136,7 +136,7 @@ def main():
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			} </script> '''
     needAlert[session['uid']] = 0
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
@@ -172,7 +172,7 @@ def getFavorites():
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0
@@ -247,7 +247,7 @@ def getFavorites():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			</script> '''
     needAlert[session['uid']] = 0
@@ -255,7 +255,7 @@ def getFavorites():
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
                 	}</script> '''
     needAlert[session['uid']] = 0
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
@@ -314,7 +314,7 @@ def getInfo():
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
@@ -322,7 +322,7 @@ def getInfo():
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
@@ -371,7 +371,7 @@ def getItem(item):
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0
@@ -442,14 +442,14 @@ def getItem(item):
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit")) {
-				
+
 			} </script> '''
     needAlert[session['uid']] = 0
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
@@ -467,7 +467,7 @@ def getItemsFromCategory(catg):
 
   if catg == "title.png":
     return app.send_static_file('title.png')
-  
+
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
     comboRet = '''
@@ -489,7 +489,7 @@ def getItemsFromCategory(catg):
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0
@@ -569,7 +569,7 @@ def getItemsFromCategory(catg):
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			</script> '''
     needAlert[session['uid']] = 0
@@ -577,7 +577,7 @@ def getItemsFromCategory(catg):
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit. Want to continue?")) {
-				
+
 			}
 			</script> '''
     needAlert[session['uid']] = 0
@@ -617,8 +617,8 @@ def addItem(search, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    cart[session['uid']].remove(item)
     needAlert[session['uid']] = 1
+    return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -629,7 +629,7 @@ def addItem(search, item):
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
-	
+
   for main in combosMain:
     if item == main:
       combos[session['uid']] = 1
@@ -647,7 +647,7 @@ def addItem(search, item):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
-  
+
   else:
     if counterMain == 1 and counterAdd == 1:
       combosFull[session['uid']] = 1
@@ -666,8 +666,8 @@ def addItemFromCategory(category, item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    cart[session['uid']].remove(item)
     needAlert[session['uid']] = 1
+    return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -702,7 +702,7 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
-  
+
   else:
     if counterMain == 1 and counterAdd == 1:
       combosFull[session['uid']] = 1
@@ -724,8 +724,8 @@ def addItemFromFavorites(item):
   if packaged.get(session['uid']) > 2:
     print('in this function /addItem/favorites/<item>')
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    cart[session['uid']].remove(item)
     needAlert[session['uid']] = 1
+    return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -754,7 +754,7 @@ def addItemFromFavorites(item):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
-  
+
   else:
     if counterMain == 1 and counterAdd == 1:
       combosFull[session['uid']] = 1
@@ -773,8 +773,8 @@ def addItemFromInfo(item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    cart[session['uid']].remove(item)
     needAlert[session['uid']] = 1
+    return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -804,8 +804,8 @@ def addItemFromMain(item):
   if packaged.get(session['uid']) > 2:
     print('in this function /addItem/item/<search>/<item>')
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    cart[session['uid']].remove(item)
     needAlert[session['uid']] = 1
+    return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -837,19 +837,19 @@ def combosFavYes():
       print(product)
       cart[session['uid']].remove(product)
       delMain += 1
-    
+
     if product in combosAdd and delAdd < 2:
       print("side"),
       print(product)
       cart[session['uid']].remove(product)
       delAdd += 1
-  
+
   if time.get(session['uid']) == 1:
     cart[session['uid']].append("Late Dinner Special")
-  
+
   else:
     cart[session['uid']].append("Late Lunch Special")
-  
+
   return redirect(url_for('getFavorites'))
 
 # we need to change this to reload the old page lol
@@ -868,23 +868,23 @@ def combosDefaultYes():
       print(product)
       cart[session['uid']].remove(product)
       delMain += 1
-    
+
     if product in combosAdd and delAdd < 2:
       print("side"),
       print(product)
       cart[session['uid']].remove(product)
       delAdd += 1
-  
+
   if time.get(session['uid']) == 1:
     cart[session['uid']].append("Late Dinner Special")
-  
+
   else:
     cart[session['uid']].append("Late Lunch Special")
-  
+
   return redirect(url_for('main'))
 
 @app.route("/removeItem/item/<search>/<item>")
-def removeItem(search, item):	
+def removeItem(search, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))

@@ -382,7 +382,7 @@ def getSpecials():
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
- comboStr =""
+  comboStr =""
   if time[session['uid']] == 0:
     selector = "dinner"
     comboStr = "Late Dinner Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latedinnerspecial"></button>'''

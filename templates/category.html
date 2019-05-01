@@ -113,14 +113,18 @@
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
-		<h5><table class="shop-items" id="shop-items">
+		<h5><table class="shop-items" id="keywords">
+			<thead>
 			<tr>
 				<th> 🍽️ </th>
 				<th> Item Name </th>
 				<th> Price </th>
 				<th> </th>
 			</tr>
+			</thead>
+			<tbody>
 			{{ resultList }}
+			</tbody>
 		</table></h5>
 	{% else %}
 		<h3>No results found.</h3>

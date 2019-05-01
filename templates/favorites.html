@@ -138,14 +138,23 @@
 
 
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script> 
 	$(document).ready(function(){
 	  $("#flip").click(function(){
-	    $("#panel").slideToggle("fast");
+		  if ($("#panel").is(":visible")) {
+			  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
+			  $("#panel").slideUp({duration: 100, queue: false});
+		  }
+		  else {
+			  $("#panel").slideDown({duration: 10, queue: false});
+			  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
+		  }
+		  //$("#panel").slideToggle("fast");
+		  //var images = $("#my_image").attr(src);
 	  });
 	});
 	</script>
+
 
 <footer>
 <table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">

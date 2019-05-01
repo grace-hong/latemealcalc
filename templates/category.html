@@ -127,12 +127,12 @@ includeHTML();
 $(document).ready(function(){
   $("#flip").click(function(){
 	  if ($("#panel").is(":visible")) {
-		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
 		  $("#panel").slideUp(1000);
+		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
 	  }
 	  else {
-		  $("#panel").slideDown(1000);
 		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
+		  $("#panel").slideDown(1000);
 	  }
 	  //$("#panel").slideToggle("fast");
 	  //var images = $("#my_image").attr(src);

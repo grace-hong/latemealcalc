@@ -382,13 +382,13 @@ def getSpecials():
       retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
       sum += float(query[0])
 
-var mealtime =""
+var comboStr =""
   if time[session['uid']] == 0:
-    mealtime = "dinner"
     selector = "dinner"
+    comboStr = "Late Dinner Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latedinnerspecial"></button>'''
   else:
-    mealtime = "lunch"
     selector = "lunch"
+    comboStr = "Late Lunch Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latelunchspecial"></button>'''
 
   retVal3 = '''$''' + "{:.2f}".format(sum)
 
@@ -424,11 +424,11 @@ var mealtime =""
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
-    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
   else:
-    return render_template("specials.html", meal=Markup(mealtime), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
 
 @app.route("/search/item/<item>")

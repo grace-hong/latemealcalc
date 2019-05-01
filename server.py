@@ -446,7 +446,8 @@ def getItemsFromCategory(catg):
 
   comboRet = ''''''
   if combos.get(session['uid']) == 1:
-    comboRet = '''
+    comboRet = '''<script>alert(You have entered a combo item! Please navigate to our combos page.)</script>'''
+    '''
     <div id='modal_dialog' style='background-color: #000000;'>
     	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
     	</div>

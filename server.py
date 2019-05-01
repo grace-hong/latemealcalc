@@ -48,6 +48,7 @@ time = {}
 packaged = {}
 combos = {}
 combosFull = {}
+needAlert = {}
 
 combosMain = ["Neapolitan Cheese Pizza", "Burrito", "Burrito Bowl", "Carved Entree with 2 sides", "Chicken and Waffles"]
 combosAdd = ["Soda 16oz", "Milk Half Pint", "Apple", "Banana", "Grapefruit", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Cookie (unwrapped)", "Tuna Salad", "Egg Salad"]
@@ -78,6 +79,7 @@ def main():
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
     packaged[session['uid']] = 0
+    needAlert[session['uid']] = 0
     print("starting count")
     print(packaged[session['uid']])
     #print(packaged.get(session['uid]))
@@ -122,7 +124,7 @@ def main():
 
   if cart.get(session['uid']) == None:
     return render_template("index.html")
-  if packaged.get(session['uid']) > 2 and diff >= 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -133,8 +135,9 @@ def main():
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
+    needAlert[session['uid']] = 0
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
-  if packaged.get(session['uid']) > 2 and diff < 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
@@ -144,7 +147,7 @@ def main():
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-
+    needAlert[session['uid']] = 0
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
   if diff >= 0:
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
@@ -249,7 +252,7 @@ def getFavorites():
 
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
-  if packaged.get(session['uid']) > 2 and diff >= 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -260,8 +263,9 @@ def getFavorites():
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
+    needAlert[session['uid']] = 0
     return render_template("favorites.html", resultList0 = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
-  if packaged.get(session['uid']) > 2 and diff < 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
@@ -272,7 +276,7 @@ def getFavorites():
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-
+    needAlert[session['uid']] = 0
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
@@ -325,6 +329,32 @@ def getInfo():
 
   if cart.get(session['uid']) == None:
     return render_template("info.html")
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
+    print('in this function')
+    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+    retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
+				<!-- something about adding to cart in red -->
+				alert('ok clicked')
+			}
+			else {
+				<!-- do not update the cart -->
+				alert('cancel clicked')
+			} </script> '''
+    needAlert[session['uid']] = 0
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
+    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+    retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
+				<!-- something about adding to cart in red -->
+				alert('ok clicked')
+                	<!-- window.location = '/removeItemFavorites/' + ; -->
+			}
+			else {
+				<!-- do not update the cart -->
+				alert('cancel clicked')
+			} </script> '''
+    needAlert[session['uid']] = 0
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
@@ -436,7 +466,7 @@ def getItem(item):
 
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
-  if packaged.get(session['uid']) > 2 and diff >= 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) = 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit")) {
@@ -444,9 +474,9 @@ def getItem(item):
 				alert('ok clicked')
 				
 			} </script> '''
-
+    needAlert[session['uid']] = 0
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
-  if packaged.get(session['uid']) > 2 and diff < 0:
+  if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
@@ -456,6 +486,7 @@ def getItem(item):
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
+    needAlert[session['uid']] = 0
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
@@ -568,7 +599,7 @@ def getItemsFromCategory(catg):
   if cart.get(session['uid']) == None:
     print(comboRet)
     return render_template("category.html", resultList = Markup(retVal))
-  if packaged.get(session['uid']) > 2 and diff >= 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -579,9 +610,9 @@ def getItemsFromCategory(catg):
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-
+    needAlert[session['uid']] = 0
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
-  if packaged.get(session['uid']) > 2 and diff < 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
 				<!-- something about adding to cart in red -->
@@ -591,6 +622,7 @@ def getItemsFromCategory(catg):
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
+    needAlert[session['uid']] = 0
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
     print("This 2")
@@ -628,6 +660,7 @@ def addItem(search, item):
   results = cursor.fetchall()
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     cart[session['uid']].remove(item)
+    needAlert[session['uid']] = 1
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -676,6 +709,7 @@ def addItemFromCategory(category, item):
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     cart[session['uid']].remove(item)
+    needAlert[session['uid']] = 1
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -733,6 +767,7 @@ def addItemFromFavorites(item):
     print('in this function /addItem/favorites/<item>')
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     cart[session['uid']].remove(item)
+    needAlert[session['uid']] = 1
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -781,6 +816,7 @@ def addItemFromInfo(item):
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     cart[session['uid']].remove(item)
+    needAlert[session['uid']] = 1
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
@@ -811,6 +847,7 @@ def addItemFromMain(item):
     print('in this function /addItem/item/<search>/<item>')
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     cart[session['uid']].remove(item)
+    needAlert[session['uid']] = 1
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')

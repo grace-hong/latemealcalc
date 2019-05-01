@@ -46,6 +46,7 @@
 	
 	#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
   		background: #acc8dd;
+		color: white;
 	}
 	
 	#keywords thead tr th.headerSortUp span {
@@ -125,10 +126,12 @@
 
 
 	<!-- tabesorter -->
-	$(function(){
-  		$('#keywords').tablesorter(); 
-	});
-
+	<script>
+		$(function(){
+  			$('#keywords').tablesorter(); 
+		});
+	</script>
+		
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->

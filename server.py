@@ -439,15 +439,10 @@ def getItem(item):
   if packaged.get(session['uid']) > 2 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
-    retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
+    retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit")) {
 				<!-- something about adding to cart in red -->
 				alert('ok clicked')
 				
-			}
-			else {
-				<!-- do not update the cart -->
-				alert('cancel clicked')
-				window.location = '/removeItemFavorites/' + item; 
 			} </script> '''
 
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
@@ -631,7 +626,9 @@ def addItem(search, item):
 
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  if str(results[0]) == ('(\'y\',)'):
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    cart[session['uid']].remove(item)
+  elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
@@ -677,9 +674,9 @@ def addItemFromCategory(category, item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
-  if packaged.get(session['uid']) > 2:
-    print('in this function /addItem/<category>/<item>')
-  if str(results[0]) == ('(\'y\',)'):
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    cart[session['uid']].remove(item)
+  elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
@@ -734,7 +731,9 @@ def addItemFromFavorites(item):
   print(packaged.get(session['uid']))
   if packaged.get(session['uid']) > 2:
     print('in this function /addItem/favorites/<item>')
-  if str(results[0]) == ('(\'y\',)'):
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    cart[session['uid']].remove(item)
+  elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
@@ -780,9 +779,9 @@ def addItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
-  if packaged.get(session['uid']) > 2:
-    print('in this function /addItem/info/<item>')
-  if str(results[0]) == ('(\'y\',)'):
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    cart[session['uid']].remove(item)
+  elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
   print(results)
@@ -810,7 +809,9 @@ def addItemFromMain(item):
   print(packaged.get(session['uid']))
   if packaged.get(session['uid']) > 2:
     print('in this function /addItem/item/<search>/<item>')
-  if str(results[0]) == ('(\'y\',)'):
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    cart[session['uid']].remove(item)
+  elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')
 

@@ -425,11 +425,6 @@ def getItemsFromCategory(catg):
   
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
-    comboRet = '''<script>alert('Would you like to make this a combo?')</script>'''
-    print("Registered entire combo")
-
-  # comboRet = ''''''
-  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
     comboRet = '''
     <div id='modal_dialog' style='background-color: #000000;'>
     	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
@@ -438,7 +433,7 @@ def getItemsFromCategory(catg):
     	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
     </div>
     <script>
-    dialog('Are you sure you want to continue?',
+    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
     	function() {
 		window.location = '/combos/yes';
 	},
@@ -446,6 +441,11 @@ def getItemsFromCategory(catg):
 		window.location = '/combos/no';
 	}
     );</script>'''
+    print("Registered entire combo")
+
+  # comboRet = ''''''
+  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
     print("Registered combo item")
 
   combos[session['uid']] = 0

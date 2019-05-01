@@ -244,5 +244,37 @@ $('a').click(function () {
 	</table>
 </footer>
 
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+	
+<script>
+    function dialog(message, yesCallback, noCallback) {
+	console.log("Entered dialog function");
+    	$('.title').html(message);
+    	var dialog = $('#modal_dialog').dialog();
+
+    	$('#btnYes').click(function() {
+        	dialog.dialog('close');
+        	yesCallback();
+    	});
+    	$('#btnNo').click(function() {
+        	dialog.dialog('close');
+        	noCallback();
+    	});
+     } 
+	
+     function checkout() {
+	     alert("You are checking out. All items will be cleared."); 
+	     window.location='/checkout';
+     }
+</script>
+
+{% if resultList5 %}
+	{{ resultList5 }}
+{% endif %}	
+	
 </body>
 </html>

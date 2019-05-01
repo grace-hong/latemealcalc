@@ -676,7 +676,7 @@ def addItemFromCategory(category, item):
       if item == "Neapolitan Cheese Pizza":
         pizza += 1
         if pizza == 2:
-          boolean 1
+          boolean = 1
       
       else:
         boolean = 1

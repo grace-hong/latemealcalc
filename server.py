@@ -669,15 +669,15 @@ def addItemFromCategory(category, item):
   conn.commit()
   pizza = 0
 	
+  boolean = 0
   for main in combosMain:
     if item == main:
+      combos[session['uid']] = 1
       if item == "Neapolitan Cheese Pizza":
-        pizza += 1
-        if pizza == 2:
-          combos[session['uid']] = 1
+        boolean = 2
      
       else:
-        combos[session['uid']] = 1
+        boolean = 1
 
   counterMain = 0
   counterAdd = 0
@@ -694,14 +694,14 @@ def addItemFromCategory(category, item):
   print("combosMain: "),
   print(combos[session['uid']])
 
-  if combos[session['uid']] == 1:
-    if counterMain == 0 and counterAdd == 2:
+  if boolean != 0:
+    if ((counterMain == 0 and boolean == 1) or (counterMain == 1 and boolean == 2)) and counterAdd == 2:
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
 
   else:
-    if counterMain == 1 and counterAdd == 1:
+    if ((counterMain == 1 and boolean == 1) or (counterMain == 2 and boolean == 2)) and counterAdd == 1:
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

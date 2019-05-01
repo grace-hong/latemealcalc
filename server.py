@@ -705,18 +705,16 @@ def addItemFromInfo(item):
 def addItemFromMain(item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
- cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
- results = cursor.fetchall()
- print(str(results[0]))
- print('testing the session')
- print(packaged.get(session['uid']))
- if packaged.get(session['uid']) > 2:
-   print('in this function /addItem/item/<search>/<item>')
- if str(results[0]) == ('(\'y\',)'):
-   packaged[session['uid']] = packaged[session['uid']] + 1
-   print('matched')
- print(results)
- print(packaged.get(session['uid']))
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(str(results[0]))
+  print('testing the session')
+  print(packaged.get(session['uid']))
+  if packaged.get(session['uid']) > 2:
+    print('in this function /addItem/item/<search>/<item>')
+  if str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
 
   cart[session['uid']].append(item)
   print(item)

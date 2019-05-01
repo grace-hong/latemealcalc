@@ -1034,25 +1034,33 @@ def combosDefaultYes():
   newCart = cart[session['uid']].copy()
   delAdd = 0
   delMain = 0
-  bound = 1
+  bound1 = 1
+  bound2 = 2
   pizza = 0
+  cookies = 0
   for product in newCart:
     if product == "Neapolitan Cheese Pizza":
       pizza += 1
+    if product == "Cookie (unwrapped)":
+      cookies += 1
 
   if pizza == 2:
-    bound = 2
+    bound1 = 2
+  if cookies == 2:
+    bound2 = 3
+  if cookies == 4:
+    bound2 = 4
 
   for product in newCart:
     print("product"),
     print(product)
-    if product in combosMain and delMain < bound:
+    if product in combosMain and delMain < bound1:
       print("main"),
       print(product)
       cart[session['uid']].remove(product)
       delMain += 1
 
-    if product in combosAdd and delAdd < 2:
+    if product in combosAdd and delAdd < bound2:
       print("side"),
       print(product)
       cart[session['uid']].remove(product)

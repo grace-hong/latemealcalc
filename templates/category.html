@@ -39,22 +39,19 @@
  	 	background-color: #dddddd;
 	}
 	
-	thead {
-		cursor: pointer;
-		background: #343a40;
+	table.dataTable thead .sorting:after,
+	table.dataTable thead .sorting:before,
+	table.dataTable thead .sorting_asc:after,
+	table.dataTable thead .sorting_asc:before,
+	table.dataTable thead .sorting_asc_disabled:after,
+	table.dataTable thead .sorting_asc_disabled:before,
+	table.dataTable thead .sorting_desc:after,
+	table.dataTable thead .sorting_desc:before,
+	table.dataTable thead .sorting_desc_disabled:after,
+	table.dataTable thead .sorting_desc_disabled:before {
+		bottom: .5em;
 	}
 	
-	#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-  		background: #acc8dd;
-		color: #000000;
-	}
-	
-	#keywords thead tr th.headerSortUp span {
-		background-image: url('up-arrow.png');
-	}
-	#keywords thead tr th.headerSortDown span {
-  		background-image: url('down-arrow.png');
-	}
 
 </style>
 </head>
@@ -135,7 +132,7 @@
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
-		<h5><table class="shop-items" id="keywords">
+		<h5><table class="shop-items" id="dtBasicExample">
 			<thead>
 			<tr>
 				<th> 🍽️ </th>

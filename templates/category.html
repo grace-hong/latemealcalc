@@ -128,10 +128,10 @@ $(document).ready(function(){
   $("#flip").click(function(){
 	  if ($("#panel").is(":visible")) {
 		  $("#panel").slideUp(1000, queue=false);
-		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
+		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}", queue=false);
 	  }
 	  else {
-		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}");
+		  $("#my_image").attr("src","{{ url_for('static',filename='up.png') }}", queue=false);
 		  $("#panel").slideDown(1000, queue=false);
 	  }
 	  //$("#panel").slideToggle("fast");

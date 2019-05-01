@@ -189,7 +189,7 @@ $(document).ready(function(){
     function dialog(message, yesCallback, noCallback) {
 	console.log("Entered dialog function");
     	$('.title').html(message);
-    	var dialog = $('#modal_dialog').dialog();
+    	var dialog = $('#modalblock').dialog();
 
     	$('#btnYes').click(function() {
         	dialog.dialog('close');

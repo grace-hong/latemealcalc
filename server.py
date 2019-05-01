@@ -157,6 +157,33 @@ def getFavorites():
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
 
+  comboRet = ''''''
+  if combosFull.get(session['uid']) == 1:
+    comboRet = '''
+    <div id='modal_dialog' style='background-color: #000000;'>
+    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
+    	</div>
+    	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
+    	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
+    </div>
+    <script>
+    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
+    	function() {
+		window.location = '/combos/yes';
+	},
+	function() {
+		window.location = '/combos/no';
+	}
+    );</script>'''
+    print("Registered entire combo")
+
+  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
+    print("Registered combo item")
+
+  combos[session['uid']] = 0
+  combosFull[session['uid']] = 0
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -220,7 +247,6 @@ def getFavorites():
       post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
-
   if cart.get(session['uid']) == None:
     return render_template("favorites.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) > 2 and diff >= 0:
@@ -234,7 +260,7 @@ def getFavorites():
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    return render_template("favorites.html", resultList0 = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
+    return render_template("favorites.html", resultList0 = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -247,11 +273,11 @@ def getFavorites():
 				alert('cancel clicked')
 			} </script> '''
 
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
   if diff >= 0:
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultString5 = Markup(comboRet))
   else:
-    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1))
+    return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultString5 = Markup(comboRet))
 
 
 @app.route("/info")
@@ -297,13 +323,12 @@ def getInfo():
       post_window4 = ''''"></button></div></div><br>'''
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
-
   if cart.get(session['uid']) == None:
     return render_template("info.html")
   if diff >= 0:
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
   else:
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1))
+    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1),)
 
 @app.route("/install")
 def getInstall():
@@ -398,7 +423,6 @@ def getItem(item):
     budget = 7.0
 
   diff = budget - sum
-
 
   cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
   results2 = cursor.fetchall()
@@ -712,16 +736,36 @@ def addItemFromFavorites(item):
   print(results)
   print(packaged.get(session['uid']))
 
-  cart[session['uid']].append(item)
+  # cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
 
-  string = "Your cart contains: "
+  for main in combosMain:
+    if item == main:
+      combos[session['uid']] = 1
 
+  counterMain = 0
+  counterAdd = 0
   for purchase in cart[session['uid']]:
-    string += str(purchase) + ", "
+    if purchase in combosMain:
+      counterMain += 1
+    if purchase in combosAdd:
+      counterAdd += 1
 
+  if combos.get(session['uid']) == 1:
+    if counterMain == 0 and counterAdd == 2:
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
+  
+  else:
+    if counterMain == 1 and counterAdd == 1:
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
+
+  cart[session['uid']].append(item)
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")

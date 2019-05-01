@@ -143,6 +143,104 @@ def main():
   else:
     return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1))
 
+@app.route("/specials")
+def getSpecials():
+  if 'uid' not in session:
+    session['uid'] = uuid.uuid4()
+    time[session['uid']] = 0
+
+  comboRet = ''''''
+  if combosFull.get(session['uid']) == 1:
+    comboRet = '''
+    <div id='modal_dialog' style='background-color: #000000;'>
+    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
+    	</div>
+    	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
+    	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
+    </div>
+    <script>
+    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
+    	function() {
+		window.location = '/combos/default/yes';
+	},
+	function() {
+		window.location = '/index';
+	}
+    );</script>'''
+    print("Registered entire combo")
+
+  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    print("Registered combo item")
+
+  combos[session['uid']] = 0
+  combosFull[session['uid']] = 0
+
+  sum = 0.0
+  retVal2 = ""
+  if cart.get(session['uid']) != None:
+    for product in cart.get(session["uid"]):
+      print(product)
+      cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
+      query = cursor.fetchone()
+      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
+      post_title2 = '''</span> <span class="cart-price">$'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_window2 = ''''"></button></div></div><br>'''
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(item) + "/" + str(product) + post_window2)
+      sum += float(query[0])
+
+  comboStr = ''''''
+  if time[session['uid']] == 0:
+    selector = "dinner"
+  else:
+    selector = "lunch"
+
+  retVal3 = '''$''' + "{:.2f}".format(sum)
+
+  retVal4 = ""
+  budget = 0.0
+  if (selector == "dinner"):
+    budget = 6.0
+    comboStr = "Late Dinner Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latedinnerspecial"></button>'''
+
+  else :
+    budget = 7.0
+    comboStr = "Late Lunch Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latelunchspecial"></button>'''
+
+  diff = budget - sum
+
+  cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
+  results2 = cursor.fetchall()
+  for re in results2:
+    if (str(re[0]) not in str(retVal2)):
+      pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
+      post_title4 = '''</span> <span class="cart-price">$'''
+      post_price4 = '''</span> <button class="btn btn-primary fa fa-plus" type="button" style="font-size: 10px; border-radius:3rem;" onclick="javascript:window.location='/addItem/item/Late '''
+      post_window4 = ''''"></button></div></div><br>'''
+      retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(selector) + " Special/" + str(re[0]) + post_window4)
+
+  if cart.get(session['uid']) == None:
+    return render_template("specials.html")
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
+    print('in this function')
+    retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
+			} </script> '''
+    needAlert[session['uid']] = 0
+    return render_template("specials.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+  if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
+    retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
+			}
+			 </script> '''
+    needAlert[session['uid']] = 0
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+  if diff >= 0:
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
+  else:
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
+
+
+
 @app.route("/favorites")
 def getFavorites():
   if 'uid' not in session:

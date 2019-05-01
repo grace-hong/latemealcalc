@@ -667,10 +667,17 @@ def addItemFromCategory(category, item):
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
+  pizza = 0
 
   for main in combosMain:
     if item == main:
-      combos[session['uid']] = 1
+      if item == "Neapolitan Cheese Pizza":
+        pizza += 1
+        if pizza == 2:
+          combos[session['uid']] = 1
+      
+      else:
+        combos[session['uid']] = 1
 
   counterMain = 0
   counterAdd = 0

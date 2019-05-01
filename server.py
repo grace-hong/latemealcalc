@@ -609,17 +609,36 @@ def addItem(search, item):
   print(results)
   print(packaged.get(session['uid']))
 
-  cart[session['uid']].append(item)
+  # cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
+	
+  for main in combosMain:
+    if item == main:
+      combos[session['uid']] = 1
 
-  string = "Your cart contains: "
-
+  counterMain = 0
+  counterAdd = 0
   for purchase in cart[session['uid']]:
-    string += str(purchase) + ", "
+    if purchase in combosMain:
+      counterMain += 1
+    if purchase in combosAdd:
+      counterAdd += 1
 
+  if combos.get(session['uid']) == 1:
+    if counterMain == 0 and counterAdd == 2:
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
+  
+  else:
+    if counterMain == 1 and counterAdd == 1:
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
 
+  cart[session['uid']].append(item)
   return redirect(url_for('getItem', item=search))
 
 @app.route("/addItem/<category>/<item>")

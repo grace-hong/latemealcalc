@@ -338,7 +338,7 @@ def getInstall():
 @app.route("/specials")
 def getSpecials():
   if 'uid' not in session:
-    session['uid'] = uuid.uuid4()
+    session['uid'] = uuid.uuid1()
     time[session['uid']] = 0
 
   comboRet = ''''''

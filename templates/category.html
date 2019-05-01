@@ -127,8 +127,8 @@ includeHTML();
 $(document).ready(function(){
   $("#flip").click(function(){
 	  if ($("#panel").is(":visible")) {
-		  $("#panel").slideUp(1000);
 		  $("#my_image").attr("src","{{ url_for('static',filename='down.png') }}");
+		  $("#panel").slideUp(1000);
 	  }
 	  else {
 		  $("#panel").slideDown(1000);

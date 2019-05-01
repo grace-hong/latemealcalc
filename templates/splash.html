@@ -37,14 +37,12 @@
 				<th align="center" id="min"></th>
 				<th align="center" id="sec"></th>
 			    </tr>
-			<div id ="timetext">
 			    <tr>
-				<td align="center">DAYS</td>
-				<td align="center">HRS</td>
-				<td align="center">MIN</td>
-				<td align="center">SEC</td>
+				<td align="center" id="tdays">DAYS</td>
+				<td align="center" id="thrs">HRS</td>
+				<td align="center" id="tmin">MIN</td>
+				<td align="center" id="tsec">SEC</td>
 			    </tr>
-			</div>
 			</table>
 		</div>
 	</div>
@@ -62,8 +60,16 @@
 	var time = hour * 60 + min;
 	if (time >= 840 && time <= 945 && (day == 1 || day == 2 || day == 3 || day == 4 || day == 5))
 		document.getElementById("radioLunch").checked = true;
+		document.getElementById("tdays").innerHTML = "";
+               document.getElementById("thrs").innerHTML = "";
+                document.getElementById("tmin").innerHTML = "";
+                 document.getElementById("tsec").innerHTML = "";
 	else if (time >= 1230 && time <= 1320 && (day == 1 || day == 2 || day == 3 || day == 4))
 		document.getElementById("radioDinner").checked = true;
+		document.getElementById("tdays").innerHTML = "";
+               document.getElementById("thrs").innerHTML = "";
+                document.getElementById("tmin").innerHTML = "";
+                 document.getElementById("tsec").innerHTML = "";
 	else 
 		document.getElementById("isClosed").innerHTML = "Late Meal is currently closed, but you may still choose a meal time to browse items.";
 

@@ -613,15 +613,9 @@ def addItemFromCategory(category, item):
   print(results)
   print(packaged.get(session['uid']))
 
-  cart[session['uid']].append(item)
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
-
-  string = "Your cart contains: "
-
-  for purchase in cart[session['uid']]:
-    string += str(purchase) + ", "
 
   for main in combosMain:
     if item == main:
@@ -654,6 +648,7 @@ def addItemFromCategory(category, item):
     else:
       combosFull[session['uid']] = 0
 
+  cart[session['uid']].append(item)
   return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")

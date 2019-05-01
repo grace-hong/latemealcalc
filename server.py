@@ -455,7 +455,7 @@ def getItemsFromCategory(catg):
   if combos.get(session['uid']) == 1:
     comboRet = '''
     <div id='modal_dialog' style='background-color: #000000;'>
-    	<div style='font-weight: 500; font-style: italic; color: white'>
+    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
     	</div>
     	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
     	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />

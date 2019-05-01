@@ -409,13 +409,13 @@ def getSpecials():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(selector) + " Special/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    return render_template("results.html", resultList = Markup(retVal))
+    return render_template("specials.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}

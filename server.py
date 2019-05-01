@@ -829,6 +829,8 @@ def combosFavYes():
   delAdd = 0
   delMain = 0
   for product in cart[session['uid']]:
+    print("product"),
+    print(product)
     if product in combosMain and delMain < 1:
       print("main"),
       print(product)

@@ -826,6 +826,8 @@ def addItemFromMain(item):
 
 @app.route("/combos/favorites/yes")
 def combosFavYes():
+  print("Printing cart:")
+  print(cart[session['uid']])
   delAdd = 0
   delMain = 0
   for product in cart[session['uid']]:

@@ -697,7 +697,7 @@ def addItemFromCategory(category, item):
   print(combos[session['uid']])
 
   if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain == 1 and boolean == 2)) and counterAdd == 2:
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and counterAdd == 2:
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

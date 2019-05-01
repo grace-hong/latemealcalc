@@ -360,10 +360,10 @@ def getItem(item):
     <script>
     dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
     	function() {
-		window.location = '/combos/yes';
+		window.location = '/combos/default/yes';
 	},
 	function() {
-		window.location = '/combos/no';
+		window.location = '/index';
 	}
     );</script>'''
     print("Registered entire combo")
@@ -488,10 +488,10 @@ def getItemsFromCategory(catg):
     <script>
     dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
     	function() {
-		window.location = '/combos/yes';
+		window.location = '/combos/default/yes';
 	},
 	function() {
-		window.location = '/combos/no';
+		window.location = '/index';
 	}
     );</script>'''
     print("Registered entire combo")
@@ -855,8 +855,38 @@ def combosFavYes():
   
   return redirect(url_for('getFavorites'))
 
+# we need to change this to reload the old page lol
+@app.route("/combos/default/yes")
+def combosDefaultYes():
+  print("Printing cart:")
+  print(cart[session['uid']])
+  delAdd = 0
+  delMain = 0
+  for product in cart[session['uid']]:
+    print("product"),
+    print(product)
+    if product in combosMain and delMain < 1:
+      print("main"),
+      print(product)
+      cart[session['uid']].remove(product)
+      delMain += 1
+    
+    if product in combosAdd and delAdd < 2:
+      print("side"),
+      print(product)
+      cart[session['uid']].remove(product)
+      delAdd += 1
+  
+  if time.get(session['uid']) == 1:
+    cart[session['uid']].append("Late Dinner Special")
+  
+  else:
+    cart[session['uid']].append("Late Lunch Special")
+  
+  return redirect(url_for('main'))
+
 @app.route("/removeItem/item/<search>/<item>")
-def removeItem(search, item):
+def removeItem(search, item):	
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   print(packaged.get(session['uid']))

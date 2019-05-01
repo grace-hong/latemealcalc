@@ -323,6 +323,33 @@ def getItem(item):
   if item == "title.png":
     return app.send_static_file('title.png')
 
+  comboRet = ''''''
+  if combosFull.get(session['uid']) == 1:
+    comboRet = '''
+    <div id='modal_dialog' style='background-color: #000000;'>
+    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
+    	</div>
+    	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
+    	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
+    </div>
+    <script>
+    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
+    	function() {
+		window.location = '/combos/yes';
+	},
+	function() {
+		window.location = '/combos/no';
+	}
+    );</script>'''
+    print("Registered entire combo")
+
+  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
+    print("Registered combo item")
+
+  combos[session['uid']] = 0
+  combosFull[session['uid']] = 0
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -397,7 +424,7 @@ def getItem(item):
 				alert('cancel clicked')
 			} </script> '''
 
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and diff < 0:
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -408,11 +435,11 @@ def getItem(item):
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
   else:
-    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1))
+    return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
 @app.route("/search/category/<catg>")
 def getItemsFromCategory(catg):
@@ -443,7 +470,6 @@ def getItemsFromCategory(catg):
     );</script>'''
     print("Registered entire combo")
 
-  # comboRet = ''''''
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
     comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>''' 
     print("Registered combo item")
@@ -533,7 +559,7 @@ def getItemsFromCategory(catg):
 				alert('cancel clicked')
 			} </script> '''
 
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6),)
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and diff < 0:
    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (confirm("You have reached the 2 packaged goods limit. Want to continue?")) {
@@ -544,7 +570,7 @@ def getItemsFromCategory(catg):
 				<!-- do not update the cart -->
 				alert('cancel clicked')
 			} </script> '''
-    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6),)
+    return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if diff >= 0:
     print("This 2")
     print(comboRet)

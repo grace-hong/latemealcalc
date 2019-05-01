@@ -639,6 +639,8 @@ def addItemFromCategory(category, item):
   print(counterMain)
   print("counterAdd: "),
   print(counterAdd)
+  print("combosMain: "),
+  print(combos[session['uid']])
 
   if combos.get(session['uid']) == 1:
     if counterMain == 0 and counterAdd == 2:

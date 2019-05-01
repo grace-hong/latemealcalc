@@ -466,7 +466,7 @@ def getItem(item):
 
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
-  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) = 1 and diff >= 0:
+  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("You have reached the 2 packaged goods limit")) {

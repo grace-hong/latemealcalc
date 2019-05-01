@@ -135,12 +135,14 @@ $(document).ready(function(){
 		</table>
 		
 		</h5>
-		{% if packagedconfirm %}
-			{{ packagedconfirm }}
-		{% endif %}
+		
 		
 	{% else %}
   		<h3>No results found.</h3>
+	{% endif %}
+	
+	{% if packagedconfirm %}
+		{{ packagedconfirm }}
 	{% endif %}
 
    	

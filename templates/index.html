@@ -201,14 +201,14 @@ $(document).ready(function(){
 				<div style = "font-size: 1.25rem; font-weight: 600;">TOTAL</div>
 				<!-- money left -->
 				{% if surplus %}
-					<font color="green" size="5">{{ resultList3 }}</font>
+					<font color="#64dd17" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ surplus }} remaining</font>
 				<!-- money over -->
 				{% elif diffOver %}
 					<font color="red" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ diffOver }} over</font>
 				{% else %}
-					<font color="green" size="5">$0.00</font>
+					<font color="#64dd17" size="5">$0.00</font>
 				{% endif %}
 			</th>
 			<th colspan=2 style="text-align:center; vertical-align: top; padding-top: 10px; color: white;">

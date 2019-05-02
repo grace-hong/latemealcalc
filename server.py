@@ -898,7 +898,8 @@ def addItemFromFavorites(item):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
-
+  
+  cart[session['uid']].append(item)
   return redirect(url_for('getFavorites'))
 
 @app.route("/addItem/info/<item>")

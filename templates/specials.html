@@ -126,29 +126,42 @@ $(document).ready(function(){
 <p>Make your own combo for late meal! Combos are $6 for late lunch and $7 for late dinner.</p>
 	<!-- choose a main !-->
 	<h4>Choose a main:</h4>
-  <input type="radio" name="main" value="pizza"> 2 Slices of Plain Pizza<br>
-  <input type="radio" name="main" value="burrito"> Burrito<br>
-  <input type="radio" name="main" value="bbowl"> Burrito Bowl<br>
-  <input type="radio" name="main" value="bbowl"> Chicken Tenders & Waffle<br>
-  <input type="radio" name="main" value="entree"> Entree with Two Sides<br>
+  <input type="radio" name="main" value="pizza" id="pizza"> 2 Slices of Plain Pizza<br>
+  <input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
+  <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
+  <input type="radio" name="main" value="tenders" id="tenders"> Chicken Tenders & Waffle<br>
+  <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>
   
   <i>Late Meal has a limit of 2 packaged items (such as, bottled beverages, chips, sushi, ice cream, yogurt, cereal)</i>
   
   <h4>Choose your first side:</h4>
-  <input type="radio" name="side1" value="soda"> 16 oz. Fountain Soda<br>
-  <input type="radio" name="side1" value="fruit"> 1 Piece of Whole Fruit<br>
-  <input type="radio" name="side1" value="salad"> Small Grab-n-Go Salad<br>
-  <input type="radio" name="side1" value="milk"> 1/2 Pint of Milk<br>
-  <input type="radio" name="side1" value="cookie"> 2 David's Cookie (unwrapped)<br>
-  <input type="radio" name="side1" value="juice"> 16 oz. juice for additional $0.60<br>
+  <input type="radio" name="side1" value="soda" id="soda"> 16 oz. Fountain Soda<br>
+  <input type="radio" name="side1" value="fruit" id="fruit"> 1 Piece of Whole Fruit<br>
+  <input type="radio" name="side1" value="salad" id="salad"> Small Grab-n-Go Salad<br>
+  <input type="radio" name="side1" value="milk" id="milk"> 1/2 Pint of Milk<br>
+  <input type="radio" name="side1" value="cookie" id="cookie"> 2 David's Cookie (unwrapped)<br>
+  <input type="radio" name="side1" value="juice" id="juice"> 16 oz. juice for additional $0.60<br>
   
   <h4>Choose your second side:</h4>
-  <input type="radio" name="side1" value="soda"> 16 oz. Fountain Soda<br>
-  <input type="radio" name="side1" value="fruit"> 1 Piece of Whole Fruit<br>
-  <input type="radio" name="side1" value="salad"> Small Grab-n-Go Salad<br>
-  <input type="radio" name="side1" value="milk"> 1/2 Pint of Milk<br>
-  <input type="radio" name="side1" value="cookie"> 2 David's Cookie (unwrapped)<br>
-  <input type="radio" name="side1" value="juice"> 16 oz. juice for additional $0.60<br>
+  <input type="radio" name="side1" value="soda" id="soda2"> 16 oz. Fountain Soda<br>
+  <input type="radio" name="side1" value="fruit" id="fruit2"> 1 Piece of Whole Fruit<br>
+  <input type="radio" name="side1" value="salad" id="salad2"> Small Grab-n-Go Salad<br>
+  <input type="radio" name="side1" value="milk" id="milk2"> 1/2 Pint of Milk<br>
+  <input type="radio" name="side1" value="cookie" id="cookie2"> 2 David's Cookie (unwrapped)<br>
+  <input type="radio" name="side1" value="juice" id="juice2"> 16 oz. juice for additional $0.60<br>
+		
+	<script>
+		if((document.getElementById("pizza").checked || document.getElementById("burrito").checked || document.getElementById("bbowl").checked 
+		    || document.getElementById("tenders").checked || document.getElementById("entree").checked) &&
+		   (document.getElementById("soda").checked) || document.getElementById("fruit").checked || document.getElementById("salad").checked
+		   || document.getElementById("milk").checked || document.getElementById("cookie").checked || document.getElementById("juice").checked) && 
+		   (document.getElementById("soda2").checked) || document.getElementById("fruit2").checked || document.getElementById("salad2").checked
+		   || document.getElementById("milk2").checked || document.getElementById("cookie2").checked || document.getElementById("juice2").checked) )
+		{
+			document.getElementById("comboStr").innerHTML = "Your combo has been created :D";
+		}
+	</script>
+		<br><span id="comboStr"></span>
   {% if comboBtn %} 	
  	{{ comboBtn }}
   {% else %}

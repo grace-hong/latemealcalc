@@ -253,8 +253,12 @@ $(document).ready(function(){
      } 
 	
      function checkout() {
-	     alert("You are checking out. All items will be cleared."); 
-	     window.location='/checkout';
+	    if(confirm("Ready to check out? Clicking OK will clear all items from the cart.")) {
+		     window.location='/checkout';
+	     }
+	     else {
+		     window.location='/favorites';
+	     }
      }
 </script>
 

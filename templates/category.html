@@ -128,11 +128,16 @@
 	<section class="page-container" >
 
 
+	<script>
+		$(function() {
+  			$("#myTable").tablesorter();
+		});
+	</script>
 		
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
-		<h5><table class="shop-items" id="dtBasicExample">
+		<h5><table class="tablesorter" id="myTable">
 			<thead>
 			<tr>
 				<th> 🍽️ </th>

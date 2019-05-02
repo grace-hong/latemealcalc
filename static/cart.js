@@ -174,6 +174,14 @@ function getTime() {
     }
 }
 
+/* returns the max balance based on time */
+function getBalance() {
+	if (getTime() == 0) 
+		document.getElementsById("timeBalance").innerHTML = "$6.00"
+	else
+		document.getElementsById("timeBalance").innerHTML = "$7.00"
+}
+
 /* return a string of suggested items based on money left (difference) */
 /*function getSuggested(difference) {
     var retStr = "";

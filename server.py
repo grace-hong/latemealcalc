@@ -722,70 +722,6 @@ def addItem(search, item):
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
   pizza = 0
-	
-  boolean = 0
-  for main in combosMain:
-    if item == main:
-      combos[session['uid']] = 1
-      if item == "Neapolitan Cheese Pizza":
-        boolean = 2
-     
-      else:
-        boolean = 1
-
-  counterMain = 0
-  counterAdd = 0
-  for purchase in cart[session['uid']]:
-    if purchase in combosMain:
-      counterMain += 1
-      if purchase == "Neapolitan Cheese Pizza":
-        pizza += 1
-    if purchase in combosAdd:
-      counterAdd += 1
-
-  print("counterMain: "),
-  print(counterMain)
-  print("counterAdd: "),
-  print(counterAdd)
-  print("combosMain: "),
-  print(combos[session['uid']])
-
-  if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and counterAdd == 2:
-      combosFull[session['uid']] = 1
-    else:
-      combosFull[session['uid']] = 0
-
-  else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and counterAdd == 1:
-      combosFull[session['uid']] = 1
-    else:
-      combosFull[session['uid']] = 0
-  cart[session['uid']].append(item)
-  return redirect(url_for('getItem', item=search))
-
-@app.route("/addItem/<category>/<item>")
-def addItemFromCategory(category, item):
-  if cart.get(session['uid']) == None:
-    cart[session['uid']] = []
-
-  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
-  results = cursor.fetchall()
-  print(packaged.get(session['uid']))
-  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
-    needAlert[session['uid']] = 1
-    return redirect(url_for('getItemsFromCategory', catg=category))
-  elif str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
-
-  print(item)
-  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
-  conn.commit()
-  pizza = 0
-	
   boolean = 0
   booleanSides = 0
   for main in combosMain:
@@ -818,12 +754,76 @@ def addItemFromCategory(category, item):
     if purchase in combosAdd:
       counterAdd += 1
 
-  print("counterMain: "),
-  print(counterMain)
-  print("counterAdd: "),
-  print(counterAdd)
-  print("combosMain: "),
-  print(combos[session['uid']])
+
+  if boolean != 0:
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies == 0) or (counterAdd == 3 and cookies >= 2) or (counterAdd == 4 and cookies >= 3)): 
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
+
+  else:
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
+      combosFull[session['uid']] = 1
+    else:
+      combosFull[session['uid']] = 0
+
+  cart[session['uid']].append(item)
+  return redirect(url_for('getItem', item=search))
+
+@app.route("/addItem/<category>/<item>")
+def addItemFromCategory(category, item):
+  if cart.get(session['uid']) == None:
+    cart[session['uid']] = []
+
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
+    needAlert[session['uid']] = 1
+    return redirect(url_for('getItemsFromCategory', catg=category))
+  elif str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged[session['uid']] + 1
+    print('matched')
+  print(results)
+  print(packaged.get(session['uid']))
+
+  print(item)
+  cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
+  conn.commit()
+
+  pizza = 0
+  boolean = 0
+  booleanSides = 0
+  for main in combosMain:
+    if item == main:
+      combos[session['uid']] = 1
+      if item == "Neapolitan Cheese Pizza":
+        boolean = 2
+     
+      else:
+        boolean = 1
+  
+  for side in combosAdd:
+    if item == side:
+      booleanSides = 1
+      if item == "Cookie (unwrapped)":
+        booleanSides = 2
+  
+  cookies = 0
+  for product in cart[session['uid']]:
+    if product == "Cookie (unwrapped)":
+      cookies += 1
+
+  counterMain = 0
+  counterAdd = 0
+  for purchase in cart[session['uid']]:
+    if purchase in combosMain:
+      counterMain += 1
+      if purchase == "Neapolitan Cheese Pizza":
+        pizza += 1
+    if purchase in combosAdd:
+      counterAdd += 1
+
 
   if boolean != 0:
     if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies == 0) or (counterAdd == 3 and cookies >= 2) or (counterAdd == 4 and cookies >= 3)): 
@@ -864,10 +864,10 @@ def addItemFromFavorites(item):
   print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
-
+  
   pizza = 0
-	
   boolean = 0
+  booleanSides = 0
   for main in combosMain:
     if item == main:
       combos[session['uid']] = 1
@@ -876,6 +876,17 @@ def addItemFromFavorites(item):
      
       else:
         boolean = 1
+  
+  for side in combosAdd:
+    if item == side:
+      booleanSides = 1
+      if item == "Cookie (unwrapped)":
+        booleanSides = 2
+  
+  cookies = 0
+  for product in cart[session['uid']]:
+    if product == "Cookie (unwrapped)":
+      cookies += 1
 
   counterMain = 0
   counterAdd = 0
@@ -887,25 +898,19 @@ def addItemFromFavorites(item):
     if purchase in combosAdd:
       counterAdd += 1
 
-  print("counterMain: "),
-  print(counterMain)
-  print("counterAdd: "),
-  print(counterAdd)
-  print("combosMain: "),
-  print(combos[session['uid']])
 
   if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and counterAdd == 2:
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies == 0) or (counterAdd == 3 and cookies >= 2) or (counterAdd == 4 and cookies >= 3)): 
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and counterAdd == 1:
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
-  
+
   cart[session['uid']].append(item)
   return redirect(url_for('getFavorites'))
 
@@ -961,8 +966,8 @@ def addItemFromMain(item):
   conn.commit()
 
   pizza = 0
-	
   boolean = 0
+  booleanSides = 0
   for main in combosMain:
     if item == main:
       combos[session['uid']] = 1
@@ -971,6 +976,17 @@ def addItemFromMain(item):
      
       else:
         boolean = 1
+  
+  for side in combosAdd:
+    if item == side:
+      booleanSides = 1
+      if item == "Cookie (unwrapped)":
+        booleanSides = 2
+  
+  cookies = 0
+  for product in cart[session['uid']]:
+    if product == "Cookie (unwrapped)":
+      cookies += 1
 
   counterMain = 0
   counterAdd = 0
@@ -982,21 +998,15 @@ def addItemFromMain(item):
     if purchase in combosAdd:
       counterAdd += 1
 
-  print("counterMain: "),
-  print(counterMain)
-  print("counterAdd: "),
-  print(counterAdd)
-  print("combosMain: "),
-  print(combos[session['uid']])
 
   if boolean != 0:
-    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and counterAdd == 2:
+    if ((counterMain == 0 and boolean == 1) or (counterMain >= 1 and boolean == 2)) and ((counterAdd == 2 and cookies == 0) or (counterAdd == 3 and cookies >= 2) or (counterAdd == 4 and cookies >= 3)): 
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza == 2)) and counterAdd == 1:
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

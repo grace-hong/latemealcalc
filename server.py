@@ -51,7 +51,7 @@ combosFull = {}
 needAlert = {}
 
 combosMain = ["Neapolitan Cheese Pizza", "Burrito", "Burrito Bowl", "Carved Entree with 2 sides", "Chicken and Waffles"]
-combosAdd = ["Soda 16oz", "Milk Half Pint", "Apple", "Banana", "Grapefruit", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Cookie (unwrapped)", "Tuna Salad", "Egg Salad"]
+combosAdd = ["Soda 16oz", "Milk Half Pint", "Apple", "Banana", "Grapefruit", "Nectarine", "Orange", "Peach", "Pear", "Plum", "Cookie (unwrapped)", "Small Grabngo Salad"]
 
 @app.route("/")
 def splash():

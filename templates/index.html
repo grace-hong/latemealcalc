@@ -208,6 +208,15 @@ $(document).ready(function(){
 					<font color="red" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ diffOver }} over</font>
 				{% else %}
+				<script>
+					var time = new Date()
+				    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+					document.getElementById("timeBalance").innerHTML = "$6.00"
+				    }
+				    else { // dinner time
+					document.getElementById("timeBalance").innerHTML = "7.00"
+				    }
+				</script>
 					<font color="#64dd17" size="5">$0.00</font>
 					<br><font size ="1"><div id="timeBalance"></div> remaining</font>
 				{% endif %}

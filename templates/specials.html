@@ -152,7 +152,7 @@ $(document).ready(function(){
 		
 	<br><span id="comboStr"></span>
 	<script>
-	$(document).ready(function()
+	/*$(document).ready(function()
           {
 		if (($('#pizza').is(':checked') || $('#burrito').is(':checked') || $('#bbowl').is(':checked') ||
 		    $('#tenders').is(':checked') || $('#entree').is(':checked')) && ($('#soda').is(':checked') ||
@@ -160,6 +160,13 @@ $(document).ready(function(){
 		$('#cookie').is(':checked') || $('#juice').is(':checked')) && ($('#soda2').is(':checked') ||
 			$('#fruit2').is(':checked') || $('#salad2').is(':checked') || $('#milk2').is(':checked') ||
 		$('#cookie2').is(':checked') || $('#juice2').is(':checked')))	{
+			$('#comboStr').text("Your combo has been created :D");
+		}
+	});*/
+	$(document).ready(function()
+	{
+		if ($('input[name=main]:checked').length > 0 && $('input[name=side1]:checked').length > 0
+		    && $('input[name=side2]:checked').length > 0) {
 			$('#comboStr').text("Your combo has been created :D");
 		}
 	});

@@ -153,9 +153,9 @@ $(document).ready(function(){
 	<script>
 		if((document.getElementById("pizza").checked || document.getElementById("burrito").checked || document.getElementById("bbowl").checked 
 		    || document.getElementById("tenders").checked || document.getElementById("entree").checked) &&
-		   (document.getElementById("soda").checked) || document.getElementById("fruit").checked || document.getElementById("salad").checked
+		   (document.getElementById("soda").checked || document.getElementById("fruit").checked || document.getElementById("salad").checked
 		   || document.getElementById("milk").checked || document.getElementById("cookie").checked || document.getElementById("juice").checked)) {
-			if (document.getElementById("soda2").checked) || document.getElementById("fruit2").checked || document.getElementById("salad2").checked
+			if (document.getElementById("soda2").checked || document.getElementById("fruit2").checked || document.getElementById("salad2").checked
 		   || document.getElementById("milk2").checked || document.getElementById("cookie2").checked || document.getElementById("juice2").checked) 
 			{
 				document.getElementById("comboStr").innerHTML = "Your combo has been created :D";

@@ -152,16 +152,17 @@ $(document).ready(function(){
 		
 	<br><span id="comboStr"></span>
 	<script>
-if((document.getElementById("pizza").checked || document.getElementById("burrito").checked || document.getElementById("bbowl").checked 
-    || document.getElementById("tenders").checked || document.getElementById("entree").checked) &&
-   (document.getElementById("soda").checked || document.getElementById("fruit").checked || document.getElementById("salad").checked
-   || document.getElementById("milk").checked || document.getElementById("cookie").checked || document.getElementById("juice").checked)) {
-	if (document.getElementById("soda2").checked || document.getElementById("fruit2").checked || document.getElementById("salad2").checked
-   || document.getElementById("milk2").checked || document.getElementById("cookie2").checked || document.getElementById("juice2").checked) 
-	{
-		document.getElementById("comboStr").innerHTML = "Your combo has been created :D";
+	$(document).ready(function()
+          {
+		if (($('#pizza').is(':checked') || $('#burrito').is(':checked') || $('#bbowl').is(':checked') ||
+		    $('#tenders').is(':checked') || $('#entree').is(':checked')) && ($('#soda').is(':checked') ||
+			$('#fruit').is(':checked') || $('#salad').is(':checked') || $('#milk').is(':checked') ||
+		$('#cookie').is(':checked') || $('#juice').is(':checked')) && ($('#soda2').is(':checked') ||
+			$('#fruit2').is(':checked') || $('#salad2').is(':checked') || $('#milk2').is(':checked') ||
+		$('#cookie2').is(':checked') || $('#juice2').is(':checked')))	{
+			$('#comboStr').text("Your combo has been created :D");
+		}
 	}
-}
 </script>
   {% if comboBtn %} 	
  	{{ comboBtn }}

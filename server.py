@@ -176,7 +176,7 @@ def getSpecials():
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
 
-  if time[session['uid']] == 0:
+  if time.get(session['uid']) == 0:
     selector = "dinner"
   else:
     selector = "lunch"

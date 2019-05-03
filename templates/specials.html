@@ -123,17 +123,18 @@ $(document).ready(function(){
 
 	<section class="page-container" align="left" >
 
-<p>Make your own combo for late meal! Combos are $6 for late lunch and $7 for late dinner.</p>
-	<!-- choose a main !-->
-	<h4>Choose a main:</h4>
+<div class ="special">
+  <h4>Choose a main:</h4>
   <input type="radio" name="main" value="pizza" id="pizza"> 2 Slices of Plain Pizza<br>
   <input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
   <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
   <input type="radio" name="main" value="tenders" id="tenders"> Chicken Tenders & Waffle<br>
   <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>
-  
+</div>  
   <i>Late Meal has a limit of 2 packaged items (such as, bottled beverages, chips, sushi, ice cream, yogurt, cereal)</i>
-  
+ <div class="special">
+ 
+
   <h4>Choose your first side:</h4>
   <input type="radio" name="side1" value="soda" id="soda"> 16 oz. Fountain Soda<br>
   <input type="radio" name="side1" value="fruit" id="fruit"> 1 Piece of Whole Fruit<br>
@@ -141,35 +142,31 @@ $(document).ready(function(){
   <input type="radio" name="side1" value="milk" id="milk"> 1/2 Pint of Milk<br>
   <input type="radio" name="side1" value="cookie" id="cookie"> 2 David's Cookie (unwrapped)<br>
   <input type="radio" name="side1" value="juice" id="juice"> 16 oz. juice for additional $0.60<br>
-  
+ </div>  
+ <div class="special">
+ 
   <h4>Choose your second side:</h4>
-  <input type="radio" name="side2" value="soda" id="soda2"> 16 oz. Fountain Soda<br>
-  <input type="radio" name="side2" value="fruit" id="fruit2"> 1 Piece of Whole Fruit<br>
-  <input type="radio" name="side2" value="salad" id="salad2"> Small Grab-n-Go Salad<br>
-  <input type="radio" name="side2" value="milk" id="milk2"> 1/2 Pint of Milk<br>
-  <input type="radio" name="side2" value="cookie" id="cookie2"> 2 David's Cookie (unwrapped)<br>
+  <input type="radio" name="side2" value="soda2" id="soda2"> 16 oz. Fountain Soda<br>
+  <input type="radio" name="side2" value="fruit2" id="fruit2"> 1 Piece of Whole Fruit<br>
+  <input type="radio" name="side2" value="salad2" id="salad2"> Small Grab-n-Go Salad<br>
+  <input type="radio" name="side2" value="milk2" id="milk2"> 1/2 Pint of Milk<br>
+  <input type="radio" name="side2" value="cookie2" id="cookie2"> 2 David's Cookie (unwrapped)<br>
   <input type="radio" name="side2" value="juice" id="juice2"> 16 oz. juice for additional $0.60<br>
+  </div>
 		
-	<br><span id="comboStr"></span>
-	<script>
-	/*$(document).ready(function()
-          {
-		if (($('#pizza').is(':checked') || $('#burrito').is(':checked') || $('#bbowl').is(':checked') ||
-		    $('#tenders').is(':checked') || $('#entree').is(':checked')) && ($('#soda').is(':checked') ||
-			$('#fruit').is(':checked') || $('#salad').is(':checked') || $('#milk').is(':checked') ||
-		$('#cookie').is(':checked') || $('#juice').is(':checked')) && ($('#soda2').is(':checked') ||
-			$('#fruit2').is(':checked') || $('#salad2').is(':checked') || $('#milk2').is(':checked') ||
-		$('#cookie2').is(':checked') || $('#juice2').is(':checked')))	{
-			$('#comboStr').text("Your combo has been created :D");
+<input id="btn" type="button" value="Add Special" />
+ 
+<script>
+$(document).ready(function() {
+	$('#btn').click(function() {
+		if ($('div:not(:has(:radio:checked))').length) {
+		      alert("At least one group is blank");
 		}
-	});*/
-	$(document).ready(function()
-	{
-		if ($('input[name=main]:checked').length > 0 && $('input[name=side1]:checked').length > 0
-		    && $('input[name=side2]:checked').length > 0) {
-			$('#comboStr').text("Your combo has been created :D");
+		else {
+			document.getElementById("specialtext").innerHTML = "added main!"; 
 		}
-	});
+	 });
+});
 </script>
   {% if comboBtn %} 	
  	{{ comboBtn }}

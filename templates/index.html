@@ -117,6 +117,11 @@ $(document).ready(function(){
 	<script>
 		function handleSearchItem() {
 			var query = document.getElementById('itemsearch').value;
+			
+			if (query == "") {
+				query = "%20";
+			}
+				
 			window.location.href = "/search/item/" + query;
 			return false;
 		}

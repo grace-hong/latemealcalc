@@ -620,12 +620,12 @@ def getItemsFromCategory(catg):
   results = cursor.fetchall()
   print(results)
   retVal = ""
-  pre = '''<tr>
-      <td><h5>'''
+  pre = '''<tr class="shop-item">
+      <td class="shop-item-image"><h5>'''
   post_image = '''</h5></td>
-      <td><h5>'''
+      <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
-      <td><h5>$'''
+      <td class="shop-item-price"><h5>$'''
   post1 = '''</h5></td><td class="button" onclick="javascript:window.location='/addItem/'''
   urlend = ''''">'''
   post2 = '''

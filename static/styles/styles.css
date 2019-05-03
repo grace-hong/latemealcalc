@@ -265,8 +265,9 @@ form.categorybutton::after {
   padding-right: 35px;
   padding-left: 35px;
   padding-bottom: 10px;
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 25px;
+  font-weight: 700;
+  font-color: #212529;
 
 }
 
@@ -275,9 +276,8 @@ form.categorybutton::after {
   padding-right: 35px;
   padding-left: 35px;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   color: grey;
-
 }
 
 

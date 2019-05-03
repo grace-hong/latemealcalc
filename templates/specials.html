@@ -154,31 +154,26 @@ $(document).ready(function(){
   <input type="radio" name="side2" value="juice" id="juice2"> 16 oz. juice for additional $0.60<br>
   </div>
 		
-<input id="btn" type="button" value="Add Special" />
+<button class="btn-primary" style="font-size: .8rem; font-weight: 600; border-radius: .5rem; align:right; padding: 5px;" type="button" id="btn" value="Add Special" />
  
-<script>
-$(document).ready(function() {
-	$('#btn').click(function() {
-		if ($('div.special:not(:has(:radio:checked))').length) {
-		      alert("At least one group is blank");
-		}
-		else {
-			if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
-				window.location="addItem/miscellaneous/Late%20Lunch%20Special";
+	<script>
+	$(document).ready(function() {
+		$('#btn').click(function() {
+			if ($('div.special:not(:has(:radio:checked))').length) {
+			      alert("At least one group is blank");
 			}
-		    	else { // dinner time
-				window.location="addItem/miscellaneous/Late%20Dinner%20Special";
-		    	}
-		}
-	 });
-});
-</script>
-  {% if comboBtn %} 	
- 	{{ comboBtn }}
-  {% else %}
-	Yikes!
-  {% endif %}
-	</section>	 
+			else {
+				if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+					window.location="addItem/miscellaneous/Late%20Lunch%20Special";
+				}
+				else { // dinner time
+					window.location="addItem/miscellaneous/Late%20Dinner%20Special";
+				}
+			}
+		 });
+	});
+	</script>
+</section>	 
 
 <footer>
 <table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">

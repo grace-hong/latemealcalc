@@ -159,7 +159,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function() {
 	$('#btn').click(function() {
-		if ($('div:not(:has(:radio:checked))').length) {
+		if ($('div.special:not(:has(:radio:checked))').length) {
 		      alert("At least one group is blank");
 		}
 		else {

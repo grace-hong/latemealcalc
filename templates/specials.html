@@ -166,6 +166,7 @@ $(document).ready(function(){
 			      alert("Please select one item from each category.");
 			}
 			else {
+				time = new Date();
 				if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
 					window.location="addItem/miscellaneous/Late%20Lunch%20Special";
 				}

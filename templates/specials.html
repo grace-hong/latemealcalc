@@ -163,7 +163,7 @@ $(document).ready(function(){
 	$(document).ready(function() {
 		$('#btn').click(function() {
 			if ($('div.special:not(:has(:radio:checked))').length) {
-			      alert("At least one group is blank");
+			      alert("Please select one item from each category.");
 			}
 			else {
 				if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time

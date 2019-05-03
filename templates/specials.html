@@ -163,8 +163,12 @@ $(document).ready(function() {
 		      alert("At least one group is blank");
 		}
 		else {
-			alert("Grace Hong is a hero.");
-			window.location="add/item/Late Lunch Special";
+			if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
+				window.location="addItem/miscellaneous/Late%20Lunch%20Special";
+			}
+		    	else { // dinner time
+				window.location="addItem/miscellaneous/Late%20Dinner%20Special";
+		    	}
 		}
 	 });
 });

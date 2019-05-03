@@ -317,6 +317,10 @@ form.categorybutton::after {
     background-color: #ff6a00;
 }
 
+.btn-primary:focus {
+    background-color: #ff6a00;
+}
+
 
 .shop-item {
     align: left;

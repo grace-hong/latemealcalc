@@ -228,7 +228,7 @@ def getSpecials():
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}

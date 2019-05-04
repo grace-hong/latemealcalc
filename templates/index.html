@@ -264,5 +264,17 @@ $(document).ready(function(){
 </footer>
 <!-- shopping cart-->
 
+<script>
+	function combo() {
+		var prompt = window.confirm('You have added items to your cart that qualify for a Late Meal special combo during Late Meal hours. Would you like to make this a combo?');
+		if (prompt) {
+			window.location.href = 'combos/default/yes';
+		}
+		else {
+			window.location.href = '/index';
+		}
+	}
+</script>
+
 </body>
 </html>

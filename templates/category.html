@@ -250,6 +250,15 @@ $(document).ready(function(){
 		    window.location.href = '/index';
 	    }
     }
+	
+    function checkout() {
+	    if(confirm("Ready to check out? Clicking OK will clear all items from the cart.")) {
+		    window.location='/checkout';
+	    }
+	    else {
+		    //window.location='/favorites';
+	    }
+     }
 </script>
 
 {% if resultList5 %}

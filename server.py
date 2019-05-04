@@ -838,7 +838,7 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 0
 
   cart[session['uid']].append(item)
-  if item == 'Late%20Lunch%20Special' or item == 'Late%20Dinner%20Special':
+  if item == 'Late Lunch Special' or item == 'Late Dinner Special':
       return redirect(url_for('main'))
   else:
       return redirect(url_for('getItemsFromCategory', catg=category))

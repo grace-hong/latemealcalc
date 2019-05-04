@@ -1044,7 +1044,7 @@ def combosFavYes():
 
   else:
     cart[session['uid']].append("Late Lunch Special")
-
+  packaged[session['uid']] = 0
   return redirect(url_for('getFavorites'))
 
 # we need to change this to reload the old page lol
@@ -1092,7 +1092,7 @@ def combosDefaultYes():
 
   else:
     cart[session['uid']].append("Late Lunch Special")
-
+  packaged[session['uid']] = 0
   return redirect(url_for('main'))
 
 @app.route("/removeItem/item/<search>/<item>")

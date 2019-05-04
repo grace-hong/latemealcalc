@@ -16,6 +16,8 @@ DATABASE_URL = 'postgres://gniojkvxziujuu:1c53b1d388891669097c66f2e618d42e31ffff
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
+
+'''
 cursor.execute("""DROP TABLE IF EXISTS food""")
 conn.commit()
 
@@ -40,6 +42,7 @@ with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
+'''
 
 recognizer = sr.Recognizer()
 

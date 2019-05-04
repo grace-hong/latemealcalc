@@ -567,7 +567,7 @@ def getItemsFromCategory(catg):
 
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
-    comboRet = '''<script>confirm('You have added items to your cart that qualify for a Late Meal special combo during Late Meal hours. Would you like to make this a combo?')</script>'''
+    comboRet = '''<script>combo();</script>'''
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:

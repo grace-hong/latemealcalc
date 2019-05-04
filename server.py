@@ -838,7 +838,10 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 0
 
   cart[session['uid']].append(item)
-  return redirect(url_for('getItemsFromCategory', catg=category))
+  if item == 'Late%20Lunch%20Special' or item == 'Late%20Dinner%20Special':
+      return redirect(url_for('main'))
+  else:
+      return redirect(url_for('getItemsFromCategory', catg=category))
 
 @app.route("/addItem/favorites/<item>")
 def addItemFromFavorites(item):

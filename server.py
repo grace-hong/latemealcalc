@@ -832,7 +832,7 @@ def addItemFromCategory(category, item):
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and ((cookies == 1 and booleanSides == 2) or (cookies == 2 and booleanSides == 1))) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
@@ -906,7 +906,7 @@ def addItemFromFavorites(item):
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and ((cookies == 1 and booleanSides == 2) or (cookies == 2 and booleanSides == 1))) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0
@@ -1006,7 +1006,7 @@ def addItemFromMain(item):
       combosFull[session['uid']] = 0
 
   else:
-    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and cookies >= 1 and booleanSides == 1) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
+    if ((counterMain == 1 and pizza != 1) or (counterMain == 2 and pizza >= 2)) and ((counterAdd == 1 and booleanSides == 1) or (counterAdd == 2 and ((cookies == 1 and booleanSides == 2) or (cookies == 2 and booleanSides == 1))) or (counterAdd == 3 and cookies == 3 and booleanSides == 2)):
       combosFull[session['uid']] = 1
     else:
       combosFull[session['uid']] = 0

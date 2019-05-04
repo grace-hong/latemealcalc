@@ -452,22 +452,7 @@ def getItem(item):
 
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
-    comboRet = '''
-    <div id='modal_dialog' style='background-color: #000000;'>
-    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
-    	</div>
-    	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
-    	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
-    </div>
-    <script>
-    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
-    	function() {
-		window.location = '/combos/default/yes';
-	},
-	function() {
-		window.location = '/index';
-	}
-    );</script>'''
+    comboRet = '''<script>confirm();</script>'''
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:

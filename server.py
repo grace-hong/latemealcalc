@@ -710,7 +710,7 @@ def addItem(search, item):
   results = cursor.fetchall()
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     needAlert[session['uid']] = 1
-    return redirect(url_for('getItem', item=item))
+    return redirect(url_for('getItem', item=search))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged[session['uid']] + 1
     print('matched')

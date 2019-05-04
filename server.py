@@ -712,7 +712,7 @@ def addItem(search, item):
     needAlert[session['uid']] = 1
     return redirect(url_for('getItem', item=search))
   elif str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
+    packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -782,7 +782,7 @@ def addItemFromCategory(category, item):
     needAlert[session['uid']] = 1
     return redirect(url_for('getItemsFromCategory', catg=category))
   elif str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
+    packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -855,7 +855,7 @@ def addItemFromFavorites(item):
     needAlert[session['uid']] = 1
     return redirect(url_for('getFavorites'))
   elif str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
+    packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -957,7 +957,7 @@ def addItemFromMain(item):
     needAlert[session['uid']] = 1
     return redirect(url_for('main'))
   elif str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] + 1
+    packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
 
   # cart[session['uid']].append(item)
@@ -1098,7 +1098,7 @@ def removeItem(search, item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] - 1
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -1111,7 +1111,7 @@ def removeItemFromCategory(category, item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] - 1
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -1124,7 +1124,7 @@ def removeItemFromMain(item):
   results = cursor.fetchall()
   # ifprint(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] - 1
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -1137,7 +1137,7 @@ def removeItemFromFavorites(item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] - 1
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))
@@ -1150,7 +1150,7 @@ def removeItemFromInfo(item):
   results = cursor.fetchall()
   print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
-    packaged[session['uid']] = packaged[session['uid']] - 1
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
     print('matched')
   print(results)
   print(packaged.get(session['uid']))

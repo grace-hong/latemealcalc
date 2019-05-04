@@ -452,7 +452,7 @@ def getItem(item):
 
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
-    comboRet = '''<script>confirm();</script>'''
+    comboRet = '''<script>combo();</script>'''
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:

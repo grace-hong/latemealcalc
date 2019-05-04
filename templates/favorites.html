@@ -232,7 +232,12 @@
 	
 <script>
      function combo() {
-	     var prompt = window.
+	     var prompt = window.confirm('You have added items to your cart that qualify for a Late Meal special combo during Late Meal hours. Would you like to make this a combo?');
+	     
+	     if (prompt) {
+		     window.location.href = '/combos/favorites/yes';
+	     }
+     }
 	
      function checkout() {
 	     if(confirm("Ready to check out? Clicking OK will clear all items from the cart.")) {

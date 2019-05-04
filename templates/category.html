@@ -243,29 +243,15 @@ $(document).ready(function(){
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
 	
 <script>
-    function dialog(message, yesCallback, noCallback) {
-	console.log("Entered dialog function");
-    	$('.title').html(message);
-    	var dialog = $('#modal_dialog').dialog();
-
-    	$('#btnYes').click(function() {
-        	dialog.dialog('close');
-        	yesCallback();
-    	});
-    	$('#btnNo').click(function() {
-        	dialog.dialog('close');
-        	noCallback();
-    	});
-     } 
-	
-     function checkout() {
-	    if(confirm("Ready to check out? Clicking OK will clear all items from the cart.")) {
-		     window.location='/checkout';
-	     }
-	     else {
-		     //window.location='/index';
-	     }
-     }
+    function combo() {
+	    var prompt = window.confirm('You have added items to your cart that qualify for a Late Meal special combo during Late Meal hours. Would you like to make this a combo?');
+	    if (prompt) {
+		    window.location.href = '/combos/default/yes';
+	    }
+	    else {
+		    window.location.href = '/index';
+	    }
+    }
 </script>
 
 {% if resultList5 %}

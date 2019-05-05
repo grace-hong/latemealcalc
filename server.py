@@ -174,7 +174,7 @@ def main():
     print("in f4")
     if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
-        return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(restVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), dinnertime = Markup(retVal7),)
+        return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), dinnertime = Markup(retVal7),)
     else: 
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), lunchtime = Markup(retVal7),)

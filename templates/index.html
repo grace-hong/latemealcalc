@@ -234,13 +234,14 @@ $(document).ready(function(){
 					document.getElementById("timeBalance").innerHTML = "$7.00"
 				    }
 				</script> -->
-				{% endif %}
-				
 				{% if dinnertime %}
 					{{ dinnertime }}
 				{% elif lunchtime %}
 					{{ lunchtime }}
 				{% endif %}
+				{% endif %}
+				
+				
 			</th>
 			<th colspan=2 style="text-align:center; vertical-align: top; padding-top: 10px; color: white;">
 				<img id="my_image" style="width:25px" src="{{ url_for('static',filename='up.png') }}" />

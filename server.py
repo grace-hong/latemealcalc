@@ -129,9 +129,11 @@ def main():
   if cart.get(session['uid']) == None:
     print("in none")
     if time.get(session['uid']) == 0:
+      print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("index.html", dinnertime = Markup(retVal7),)
     else:
+      print("lunch")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
       return render_template("index.html", lunchtime = Markup(retVal7),)
     #return render_template("index.html")

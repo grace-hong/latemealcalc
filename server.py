@@ -128,11 +128,11 @@ def main():
 
   if cart.get(session['uid']) == None:
     if time.get(session['uid']) == 0:
-	retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
-	return render_template("index.html", dinnertime = Markup(retVal7),)
+      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
+      return render_template("index.html", dinnertime = Markup(retVal7),)
     else:
-	retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
-	return render_template("index.html", lunchtime = Markup(retVal7),)
+      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
+      return render_template("index.html", lunchtime = Markup(retVal7),)
     #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')

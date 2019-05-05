@@ -127,7 +127,13 @@ def main():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    return render_template("index.html")
+    if time.get(session['uid']) == 0:
+	retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
+	return render_template("index.html", dinnertime = Markup(retVal7),)
+    else:
+	retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
+	return render_template("index.html", lunchtime = Markup(retVal7),)
+    #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''

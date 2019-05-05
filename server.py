@@ -128,7 +128,7 @@ def main():
 
   if cart.get(session['uid']) == None:
     print("in none")
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
       print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("index.html", dinnertime = Markup(retVal7),)
@@ -144,7 +144,7 @@ def main():
 			}
 		</script> '''
     needAlert[session['uid']] = 0
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), dinnertime = Markup(retVal7),)
     else:
@@ -156,7 +156,7 @@ def main():
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), dinnertime = Markup(retVal7),)
     else: 
@@ -164,7 +164,7 @@ def main():
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), lunchtime = Markup(retVal7),)
   if diff >= 0:
     print("in f3")
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), dinnertime = Markup(retVal7),)
     else:
@@ -172,7 +172,7 @@ def main():
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), lunchtime = Markup(retVal7),)
   else:
     print("in f4")
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(restVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), dinnertime = Markup(retVal7),)
     else: 

@@ -214,6 +214,12 @@ $(document).ready(function(){
 			<th colspan=3 align="right" style="color: white; vertical-align: top;"> 
 				<div style = "font-size: 1.25rem; font-weight: 600;">TOTAL</div>
 				<!-- money left -->
+				{% if dinnertime %}
+				<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>
+				{% elif lunchtime %}
+				<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>
+				{% endif %}
+				
 				{% if surplus %}
 					<font color="#64dd17" size="5">{{ resultList3 }}</font>
 					<br><font size="1">{{ surplus }} remaining</font>
@@ -224,7 +230,7 @@ $(document).ready(function(){
 				{% else %}
 					<font color="#64dd17" size="5">$0.00</font>
 					<br><font size ="1"><span id="timeBalance"></span> remaining</font>
-				
+				<!--
 				<script>
 				    var time = new Date()
 				    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
@@ -233,14 +239,21 @@ $(document).ready(function(){
 				    else { // dinner time
 					document.getElementById("timeBalance").innerHTML = "$7.00"
 				    }
-				</script>
+				</script> -->
+				{% endif %}
+				
+				<!--
+				{% if dinnertime %}
+				<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>
+				{% elif lunchtime %}
+				<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>
+				{% endif %} -->
 				<!--
 				{% if dinnertime %}
 					{{ dinnertime }}
 				{% elif lunchtime %}
 					{{ lunchtime }}
 				{% endif %} -->
-				{% endif %}
 				
 				
 			</th>

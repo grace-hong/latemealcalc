@@ -187,6 +187,16 @@ $(document).ready(function(){
 					<font color="#64dd17" size="5">$0.00</font>
 					<br><font size ="1"><span id="timeBalance"></span> remaining</font>
 				<script>
+					{% if dinnertime %}
+						document.getElementById("timeBalance").innerHTML = "$7.00"
+					 {% elif lunchtime %}
+						document.getElementById("timeBalance").innerHTML = "$6.00"
+					 {% else %} 
+					 	document.getElementById("timeBalance").innerHTML = "$8.00"
+					  {% endif %}
+				</script> 
+				<!--
+				<script>
 				    var time = new Date()
 				    if (time.getHours() * 60 + time.getMinutes() <= 945) { // lunch time
 					document.getElementById("timeBalance").innerHTML = "$6.00"
@@ -194,7 +204,7 @@ $(document).ready(function(){
 				    else { // dinner time
 					document.getElementById("timeBalance").innerHTML = "$7.00"
 				    }
-				</script>
+				</script> -->
 				{% endif %}
 			</th>
 			<th colspan=2 style="text-align:center; vertical-align: top; padding-top: 10px; color: white;">

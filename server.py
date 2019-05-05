@@ -127,6 +127,7 @@ def main():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
+    print("in none")
     if time.get(session['uid']) == 0:
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("index.html", dinnertime = Markup(retVal7),)
@@ -135,7 +136,7 @@ def main():
       return render_template("index.html", lunchtime = Markup(retVal7),)
     #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
-    print('in this function')
+    print('in f1')
     #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
@@ -148,7 +149,8 @@ def main():
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), lunchtime = Markup(retVal7),)
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
+    print("in f2")
+#retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
@@ -159,6 +161,7 @@ def main():
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), lunchtime = Markup(retVal7),)
   if diff >= 0:
+    print("in f3")
     if time.get(session['uid']) == 0:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), dinnertime = Markup(retVal7),)
@@ -166,6 +169,7 @@ def main():
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), lunchtime = Markup(retVal7),)
   else:
+    print("in f4")
     if time.get(session['uid']) == 0:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(restVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), dinnertime = Markup(retVal7),)

@@ -215,16 +215,9 @@ $(document).ready(function(){
 				<div style = "font-size: 1.25rem; font-weight: 600;">TOTAL</div>
 				<!-- money left -->
 				{% if dinnertime %}
-				<script> 
-					document.getElementById("timeBalance").innerHTML = "$7.00" 
-					alert("in the dinnertime")
-				</script>
+					{{ dinnertime }}
 				{% elif lunchtime %}
-				<script> 
-					document.getElementById("timeBalance").innerHTML = "$6.00" 
-					alert("in the lunchtime")
-				</script>
-				
+					{{ lunchtime }}
 				{% endif %}
 				
 				{% if surplus %}
@@ -237,10 +230,10 @@ $(document).ready(function(){
 				{% else %}
 					<font color="#64dd17" size="5">$0.00</font>
 					<br><font size ="1"><span id="timeBalance"></span> remaining</font>
-				
+				<!--
 				<script>
 					document.getElementById("timeBalance").innerHTML = "$7.00"	  
-				</script>
+				</script> -->
 				<!--
 				    }
 				    }

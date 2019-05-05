@@ -232,11 +232,7 @@ $(document).ready(function(){
 					<br><font size ="1"><span id="timeBalance"></span> remaining</font>
 				
 				<script>
-					{% if dinnertime %}
-					document.getElementById("timeBalance").innerHTML = "$7.00"
-					 {% elif lunchtime %}
-					 document.getElementById("timeBalance").innerHTML = "$6.00"
-					  {% endif %}
+					document.getElementById("timeBalance").innerHTML = "$7.00"	  
 				</script>
 				<!--
 				    }

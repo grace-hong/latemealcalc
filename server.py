@@ -258,7 +258,16 @@ def getSpecials():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(selector) + " Special/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    return render_template("specials.html")
+    #return render_template("specials.html")
+    if time.get(session['uid']) == 1:
+      print("dinner")
+      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
+      return render_template("specials.html", dinnertime = Markup(retVal7),)
+    else:
+      print("lunch")
+      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
+      return render_template("specials.html", lunchtime = Markup(retVal7),)
+    #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {

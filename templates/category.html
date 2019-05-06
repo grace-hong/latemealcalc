@@ -133,6 +133,15 @@
         					sorter: false
       					}
     				}
+				widthFixed : true,
+    				headerTemplate : '{content} {icon}', // Add icon for various themes
+
+    				widgets: [ 'zebra', 'stickyHeaders', 'filter' ],
+
+    				widgetOptions: {
+     					 // jQuery selector or object to attach sticky header to
+      					stickyHeaders_attachTo : '.wrapper' // or $('.wrapper')
+   				}
   			});
 		});
 	</script>

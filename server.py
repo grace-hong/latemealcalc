@@ -212,9 +212,12 @@ def getSpecials():
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
 
+  timeRet = ''''''
   if time.get(session['uid']) == 0:
+    timeRet = '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";'''
     selector = "dinner"
   else:
+    timeRet = '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";'''
     selector = "lunch"
   
   sum = 0.0
@@ -262,28 +265,28 @@ def getSpecials():
     if time.get(session['uid']) == 1:
       print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
-      return render_template("specials.html", dinnertime = Markup(retVal7),)
+      return render_template("specials.html", dinnertime = Markup(retVal7), resultTime = Markup(timeRet))
     else:
       print("lunch")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
-      return render_template("specials.html", lunchtime = Markup(retVal7),)
+      return render_template("specials.html", lunchtime = Markup(retVal7), resultTime = Markup(timeRet))
     #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
   if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
   if diff >= 0:
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
   else:
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
 
 
 

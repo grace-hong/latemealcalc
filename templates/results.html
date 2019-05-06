@@ -5,8 +5,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- table sorter css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/css/theme.jui.min.css">
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- tablesorter -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.js"></script>
+	<script type="text/javascript" src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
+	
 	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<!-- Latest compiled JavaScript -->
@@ -125,30 +132,54 @@ $(document).ready(function(){
 	</script>
 
 
-	<section class="page-container" align="left" >
+	<section class="page-container">
 
+
+	<script>
+		$(function() {
+  			$("table").tablesorter({
+   	 			theme : 'jui',
+
+    				headers: {
+      				// disable sorting of the first & second column - before we would have to had made two entries
+      				// note that "first-name" is a class on the span INSIDE the first column th cell
+      					'.item-emoji, .item-button' : {
+        					// disable it by setting the property sorter to false
+        					sorter: false
+      					}
+    				}
+				
+  			});
+		});
+	</script>
+
+	<div class = "wrapper">
 	<!-- display results !-->
 	{% if resultList %}
-		<h3>We found the following results:<br></h3>
-		
-		<script>handleResults(resultList);</script>
-		<h5>
-		<table class="shop-items" id="shop-items" align="left">
+		<!--<script>handleResults(resultList);</script>-->
+		<h5><table class="tablesorter" id="myTable">
+			<thead>
+			<tr>
+				<th class="item-emoji" style="background-color: #343a40; color:white;"> 🍽️ </th>
+				<th style="background-color: #343a40; color:white;"> Item Name </th>
+				<th style="background-color: #343a40; color:white;"> Price </th>
+				<th class="item-button" style="background-color: #343a40; color:white;"> </th>
+			</tr>
+			</thead>
+			<tbody>
 			{{ resultList }}
-		</table>
-		
-		</h5>
-		
-		
+			</tbody>
+		</table></h5>
 	{% else %}
-  		<h3>No results found.</h3>
+		<h3>No results found.</h3>
 	{% endif %}
 	
 	{% if packagedconfirm %}
-		{{ packagedconfirm }}
+			{{ packagedconfirm }}
 	{% endif %}
-   	
-	</section>	 
+
+		</div>
+	</section>
 
 <footer>
 <table style="position:fixed;bottom:0;overflow:auto;table-layout:fixed;width=100%;max-height:150px;" frame="hsides">
@@ -205,9 +236,12 @@ $(document).ready(function(){
 	</table>
 </footer>
 
+	
+<!--
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
  
 <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+-->
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
 	

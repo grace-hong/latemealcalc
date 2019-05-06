@@ -215,7 +215,7 @@ def getSpecials():
   timeRet = ''' <script>
 	$(document).ready(function() {
 		$('#btn').click(function() {
-			''''
+			'''
   if time.get(session['uid']) == 0:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
     selector = "dinner"

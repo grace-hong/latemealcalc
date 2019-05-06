@@ -162,7 +162,7 @@ $(document).ready(function(){
 <br>	
 <button class="btn-primary" style="font-size: .8rem; font-weight: 600; border-radius: .5rem; align:right; padding: 5px;" type="button" id="btn" value="Add Special">ADD SPECIAL</button>
  <br><br><br>
-	<script>
+	<!--<script>
 	$(document).ready(function() {
 		$('#btn').click(function() {
 			if ($('div.special:not(:has(:radio:checked))').length) {
@@ -179,7 +179,11 @@ $(document).ready(function(){
 			}
 		 });
 	});
-	</script>
+	</script>-->
+	{% if resultTime %}
+		{{ resultTime }}
+	{% endif %}
+	
 </section>	 
 
 <footer>

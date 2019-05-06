@@ -212,12 +212,15 @@ def getSpecials():
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
 
-  timeRet = ''''''
+  timeRet = ''' <script>
+	$(document).ready(function() {
+		$('#btn').click(function() {
+			''''
   if time.get(session['uid']) == 0:
-    timeRet = '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";'''
+    timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
     selector = "dinner"
   else:
-    timeRet = '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";'''
+    timeRet += '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";});});</script>'''
     selector = "lunch"
   
   sum = 0.0

@@ -45,12 +45,11 @@
  	 	background-color: #dddddd;
 	}
 	
-	#wrapper {
-  		position: block;
-  		padding: 0.5px;
-  		height: 250px;
-  		overflow-y: auto;
+	.wrapper {
+		position:relative;
+		overflow-y:auto;
 	}
+	
 	
 
 	
@@ -123,7 +122,7 @@
 	</script>
 
 	
-	<section class="page-container" id="wrapper">
+	<section class="page-container">
 
 
 	<script>
@@ -146,12 +145,13 @@
 
     				widgetOptions: {
      					 // jQuery selector or object to attach sticky header to
-      					stickyHeaders_attachTo : '#wrapper' // or $('.wrapper')
+      					stickyHeaders_attachTo : '.wrapper' // or $('.wrapper')
    				}
   			});
 		});
 	</script>
-	
+
+	<div class = "wrapper">
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
@@ -176,6 +176,7 @@
 			{{ packagedconfirm }}
 	{% endif %}
 
+		</div>
 	</section>
 
 <!--<script>

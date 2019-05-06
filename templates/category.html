@@ -12,8 +12,6 @@
 	<!-- tablesorter -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.js"></script>
-	<script type="text/javascript" src="https://mottie.github.io/tablesorter/js/jquery.tablesorter.widgets.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/widgets/widget-cssStickyHeaders.min.js"></script>
 	<!-- Popper JS -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	
@@ -134,20 +132,7 @@
         					sorter: false
       					}
     				}
-				
-				        widthFixed : true,
-    headerTemplate: '{content} {icon}', // Add icon for jui theme; new in v2.7!
 
-    widgets: [ 'zebra', 'cssStickyHeaders', 'filter' ],
-
-    widgetOptions: {
-      cssStickyHeaders_offset        : 0,
-      cssStickyHeaders_addCaption    : true,
-      // jQuery selector or object to attach sticky header to
-      cssStickyHeaders_attachTo      : null,
-      cssStickyHeaders_filteredToTop : true,
-      cssStickyHeaders_zIndex        : 10
-    }		
   			});
 		});
 	</script>

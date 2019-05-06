@@ -862,7 +862,7 @@ def addItemFromCategory(category, item):
 
   cart[session['uid']].append(item)
   if item == 'Late Lunch Special' or item == 'Late Dinner Special':
-      return redirect(url_for('main'))
+      return redirect(url_for('getSpecials'))
   else:
       return redirect(url_for('getItemsFromCategory', catg=category))
 

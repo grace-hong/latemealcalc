@@ -232,9 +232,9 @@ def getSpecials():
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
       post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItem/item/'''
+      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemSpecials/'''
       post_window2 = ''''"></button></div></div><br>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + "late" + str(selector) + "special/" + str(product) + post_window2)
+      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
       sum += float(query[0])
 
   comboStr = ''''''
@@ -1170,6 +1170,21 @@ def removeItemFromFavorites(item):
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
+@app.route("/removeItemSpecials/<item>")
+def removeItemFromSpecials(item):
+  cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
+  results = cursor.fetchall()
+  print(packaged.get(session['uid']))
+  if str(results[0]) == ('(\'y\',)'):
+    packaged[session['uid']] = packaged.get(session['uid']) - 1
+    print('matched')
+  print(results)
+  print(packaged.get(session['uid']))
+  cart[session['uid']].remove(item)
+  return redirect(url_for('getSpecials'))
+
+
+# not sure if we need this since cart doesn't appear on info page
 @app.route("/removeItemInfo/<item>")
 def removeItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))

@@ -123,8 +123,19 @@
 
 
 	<script>
-		$(document).ready(function(){
-  			$("#myTable").tablesorter();
+		$(function() {
+  			$("table").tablesorter({
+   	 			theme : 'default',
+
+    				headers: {
+      				// disable sorting of the first & second column - before we would have to had made two entries
+      				// note that "first-name" is a class on the span INSIDE the first column th cell
+      					'.item-emoji, .item-button' : {
+        					// disable it by setting the property sorter to false
+        					sorter: false
+      					}
+    				}
+  			});
 		});
 	</script>
 		
@@ -134,10 +145,10 @@
 		<h5><table class="tablesorter" id="myTable">
 			<thead>
 			<tr>
-				<th style="background-color: #dddddd;"> 🍽️ </th>
+				<th class="item-emoji" style="background-color: #dddddd;"> 🍽️ </th>
 				<th style="background-color: #dddddd;"> Item Name </th>
 				<th style="background-color: #dddddd;"> Price </th>
-				<th style="background-color: #dddddd;"> </th>
+				<th class="item-button" style="background-color: #dddddd;"> </th>
 			</tr>
 			</thead>
 			<tbody>

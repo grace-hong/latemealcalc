@@ -45,15 +45,14 @@
  	 	background-color: #dddddd;
 	}
 	
-	.wrapper {
+	#wrapper {
   		position: relative;
-  		padding: 0 5px;
+  		padding: 0.5px;
   		height: 250px;
   		overflow-y: auto;
 	}
 	
 
-	
 	
 </style>
 </head>
@@ -124,12 +123,12 @@
 	</script>
 
 	
-	<section class="page-container" >
+	<section class="page-container" id="wrapper">
 
 
 	<script>
 		$(function() {
-  			$("table").tablesorter({
+  			$("#myTable").tablesorter({
    	 			theme : 'jui',
 
     				headers: {
@@ -147,12 +146,12 @@
 
     				widgetOptions: {
      					 // jQuery selector or object to attach sticky header to
-      					stickyHeaders_attachTo : '.wrapper' // or $('.wrapper')
+      					stickyHeaders_attachTo : '#wrapper' // or $('.wrapper')
    				}
   			});
 		});
 	</script>
-		
+	
 	<!-- display results !-->
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->

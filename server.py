@@ -742,7 +742,7 @@ def addItem(search, item):
   results = cursor.fetchall()
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     needAlert[session['uid']] = 1
-    return redirect(url_for('getItem', item=search))
+    return redirect(url_for('getItem', item=search.strip()))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
@@ -800,7 +800,7 @@ def addItem(search, item):
       combosFull[session['uid']] = 0
 
   cart[session['uid']].append(item)
-  return redirect(url_for('getItem', item=search))
+  return redirect(url_for('getItem', item=search.strip()))
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):

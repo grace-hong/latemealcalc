@@ -488,8 +488,9 @@ def getItem(item):
     time[session['uid']] = 0
 	
   print("in getItem")
-  print(item)
+  print(item + "test")
   item = item.strip()
+  print(item + "test")
   if item.isspace():
     print("In space function!")
 

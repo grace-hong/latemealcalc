@@ -337,7 +337,7 @@ form.categorybutton::after {
 
 
 .shop-item-details {
-    display: flex;!important!important
+    display: flex;!important
     align-items: center;!important
     padding: 5px;!important
 }

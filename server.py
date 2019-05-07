@@ -490,6 +490,7 @@ def getItem(item):
   if item == "title.png":
     return app.send_static_file('title.png')
   
+  print("in getItem")
   print(item)
   if item.isspace():
     print("In space function!")

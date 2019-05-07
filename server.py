@@ -344,7 +344,7 @@ def getFavorites():
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" style="padding-top:15px" onclick="javascript:window.location='/addItem/favorites/'''
+  post1 = '''</h5></td><td class="button" style="padding-top:10px" onclick="javascript:window.location='/addItem/favorites/'''
   urlend = ''''">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus" onclick="checkpackaged();"></button>
@@ -530,7 +530,7 @@ def getItem(item):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" style="padding-top:15px" onclick="javascript:window.location='/addItem/item/'''
+  post1 = '''</h5></td><td class="button" style="padding-top:10px" onclick="javascript:window.location='/addItem/item/'''
   urlend = ''''">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus"></button>
@@ -640,7 +640,7 @@ def getItemsFromCategory(catg):
       <td class="shop-item-title"><h5>'''
   post_title = '''</h5></td>
       <td class="shop-item-price"><h5>$'''
-  post1 = '''</h5></td><td class="button" style="padding-top:15px" onclick="javascript:window.location='/addItem/'''
+  post1 = '''</h5></td><td class="button" style="padding-top:10px" onclick="javascript:window.location='/addItem/'''
   urlend = ''''">'''
   post2 = '''
         <button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="checkpackaged();"></button>

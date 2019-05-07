@@ -490,10 +490,7 @@ def getItem(item):
   if item == "title.png":
     return app.send_static_file('title.png')
   
-  print(search)
-  if search.isspace():
-    print("in space function")
-    return render_template("results.html")
+
 
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
@@ -733,6 +730,11 @@ def getsession():
 def addItem(search, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
+  
+  print(search)
+  if search.isspace():
+    print("in space function") 
+  
 
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()

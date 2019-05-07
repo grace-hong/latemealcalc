@@ -486,15 +486,16 @@ def getItem(item):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
+	
+  print("in getItem")
+  print(item)
+  item = item.strip()
+  if item.isspace():
+    print("In space function!")
 
   if item == "title.png":
     return app.send_static_file('title.png')
   
-  print("in getItem")
-  print(item)
-  if item.isspace():
-    print("In space function!")
-
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
     comboRet = '''<script>combo();</script>'''

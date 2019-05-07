@@ -486,13 +486,6 @@ def getItem(item):
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-	
-  print("in getItem")
-  print(item + "test")
-  item = item.strip()
-  print(item + "test")
-  if item.isspace():
-    print("In space function!")
 
   if item == "title.png":
     return app.send_static_file('title.png')
@@ -735,17 +728,12 @@ def getsession():
 def addItem(search, item):
   if cart.get(session['uid']) == None:
     cart[session['uid']] = []
-  
-  print(search)
-  if search.isspace():
-    print("in space function") 
-  
 
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
   if str(results[0]) == ('(\'y\',)') and packaged.get(session['uid']) == 2:
     needAlert[session['uid']] = 1
-    return redirect(url_for('getItem', item=search.strip()))
+    return redirect(url_for('getItem', item=search))
   elif str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
@@ -803,7 +791,7 @@ def addItem(search, item):
       combosFull[session['uid']] = 0
 
   cart[session['uid']].append(item)
-  return redirect(url_for('getItem', item=search.strip()))
+  return redirect(url_for('getItem', item=search))
 
 @app.route("/addItem/<category>/<item>")
 def addItemFromCategory(category, item):

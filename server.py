@@ -490,6 +490,7 @@ def getItem(item):
   if item == "title.png":
     return app.send_static_file('title.png')
   
+  print(search)
   if search.isspace():
     print("in space function")
     return render_template("results.html")

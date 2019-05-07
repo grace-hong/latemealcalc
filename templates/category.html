@@ -141,9 +141,23 @@
 
 	<div class = "wrapper">
 	<!-- display results !-->
+		
+	<style>
+		disable-hover {
+			border-collapse: collapse; 
+			font-size: 21px; 
+			padding-top: 10px; 
+			padding-bottom: 10px;
+		}
+		disable-hover tr:hover {
+           background-color: transparent;
+        }
+
+	</style>
+		
 	{% if resultList %}
 		<!--<script>handleResults(resultList);</script>-->
-		<h5><table class="tablesorter" style="border-collapse: collapse; font-size: 21px; padding-top: 10px; padding-bottom: 10px" id="myTable">
+		<h5><table class="tablesorter disable-hover" style="border-collapse: collapse; font-size: 21px; padding-top: 10px; padding-bottom: 10px" id="myTable">
 			<thead>
 			<tr>
 				<th class="item-emoji" style="background-color: #343a40; color:white;"> 🍽️ </th>

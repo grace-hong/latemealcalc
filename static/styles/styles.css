@@ -323,33 +323,33 @@ form.categorybutton::after {
 
 
 .shop-item {
-    align: left;!important
-    margin: 3px;!important
+    align: left !important;
+    margin: 3px !important;
 }
 
 .shop-item-title {
-    display: flex;!important
-    width: 100%;!important
-    text-align: left;!important
-    color: #333;!important
-    padding: 10px;!important
+    display: flex !important;
+    width: 100% !important;
+    text-align: left !important;
+    color: #333 !important;
+    padding: 8px !important;
 }
 
 
 .shop-item-details {
-    display: flex;!important
-    align-items: center;!important
-    padding: 5px;!important
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px !important;
 }
 
 .shop-item-price {
-    flex-grow: 1; !important
-    color: #333; !important
-    padding: 10px; !important
+    flex-grow: 1 !important;
+    color: #333 !important;
+    padding: 8px !important;
 }
 
 .shop-item-image {
-    padding: 10px;!important
+    padding: 8px !important;
 }
 
 

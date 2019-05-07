@@ -105,7 +105,7 @@ $(document).ready(function(){
 					</div>
 
 					<div class = "col-1 " style="display: inline-block; padding-top: 2rem; padding-left: 0rem; padding-right:1rem;">
-						<button type="submit" onclick="return handleSearchItem();"><i class="fa fa-search"></i></button>
+						<button type="submit" onclick="handleSearchItem();"><i class="fa fa-search"></i></button>
 					</div>
 				</div>
 			</form>
@@ -123,20 +123,18 @@ $(document).ready(function(){
 			}
 			
 			window.location.href = "/search/item/" + query;
-			return false;
 		}
+		
 		function handleSearchCategory(category) {
 			// var category = this.getAttribute('data-category');
 			window.location.href = "/search/category/" + category;
 			return false;
 		}
+		
 		function checkout() {
 		     if(confirm("Ready to check out? Clicking OK will clear all items from the cart.")) {
 		     window.location='/checkout';
-	     	}
-	     else {
-		     //window.location='/favorites';
-	     }
+	     	}	
 	     }
 	</script>
 

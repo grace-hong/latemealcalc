@@ -332,7 +332,7 @@ form.categorybutton::after {
     width: 100% !important;
     text-align: left !important;
     color: #333 !important;
-    padding: 8px !important;
+    padding: 15px !important;
 }
 
 
@@ -345,11 +345,11 @@ form.categorybutton::after {
 .shop-item-price {
     flex-grow: 1 !important;
     color: #333 !important;
-    padding: 8px !important;
+    padding: 15px !important;
 }
 
 .shop-item-image {
-    padding: 8px !important;
+    padding: 15px !important;
 }
 
 

@@ -491,6 +491,7 @@ def getItem(item):
     return app.send_static_file('title.png')
   
   if search.isspace():
+    print("in space function")
     return render_template("results.html")
 
   comboRet = ''''''

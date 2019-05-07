@@ -118,7 +118,18 @@ $(document).ready(function(){
 		function handleSearchItem() {
 			var query = document.getElementById('itemsearch').value;
 			
-			if (query == "") {
+			var i = 0;
+			var allSpace = 1;
+			while (i < query.length) {
+				if (query.charAt(i) != " ") {
+					allSpace = 0;
+					break;
+				}
+				
+				i++;
+			}
+			
+			if (query == "" || allSpace = 1) {
 				query = "query";
 			}
 			

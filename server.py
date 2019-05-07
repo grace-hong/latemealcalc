@@ -244,11 +244,11 @@ def getSpecials():
   retVal4 = ""
   budget = 0.0
   if (time.get(session['uid']) == 1):
-    budget = 6.0
+    budget = 7.0
     comboStr = "Late Dinner Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latedinnerspecial"></button>'''
 
   else :
-    budget = 7.0
+    budget = 6.0
     comboStr = "Late Lunch Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latelunchspecial"></button>'''
 
   diff = budget - sum

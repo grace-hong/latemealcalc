@@ -121,6 +121,10 @@ $(document).ready(function(){
 			if (query == "") {
 				query = "query";
 			}
+			
+			if (query.isspace()) {
+				query = "query";
+			}
 				
 			window.location.href = "/search/item/" + query;
 			return false;

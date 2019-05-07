@@ -490,7 +490,9 @@ def getItem(item):
   if item == "title.png":
     return app.send_static_file('title.png')
   
-
+  print(item)
+  if item.isspace():
+    print("In space function!")
 
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:

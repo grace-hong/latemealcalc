@@ -348,6 +348,10 @@ form.categorybutton::after {
     padding: 10px;
 }
 
+.shop-item-image {
+    padding: 10px;
+}
+
 
 .cart-block {
     display: inline-block;

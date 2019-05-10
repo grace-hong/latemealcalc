@@ -17,7 +17,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 conn.commit()
 
-'''
+
 cursor.execute("""DROP TABLE IF EXISTS food""")
 conn.commit()
 
@@ -42,7 +42,7 @@ with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
-'''
+
 
 
 cart = {}

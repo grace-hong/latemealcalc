@@ -89,11 +89,9 @@ def main():
   comboRet = ''''''
   if combosFull.get(session['uid']) == 1:
     comboRet = '''<script>combo();</script>'''
-    print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
     comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
-    print("Registered combo item")
 
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
@@ -102,7 +100,6 @@ def main():
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
-      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -137,9 +134,7 @@ def main():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    print("in none")
     if time.get(session['uid']) == 1:
-      print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("index.html", dinnertime = Markup(retVal7),)
     else:
@@ -161,8 +156,6 @@ def main():
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), lunchtime = Markup(retVal7),)
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    print("in f2")
-#retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
@@ -181,7 +174,6 @@ def main():
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script> '''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), lunchtime = Markup(retVal7),)
   else:
-    print("in f4")
     if time.get(session['uid']) == 1:
         retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
         return render_template("index.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), dinnertime = Markup(retVal7),)
@@ -247,7 +239,6 @@ def getSpecials():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(selector) + " Special/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    #return render_template("specials.html")
     if time.get(session['uid']) == 1:
       print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
@@ -256,7 +247,6 @@ def getSpecials():
       print("lunch")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
       return render_template("specials.html", lunchtime = Markup(retVal7), resultTime = Markup(timeRet))
-    #return render_template("index.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
@@ -359,24 +349,19 @@ def getFavorites():
 
   if cart.get(session['uid']) == None:
     if time.get(session['uid']) == 1:
-      print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("favorites.html", resultList = Markup(retVal), dinnertime = Markup(retVal7),)
     else:
-      print("lunch")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
       return render_template("favorites.html", resultList = Markup(retVal), lunchtime = Markup(retVal7),)
     #return render_template("favorites.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
-    print('in this function')
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			</script> '''
     needAlert[session['uid']] = 0
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
                 	}</script> '''
     needAlert[session['uid']] = 0
@@ -434,14 +419,12 @@ def getInfo():
     return render_template("info.html")
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
     return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			 </script> '''
@@ -486,7 +469,6 @@ def getItem(item):
   retVal2 = ""
   if cart.get(session['uid']) != None:
     for product in cart.get(session["uid"]):
-      print(product)
       cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
       query = cursor.fetchone()
       pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
@@ -544,14 +526,11 @@ def getItem(item):
   if cart.get(session['uid']) == None:
     return render_template("results.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
-    print('in this function')
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
     return render_template("results.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			 </script> '''
@@ -660,18 +639,13 @@ def getItemsFromCategory(catg):
       print("lunch")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
       return render_template("category.html", resultList = Markup(retVal), lunchtime = Markup(retVal7),)
-    #return render_template("favorites.html", resultList = Markup(retVal))
-    #return render_template("category.html", resultList = Markup(retVal))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
-    print('in this function')
-    #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			</script> '''
     needAlert[session['uid']] = 0
     return render_template("category.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-   #retVal6 = ''' <script>confirm("You have reached the 2 packaged goods limit. Want to continue?") </script>'''
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			</script> '''
@@ -967,8 +941,6 @@ def addItemFromMain(item):
     packaged[session['uid']] = packaged.get(session['uid']) + 1
     print('matched')
 
-  # cart[session['uid']].append(item)
-  print(item)
   cursor.execute("UPDATE food SET count=count+1 WHERE name=(%s)", (item,))
   conn.commit()
 
@@ -1051,7 +1023,6 @@ def combosFavYes():
   packaged[session['uid']] = 0
   return redirect(url_for('getFavorites'))
 
-# we need to change this to reload the old page lol
 @app.route("/combos/default/yes")
 def combosDefaultYes():
   print("Printing cart:")
@@ -1142,12 +1113,8 @@ def removeItemFromMain(item):
 def removeItemFromFavorites(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) - 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getFavorites'))
 
@@ -1155,12 +1122,8 @@ def removeItemFromFavorites(item):
 def removeItemFromSpecials(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) - 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getSpecials'))
 
@@ -1170,12 +1133,8 @@ def removeItemFromSpecials(item):
 def removeItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
   results = cursor.fetchall()
-  print(packaged.get(session['uid']))
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) - 1
-    print('matched')
-  print(results)
-  print(packaged.get(session['uid']))
   cart[session['uid']].remove(item)
   return redirect(url_for('getInfo'))
 

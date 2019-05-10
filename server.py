@@ -18,7 +18,7 @@ conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cursor = conn.cursor()
 conn.commit()
 
-'''
+
 cursor.execute("""DROP TABLE IF EXISTS food""")
 conn.commit()
 
@@ -43,7 +43,7 @@ with open('fooddb.csv', 'r') as f:
   next(f)
   cursor.copy_from(f, 'food', sep=',')
 conn.commit()
-'''
+
 
 recognizer = sr.Recognizer()
 
@@ -403,9 +403,6 @@ def getFavorites():
   else:
     return render_template("favorites.html", resultList = Markup(retVal), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet))
 
-@app.route("/team")
-def getTeam():
-    return render_template("team.html")
 
 @app.route("/info")
 def getInfo():
@@ -521,7 +518,7 @@ def getItem(item):
   else:
     selector = "lunch"
 
-  cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s) ORDER BY name", (selector,))
+  cursor.execute("SELECT name, price, image, time, keys FROM food WHERE time!=(%s) AND category!=(%s) ORDER BY name", (selector, "unicorn",))
   results = cursor.fetchall()
   retVal = ""
   pre = '''<tr class="shop-item">

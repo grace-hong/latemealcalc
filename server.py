@@ -252,17 +252,17 @@ def getSpecials():
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			} </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultTime = Markup(timeRet))
   if packaged.get(session['uid']) > 2 and needAlert.get(session['uid']) == 1 and diff < 0:
     retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
 			}
 			 </script> '''
     needAlert[session['uid']] = 0
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultTime = Markup(timeRet))
   if diff >= 0:
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
   else:
-    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultList5 = Markup(comboRet), resultTime = Markup(timeRet))
+    return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
 
 
 

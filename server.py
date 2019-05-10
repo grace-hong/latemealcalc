@@ -193,10 +193,10 @@ def getSpecials():
 			'''
   if time.get(session['uid']) == 0:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
-    selector = "Lunch"
+    selector = "lunch"
   else:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";});});</script>'''
-    selector = "Dinner"
+    selector = "dinner"
   
   sum = 0.0
   retVal2 = ""

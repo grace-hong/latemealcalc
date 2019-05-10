@@ -191,7 +191,7 @@ def getSpecials():
 	$(document).ready(function() {
 		$('#btn').click(function() {
 			'''
-  if time.get(session['uid']) == 1:
+  if time.get(session['uid']) == 0:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
     selector = "lunch"
   else:
@@ -218,7 +218,7 @@ def getSpecials():
 
   retVal4 = ""
   budget = 0.0
-  if (time.get(session['uid']) == 0):
+  if (time.get(session['uid']) == 1):
     budget = 7.0
     comboStr = "Late Dinner Special " + '''<button class="btn btn-primary shop-item-button fas fa-plus" id="addition" onclick="window.location='/addItem/latedinnerspecial"></button>'''
 
@@ -239,7 +239,7 @@ def getSpecials():
       retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(selector) + " Special/" + str(re[0]) + post_window4)
 
   if cart.get(session['uid']) == None:
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
       print("dinner")
       retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
       return render_template("specials.html", dinnertime = Markup(retVal7), resultTime = Markup(timeRet))
@@ -260,12 +260,12 @@ def getSpecials():
     needAlert[session['uid']] = 0
     return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultTime = Markup(timeRet))
   if diff >= 0:
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
       return render_template("specials.html", dinnertime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
     else:
       return render_template("specials.html", lunchtime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
   else:
-    if time.get(session['uid']) == 0:
+    if time.get(session['uid']) == 1:
       return render_template("specials.html", dinnertime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
     else:
       return render_template("specials.html", lunchtime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))

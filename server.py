@@ -261,14 +261,14 @@ def getSpecials():
     return render_template("specials.html", comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultTime = Markup(timeRet))
   if diff >= 0:
     if time.get(session['uid']) == 1:
-      return render_template("specials.html", dinnertime = Markup(retVal7), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
+      return render_template("specials.html", dinnertime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
     else:
-      return render_template("specials.html", lunchtime = Markup(retVal7), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
+      return render_template("specials.html", lunchtime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), resultTime = Markup(timeRet))
   else:
     if time.get(session['uid']) == 1:
-      return render_template("specials.html", dinnertime = Markup(retVal7), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
+      return render_template("specials.html", dinnertime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
     else:
-      return render_template("specials.html", lunchtime = Markup(retVal7), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
+      return render_template("specials.html", lunchtime = Markup( ), comboBtn=Markup(comboStr), resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), resultTime = Markup(timeRet))
 
 
 @app.route("/favorites")

@@ -377,63 +377,9 @@ def getInfo():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
+  
+  return render_template("info.html")
 
-  sum = 0.0
-  retVal2 = ""
-  if cart.get(session['uid']) != None:
-    for product in cart.get(session["uid"]):
-      cursor.execute("SELECT price, image FROM food WHERE name=(%s)", (product,))
-      query = cursor.fetchone()
-      pre2 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
-      post_title2 = '''</span> <span class="cart-price">$'''
-      post_price2 = '''</span> <button class="btn btn-danger fa fa-minus" type="button" onclick="javascript:window.location='/removeItemInfo/'''
-      post_window2 = ''''"></button></div></div><br>'''
-      retVal2 = retVal2 + (pre2 + str(product) + post_title2 + "{:.2f}".format(query[0]) + post_price2 + str(product) + post_window2)
-      sum += float(query[0])
-
-  if time[session['uid']] == 0:
-    selector = "dinner"
-  else:
-    selector = "lunch"
-  budget = 0.0
-  if (selector == "dinner"):
-    budget = 6.0
-  else :
-    budget = 7.0
-  diff = budget - sum
-
-  retVal3 = '''$''' + "{:.2f}".format(sum)
-
-  retVal4 = ""
-  cursor.execute("SELECT name, price, time, category FROM food WHERE time!=(%s) AND price <= (%s) AND category != (%s) ORDER BY count DESC LIMIT 10", (selector, diff, "unicorn", ))
-  results2 = cursor.fetchall()
-  for re in results2:
-    if (str(re[0]) not in str(retVal2)):
-      pre4 = '''<div class = "cart-block"><div class = "cart-item"> <span class="cart-item-title">'''
-      post_title4 = '''</span> <span class="cart-price">$'''
-      post_price4 = '''</span> <button class="btn btn-primary fa fa-plus" type="button" style="font-size: 10px; border-radius:3rem;" onclick="javascript:window.location='/addItem/info/'''
-      post_window4 = ''''"></button></div></div><br>'''
-      retVal4 = retVal4 + (pre4 + str(re[0]) + post_title4 + "{:.2f}".format(re[1]) + post_price4 + str(re[0]) + post_window4)
-
-  if cart.get(session['uid']) == None:
-    return render_template("info.html")
-  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
-    print('in this function')
-    retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
-			}
-			 </script> '''
-    needAlert[session['uid']] = 0
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff), packagedconfirm = Markup(retVal6), resultString5 = Markup(comboRet))
-  if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff < 0:
-    retVal6 = ''' <script> if (alert("2 packaged goods only! Please try another item.")) {
-			}
-			 </script> '''
-    needAlert[session['uid']] = 0
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "${:.2f}".format(diff*-1), packagedconfirm = Markup(retVal6), resultList5 = Markup(comboRet))
-  if diff >= 0:
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), surplus = "${:.2f}".format(diff),)
-  else:
-    return render_template("info.html", resultList2 = Markup(retVal2), resultList3 = Markup(retVal3), resultList4 = Markup(retVal4), diffOver = "-${:.2f}".format(diff*-1),)
 
 @app.route("/install")
 def getInstall():

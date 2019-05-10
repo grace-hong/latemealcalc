@@ -6,7 +6,6 @@ import subprocess
 import os
 import csv
 import uuid
-import speech_recognition as sr
 
 app = Flask(__name__, static_url_path = "", static_folder = "static")
 app.secret_key = os.urandom(24)
@@ -45,7 +44,6 @@ with open('fooddb.csv', 'r') as f:
 conn.commit()
 '''
 
-recognizer = sr.Recognizer()
 
 cart = {}
 time = {}

@@ -88,6 +88,18 @@ def main():
     print(packaged[session['uid']])
     #print(packaged.get(session['uid]))
 
+  comboRet = ''''''
+  if combosFull.get(session['uid']) == 1:
+    comboRet = '''<script>combo();</script>'''
+    print("Registered entire combo")
+
+  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    print("Registered combo item")
+
+  combos[session['uid']] = 0
+  combosFull[session['uid']] = 0
+
   sum = 0.0
   retVal2 = ""
   if cart.get(session['uid']) != None:
@@ -184,33 +196,6 @@ def getSpecials():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-
-  comboRet = ''''''
-  if combosFull.get(session['uid']) == 1:
-    comboRet = '''
-    <div id='modal_dialog' style='background-color: #000000;'>
-    	<div class='title' style='font-weight: 500; font-style: italic; color: white'>
-    	</div>
-    	<input type='button' value='yes' id='btnYes' class='btn-primary' style='font-weight: 400' />
-    	<input type='button' value='no' id='btnNo' class='btn-primary' style='font-weight: 400' />
-    </div>
-    <script>
-    dialog('You have added items to your cart that would qualify for a Late Meal combo during Late Meal hours. Would you like to make this a combo?',
-    	function() {
-		window.location = '/combos/default/yes';
-	},
-	function() {
-		window.location = '/index';
-	}
-    );</script>'''
-    print("Registered entire combo")
-
-  if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
-    print("Registered combo item")
-
-  combos[session['uid']] = 0
-  combosFull[session['uid']] = 0
 
   timeRet = ''' <script>
 	$(document).ready(function() {
@@ -937,6 +922,7 @@ def addItemFromFavorites(item):
   cart[session['uid']].append(item)
   return redirect(url_for('getFavorites'))
 
+'''
 @app.route("/addItem/info/<item>")
 def addItemFromInfo(item):
   if cart.get(session['uid']) == None:
@@ -963,7 +949,7 @@ def addItemFromInfo(item):
 
   for purchase in cart[session['uid']]:
     string += str(purchase) + ", "
-  return redirect(url_for('getInfo'))
+  return redirect(url_for('getInfo')) '''
 
 @app.route("/addItem/<item>")
 def addItemFromMain(item):

@@ -1129,6 +1129,7 @@ def removeItemFromSpecials(item):
 
 
 # not sure if we need this since cart doesn't appear on info page
+'''
 @app.route("/removeItemInfo/<item>")
 def removeItemFromInfo(item):
   cursor.execute("SELECT packaged FROM food WHERE name=(%s)", (item,))
@@ -1136,7 +1137,7 @@ def removeItemFromInfo(item):
   if str(results[0]) == ('(\'y\',)'):
     packaged[session['uid']] = packaged.get(session['uid']) - 1
   cart[session['uid']].remove(item)
-  return redirect(url_for('getInfo'))
+  return redirect(url_for('getInfo')) '''
 
 if __name__ == "__main__":
     PORT = int(os.environ.get("PORT", 5000))

@@ -91,7 +91,7 @@ def main():
     comboRet = '''<script>combo();</script>'''
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the specials section for more information.')</script>'''
 
   combos[session['uid']] = 0
   combosFull[session['uid']] = 0
@@ -277,7 +277,7 @@ def getFavorites():
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the specials section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0
@@ -404,7 +404,7 @@ def getItem(item):
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the specials section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0
@@ -501,7 +501,7 @@ def getItemsFromCategory(catg):
     print("Registered entire combo")
 
   if combos.get(session['uid']) == 1 and combosFull.get(session['uid']) != 1:
-    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the combos section for more information.')</script>'''
+    comboRet = '''<script>alert('You have added a combo entree to your cart. Please navigate to the specials section for more information.')</script>'''
     print("Registered combo item")
 
   combos[session['uid']] = 0

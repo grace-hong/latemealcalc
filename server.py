@@ -186,20 +186,20 @@ def getSpecials():
   if 'uid' not in session:
     session['uid'] = uuid.uuid4()
     time[session['uid']] = 0
-
+  retVal7 = ""
   timeRet = ''' <script>
 	$(document).ready(function() {
 		$('#btn').click(function() {
 			'''
   if time.get(session['uid']) == 0:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
-    retVal7 = '''<input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
+    retVal7 += '''<input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
   <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
   <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>'''
     selector = "lunch"
   else:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";});});</script>'''
-    retVal7 = ""
+    retVal7 += ""
     selector = "dinner"
   
   sum = 0.0
@@ -245,7 +245,7 @@ def getSpecials():
   if cart.get(session['uid']) == None:
     if time.get(session['uid']) == 1:
       print("dinner")
-      return render_template("specials.html", dinnertime = Markup(retVal7), resultTime = Markup(timeRet))
+      return render_template("specials.html", lunchtime = Markup(retVal7), resultTime = Markup(timeRet))
     else:
       print("lunch")
       return render_template("specials.html", lunchtime = Markup(retVal7), resultTime = Markup(timeRet))

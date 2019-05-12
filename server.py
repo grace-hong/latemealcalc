@@ -241,11 +241,13 @@ def getSpecials():
   if cart.get(session['uid']) == None:
     if time.get(session['uid']) == 1:
       print("dinner")
-      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$7.00" </script>'''
+      retVal7 = '''dinnertime" </script>'''
       return render_template("specials.html", dinnertime = Markup(retVal7), resultTime = Markup(timeRet))
     else:
       print("lunch")
-      retVal7 = '''<script> document.getElementById("timeBalance").innerHTML = "$6.00" </script>'''
+      retVal7 = '''<input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
+  <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
+  <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>'''
       return render_template("specials.html", lunchtime = Markup(retVal7), resultTime = Markup(timeRet))
   if packaged.get(session['uid']) == 2 and needAlert.get(session['uid']) == 1 and diff >= 0:
     print('in this function')

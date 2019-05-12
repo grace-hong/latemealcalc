@@ -203,12 +203,10 @@ $(document).ready(function(){
 					<font color="#64dd17" size="5">$0.00</font>
 					<br><font size ="1"><span id="timeBalance"></span> remaining</font>
 				<script>
-					{% if dinnertime %}
-						document.getElementById("timeBalance").innerHTML = "$7.00"
-					 {% elif lunchtime %}
+					 {% if lunchtime %}
 						document.getElementById("timeBalance").innerHTML = "$6.00"
 					 {% else %} 
-					 	document.getElementById("timeBalance").innerHTML = "$8.00"
+					 	document.getElementById("timeBalance").innerHTML = "$7.00"
 					  {% endif %}
 					 
 					 

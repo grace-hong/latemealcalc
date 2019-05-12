@@ -133,15 +133,10 @@ $(document).ready(function(){
 	</p>
 <div class ="special">
   <h4>Choose a main:</h4>
+  <input type="radio" name="main" value="pizza" id="pizza"> 2 Slices of Plain Pizza<br>
+  <input type="radio" name="main" value="tenders" id="tenders"> Chicken Tenders & Waffle<br>
   {% if lunchtime %}
-  <input type="radio" name="main" value="pizza" id="pizza"> 2 Slices of Plain Pizza<br>
-  <input type="radio" name="main" value="tenders" id="tenders"> Chicken Tenders & Waffle<br>
-  <input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
-  <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
-  <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>
-  {% elif dinnertime %}
-  <input type="radio" name="main" value="pizza" id="pizza"> 2 Slices of Plain Pizza<br>
-  <input type="radio" name="main" value="tenders" id="tenders"> Chicken Tenders & Waffle<br>
+   {{ lunchtime }}
   {% endif %}
 </div>  
   <br>

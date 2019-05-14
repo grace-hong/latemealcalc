@@ -195,7 +195,8 @@ def getSpecials():
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Lunch%20Special";});});</script>'''
     retVal7 += '''<input type="radio" name="main" value="burrito" id="burrito"> Burrito<br>
   <input type="radio" name="main" value="bbowl" id="bbowl"> Burrito Bowl<br>
-  <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>'''
+  <input type="radio" name="main" value="entree" id="entree"> Entree with Two Sides<br>
+  <input type="radio" name="main" value="sandsoup" id="sandsoup"> Sandwich & Soup<br>'''
     selector = "lunch"
   else:
     timeRet += '''window.location = "addItem/miscellaneous/Late%20Dinner%20Special";});});</script>'''
